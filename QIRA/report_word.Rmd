@@ -7,43 +7,42 @@ params:
   additional_table: NULL
 ---
 
-## Event
+### Event
 
 `r params$summary_table$Event`
 
-## Date of initial Risk Assessment
+### Date of initial Risk Assessment
 
 `r params$summary_table$Date_of_Assessment`
 
-## Country/Sub-national area
+### Country/Sub-national area
 
 `r params$summary_table$Country`
 
-## Version
+### Version
 
 `r params$summary_table$Version`
 
-## Brief event summary
+### Brief event summary
 
 `r params$summary_table$Brief`
 
-## Risk classification
+### Risk classification
 
 `r params$summary_table$Risk_Level`
 
-## Rationale
+### Rationale
 
 `r params$summary_table$Rationale`
 
-## Level of confidence  
+### Level of confidence
 
 `r params$summary_table$Confidence`
 
-## Proposed Actions
+### Proposed Actions
 
 `r params$summary_table$Action`
 
-## Other considerations
+### Other considerations
 
 `r params$summary_table$Other_Consideration`
-
