@@ -41,7 +41,7 @@ params:
 
 ### Proposed Actions
 
-`r params$summary_table$Action`
+`r params$summary_table$Recommendation`
 
 ### Other considerations
 
