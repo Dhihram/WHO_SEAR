@@ -25,6 +25,8 @@
 "All Country",20247,24,0,0,NA,NA
 "All Country",20254,25,0,0,NA,NA
 "All Country",20261,26,0,0,NA,NA
+"All Country",20268,27,0,0,NA,NA
+"All Country",20275,28,0,0,NA,NA
 "Bangladesh",20086,1,0,356,0,0
 "Bangladesh",20093,2,0,373,0,0
 "Bangladesh",20100,3,0,398,0,0
@@ -51,6 +53,8 @@
 "Bangladesh",20247,24,NA,NA,NA,NA
 "Bangladesh",20254,25,NA,NA,NA,NA
 "Bangladesh",20261,26,NA,NA,NA,NA
+"Bangladesh",20268,27,NA,NA,NA,NA
+"Bangladesh",20275,28,NA,NA,NA,NA
 "Bhutan",20086,1,0,26,0,32.6466666666667
 "Bhutan",20093,2,0,27,0,1.33333333333333
 "Bhutan",20100,3,0,66,0,0
@@ -77,6 +81,8 @@
 "Bhutan",20247,24,NA,NA,NA,NA
 "Bhutan",20254,25,NA,NA,NA,NA
 "Bhutan",20261,26,NA,NA,NA,NA
+"Bhutan",20268,27,NA,NA,NA,NA
+"Bhutan",20275,28,NA,NA,NA,NA
 "India",20086,1,0,258,0,0
 "India",20093,2,0,506,0,0
 "India",20100,3,0,559,0,0
@@ -103,6 +109,8 @@
 "India",20247,24,NA,NA,NA,NA
 "India",20254,25,NA,NA,NA,NA
 "India",20261,26,NA,NA,NA,NA
+"India",20268,27,NA,NA,NA,NA
+"India",20275,28,NA,NA,NA,NA
 "Maldives",20086,1,1,17,5.88,1.96
 "Maldives",20093,2,4,27,14.81,6.89666666666667
 "Maldives",20100,3,6,39,15.38,12.0233333333333
@@ -129,6 +137,8 @@
 "Maldives",20247,24,NA,NA,NA,NA
 "Maldives",20254,25,NA,NA,NA,NA
 "Maldives",20261,26,NA,NA,NA,NA
+"Maldives",20268,27,NA,NA,NA,NA
+"Maldives",20275,28,NA,NA,NA,NA
 "Nepal",20086,1,0,144,0,0
 "Nepal",20093,2,0,172,0,0
 "Nepal",20100,3,0,179,0,0
@@ -155,6 +165,8 @@
 "Nepal",20247,24,NA,NA,NA,NA
 "Nepal",20254,25,NA,NA,NA,NA
 "Nepal",20261,26,NA,NA,NA,NA
+"Nepal",20268,27,NA,NA,NA,NA
+"Nepal",20275,28,NA,NA,NA,NA
 "Sri Lanka",20086,1,1,47,2.13,3.02666666666667
 "Sri Lanka",20093,2,1,45,2.22,2.11666666666667
 "Sri Lanka",20100,3,4,58,6.9,3.75
@@ -181,6 +193,8 @@
 "Sri Lanka",20247,24,NA,NA,NA,NA
 "Sri Lanka",20254,25,NA,NA,NA,NA
 "Sri Lanka",20261,26,NA,NA,NA,NA
+"Sri Lanka",20268,27,NA,NA,NA,NA
+"Sri Lanka",20275,28,NA,NA,NA,NA
 "Thailand",20086,1,0,48,0,0.743333333333333
 "Thailand",20093,2,1,293,0.34,0.113333333333333
 "Thailand",20100,3,1,186,0.54,0.293333333333333
@@ -207,6 +221,8 @@
 "Thailand",20247,24,NA,NA,NA,NA
 "Thailand",20254,25,NA,NA,NA,NA
 "Thailand",20261,26,NA,NA,NA,NA
+"Thailand",20268,27,NA,NA,NA,NA
+"Thailand",20275,28,NA,NA,NA,NA
 "Timor-Leste",20086,1,0,23,0,0
 "Timor-Leste",20093,2,4,129,3.1,1.03333333333333
 "Timor-Leste",20100,3,4,89,4.49,2.53
@@ -233,3 +249,5 @@
 "Timor-Leste",20247,24,NA,NA,NA,NA
 "Timor-Leste",20254,25,NA,NA,NA,NA
 "Timor-Leste",20261,26,NA,NA,NA,NA
+"Timor-Leste",20268,27,NA,NA,NA,NA
+"Timor-Leste",20275,28,NA,NA,NA,NA
