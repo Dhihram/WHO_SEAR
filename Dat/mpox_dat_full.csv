@@ -1,11 +1,22 @@
 "reporting_country","isoweek","count","date"
+"Thailand",35,1,2025-08-25
+"Thailand",34,5,2025-08-18
+"Sri Lanka",33,1,2025-08-11
+"Thailand",33,2,2025-08-11
+"Thailand",32,4,2025-08-04
+"Thailand",31,3,2025-07-28
+"Thailand",30,6,2025-07-21
+"Thailand",29,2,2025-07-14
+"India",29,1,2025-07-14
+"Thailand",28,4,2025-07-07
 "Thailand",27,3,2025-06-30
 "Nepal",26,1,2025-06-23
+"Thailand",26,3,2025-06-23
 "India",26,2,2025-06-23
-"Thailand",26,2,2025-06-23
 "Nepal",25,1,2025-06-16
-"Thailand",25,5,2025-06-16
+"Thailand",25,4,2025-06-16
 "Thailand",24,1,2025-06-09
+"Thailand",23,3,2025-06-02
 "India",23,1,2025-06-02
 "Thailand",22,4,2025-05-26
 "Thailand",21,1,2025-05-19
@@ -33,7 +44,7 @@
 "Thailand",42,2,2024-10-14
 "Thailand",41,5,2024-10-07
 "Thailand",40,2,2024-09-30
-"Thailand",39,2,2024-09-23
+"Thailand",39,3,2024-09-23
 "Thailand",37,4,2024-09-09
 "Thailand",36,2,2024-09-02
 "Thailand",35,1,2024-08-26
@@ -108,7 +119,7 @@
 "Thailand",42,29,2023-10-16
 "Thailand",41,18,2023-10-09
 "Thailand",40,30,2023-10-02
-"Thailand",39,36,2023-09-25
+"Thailand",39,35,2023-09-25
 "Thailand",38,42,2023-09-18
 "Thailand",37,47,2023-09-11
 "Thailand",36,20,2023-09-04
@@ -213,7 +224,7 @@
 "All Country",36,20,2023-09-04
 "All Country",37,47,2023-09-11
 "All Country",38,42,2023-09-18
-"All Country",39,36,2023-09-25
+"All Country",39,35,2023-09-25
 "All Country",40,30,2023-10-02
 "All Country",41,18,2023-10-09
 "All Country",42,36,2023-10-16
@@ -264,7 +275,7 @@
 "All Country",35,1,2024-08-26
 "All Country",36,2,2024-09-02
 "All Country",37,4,2024-09-09
-"All Country",39,2,2024-09-23
+"All Country",39,3,2024-09-23
 "All Country",40,2,2024-09-30
 "All Country",41,5,2024-10-07
 "All Country",42,2,2024-10-14
@@ -289,8 +300,16 @@
 "All Country",20,5,2025-05-12
 "All Country",21,1,2025-05-19
 "All Country",22,4,2025-05-26
-"All Country",23,1,2025-06-02
+"All Country",23,4,2025-06-02
 "All Country",24,1,2025-06-09
-"All Country",25,6,2025-06-16
-"All Country",26,5,2025-06-23
+"All Country",25,5,2025-06-16
+"All Country",26,6,2025-06-23
 "All Country",27,3,2025-06-30
+"All Country",28,4,2025-07-07
+"All Country",29,3,2025-07-14
+"All Country",30,6,2025-07-21
+"All Country",31,3,2025-07-28
+"All Country",32,4,2025-08-04
+"All Country",33,3,2025-08-11
+"All Country",34,5,2025-08-18
+"All Country",35,1,2025-08-25
