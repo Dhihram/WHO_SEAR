@@ -1,0 +1,1954 @@
+---
+title: "Public Health Intelligence Dashboard"
+subtitle: "Health Emergencies Programme WHO South-East Asia Region"
+author: WHO South East Asia Region
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-title: "Contents"
+    reference-location: margin
+    grid:
+      body-width: 1100px     
+      margin-width: 150px    
+      sidebar-width: 220px   
+    number-sections: false
+    theme:
+      light: cosmo
+    page-layout: full
+server: shiny
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+:root{
+  --meta-muted:#6b7280;
+  --meta-text:#111827;
+}
+body.quarto-dark{ --meta-muted:#9ca3af; --meta-text:#e5e7eb; }
+
+/* meta bits */
+.pub-meta{display:flex;gap:2.5rem;align-items:flex-start;margin:.25rem 0 1rem;}
+.pub-meta .item{display:flex;flex-direction:column;}
+.pub-meta .label{
+  font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--meta-muted);font-weight:600;
+}
+.pub-meta .value{margin-top:.15rem;font-size:1rem;color:var(--meta-text);}
+
+/* typography */
+html{ font-size: clamp(14px, 1.8vw, 16px); }
+h1{ font-size: clamp(24px, 4.2vw, 36px); }
+h2{ font-size: clamp(18px, 3.2vw, 28px); margin-top: 0.9rem; }
+h3{ font-size: clamp(16px, 2.6vw, 22px); }
+
+/* media & tables */
+img, canvas, svg, video{ max-width: 100%; height: auto; }
+.table-scroll, .ft-scroll, .dataTables_wrapper{ overflow-x: auto; }
+table{ width: max-content; max-width: 100%; }
+
+/* logo on the right of the title */
+.quarto-title-block{ position: relative; }
+.header-logo{ position: absolute; top: 12px; right: 12px; z-index: 10; }
+.header-logo img{ height: 75px; }
+@media (max-width:768px){ .header-logo img{ height: 44px; } }
+
+/* Mobile screens (max-width: 768px, adjust as needed) */
+@media (max-width: 768px) {
+  h1.title {
+    font-size: 1.2rem;  /* smaller font size for mobile */
+  }
+}
+</style>
+```
+
+::: header-logo
+<img src="https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/Misc/who_searo_logo.png" alt="WHO SEARO Logo"/>
+:::
+
+```{=html}
+<style>
+h1.title {
+  font-size: 1.6rem;
+}
+p.subtitle {
+  font-size: 1.1rem;
+}
+h1 { color: #0cabeb; }
+h2 {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 1.5em;
+}
+h3 { color: #051a2b; }
+
+.news-ticker {
+  width: 100%;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+}
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+  font-weight: bold;
+  color: #d9534f;
+  font-size: 18px;
+  padding-left: 100%;
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.value-card .card-body { 
+  text-align: center; 
+  padding: 20px 20px; 
+}
+.value-card h2 { 
+  margin: 0; 
+  font-weight: 800; 
+  font-size: 8rem;
+  line-height: 1.2; 
+}
+.value-card .sub { 
+  opacity: .8; 
+  margin-top: 5px; 
+  font-size: 1.5rem;
+}
+.big-number { 
+  font-size: 2.4rem; 
+  font-weight: 700; 
+  line-height: 1; 
+  margin: 0; 
+  color: #bd0606;
+}
+.sub { opacity: 0.8; }
+
+/* Tabset styling */
+.panel-tabset .nav-link.active {
+  background-color: #007bff !important;
+  color: #fff !important;
+  border-radius: 6px;
+}
+.panel-tabset .nav-link {
+  color: #007bff;
+}
+.panel-tabset .tab-content {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+.panel-tabset .nav-tabs,
+.panel-tabset .nav-pills {
+  border-bottom: none !important;
+}
+</style>
+```
+
+```{r}
+#| context: setup
+#| include: false
+
+# OPTIMIZED SETUP FOR QUARTO PUBLISH
+# Load required libraries
+library(shiny)
+library(dplyr)
+library(plotly)
+library(readr)
+library(waiter)
+library(bslib) 
+library(formattable)
+library(htmltools)
+library(RColorBrewer)
+library(scales)
+library(rsconnect)
+library(shinydashboard)
+library(lubridate)
+library(sf)
+library(leaflet)
+
+
+#please add the account and token
+rsconnect::setAccountInfo(name= '',
+			  token=' ',
+			  secret=' ')
+
+
+# ROBUST DATA LOADING FUNCTION
+safe_read_csv <- function(url, max_retries = 3, fallback = NULL) {
+  for (i in 1:max_retries) {
+    tryCatch({
+      df <- read_csv(url, show_col_types = FALSE)
+      return(df)
+    }, error = function(e) {
+      if (i == max_retries) {
+        warning(paste("Failed to load data from:", url, "after", max_retries, "attempts"))
+        return(fallback)
+      }
+      Sys.sleep(1)  # Wait 1 second before retry
+    })
+  }
+}
+
+# Helper to parse outbreak file
+parse_outbreak_text <- function(url) {
+  txt <- tryCatch({
+    read_file(url)
+  }, error = function(e) {
+    warning(paste("Failed to load outbreak data:", e$message))
+    return("")
+  })
+  
+  if (nchar(txt) == 0) {
+    return(tibble(date = character(), disease = character(), country = character()))
+  }
+  
+  txt <- gsub("\\r?\\n", " ", txt)
+  pat <- "(\\d{1,2}\\s+[A-Za-z]+\\s+\\d{4}),(.*?),(.*?)(?=\\s+\\d{1,2}\\s+[A-Za-z]+\\s+\\d{4},|$)"
+  pieces <- regmatches(txt, gregexpr(pat, txt, perl = TRUE))[[1]]
+  
+  if (length(pieces) == 0) {
+    return(tibble(date = character(), disease = character(), country = character()))
+  }
+  
+  get_groups <- function(x) regmatches(x, regexec(pat, x, perl = TRUE))[[1]][2:4]
+  mat <- do.call(rbind, lapply(pieces, function(x) {
+    g <- get_groups(x)
+    c(date = g[1], disease = trimws(g[2]), country = trimws(g[3]))
+  }))
+  as_tibble(as.data.frame(mat, stringsAsFactors = FALSE))
+}
+
+
+#text function and at last
+format_with_and <- function(items, oxford = TRUE) {
+  n <- length(items)
+  if (n == 0) return("")
+  if (n == 1) return(items)
+  if (n == 2) return(paste(items, collapse = " and "))
+  if (oxford) {
+    paste0(paste(items[1:(n-1)], collapse = ", "), ", and ", items[n])
+  } else {
+    paste0(paste(items[1:(n-1)], collapse = ", "), " and ", items[n])
+  }
+}
+
+
+# CLIMATE DATA URLS AND SETUP
+states_url  <- 'https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/climate/combined_states_weather_with_prediction_2022_2025.csv'
+country_url <- 'https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/climate/combined_country_weather_with_prediction_2022_2025.csv'
+div_url     <- 'https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/climate/searo_divisions.csv'
+outbreak_url <- "https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/who_outbreak.csv"
+
+# Load climate data with error handling
+state_df <- safe_read_csv(states_url, fallback = tibble())
+country_df <- safe_read_csv(country_url, fallback = tibble())
+unique_divisions <- safe_read_csv(div_url, fallback = tibble())
+
+# Process dates if data loaded successfully
+if (nrow(state_df) > 0) state_df$time <- as.Date(state_df$time)
+if (nrow(country_df) > 0) country_df$time <- as.Date(country_df$time)
+
+# COUNTRY SELECTIONS
+country_sel <- c('All Country', 'Bangladesh', 'Bhutan', 'DPR Korea', 'India', 'Maldives', 'Myanmar', 'Nepal', 'Sri Lanka', 'Thailand', 'Timor-Leste')
+country_sel2 <- c('Bangladesh', 'India', 'Myanmar', 'Nepal', 'Thailand')
+country_sel3 <- c( 'India', 'Nepal', 'Thailand', 'Indonesia')
+
+# Climate country list
+unique_country <- c("Bangladesh", "Bhutan", "India", "Maldives", "Myanmar", "Nepal", "Sri Lanka", "Thailand", "Timor-Leste")
+
+# Climate variable labels
+.y_labels <- list(
+  temp_mean = "Mean Temperature (°C)",
+  prcp_sum  = "Precipitation (mm)",
+  rhum_mean = "Relative Humidity (%)",
+  wspd_mean = "Wind Speed (m/s)",
+  tsun_sum  = "Sunshine Duration (minutes)"
+)
+
+# Climate plotting function
+plot_with_forecast <- function(df, var, y_labels) {
+  if (nrow(df) == 0) {
+    return(plotly_empty() %>% layout(title = "No data available"))
+  }
+  
+  forecast_var <- paste0(var, "_forecast")
+  lower_var    <- paste0(var, "_forecast_lower95")
+  upper_var    <- paste0(var, "_forecast_upper95")
+
+  p <- plot_ly(df, x = ~time)
+
+  if (var %in% names(df)) {
+    p <- p %>% add_lines(y = df[[var]], name = "Historical",
+                         line = list(color = 'blue'))
+  }
+  if (forecast_var %in% names(df)) {
+    p <- p %>% add_lines(y = df[[forecast_var]], name = "Forecast",
+                         line = list(color = 'red'))
+  }
+  if (lower_var %in% names(df) && upper_var %in% names(df)) {
+    p <- p %>% add_ribbons(
+      ymin = df[[lower_var]], ymax = df[[upper_var]],
+      name = "95% CI", fillcolor = 'pink', opacity = 0.3,
+      line = list(color = 'transparent')
+    )
+  }
+
+  ylab <- y_labels[[var]]
+  if (is.null(ylab)) ylab <- var
+  
+  p %>% layout(
+    yaxis = list(title = ylab),
+    xaxis = list(title = "Date"),
+    legend = list(orientation = "h", x = 0.5, xanchor = "center", y = 1.1)
+  )
+}
+```
+
+```{=html}
+<style>
+/* Force the size of any image shown inside the waiter overlay */
+.waiter-overlay img.waiter-logo {
+  width: 160px !important;     /* or set height instead */
+  height: auto !important;
+}
+</style>
+```
+
+```{=html}
+<style>
+/* Fade + pulse effect */
+.animated-text {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.7; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+</style>
+```
+
+```{r}
+#loading bar
+# In a UI chunk
+use_waiter()
+
+waiter_show_on_load(
+  html = tagList(
+    tags$img(
+      src = "https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/QIRA/who.gif",
+     class = "waiter-logo", 
+      style = "margin-bottom:8px;"
+    ),
+    spin_fading_circles(),
+    h3("Loading, Please Wait....", 
+       class = "animated-text",
+       style = "color: #0072B2; font-size: 24px; margin-bottom: 12px;"),
+    h4("लोड हो रहा है, कृपया प्रतीक्षा करें...", style = "color: #0072B2; font-size: 12px; margin: 2px 0; line-height: 1.2;"),
+    h4("লোড হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...", style = "color: #0072B2; font-size: 12px; margin: 2px 0; line-height: 1.2;"),
+    h4("ဖွင့်နေသည်။ ကျေးဇူးပြုပြီးစောင့်ပါ...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("བཀོལ་བའི་སྒང་ལ་བཞག་གནང་།...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("กำลังโหลด โปรดรอสักครู่...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("Tapa karik, favor espera...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("A carregar, por favor aguarde...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("로딩 중입니다. 잠시만 기다려 주세요...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("लोड हुँदैछ, कृपया प्रतीक्षा गर्नुहोस्...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("ஏற்றுகிறது, தயவுசெய்து காத்திருங்கள்...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;"),
+    h4("ލޯޑިންގް ވެއިޓްކުރޭ...", style = "color: #0072B2; font-size: 12px;margin: 2px 0; line-height: 1.2;")
+  ),
+  color = "#FBFCFC"
+)
+```
+
+```{r}
+#| context: server
+observe({
+  Sys.sleep(4)  # waits for 5 seconds before hiding the loading screen
+  waiter_hide()  # removes the overlay
+})
+```
+
+## Influenza and COVID-19
+
+Source: WHO’s [FluNet](https://www.who.int/tools/flunet) and [FluID](https://www.who.int/teams/global-influenza-programme/surveillance-and-monitoring/fluid) platforms.[^1] 
+
+Source: [Integrated Influenza and Other Respiratory Viruses Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNzdjZTVmY2YtNzY2NC00NTM0LTkzY2QtMWM0MzY0Mjg0YTZjIiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9).
+
+[^1]: FluNet and FluID are the part of GISRS initiative
+
+::: {layout="[[48,48,4]]"}
+```{r}
+selectInput("country_filter", "Country", choices = country_sel)
+```
+
+```{r}
+dateRangeInput("input_range", "Date Range",
+               start = as.Date("2025-01-01"),
+               end = Sys.Date())
+```
+
+```{r}
+## Download button
+tags$div(class = "card-body d-flex justify-content-end",
+  downloadButton("dl_all_raw_xlsx",
+                 label = NULL,
+                 class = "btn btn-outline-primary btn-lg",
+                 icon = icon("download"),
+                 `data-bs-toggle` = "tooltip",
+                 title = "Download data")
+)
+```
+:::
+
+### Integrated Influenza and COVID-19 Sentinel Surveillance 
+
+::: {.panel-tabset .tabset-pills}
+
+#### Influenza-like illness (ILI) - Epidemiological trend 
+
+```{r}
+plotlyOutput("ili_plot")
+```
+
+#### Severe acute respiratory infection (SARI) - Epidemiological trend 
+
+```{r}
+plotlyOutput("sari_plot")
+```
+
+#### Influenza – Positive case, positivity, subtypes and lineages 
+
+```{r}
+plotlyOutput("cases_plot")
+```
+
+#### COVID-19 – Positive case and positivity 
+
+```{r}
+plotlyOutput("covid_sentinel_plot")
+```
+:::
+
+### Influenza subtypes and lineages 
+
+```{r}
+uiOutput("summary_table_ui")
+```
+
+```{r}
+#| context: server
+# REACTIVE DATA LOADING WITH ERROR HANDLING
+data_flu_long <- reactive({
+  df <- safe_read_csv("https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/Dat/flu_long.csv")
+  if (is.null(df) || nrow(df) == 0) {
+    return(tibble())
+  }
+  df$MMWR_WEEKSTARTDATE <- as.Date(df$MMWR_WEEKSTARTDATE)
+  df
+})
+
+data_flu_tab <- reactive({
+  df <- safe_read_csv("https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/Dat/flu_dat_full.csv")
+  if (is.null(df) || nrow(df) == 0) {
+    return(tibble())
+  }
+  df$MMWR_WEEKSTARTDATE <- as.Date(df$MMWR_WEEKSTARTDATE)
+  df
+})
+
+data_flu_id <- reactive({
+  df <- safe_read_csv("https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/fluid_dat_full.csv")
+  if (is.null(df) || nrow(df) == 0) {
+    return(tibble())
+  }
+  df$MMWR_WEEKSTARTDATE <- as.Date(df$MMWR_WEEKSTARTDATE)
+  df
+})
+
+data_covid_sentinel <- reactive({
+  df <- safe_read_csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/covid_sentinel.csv')
+  if (is.null(df) || nrow(df) == 0) {
+    return(tibble())
+  }
+  df$Week.start.date <- as.Date(df$Week.start.date)
+  df
+})
+
+# FILTERED DATA
+filtered_data <- reactive({
+  df <- data_flu_long()
+  if (nrow(df) == 0) return(tibble())
+  
+  df %>%
+    filter(MMWR_WEEKSTARTDATE >= input$input_range[1],
+           MMWR_WEEKSTARTDATE <= input$input_range[2]) %>%
+    filter(COUNTRY_AREA_TERRITORY == input$country_filter)
+})
+
+filtered_data2 <- reactive({
+  df <- data_flu_tab()
+  if (nrow(df) == 0) return(tibble())
+  
+  df %>%
+    filter(MMWR_WEEKSTARTDATE >= input$input_range[1],
+           MMWR_WEEKSTARTDATE <= input$input_range[2]) %>%
+    filter(COUNTRY_AREA_TERRITORY == input$country_filter)
+})
+
+filtered_data3 <- reactive({
+  df <- data_flu_tab()
+  if (nrow(df) == 0) {
+    return(tibble(Country = character(), `Total Samples Tested` = numeric()))
+  }
+  
+  df %>%
+    filter(MMWR_WEEKSTARTDATE >= input$input_range[1],
+           MMWR_WEEKSTARTDATE <= input$input_range[2]) %>%
+    group_by(COUNTRY_AREA_TERRITORY) %>%
+    summarise(
+      `Total Samples Tested` = sum(specimen, na.rm = TRUE),
+      `Total Subtyped` = sum(flu_all, na.rm = TRUE),
+      `A (H1) %` = sum(flu_ah1, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `A (H3) %` = sum(flu_ah3, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `A (H5) %` = sum(flu_ah5, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `A (H1N1)2009 %` = sum(flu_ah1n12009, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `A (Unsubtyped) %` = sum(flu_anot, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `B (Yamagata) %` = sum(flu_byam, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `B (Victoria) %` = sum(flu_vic, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      `B (Unsubtyped) %` = sum(flu_bnot, na.rm = TRUE) / pmax(`Total Subtyped`, 1) * 100,
+      .groups = 'drop'
+    ) %>%
+    mutate(across(where(is.numeric), ~ ifelse(is.nan(.) | is.infinite(.), 0, .))) %>%
+    arrange(COUNTRY_AREA_TERRITORY) %>%
+    rename(Country = COUNTRY_AREA_TERRITORY)
+})
+
+filtered_data4 <- reactive({
+  df <- data_flu_id()
+  if (nrow(df) == 0) return(tibble())
+  
+  df %>%
+    filter(MMWR_WEEKSTARTDATE >= input$input_range[1],
+           MMWR_WEEKSTARTDATE <= input$input_range[2]) %>%
+    filter(COUNTRY_AREA_TERRITORY == input$country_filter)
+})
+
+filtered_data5 <- reactive({
+  df <- data_covid_sentinel()
+  if (nrow(df) == 0) return(tibble())
+  
+  df %>%
+    filter(Week.start.date >= input$input_range[1],
+           Week.start.date <= input$input_range[2]) %>%
+    filter(Country == input$country_filter)
+})
+
+# PLOTS
+output$cases_plot <- renderPlotly({
+  data <- filtered_data()
+  data2 <- filtered_data2()
+  
+  if (nrow(data) == 0) {
+    return(plotly_empty() %>% layout(title = "No data available for selected filters"))
+  }
+  
+  flu_colors <- c(
+    "flu_ah1" = "#C9C9C9", "flu_ah1n12009" = "#8FE6E7", "flu_ah3" = "#00A1D5",
+    "flu_ah5" = "#74F907", "flu_anot" = "#104f82", "flu_bnot" = "#9c4b30",
+    "flu_byam" = "#FFB86D", "flu_vic" = "#F79700"
+  )
+  
+  flu_labels <- c(
+    "flu_ah1" = "A(H1)", "flu_ah1n12009" = "A(H1N1)pdm2009", "flu_ah3" = "A(H3)",
+    "flu_ah5" = "A(H5)", "flu_anot" = "A not Subtyped", "flu_bnot" = "B not Determined",
+    "flu_byam" = "B Yamagata", "flu_vic" = "B Victoria"
+  )
+  
+  p <- plot_ly()
+  
+  for (type in unique(na.omit(data$Flu_Type))) {
+    df_sub <- dplyr::filter(data, Flu_Type == type)
+    lbl <- unname(flu_labels[type])
+    if (is.na(lbl)) lbl <- type
+    
+    p <- p %>%
+      add_trace(
+        data = df_sub,
+        x = ~MMWR_WEEKSTARTDATE, y = ~Cases,
+        type = "bar",
+        name = lbl,
+        marker = list(color = flu_colors[[type]] %||% "#999999"),
+        hovertemplate = paste(
+          "<b>%{fullData.name}</b>",
+          "<br>Week: %{x|%Y-%m-%d}",
+          "<br>Cases: %{y}",
+          "<extra></extra>"
+        )
+      )
+  }
+  
+  if (nrow(data2) > 0) {
+    p <- p %>%
+      add_lines(
+        data = data2,
+        x = ~MMWR_WEEKSTARTDATE, y = ~pos_rate,
+        yaxis = "y2",
+        name = "Positive Rate",
+        line = list(color = "red"),
+        hovertemplate = paste(
+          "<b>%{fullData.name}</b>",
+          "<br>Week: %{x|%Y-%m-%d}",
+          "<br>Pos rate: %{y:.1f}%",
+          "<extra></extra>"
+        )
+      )
+  }
+  
+  p %>%
+    layout(
+      barmode = "stack", title = " ",
+      xaxis = list(title = "Week Start Date"),
+      yaxis = list(title = "Flu Cases"),
+      yaxis2 = list(
+        overlaying = "y", side = "right", title = "Positive Rate (%)",
+        titlefont = list(color = "red"), tickfont = list(color = "red"),
+        showgrid = FALSE, rangemode = "nonnegative",
+        automargin = TRUE  # ensures margin is respected
+      ),
+      legend = list(orientation = "h", x = 0.5, y = 1.15, xanchor = "center")
+    ) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "influenza_plot1",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$ili_plot <- renderPlotly({
+  df <- filtered_data4()
+  if (nrow(df) == 0) return(plotly_empty() %>% layout(title = "No ILI data available"))
+
+  plot_ly(df, x = ~MMWR_WEEKSTARTDATE) %>%
+    add_bars(
+      y = ~ILI_CASE, name = "ILI",
+      marker = list(color = "blue"),
+      customdata = ~ili_1000,
+      hovertemplate = paste0(
+        "<b>%{x|%Y-%m-%d}</b>",
+        "<br>ILI Cases: %{y:,.0f}",
+        "<br>ILI per 1000: %{customdata:.2f}",
+        "<extra></extra>"
+      )
+    ) %>%
+    add_lines(
+      y = ~ili_1000, name = "ILI per 1000",
+      yaxis = "y2", line = list(color = "red"),
+      hoverinfo = "skip"       # no second tooltip
+    ) %>%
+    layout(
+      title = " ",
+      hovermode = "x",         # clean single tooltip (no icons)
+      spikedistance = -1,      # always show spike near cursor
+      xaxis = list(
+        title = "Week Start Date",
+        hoverformat = "%Y-%m-%d",
+        showspikes = TRUE,     # <-- enable vertical line
+        spikemode = "across",  # draw across the plot
+        spikesnap = "data",    # lock to the x date position
+        spikethickness = 1.5,
+        spikedash = "dot",
+        spikecolor = "rgba(80,80,80,0.7)"
+      ),
+      yaxis = list(title = "ILI Cases"),
+      yaxis2 = list(
+        title = "ILI per 1000", overlaying = "y", side = "right",
+        showgrid = FALSE, titlefont = list(color = "red"),
+        tickfont = list(color = "red"), rangemode = "nonnegative",
+        automargin = TRUE  # ensures margin is respected
+      ),
+      legend = list(orientation = "h", x = 0.5, y = 1.1, xanchor = "center")
+    ) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "influenza_plot2",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$sari_plot <- renderPlotly({
+  df <- filtered_data4()
+  if (nrow(df) == 0) return(plotly_empty() %>% layout(title = "No SARI data available"))
+
+  plot_ly(df, x = ~MMWR_WEEKSTARTDATE) %>%
+    add_bars(
+      y = ~SARI_CASE, name = "SARI",
+      marker = list(color = "darkgreen"),
+      customdata = ~sari_100,
+      hovertemplate = paste0(
+        "<b>%{x|%Y-%m-%d}</b>",
+        "<br>SARI Cases: %{y:,.0f}",
+        "<br>SARI per 100: %{customdata:.2f}",
+        "<extra></extra>"
+      )
+    ) %>%
+    add_lines(
+      y = ~sari_100, name = "SARI per 100",
+      yaxis = "y2", line = list(color = "red"),
+      hoverinfo = "skip"
+    ) %>%
+    layout(
+      title = " ",
+      hovermode = "x",
+      spikedistance = -1,
+      xaxis = list(
+        title = "Week Start Date",
+        hoverformat = "%Y-%m-%d",
+        showspikes = TRUE, spikemode = "across", spikesnap = "data",
+        spikethickness = 1.5, spikedash = "dot", spikecolor = "rgba(80,80,80,0.7)"
+      ),
+      yaxis = list(title = "SARI Cases"),
+      yaxis2 = list(
+        title = "SARI per 100", overlaying = "y", side = "right",
+        showgrid = FALSE, titlefont = list(color = "red"),
+        tickfont = list(color = "red"), rangemode = "nonnegative", 
+        automargin = TRUE  # ensures margin is respected
+      ),
+      legend = list(orientation = "h", x = 0.5, y = 1.1, xanchor = "center")
+    ) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "influenza_plot3",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$covid_sentinel_plot <- renderPlotly({
+  df <- filtered_data5()
+  if (nrow(df) == 0) {
+    return(plotly_empty() %>% layout(title = "No COVID-19 sentinel data available"))
+  }
+
+  plot_ly(df, x = ~Week.start.date) %>%
+    add_bars(
+      y = ~SARS_COV_2_POS,
+      name = "Positive Case",
+      marker = list(color = "darkviolet"),
+      customdata = ~`%.Pos.Rate`,
+      hovertemplate = paste0(
+        "<b>%{x|%Y-%m-%d}</b>",
+        "<br>Positive Cases: %{y:,.0f}",
+        "<br>% Pos Rate: %{customdata:.1f}%",
+        "<extra></extra>"
+      )
+    ) %>%
+    add_lines(
+      y = ~`%.Pos.Rate`,
+      name = "% Pos Rate",
+      yaxis = "y2",
+      line = list(color = "red", dash = "dot"),
+      hoverinfo = "skip"  # hide the line’s own tooltip
+    ) %>%
+    layout(
+      title = " ",
+      hovermode = "x",           # single tooltip, no icons
+      spikedistance = -1,
+      xaxis = list(
+        title = "Week Start Date",
+        hoverformat = "%Y-%m-%d",
+        showspikes = TRUE, spikemode = "across", spikesnap = "data",
+        spikethickness = 1.5, spikedash = "dot",
+        spikecolor = "rgba(80,80,80,0.7)"
+      ),
+      yaxis = list(title = "Positive Cases"),
+      yaxis2 = list(
+        title = "% Positivity Rate", overlaying = "y", side = "right",
+        showgrid = FALSE,
+        titlefont = list(color = "red"),
+        tickfont = list(color = "red"),
+        rangemode = "nonnegative",
+        automargin = TRUE  # ensures margin is respected
+      ),
+      legend = list(orientation = "h", x = 0.5, y = 1.1, xanchor = "center")
+    ) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "influenza_plot4",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$summary_table_ui <- renderUI({
+  summary_table <- filtered_data3()
+  
+  if (nrow(summary_table) == 0) {
+    return(tags$p("No data available for the selected filters."))
+  }
+  
+  table_html <- formattable::formattable(
+    summary_table,
+    list(
+      Country = formatter("span", style = ~ style(color = "black", font.weight = "bold")),
+      area(col = 2:3) ~ formatter("span", x ~ prettyNum(x, big.mark = ",", preserve.width = "none")),
+      area(col = 4:11) ~ function(x) percent(x / 100, digits = 2),
+      area(col = 4:11) ~ color_tile("#fcedf2", "#d66389")
+    )
+  )
+  
+  # ✅ Wrap the rendered HTML table inside a scrollable div
+  div(
+    style = "overflow-x:auto; -webkit-overflow-scrolling: touch; white-space:nowrap;",
+    HTML(as.character(table_html))
+  )
+})
+
+## Download Menu
+
+output$dl_all_raw_xlsx <- downloadHandler(
+  filename = function() paste0(
+    "influenza_sear.", format(Sys.Date(), "%Y-%m-%d"), ".xlsx"
+  ),
+  contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  content = function(file) {
+    # Use your RAW loaders (not filtered ones)
+    d_tab    <- as.data.frame(data_flu_tab())
+    d_id     <- as.data.frame(data_flu_id())
+    d_covid  <- as.data.frame(data_covid_sentinel())
+
+
+    writexl::write_xlsx(
+      list(
+        flunet_data     = d_tab,
+        flu_id_data     = d_id,
+        covid_sentinel_data  = d_covid
+      ),
+      path = file
+    )
+  }
+)
+
+```
+
+### COVID-19 Case Reports 
+
+The total of **<span id="covid_country_n" class="shiny-text-output"></span>** countries:
+**<span id="covid_countries_inline" class="shiny-html-output"></span>**
+were openly reported the COVID-19 data.[^2][^3][^4][^5][^6][^7]
+
+[^2]: Directorate General of Health Services (DGHS), Bangladesh. COVID-19 Dashboard [Internet]. Dhaka: Ministry of Health and Family Welfare; 2025. Available from: https://old.dghs.gov.bd/index.php/bd/component/content/article?layout=edit&id=5612
+
+[^3]: Bhutan, Royal Centre for Disease Control https://www.rcdc.gov.bt/web/
+
+[^4]: Ministry of Health and Family Welfare, Government of India. COVID-19 India Dashboard [Internet]. New Delhi: MoHFW; 2025 [cited 2025 September 22]. Available from: https://covid19dashboard.mohfw.gov.in/
+
+[^5]: Ministry of Health, Republic of the Union of Myanmar. Ministry of Health official website [Internet]. Nay Pyi Taw: MoH; 2025 [cited 2025 
+September 22]. Available from: https://www.mohs.gov.mm/ 
+
+[^6]: Epidemiology and Disease Control Division Nepal. Available from:  https://edcd.gov.np/newsroom/outbreak
+
+[^7]: Department of Disease Control, Ministry of Public Health, Thailand. COVID-19 Surveillance Dashboard [Internet]. Nonthaburi: DDC, MoPH; 2025 [cited 2025 September 22]. Available from: https://www.facebook.com/photo/?fbid=1176170881210400&set=a.309744487853048  
+
+Visit the [WHO COVID-19 dashboard](https://data.who.int/dashboards/covid19/cases?n=c) for global situation.
+
+::: {layout="[[48,48,4]]"}
+```{r}
+selectInput("country_filter_covid", "Country", choices = country_sel2)
+```
+
+```{r}
+dateRangeInput("covid_range", "Date Range",
+               start = as.Date("2025-01-01"),
+               end = Sys.Date())
+```
+
+```{r}
+## Download button
+tags$div(class = "card-body d-flex justify-content-end",
+  downloadButton("covid_raw_xlsx",
+                 label = NULL,
+                 class = "btn btn-outline-primary btn-lg",
+                 icon = icon("download"),
+                 `data-bs-toggle` = "tooltip",
+                 title = "Download data")
+)
+```
+:::
+
+```{r}
+plotlyOutput("covid_plot")
+```
+
+### SARS-CoV-2 variants 
+
+```{r}
+plotlyOutput("variant_plot")
+```
+
+::: {.callout-warning title="Warning"}
+Please note that trends should be interpreted with caution.
+:::
+
+```{r}
+#| context: server
+# COVID-19 DATA
+data_covid <- reactive({
+  df <- safe_read_csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/covid_searo.csv')
+  if (is.null(df) || nrow(df) == 0) return(tibble())
+  df$date <- as.Date(df$date)
+  df
+})
+
+#sum and list for text
+output$covid_country_n <- renderText({
+  df <- data_covid()  
+  format(length(unique(df$Country)), big.mark = ",")
+})
+
+output$covid_countries_inline <- renderUI({
+  df <- data_covid()  
+  countries <- sort(unique(df$Country))
+  max_show <- 15L
+  shown <- countries[seq_len(min(length(countries), max_show))]
+  more_n <- length(countries) - length(shown)
+  base_txt <- format_with_and(shown, oxford = TRUE)
+  if (more_n > 0) {
+    # add “, and +N more” (Oxford comma style)
+    sep <- if (length(shown) >= 2) ", and " else " and "
+    base_txt <- paste0(base_txt, sep, "+", more_n, " more")
+  }
+  tags$span(base_txt)
+})
+
+data_covid_var <- reactive({
+  df <- safe_read_csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/covid_variant.csv')
+  if (is.null(df) || nrow(df) == 0) return(tibble())
+  df$ISO_week_end <- as.Date(df$ISO_week_end)
+  df
+})
+
+
+
+filtered_cov1 <- reactive({
+  df <- data_covid()
+  if (nrow(df) == 0) return(tibble())
+  df %>%
+    filter(date >= input$covid_range[1],
+           date <= input$covid_range[2]) %>%
+    filter(Country == input$country_filter_covid)
+})
+
+filtered_cov2 <- reactive({
+  df <- data_covid_var()
+  if (nrow(df) == 0) return(tibble())
+  df %>%
+    filter(ISO_week_end >= input$covid_range[1],
+           ISO_week_end <= input$covid_range[2]) %>%
+    filter(Country == input$country_filter_covid)
+})
+
+output$covid_plot <- renderPlotly({
+  data <- filtered_cov1()
+  if (nrow(data) == 0) {
+    return(plotly_empty() %>% layout(title = "No COVID-19 data available"))
+  }
+
+  plot_ly(data, x = ~date) %>%
+    add_bars(
+      y = ~New.Cases,
+      name = "New Cases",
+      customdata = ~New.Deaths,
+      hovertemplate = paste0(
+        "<b>Date:</b> %{x|%Y-%m-%d}<br>",
+        "<b>New Cases:</b> %{y:,}<br>",
+        "<b>New Deaths:</b> %{customdata:,}<extra></extra>"
+      ),
+      marker = list(color = "#6fa8f7")
+    ) %>%
+    add_lines(
+      y = ~New.Deaths,
+      name = "New Deaths",
+      yaxis = "y2",
+      line = list(color = "red"),
+      hoverinfo = "skip"   # no hover on line
+    ) %>% layout(
+  title = " ",
+  hovermode = "x",      # keeps hover tied to x
+  xaxis = list(
+    title = "Date Week Ending",
+    type = "date",
+    tickformat = "%Y-%m-%d",
+    range = c(input$covid_range[1], input$covid_range[2]), 
+    tickangle = -90,
+    dtick = 14*24*60*60*1000,
+    hoverformat = "%Y-%m-%d",
+    showspikes = TRUE,            # <-- enable hover line
+    spikemode = "across",         # line across the plot
+    spikesnap = "cursor",         # or "data" if you prefer
+    spikethickness = 1.5,
+    spikedash = "dot",
+    spikecolor = "rgba(80,80,80,0.7)"
+  ),
+      yaxis = list(
+        title = "New Cases",
+        side = "left",
+        showgrid = FALSE,
+        rangemode = "tozero"
+      ),
+      yaxis2 = list(
+        title = "New Deaths",
+        overlaying = "y",
+        side = "right",
+        showgrid = FALSE,
+        rangemode = "tozero",
+        titlefont = list(color = "red"),
+        tickfont = list(color = "red")
+      ),
+      legend = list(x = 0.5, y = 1.12, orientation = "h", xanchor = "center"),
+      margin = list(l = 60, r = 80, t = 40, b = 80)
+    ) %>%
+    config(
+      displaylogo = FALSE,
+      modeBarButtonsToRemove = c(
+        "zoom2d","pan2d","select2d","lasso2d",
+        "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+        "hoverClosestCartesian","hoverCompareCartesian"
+      ),
+      toImageButtonOptions = list(
+        format = "png", filename = "covid_plot",
+        width = 1200, height = 600, scale = 2
+      )
+    )
+})
+
+
+output$variant_plot <- renderPlotly({
+  data <- filtered_cov2()
+  if (nrow(data) == 0) {
+    return(plotly_empty() %>% layout(title = "No variant data available"))
+  }
+
+  plot_ly(
+    data,
+    x = ~ISO_week_end,        # Date
+    y = ~percent,
+    color = ~lineage_group,
+    type = "bar",
+    # per-trace line only; remove header + footer
+    hovertemplate = "%{fullData.name}: %{y:.1f}%<extra></extra>"
+  ) %>%
+    layout(
+      title = " ",
+      barmode = "stack",
+      hovermode = "x unified",
+      xaxis = list(
+        title = "Date Week Ending",
+        type = "date",
+        tickformat = "%Y-%m-%d",
+        range = c(input$covid_range[1], input$covid_range[2]),
+        tickangle = -90,
+        dtick = 14*24*60*60*1000,
+        hoverformat = "%Y-%m-%d"   # header date format (once)
+        # optionally: dtick = "W1"  # weekly ticks
+      ),
+      yaxis = list(title = "Percentage", ticksuffix = "%", rangemode = "tozero"),
+      showlegend = TRUE,
+      legend = list(x = 0.05, y = 1.15, orientation = "h"),
+      hoverlabel = list(align = "left")
+    ) %>%
+    config(
+      displaylogo = FALSE,
+      modeBarButtonsToRemove = c(
+        "zoom2d","pan2d","select2d","lasso2d",
+        "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+        "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+      ),
+      toImageButtonOptions = list(
+        format = "png", filename = "covid_plot2",
+        width = 1200, height = 600, scale = 2
+      )
+    )
+})
+
+
+## Download Menu
+
+output$covid_raw_xlsx <- downloadHandler(
+  filename = function() paste0(
+    "covid_19_sear.", format(Sys.Date(), "%Y-%m-%d"), ".xlsx"
+  ),
+  contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  content = function(file) {
+    # Use your RAW loaders (not filtered ones)
+    dat    <- as.data.frame(data_covid())
+
+
+    writexl::write_xlsx(
+      list(
+        covid_19_data     = dat),
+      path = file
+    )
+  })
+
+```
+
+## Mpox
+
+```{r}
+p(
+  "The total of ",
+  # inline + bold number
+  tags$strong(textOutput("mpox_country_n", container = span)), 'countries and', 
+  tags$strong(textOutput("mpox_case_n", container = span)),
+  "cases were reported. It is including: ",
+  # inline country list
+  tags$strong(uiOutput("mpox_countries_inline", container = span)), '.'
+  ) 
+```
+
+This list included Indonesia.[^8]
+
+[^8]: Indonesia were including in the list because the cases were reported before joining WPRO.
+
+::: {layout="[[96,4]]"}
+```{r}
+dateRangeInput("mpox_range", "Date Range",
+               start = as.Date("2022-01-01"),
+               end = Sys.Date())
+```
+
+```{r}
+## Download button
+tags$div(class = "card-body d-flex justify-content-end",
+  downloadButton("mpox_raw_xlsx",
+                 label = NULL,
+                 class = "btn btn-outline-primary btn-lg",
+                 icon = icon("download"),
+                 `data-bs-toggle` = "tooltip",
+                 title = "Download data")
+)
+```
+:::
+
+### Trend
+
+```{r}
+plotlyOutput("mpox_plot2")
+```
+
+### Per Country Trend
+
+```{r}
+selectInput("country_filter_mpox", "Country", choices = country_sel3)
+```
+
+```{r}
+plotlyOutput("mpox_plot")
+```
+
+```{r}
+#| context: server
+# MPOX DATA
+data_mpox <- reactive({
+  df <- safe_read_csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/mpox_dat_full.csv')
+  if (is.null(df) || nrow(df) == 0) return(tibble())
+  df$date <- as.Date(df$date)
+  df
+})
+
+#sum and list for text
+output$mpox_country_n <- renderText({
+  df <- data_mpox()  
+  format(length(unique(df$reporting_country)), big.mark = ",")
+})
+
+output$mpox_case_n <- renderText({
+  df <- data_mpox()  
+  df <- df %>% filter(reporting_country != 'All Country')
+  format(sum(df$count), big.mark = ",")
+})
+
+output$mpox_countries_inline <- renderUI({
+  df <- data_mpox()  
+  df <- df %>% filter(reporting_country != 'All Country')
+  countries <- sort(unique(df$reporting_country))
+  max_show <- 15L
+  shown <- countries[seq_len(min(length(countries), max_show))]
+  more_n <- length(countries) - length(shown)
+  base_txt <- format_with_and(shown, oxford = TRUE)
+  if (more_n > 0) {
+    # add “, and +N more” (Oxford comma style)
+    sep <- if (length(shown) >= 2) ", and " else " and "
+    base_txt <- paste0(base_txt, sep, "+", more_n, " more")
+  }
+  tags$span(base_txt)
+})
+
+filtered_mpox <- reactive({
+  df <- data_mpox()
+  if (nrow(df) == 0) return(tibble())
+  df %>%
+    filter(date >= input$mpox_range[1],
+           date <= input$mpox_range[2]) %>%
+    filter(reporting_country == input$country_filter_mpox)
+})
+
+filtered_mpox2 <- reactive({
+  df <- data_mpox()
+  if (nrow(df) == 0) return(tibble())
+  df %>%
+    filter(date >= input$mpox_range[1],
+           date <= input$mpox_range[2]) %>%
+    filter(reporting_country != 'All Country')
+})
+
+output$mpox_plot <- renderPlotly({
+  data <- filtered_mpox()
+  if (nrow(data) == 0) {
+    return(plotly_empty() %>% layout(title = "No Mpox data available"))
+  }
+  
+  plot_ly(data, x = ~date) %>% 
+    add_bars(y = ~count, name = "Positive Case", marker = list(color = 'tomato')) %>%
+    layout(title = " ", xaxis = list(title = "Week Start Date"),
+           yaxis = list(title = "Positive Cases")) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "covid_plot",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$mpox_plot2 <- renderPlotly({
+  data <- filtered_mpox2()
+  if (nrow(data) == 0) {
+    return(plotly_empty() %>% layout(title = "No Mpox data available"))
+  }
+
+  plot_ly(
+    data,
+    x = ~date,
+    y = ~count,
+    color = ~reporting_country,
+    type  = "bar",
+    # show only "Country: value" per trace
+    hovertemplate = "%{fullData.name}: %{y:,}<extra></extra>"
+  ) %>%
+    layout(
+      barmode   = "stack",
+      title     = "",
+      hovermode = "x unified",                 # unified hover box with single header
+      xaxis = list(title = "Week Start Date",
+                   hoverformat = "%Y-%m-%d"),  # header date format (shown once)
+      yaxis = list(title = "Positive Cases")
+    ) %>%
+    config(
+      displaylogo = FALSE,
+      modeBarButtonsToRemove = c(
+        "zoom2d","pan2d","select2d","lasso2d",
+        "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+        "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+      ),
+      toImageButtonOptions = list(format = "png", filename = "mpox_plot",
+                                  width = 1200, height = 600, scale = 2)
+    )
+})
+
+
+## Download Menu
+
+output$mpox_raw_xlsx <- downloadHandler(
+  filename = function() paste0(
+    "mpox_sear.", format(Sys.Date(), "%Y-%m-%d"), ".xlsx"
+  ),
+  contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  content = function(file) {
+    # Use your RAW loaders (not filtered ones)
+    dat    <- as.data.frame(data_mpox())
+
+
+    writexl::write_xlsx(
+      list(
+        mpox_data     = dat),
+      path = file
+    )
+  })
+```
+
+## Cholera
+
+::: {layout="[[48,48,4]]"}
+```{r}
+selectInput("country_cholera", "Country", choices = country_sel)
+```
+
+```{r}
+dateRangeInput("cholera_range", "Date Range",
+                                 start = as.Date("2024-01-01"),
+                                 end = as.Date(Sys.Date()))
+```
+
+```{r}
+## Download button
+tags$div(class = "card-body d-flex justify-content-end",
+  downloadButton("cholera_raw_xlsx",
+                 label = NULL,
+                 class = "btn btn-outline-primary btn-lg",
+                 icon = icon("download"),
+                 `data-bs-toggle` = "tooltip",
+                 title = "Download data")
+)
+```
+:::
+
+### Trend
+
+::: {.panel-tabset .tabset-pills}
+#### Suspected Cases
+
+```{r}
+plotlyOutput("trend_cholera_sus_plot")
+```
+
+#### Cases
+
+```{r}
+plotlyOutput("trend_cholera_plot")
+```
+
+#### Suspected Death
+
+```{r}
+plotlyOutput("trend_death_plot")
+```
+:::
+
+### Map Distribution
+
+```{r}
+selectInput("year", "Select Year:",
+                  choices = c(2023, 2024, 2025),
+                  selected = 2025)
+```
+
+<br>
+
+```{r}
+leafletOutput("map", height = 450)
+```
+
+
+```{r}
+#| context: server
+data_cholera <- reactive({
+    df <- read.csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Dat/cholera_dat.csv')
+    df$MMWR_WEEK_START <- as.Date(df$MMWR_WEEK_START)
+    df
+  })
+
+filtered_cholera <- reactive({
+    df <- data_cholera()
+    df <- df %>%
+      filter(MMWR_WEEK_START >= input$cholera_range[1],
+             MMWR_WEEK_START <= input$cholera_range[2]) %>%
+      filter(COUNTRY == input$country_cholera)
+    
+    df
+  })
+
+output$trend_cholera_plot <- renderPlotly({
+    req(filtered_cholera())
+    data <- filtered_cholera()
+    plot_ly(data, x = ~MMWR_WEEK_START) %>% 
+      add_bars(y = ~NEW_CONF_CASES, name = "Positive Case", marker = list(color = 'darkgreen')) %>%
+      layout( title = " ",
+              xaxis = list(title = "Week Start Date"),
+              yaxis = list(title = "Positive Cases", side = "left")) %>% 
+      config(
+    displaylogo = FALSE,                      # hide Plotly logo
+    modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "cholera_plot",
+    width = 1200, height = 600, scale = 2
+  )
+)
+  })
+  
+  output$trend_death_plot <- renderPlotly({
+    req(filtered_cholera())
+    data <- filtered_cholera()
+    plot_ly(data, x = ~MMWR_WEEK_START) %>% 
+      add_bars(y = ~NEW_SUS_DEATHS, name = "Suspect Deaths", marker = list(color = 'firebrick')) %>%
+      layout( title = " ",
+              xaxis = list(title = "Week Start Date"),
+              yaxis = list(title = "Suspect Deaths", side = "left")) %>% 
+      config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "cholera_plot2",
+    width = 1200, height = 600, scale = 2
+  )
+)
+  })
+  
+output$trend_cholera_sus_plot <- renderPlotly({
+    req(filtered_cholera())
+    data <- filtered_cholera()
+    plot_ly(data, x = ~MMWR_WEEK_START) %>% 
+      add_bars(y = ~NEW_SUS_CASES, name = "Suspected Case", marker = list(color = 'blue')) %>%
+      layout( title = " ",
+              xaxis = list(title = "Week Start Date"),
+              yaxis = list(title = "Suspected Cases", side = "left")) %>% 
+      config(
+    displaylogo = FALSE,                      # hide Plotly logo
+    modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "cholera_plot3",
+    width = 1200, height = 600, scale = 2
+  )
+)
+  })
+
+## Download Menu
+
+output$cholera_raw_xlsx <- downloadHandler(
+  filename = function() paste0(
+    "cholera_sear.", format(Sys.Date(), "%Y-%m-%d"), ".xlsx"
+  ),
+  contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  content = function(file) {
+    # Use your RAW loaders (not filtered ones)
+    dat    <- as.data.frame(data_cholera())
+
+
+    writexl::write_xlsx(
+      list(
+        cholera_data     = dat),
+      path = file
+    )
+  })
+    
+```
+
+```{r}
+#| context: server
+#map server
+
+ chol_data <- reactive({
+    y2023 <- read.csv('https://who.maps.arcgis.com/sharing/rest/content/items/dbd155b6cd2b4ccba80940715cbca248/data')
+    y2024 <- read.csv('https://who.maps.arcgis.com/sharing/rest/content/items/6e1aec6376fb4bfd841ccfd05087d717/data')
+    y2025 <- read.csv('https://who.maps.arcgis.com/sharing/rest/content/items/3aa7bfec5da047a7ba7d4f9bcebd0061/data')
+    
+    bind_rows(y2023, y2024, y2025) %>%
+      filter(who_region == "South-East Asia Region") %>%
+      mutate(
+        year = year(as.Date(first_epiwk)),
+        adm0_name = toupper(adm0_name)
+      )
+  })
+  
+  searo_geo <- reactive({
+    st_read(
+      "https://raw.githubusercontent.com/Dhihram/WHO_SEAR/refs/heads/main/Misc/geo_combined.geojson",
+      quiet = TRUE
+    ) %>% mutate(name = toupper(name))
+  })
+  
+  merged_sf <- reactive({
+    epi_y <- chol_data() %>%
+      filter(year == input$year) %>%
+      group_by(adm0_name) %>%
+      summarise(
+        case_total  = sum(case_total, na.rm = TRUE),
+        death_total = sum(death_total, na.rm = TRUE),
+        .groups = "drop"
+      )
+    
+    searo_geo() %>%
+      left_join(epi_y, by = c("name" = "adm0_name"))
+  })
+  
+ output$map <- renderLeaflet({
+  sf_data <- merged_sf()
+  
+  pal <- colorBin(
+    palette = "YlOrRd",
+    domain  = sf_data$case_total,
+    bins    = c(0, 100, 300, 600, 900, Inf),
+    na.color = "gray"
+  )
+  
+  leaflet(sf_data, options = leafletOptions(minZoom = 3, maxZoom = 5)) %>%
+    addTiles(options = providerTileOptions(opacity = 0.4)) %>%
+    setMaxBounds(lng1 = 70, lat1 = -15, lng2 = 135, lat2 = 45) %>%
+    setView(lng = 100, lat = 30, zoom = 3) %>%
+    addPolygons(
+      fillColor = ~pal(case_total),
+      weight = 1,
+      color = "white",
+      fillOpacity = 0.7,
+      popup = ~sprintf(
+        "<b>Country:</b> %s<br/>Cases: %s<br/>Deaths: %s",
+        name,
+        ifelse(is.na(case_total), "NA", format(case_total, big.mark = ",")),
+        ifelse(is.na(death_total), "NA", format(death_total, big.mark = ","))
+      )
+    ) %>%
+    addLegend(
+      pal = pal,
+      values = ~case_total,
+      position = "bottomleft",
+      title = paste0("Total Cases (", input$year, ")"),
+      na.label = "No data",
+      labFormat = function(type, cuts, p) {
+        # Replace the last label with ">900"
+        labels <- paste0(cuts[-length(cuts)], " – ", cuts[-1] - 1)
+        labels[length(labels)] <- ">900"
+        labels
+      }
+    )
+})
+```
+
+## Attack on Healthcare
+
+### Summary
+
+```{r}
+uiOutput("summary_cards")
+```
+
+```{r}
+uiOutput("summary_cards2")
+```
+
+### Trend
+
+```{r}
+dateRangeInput("ah_range", "Date Range:",
+               start=as.Date("2021-01-01"),
+               end=as.Date(Sys.Date()))
+```
+
+```{r}
+plotlyOutput("attackPlot")
+```
+
+```{r}
+#| context: server
+
+data_atk <- reactive({
+    df <- safe_read_csv('https://raw.githubusercontent.com/Dhihram/WHO_SEAR/main/Dat/attack_healthcare_dat.csv')
+    df <- df %>% dplyr::mutate(
+      `Attack Date` = as.Date(df$`Attack Date`, format = "%m/%d/%Y")) 
+    df <- df %>% dplyr::mutate(
+      year = lubridate::year(`Attack Date`)) %>%
+      dplyr::filter(`Country / Territory`  %in% c(
+        "Myanmar", "Bangladesh", "Thailand", "Timor-Leste", "India",
+        "Nepal", "Bhutan", "Democratic People's Republic of Korea", "Maldives"
+      ))
+  })
+
+#filtered for plot  
+filtered_atk <- reactive({
+      df <- data_atk()
+    filtered_data <- df %>%
+      filter(`Country / Territory` == "Myanmar") %>%
+      filter(`Attack Date` >= input$ah_range[1] & `Attack Date` <= input$ah_range[2]) %>% 
+      mutate(MonthDate = floor_date(as.Date(`Attack Date`), unit = "month")) %>%
+      count(MonthDate, `Certainty Level`) %>%
+      mutate(Month = format(MonthDate, "%b %Y")) %>%
+      mutate(Month = factor(Month, levels = format(sort(unique(MonthDate)), "%b %Y")))
+})
+
+# summary value
+output$summary_cards <- renderUI({
+  df <- data_atk()
+  data <- df %>% filter(`Country / Territory` == "Myanmar")
+  layout_columns(
+    col_widths = c(4, 4, 4),
+    card(class = "value-card",
+      card_header("Total Attacks"),
+      card_body(div(nrow(data), class = "big-number"))
+    ),
+    card(class = "value-card",
+      card_header("Total Injured"),
+      card_body(div(sum(data$`Total Injured`, na.rm = TRUE), class = "big-number"))
+    ),
+    card(class = "value-card",
+      card_header("Total Deaths"),
+      card_body(div(sum(data$`Total Death`, na.rm = TRUE), class = "big-number"))
+    )
+  )
+})
+
+#summary value
+output$summary_cards2 <- renderUI({
+  df <- data_atk()
+  #diff attacks and deaths between years
+  this_year <- year(Sys.Date())
+  prev_year <- this_year - 1
+  #attack
+  data2 <- df %>%
+      filter(`Country / Territory` == "Myanmar",
+             year %in% c(prev_year, this_year)) %>%
+      group_by(year) %>%
+      summarise(n_attacks = n(), .groups = "drop")
+  #injured
+  data3 <- df %>%
+      filter(`Country / Territory` == "Myanmar",
+             year %in% c(prev_year, this_year)) %>%
+      group_by(year) %>%
+      summarise(n_injured = sum(`Total Injured`), .groups = "drop")
+  #death
+  data4 <- df %>%
+      filter(`Country / Territory` == "Myanmar",
+             year %in% c(prev_year, this_year)) %>%
+      group_by(year) %>%
+      summarise(n_death = sum(`Total Death`), .groups = "drop")
+
+    
+    # Attack
+    attacks_this_year <- ifelse(length(data2$n_attacks[data2$year == this_year]) == 0,
+                                NA,
+                                data2$n_attacks[data2$year == this_year])
+    
+    attacks_prev_year <- ifelse(length(data2$n_attacks[data2$year == prev_year]) == 0,
+                                NA,
+                                data2$n_attacks[data2$year == prev_year])
+    
+    # Atttack YoY growth %
+    growth_attack <- ifelse(!is.na(attacks_prev_year) & attacks_prev_year > 0,
+                     ((attacks_this_year - attacks_prev_year) / attacks_prev_year) * 100,
+                     NA)
+    arrow_attack <- ifelse(growth_attack >0, '↑', ifelse(growth_attack<=0, '↓', ' '))
+    
+    # Injured
+    injured_this_year <- ifelse(length(data3$n_injured[data3$year == this_year]) == 0,
+                                NA,
+                                data3$n_injured[data3$year == this_year])
+    
+    injured_prev_year <- ifelse(length(data3$n_injured[data3$year == prev_year]) == 0,
+                                NA,
+                                data3$n_injured[data3$year == prev_year])
+    # Injured YoY growth %
+    growth_injured <- ifelse(!is.na(injured_prev_year) & injured_prev_year > 0,
+                     ((injured_this_year - injured_prev_year) / injured_prev_year) * 100,
+                     NA)
+     arrow_injured <- ifelse(growth_injured >0, '↑', ifelse(growth_injured<=0, '↓', ' '))
+    
+     # Death
+     death_this_year <- ifelse(length(data4$n_death[data4$year == this_year]) == 0,
+                                NA,
+                                data4$n_death[data4$year == this_year])
+    
+    death_prev_year <- ifelse(length(data4$n_death[data4$year == prev_year]) == 0,
+                                NA,
+                                data4$n_death[data4$year == prev_year])
+    
+    # Death YoY growth %
+    growth_death <- ifelse(!is.na(death_prev_year) & death_prev_year > 0,
+                     ((death_this_year - death_prev_year) / death_prev_year) * 100,
+                     NA)
+    arrow_death <- ifelse(growth_death >0, '↑', ifelse(growth_death<=0, '↓', ' '))
+
+layout_columns(
+  col_widths = c(4, 4, 4),
+  card(class = "value-card",
+      card_header(paste0("Attack Growth ",prev_year,'-',this_year)),
+      card_body(div(ifelse(is.na(growth_attack), "NA", paste0(arrow_attack,round(growth_attack, 0), "%")), class = "big-number"))),
+  card(class = "value-card",
+      card_header(paste0("Injured Growth ",prev_year,'-',this_year)),
+      card_body(div(ifelse(is.na(growth_injured), "NA", paste0(arrow_injured,round(growth_injured, 0), "%")), class = "big-number"))),
+  card(class = "value-card",
+      card_header(paste0("Death Growth ",prev_year,'-',this_year)),
+      card_body(div(ifelse(is.na(growth_death), "NA", paste0(arrow_death,round(growth_death, 0), "%")), class = "big-number"))),
+  )
+})
+
+
+output$attackPlot <- renderPlotly({
+  filtered_data <- filtered_atk()
+  
+  # Define custom colors for each Certainty Level
+  certainty_colors <- c(
+    "Confirmed" = "#eb3437",  # blue
+    "Probable"  = "#d69697",  # orange
+    "Possible"  = "#e3c3c4"   # green
+  )
+
+    plot_ly(
+      data = filtered_data,
+      x = ~Month,
+      y = ~n,
+      color = ~ `Certainty Level`,
+      colors = certainty_colors,
+      type = 'bar',
+      hovertemplate = "<b>%{fullData.name}</b><br>Attacks: %{y}<extra></extra>"
+    ) %>%
+      layout(
+        barmode = 'stack',
+        hovermode = "x unified",
+        hoverlabel = list(align = "left"),
+        xaxis = list(
+          title = "Month",
+          tickangle = -45
+        ),
+        yaxis = list(title = "Number of Attacks"),
+        legend = list(
+          title = list(text = "Certainty Level"),
+          orientation = "h",
+          x = 0.5,
+          y = 1.1,
+          xanchor = "center",
+          yanchor = "bottom")) %>% config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "attack_healthcare_plot",
+    width = 1200, height = 600, scale = 2
+  )
+)
+  })
+```
+
+## Climate
+
+This section uses historical weather observations from NOAA with [Meteostat](https://meteostat.net/en/) module[^9] with SARIMAX forecasting method.
+
+[^9]: Meteostat uses weather and climate data provided by NOAA - National Weather, NOAA - Global Historical Climatology Network and NOAA - Integrated Surface Database
+
+::: {layout="[[50,50]]"}
+```{r}
+selectInput("country", "Country:", choices = unique_country, selected = unique_country[1])
+```
+
+```{r}
+dateRangeInput("date_range", "Date Range:",
+               start=as.Date("2022-01-01"),
+               end=as.Date("2025-12-31"))
+```
+:::
+
+::: {layout="[[50,50]]"}
+```{r}
+selectInput("climate_var", "Variable:",
+            choices = c("Mean Temperature"="temp_mean",
+                        "Precipitation"="prcp_sum",
+                        "Relative Humidity"="rhum_mean",
+                        "Wind Speed"="wspd_mean",
+                        "Sunshine"="tsun_sum"))
+```
+
+```{r}
+## Download button
+tags$div(class = "card-body d-flex justify-content-end",
+  downloadButton("climate_raw_xlsx",
+                 label = NULL,
+                 class = "btn btn-outline-primary btn-lg",
+                 icon = icon("download"),
+                 `data-bs-toggle` = "tooltip",
+                 title = "Download data")
+)
+```
+:::
+
+```{r}
+#| context: server
+# CLIMATE SERVER LOGIC
+observeEvent(input$country, {
+  if (nrow(unique_divisions) > 0) {
+    div_choices <- unique_divisions %>%
+      filter(Country == input$country) %>%
+      pull(Division) %>% unique()
+    if (length(div_choices) == 0) div_choices <- "(none)"
+    updateSelectInput(session, "division", choices = div_choices, selected = div_choices[1])
+  }
+})
+
+filtered_country <- reactive({
+  if (nrow(country_df) == 0) return(tibble())
+  country_df %>%
+    filter(time >= input$date_range[1], time <= input$date_range[2],
+           Country == input$country)
+})
+
+filtered_division <- reactive({
+  if (nrow(state_df) == 0) return(tibble())
+  state_df %>%
+    filter(time >= input$date_range[1], time <= input$date_range[2],
+           Country == input$country, Division == input$division)
+})
+
+output$climate_plot_country <- renderPlotly({
+  df <- filtered_country()
+  var <- req(input$climate_var)
+  plot_with_forecast(df, var, .y_labels) %>%
+  config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "climate_plot1",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+output$climate_plot_division <- renderPlotly({
+  df  <- filtered_division()
+  var <- req(input$climate_var)
+
+  if (is.null(df) || nrow(df) == 0 || !var %in% names(df)) {
+    return(
+      plotly::plotly_empty() %>%
+        plotly::layout(
+          xaxis = list(visible = FALSE),
+          yaxis = list(visible = FALSE),
+          annotations = list(
+            text = " ", x = 0.5, y = 0.5, xref = "paper", yref = "paper",
+            showarrow = FALSE
+          )
+        ) 
+    )
+  }
+
+  plot_with_forecast(df, var, .y_labels) %>%
+  config(
+  displaylogo = FALSE,                      # hide Plotly logo
+  modeBarButtonsToRemove = c(               # remove all but 'toImage'
+    "zoom2d","pan2d","select2d","lasso2d",
+    "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d",
+    "hoverClosestCartesian","hoverCompareCartesian","toggleSpikelines"
+  ),
+  toImageButtonOptions = list(              # optional: control export
+    format = "png", filename = "climate_plot2",
+    width = 1200, height = 600, scale = 2
+  )
+)
+})
+
+
+## Download Menu
+
+output$climate_raw_xlsx <- downloadHandler(
+  filename = function() paste0(
+    "climate_sear.", format(Sys.Date(), "%Y-%m-%d"), ".xlsx"
+  ),
+  contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  content = function(file) {
+    # Use your RAW loaders (not filtered ones)
+    country <- as.data.frame(country_df)
+    state    <- as.data.frame(state_df)
+    writexl::write_xlsx(
+      list(
+        country_data     = country,
+        state_data       = state),
+      path = file
+    )
+  })
+
+```
+
+### Country Level
+
+```{r}
+plotlyOutput("climate_plot_country")
+```
+
+### Division-level Trend
+
+```{r}
+selectInput("division", "Division:", choices = NULL)
+```
+
+```{r}
+plotlyOutput("climate_plot_division")
+```
+
+## Additional Information
+
+### Dashboard Related
+
+This dashboard is one of the surveillance WHO dashboard. Several dashboard surveillance related:
+
+1.  [SEARO Influenza Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMzc5NDRhYzgtOWE0Zi00N2MxLTkyMTItNjdjNWRkZDNmMmU2IiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9&pageName=ReportSectionf10e988f10d00cc9bdb6.)
+2.  [SEARO Dengue Dashboard](https://worldhealthorg.shinyapps.io/searo-dengue-dashboard/)
+3.  [Mpox Dashboard](https://worldhealthorg.shinyapps.io/mpx_global/)
+4.  [Cholera Dashboard](https://who-global-cholera-and-awd-dashboard-1-who.hub.arcgis.com/)
+5.  [Global Dengue Dashboard](https://worldhealthorg.shinyapps.io/dengue_global/)
+6.  [GISRS Influenza Laboratory Surveillance](https://app.powerbi.com/view?r=eyJrIjoiZTkyODcyOTEtZjA5YS00ZmI0LWFkZGUtODIxNGI5OTE3YjM0IiwidCI6ImY2MTBjMGI3LWJkMjQtNGIzOS04MTBiLTNkYzI4MGFmYjU5MCIsImMiOjh9)
+
+### Disclaimer
+
+Caution must be taken when interpreting all data presented, and differences between information products published by WHO, national public health authorities, and other sources using different inclusion criteria and different data cut-off times are to be expected. While steps are taken to ensure accuracy and reliability, all data are subject to continuous verification and change.
+
+Data are compiled and shared with WHO SEARO by national public health authorities. WHO SEARO makes no warranties or representations regarding the contents, appearance, completeness, technical specifications, or accuracy of the report. WHO SEARO disclaims all responsibility relating to any use of the report and accepts no liability for any errors.
+
+### Acknowledgment
+
+We gratefully acknowledge the input of national public health staff involved in surveillance activities and data submission to WHO, the WHO regional and country offices for timely compilation of data, and the NOAA for provision of climate data collected via the Meteostat module.
+
+### Feedback
+
+For queries or comments on the contents of this report, please contact sergowhehim\@who.int

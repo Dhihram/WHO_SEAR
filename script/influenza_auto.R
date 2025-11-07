@@ -1,0 +1,941 @@
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(MMWRweek)
+library(formattable)
+library(htmltools)
+library(htmlwidgets)
+library(webshot2)
+library(chromote)
+library(glue)
+#gemini 
+library(gemini.R)
+setAPI("AIzaSyAFYzJTKe4Hur_nl9eve_fSzXwtrtfpjHw")
+
+data <- read.csv('https://xmart-api-public.who.int/FLUMART/VIW_FNT?$format=csv') %>%
+  filter(WHOREGION == 'SEAR')
+
+#### Raw data for dr. puspha
+data_sav <- data %>%
+  mutate(MMWR_WEEKSTARTDATE = ymd(MMWR_WEEKSTARTDATE)) %>%
+  filter(MMWR_WEEKSTARTDATE >= as.Date(Sys.Date()) - 28) %>%
+  arrange(MMWR_WEEKSTARTDATE, COUNTRY_AREA_TERRITORY)
+
+# Format filename as dd_mm-yy
+date_str <- format(Sys.time(), "%d_%m-%y_%H%M")
+log_path <- paste0("C:/Users/dhihr/Documents/automate/raw_influenza", date_str, ".csv")
+
+
+# Write or append to the dated file  
+write_csv(data_sav, log_path)
+
+
+### For dashboard and database
+
+flu_dat2 <- data %>%
+  mutate(
+    week_start = ymd(MMWR_WEEKSTARTDATE),
+    year = year(week_start),
+    week = isoweek(week_start),
+    season = ifelse(week >= 30, paste0(year, "-", year + 1), paste0(year - 1, "-", year))
+  ) %>%
+  group_by(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE) %>%
+  summarise(
+    flu_all = sum(INF_ALL, na.rm = TRUE),
+    specimen = sum(SPEC_PROCESSED_NB, na.rm = TRUE),
+    season = last(season),
+    MMWR_WEEK = last(MMWR_WEEK),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    flu_all = replace_na(flu_all, 0),
+    specimen = replace_na(specimen, 0),
+    pos_rate = ifelse(specimen > 0, round((flu_all / specimen) * 100, 2), 0),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) 
+
+grouping_flu <- flu_dat2 %>%
+  group_by(MMWR_WEEKSTARTDATE) %>%
+  summarise(COUNTRY_AREA_TERRITORY = 'All Country', 
+            flu_all = sum(flu_all, na.rm = TRUE),
+            specimen = sum(specimen, na.rm = TRUE), 
+            season = last(season),
+            MMWR_WEEK = last(MMWR_WEEK), .groups = "drop") %>% 
+  select(COUNTRY_AREA_TERRITORY, everything()) %>%
+  mutate(
+    flu_all = replace_na(flu_all, 0),
+    specimen = replace_na(specimen, 0),
+    pos_rate = ifelse(specimen > 0, round((flu_all / specimen) * 100, 2), 0),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) %>%
+  as.data.frame()
+
+flu_dat <- rbind(flu_dat2, grouping_flu)
+# to get last submit
+date_of_last_submit <- max(flu_dat$MMWR_WEEKSTARTDATE)
+
+# Set fixed max date
+#change this
+today <- Sys.Date()
+first_day_epiweek <- floor_date(today, "week", week_start = 7) # Sunday
+max_target_date <- first_day_epiweek-7
+
+# Get the earliest and latest dates per country
+date_bounds <- flu_dat %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  summarise(
+    start_date = min(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    last_data_date = max(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Expand weekly dates per country
+expanded_dates <- date_bounds %>%
+  rowwise() %>%
+  mutate(
+    week_seq = list(seq(start_date, max_target_date, by = "7 days"))
+  ) %>%
+  unnest(week_seq) %>%
+  rename(MMWR_WEEKSTARTDATE = week_seq)
+
+# Join with original data
+flu_dat_expanded <- expanded_dates %>%
+  select(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE, last_data_date) %>%
+  left_join(flu_dat, by = c("COUNTRY_AREA_TERRITORY", "MMWR_WEEKSTARTDATE"))
+
+# Replace numeric columns: 0 up to last_data_date - NA after last_data_date
+flu_dat <- flu_dat_expanded %>%
+  mutate(
+    after_last = MMWR_WEEKSTARTDATE > last_data_date,
+    across(where(is.numeric), ~ifelse(after_last, NA, replace_na(.x, 0)))
+  ) %>%
+  select(-last_data_date, -after_last) %>%
+  arrange(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE)
+
+flu_dat <- flu_dat %>% filter(MMWR_WEEKSTARTDATE >= as.Date('2024-12-11'))
+
+# Format filename as dd_mm-yy
+date_str <- format(Sys.time(), "%d_%m-%y_%H%M")
+log_path <- paste0("C:/Users/dhihr/Documents/automate/data_influenza_", date_str, ".csv")
+
+
+# Write or append to the dated file
+if (!file.exists(log_path)) {
+  write_csv(flu_dat, log_path)
+} else {
+  existing <- read_csv(log_path)
+  updated <- bind_rows(existing, flu_dat)
+  write_csv(updated, log_path)
+}
+
+###### Summary text trend for bulletin
+#extract text
+#data process
+today <- Sys.Date()
+first_day_epiweek <- floor_date(today, "week", week_start = 7) # Sunday
+max <- first_day_epiweek-7
+wk_num_max <- epiweek(max)
+
+dat_gem <- flu_dat %>% filter(MMWR_WEEKSTARTDATE >= max-14)
+extracted_on <- as.Date(Sys.Date())  
+
+latest_weeks <- dat_gem %>%
+  filter(!is.na(MMWR_WEEK)) %>%
+  distinct(MMWR_WEEK) %>%
+  arrange(desc(MMWR_WEEK)) %>%
+  slice_head(n = 3) %>%
+  arrange(MMWR_WEEK) %>%           # ascending for first/last
+  pull(MMWR_WEEK)
+
+
+wk_min <- min(latest_weeks, na.rm = TRUE)
+wk_max <- max(latest_weeks, na.rm = TRUE)
+wk_num_min <- min(dat_gem$MMWR_WEEK, na.rm = TRUE)
+
+#summary by country
+# Example: summarize trend of flu_all by country
+summary_text <- dat_gem %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  summarise(
+    first_week = min(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    last_week  = max(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    first_val  = first(na.omit(pos_rate)),
+    last_val   = last(na.omit(pos_rate)),
+    change     = last_val - first_val
+  ) %>%
+  mutate(
+    trend = case_when(
+      is.na(change) ~ "no report",
+      change > 0 & last_val > 20 ~ "increasing and high influenza activity",
+      change > 0 ~ "increasing positivity rate",
+      change < 0 & last_val < 10 ~ "decreasing and low influenza activity",
+      change < 0 ~ "decreasing positivity rate",
+      TRUE ~ "stable"
+    )
+  )
+
+
+recent <- dat_gem %>%
+  filter(MMWR_WEEK %in% latest_weeks) %>%
+  filter(COUNTRY_AREA_TERRITORY != 'All Country') %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  arrange(MMWR_WEEK) %>%
+  summarise(
+    first_val = first(na.omit(pos_rate)),
+    last_val  = last(na.omit(pos_rate)),
+    # mean over the window (optional)
+    mean_val  = if (all(is.na(pos_rate))) NA_real_ else mean(pos_rate, na.rm = TRUE),
+    any_report = any(!is.na(pos_rate)),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    change = ifelse(!is.na(first_val) & !is.na(last_val), last_val - first_val, NA_real_)
+  )
+
+missing_countries <- setdiff(
+  unique(summary_text$COUNTRY_AREA_TERRITORY[summary_text$COUNTRY_AREA_TERRITORY != "All Country"]),
+  unique(recent$COUNTRY_AREA_TERRITORY)
+)
+
+missing_countries
+
+# -------------------------
+#  Buckets for bullets
+# -------------------------
+fmtp <- function(x) ifelse(is.na(x), "NA", paste0(round(x, 0), "%"))
+
+high_increase_now <- recent %>%
+  filter(!is.na(last_val) & last_val >= 20 & change > 0)
+
+high_now <- recent %>%
+  filter(!is.na(last_val) & last_val >= 20)
+
+moderate_now <- recent %>%
+  filter(!is.na(last_val) & last_val >= 10 & last_val < 20)
+
+low_now <- recent %>%
+  filter(!is.na(last_val) & last_val < 10)
+
+declining <- recent %>%
+  filter(!is.na(change) & change < 0)
+
+no_report <- recent %>%
+  filter(!any_report) %>%
+  pull(COUNTRY_AREA_TERRITORY)
+
+# Region totals (exclude 'All Country' if you use it as a regional rollup)
+summary_text2 <- dat_gem %>%
+  filter(COUNTRY_AREA_TERRITORY != "All Country",
+         MMWR_WEEK %in% latest_weeks) %>%
+  summarise(
+    total_cases = sum(flu_all, na.rm = TRUE),
+    total_specimen = sum(specimen, na.rm = TRUE),
+    pos_rate = ifelse(total_specimen > 0, 100 * total_cases / total_specimen, NA_real_)
+  )
+
+#list technique
+pretty_list <- function(x) {
+  x <- unique(x)
+  n <- length(x)
+  
+  if (n == 0) {
+    return("")
+  } else if (n == 1) {
+    return(x)
+  } else if (n == 2) {
+    return(paste(x, collapse = " and "))
+  } else {
+    return(paste(paste(x[-n], collapse = ", "), ", and ", x[n], sep = ""))
+  }
+}
+
+
+b1 <- glue("• The influenza sentinel surveillance data from WHO’s FluNet platform, extracted on {format(extracted_on, '%d %B %Y')}, illustrate weekly trends in laboratory-confirmed influenza cases, test positivity percentage, and the number of specimens tested across countries in the WHO South-East Asia Region.")
+
+# High-level examples (join as 'Country (XX%)')
+high_increase_line <- if (nrow(high_now)) {
+  items <- glue("{high_increase_now$COUNTRY_AREA_TERRITORY} ({fmtp(high_increase_now$last_val)})")
+  glue("• {pretty_list(items)} show an increase and high levels of test positivity in weeks {wk_min} to {wk_num_max}.")
+} else {
+  "• No countries show high levels of test positivity in the recent weeks."
+}
+
+
+high_line <- if (nrow(high_now)) {
+  items <- glue("{high_now$COUNTRY_AREA_TERRITORY} ({fmtp(high_now$last_val)})")
+  glue("• {pretty_list(items)} show high levels of test positivity in weeks {wk_min} to {wk_num_max}.")
+} else {
+  "• No countries show high levels of test positivity in the recent weeks."
+}
+
+# Moderate-level
+moderate_line <- if (nrow(moderate_now)) {
+  items <- glue("{moderate_now$COUNTRY_AREA_TERRITORY} ({fmtp(moderate_now$last_val)})")
+  glue("• {pretty_list(items)} show moderate levels of test positivity in weeks {wk_min} to {wk_num_max}.")
+} else {
+  "• No countries show moderate levels of test positivity in the recent weeks."
+}
+
+# Declining trend (report last %)
+decline_line <- if (nrow(declining)) {
+  items <- declining %>%
+    transmute(txt = glue("{COUNTRY_AREA_TERRITORY} ({fmtp(last_val)})")) %>%
+    pull(txt)
+  glue("• {pretty_list(items)} have shown a declining trend in influenza activity, in weeks {wk_min} to {wk_num_max}.")
+} else {
+  "• No countries show a clear declining trend in the recent weeks."
+}
+
+# Low-level
+low_line <- if (nrow(low_now)) {
+  items <- glue("{low_now$COUNTRY_AREA_TERRITORY} ({fmtp(low_now$last_val)})")
+  glue("• {pretty_list(items)} show low levels of test positivity in weeks {wk_min} to {wk_num_max}.")
+} else {
+  "• No countries show low levels of influenza positivity in the recent weeks."
+}
+
+# No report
+no_report_line <- glue(
+  "• Other countries ({pretty_list(missing_countries)}) have either not submitted or submitted relatively a small number of samples in recent weeks."
+)
+# Overall SEARO totals line
+tot_cases <- format(round(summary_text2$total_cases, 0), big.mark = " ", scientific = FALSE)
+tot_spec  <- format(round(summary_text2$total_specimen, 0), big.mark = " ", scientific = FALSE)
+tot_pos   <- ifelse(is.na(summary_text2$pos_rate), "NA", paste0(round(summary_text2$pos_rate, 0), "%"))
+searo_line <- glue("• SEARO totals over weeks {wk_min}–{wk_num_max}: {tot_cases} laboratory-confirmed cases from {tot_spec} specimens; overall positivity {tot_pos}.")
+
+bullet_text <- paste(b1, searo_line, high_increase_line, high_line, moderate_line, decline_line, low_line, no_report_line, sep = "\n")
+
+paraphrase_prompt <- paste(
+  "Paraphrase the following bullets in clear, neutral English.",
+  "Keep the meaning, numbers, weeks, and dates EXACTLY the same.",
+  "Make space as separator of thousand",
+  "Return bullets only (no intro/outro), each starting with '•'.",
+  "",
+  bullet_text,
+  sep = "\n"
+)
+
+# Call Gemini
+paraphrased <- gemini(paraphrase_prompt)
+
+#save influenza trend
+# Define output path (adjust as needed)
+out_path <- "C:/Users/dhihr/Documents/automate/influenza_trend_summary.txt"
+
+# Write to text file
+writeLines(paraphrased, out_path)
+
+
+######For dashboard
+
+flu_dat <- data
+flu_dat_agg <- flu_dat %>%
+  mutate(
+    VIC = rowSums(select(., BVIC_NODEL, BVIC_DELUNK, BVIC_3DEL, BVIC_2DEL), na.rm = TRUE),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) %>%
+  group_by(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE) %>%
+  summarise(
+    flu_all = sum(INF_ALL, na.rm = TRUE),
+    flu_vic = sum(VIC, na.rm = TRUE),
+    flu_ah5 = sum(AH5, na.rm = TRUE),
+    flu_ah3 = sum(AH3, na.rm = TRUE),
+    flu_ah1n12009 = sum(AH1N12009, na.rm = TRUE),
+    flu_ah1 = sum(AH1, na.rm = TRUE),
+    flu_anot = sum(ANOTSUBTYPED, na.rm = TRUE),
+    flu_bnot = sum(BNOTDETERMINED, na.rm = TRUE),
+    flu_byam = sum(BYAM, na.rm = TRUE),
+    specimen = sum(SPEC_PROCESSED_NB, na.rm = TRUE),
+    MMWR_WEEK = last(MMWR_WEEK),
+    COUNTRY_AREA_TERRITORY = last(COUNTRY_AREA_TERRITORY),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    pos_rate = round(ifelse(specimen > 0, (flu_all / specimen) * 100, 0), 2),
+    across(where(is.numeric), ~replace(., is.infinite(.) | is.na(.), 0)),
+    COUNTRY_AREA_TERRITORY = ifelse(COUNTRY_AREA_TERRITORY == "Democratic People's Republic of Korea", "DPR Korea", COUNTRY_AREA_TERRITORY)) 
+
+flu_dat_agg 
+
+grouping_flu <- flu_dat %>%
+  mutate(
+    VIC = rowSums(select(., BVIC_NODEL, BVIC_DELUNK, BVIC_3DEL, BVIC_2DEL), na.rm = TRUE),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) %>%
+  group_by(MMWR_WEEKSTARTDATE) %>%
+  summarise(
+    COUNTRY_AREA_TERRITORY = 'All Country',
+    flu_all = sum(INF_ALL, na.rm = TRUE),
+    flu_vic = sum(VIC, na.rm = TRUE),
+    flu_ah5 = sum(AH5, na.rm = TRUE),
+    flu_ah3 = sum(AH3, na.rm = TRUE),
+    flu_ah1n12009 = sum(AH1N12009, na.rm = TRUE),
+    flu_ah1 = sum(AH1, na.rm = TRUE),
+    flu_anot = sum(ANOTSUBTYPED, na.rm = TRUE),
+    flu_bnot = sum(BNOTDETERMINED, na.rm = TRUE),
+    flu_byam = sum(BYAM, na.rm = TRUE),
+    specimen = sum(SPEC_PROCESSED_NB, na.rm = TRUE),
+    MMWR_WEEK = last(MMWR_WEEK),
+    COUNTRY_AREA_TERRITORY = last(COUNTRY_AREA_TERRITORY),
+    .groups = "drop"
+  ) %>% select(COUNTRY_AREA_TERRITORY, everything()) %>%
+  mutate(
+    pos_rate = round(ifelse(specimen > 0, (flu_all / specimen) * 100, 0), 2),
+    across(where(is.numeric), ~replace(., is.infinite(.) | is.na(.), 0))
+  )
+
+flu_dat_agg <- rbind(flu_dat_agg, grouping_flu)
+
+# Set fixed max date
+#date setting
+# today's date
+today <- Sys.Date()
+first_day_epiweek <- floor_date(today, "week", week_start = 7) # Sunday
+max <- first_day_epiweek-7
+
+
+# Get the earliest and latest dates per country
+date_bounds <- flu_dat_agg %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  summarise(
+    start_date = min(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    last_data_date = max(MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Expand weekly dates per country
+expanded_dates <- date_bounds %>%
+  rowwise() %>%
+  mutate(
+    week_seq = list(seq(start_date, max_target_date, by = "7 days"))
+  ) %>%
+  unnest(week_seq) %>%
+  rename(MMWR_WEEKSTARTDATE = week_seq)
+
+# Join with original data
+flu_dat_expanded <- expanded_dates %>%
+  select(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE, last_data_date) %>%
+  left_join(flu_dat_agg, by = c("COUNTRY_AREA_TERRITORY", "MMWR_WEEKSTARTDATE"))
+
+# Replace numeric columns: 0 up to last_data_date - NA after last_data_date
+flu_dat_agg <- flu_dat_expanded %>%
+  mutate(
+    after_last = MMWR_WEEKSTARTDATE > last_data_date,
+    across(where(is.numeric), ~ifelse(after_last, NA, replace_na(.x, 0)))
+  ) %>%
+  select(-last_data_date, -after_last) %>%
+  arrange(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE)
+setwd("C:/Users/dhihr/OneDrive/bahan who/kerjaan who/influenza")
+write.csv(flu_dat_agg, 'data_clean.csv', row.names = FALSE)
+
+
+# Required: pivot data to long format for stacking
+flu_dat_full <- flu_dat_agg
+flu_dat_full <- flu_dat_full %>% filter(MMWR_WEEKSTARTDATE > as.Date('2018-01-01'))
+
+flu_colors <- c(
+  "flu_ah1"        = "#C9C9C9",
+  "flu_ah1n12009"  = "#8FE6E7",
+  "flu_ah3"        = "#00A1D5",
+  "flu_ah5"        = "#74F907",
+  "flu_anot"       = "#104f82",
+  "flu_bnot"       = "#9c4b30",
+  "flu_byam"       = "#FFB86D",
+  "flu_vic"        = "#F79700"
+)
+
+flu_labels <- c(
+  "flu_ah1"        = "A(H1)",
+  "flu_ah1n12009"  = "A(H1N1)pdm2009",
+  "flu_ah3"        = "A(H3)",
+  "flu_ah5"        = "A(H5)",
+  "flu_anot"       = "A not Subtyped",
+  "flu_bnot"       = "B not Determined",
+  "flu_byam"       = "B Yamagata",
+  "flu_vic"        = "B Victoria"
+)
+
+flu_long <- flu_dat_full %>%
+  select(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE, pos_rate, 
+         flu_ah1, flu_ah3, flu_ah5, flu_ah1n12009, flu_byam, flu_vic, flu_anot, flu_bnot) %>%
+  pivot_longer(
+    cols = starts_with("flu_"),
+    names_to = "Flu_Type",
+    values_to = "Cases"
+  )
+
+flu_long <- flu_long %>%
+  mutate(Label = flu_labels[Flu_Type],
+         Color = flu_colors[Flu_Type])
+
+setwd("~/GitHub/WHO_SEAR/Dat")
+write.csv(flu_dat_full, "flu_dat_full.csv", row.names = FALSE)
+write.csv(flu_long, "flu_long.csv", row.names = FALSE)
+
+
+
+
+########## Table
+
+flu_dat <- data
+flu_dat <- flu_dat %>% filter(COUNTRY_AREA_TERRITORY != 'Indonesia')
+flu_dat_agg <- flu_dat %>%
+  mutate(
+    VIC = rowSums(select(., BVIC_NODEL, BVIC_DELUNK, BVIC_3DEL, BVIC_2DEL) %>% 
+                    mutate(across(everything(), as.numeric)), na.rm = TRUE),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) %>%
+  group_by(COUNTRY_AREA_TERRITORY, MMWR_WEEKSTARTDATE) %>%
+  summarise(
+    flu_all = sum(as.numeric(INF_ALL), na.rm = TRUE),
+    flu_vic = sum(as.numeric(VIC), na.rm = TRUE),
+    flu_ah5 = sum(as.numeric(AH5), na.rm = TRUE),
+    flu_ah3 = sum(as.numeric(AH3), na.rm = TRUE),
+    flu_ah1n12009 = sum(as.numeric(AH1N12009), na.rm = TRUE),
+    flu_ah1 = sum(as.numeric(AH1), na.rm = TRUE),
+    flu_anot = sum(as.numeric(ANOTSUBTYPED), na.rm = TRUE),
+    flu_bnot = sum(as.numeric(BNOTDETERMINED), na.rm = TRUE),
+    flu_byam = sum(as.numeric(BYAM), na.rm = TRUE),
+    specimen = sum(as.numeric(SPEC_PROCESSED_NB), na.rm = TRUE),
+    MMWR_WEEK = last(MMWR_WEEK),
+    COUNTRY_AREA_TERRITORY = last(COUNTRY_AREA_TERRITORY),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    pos_rate = round(ifelse(specimen > 0, (flu_all / specimen) * 100, 0), 2),
+    across(where(is.numeric), ~replace(., is.infinite(.) | is.na(.), 0)),
+    COUNTRY_AREA_TERRITORY = ifelse(COUNTRY_AREA_TERRITORY == "Democratic People's Republic of Korea", "DPR Korea", COUNTRY_AREA_TERRITORY)) %>%
+  filter(year(MMWR_WEEKSTARTDATE) >= 2025)
+
+flu_dat_agg 
+
+
+grouping_flu <- flu_dat %>%
+  filter(MMWR_WEEKSTARTDATE >= max-14) %>%
+  mutate(
+    VIC = rowSums(select(., BVIC_NODEL, BVIC_DELUNK, BVIC_3DEL, BVIC_2DEL), na.rm = TRUE),
+    MMWR_WEEKSTARTDATE = as.Date(MMWR_WEEKSTARTDATE)
+  ) %>%
+  group_by(MMWR_WEEKSTARTDATE) %>%
+  summarise(
+    COUNTRY_AREA_TERRITORY = 'All Country',
+    flu_all = sum(INF_ALL, na.rm = TRUE),
+    flu_vic = sum(VIC, na.rm = TRUE),
+    flu_ah5 = sum(AH5, na.rm = TRUE),
+    flu_ah3 = sum(AH3, na.rm = TRUE),
+    flu_ah1n12009 = sum(AH1N12009, na.rm = TRUE),
+    flu_ah1 = sum(AH1, na.rm = TRUE),
+    flu_anot = sum(ANOTSUBTYPED, na.rm = TRUE),
+    flu_bnot = sum(BNOTDETERMINED, na.rm = TRUE),
+    flu_byam = sum(BYAM, na.rm = TRUE),
+    specimen = sum(SPEC_PROCESSED_NB, na.rm = TRUE),
+    MMWR_WEEK = last(MMWR_WEEK),
+    COUNTRY_AREA_TERRITORY = last(COUNTRY_AREA_TERRITORY),
+    .groups = "drop"
+  ) %>% select(COUNTRY_AREA_TERRITORY, everything()) %>%
+  mutate(
+    pos_rate = round(ifelse(specimen > 0, (flu_all / specimen) * 100, 0), 2),
+    across(where(is.numeric), ~replace(., is.infinite(.) | is.na(.), 0))
+  )
+
+flu_dat_agg <- rbind(flu_dat_agg, grouping_flu)
+
+# Step 1: Create complete weekly grid
+flu_dat_full <- expand.grid(
+  COUNTRY_AREA_TERRITORY = unique(flu_dat_agg$COUNTRY_AREA_TERRITORY),
+  MMWR_WEEKSTARTDATE = seq(
+    min(flu_dat_agg$MMWR_WEEKSTARTDATE, na.rm = TRUE),
+    max, by = "7 days"
+  )
+)
+
+# Step 2: Join with the aggregated data
+flu_dat_full <- flu_dat_full %>%
+  left_join(flu_dat_agg, by = c("COUNTRY_AREA_TERRITORY", "MMWR_WEEKSTARTDATE")) %>%
+  mutate(across(where(is.numeric), ~replace_na(.x, 0))) %>%
+  filter(MMWR_WEEKSTARTDATE >= max-14) %>%
+  mutate(MMWR_WEEK = MMWRweek(MMWR_WEEKSTARTDATE)$MMWRweek)
+
+
+# Now `flu_dat_full` is ready with filled missing combinations and MMWR week info
+# Summarize to match the structure in the image
+
+
+summary_table <- flu_dat_full %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  summarise(
+    `Total Samples Tested` = sum(specimen, na.rm = TRUE),
+    `Total Subtyped` = sum(flu_all, na.rm = TRUE),
+    `Positivity Rate %` = round((`Total Subtyped`/`Total Samples Tested`)*100,1),
+    `A (H1) %` = sum(flu_ah1, na.rm = TRUE) / `Total Subtyped` * 100,
+    `A (H3) %` = sum(flu_ah3, na.rm = TRUE) / `Total Subtyped` * 100,
+    `A (H5) %` = sum(flu_ah5, na.rm = TRUE) / `Total Subtyped` * 100,
+    `A (H1N1)pdm09 %` = sum(flu_ah1n12009, na.rm = TRUE) / `Total Subtyped` * 100,
+    `A (Unsubtype) %` = sum(flu_anot, na.rm = TRUE) / `Total Subtyped` * 100,
+    `B (Yamagata) %` = sum(flu_byam, na.rm = TRUE) / `Total Subtyped` * 100,
+    `B (Victoria) %` = sum(flu_vic, na.rm = TRUE) / `Total Subtyped` * 100,
+    `B (Lineage not Determined) %` = sum(flu_bnot, na.rm = TRUE) / `Total Subtyped` * 100
+  ) %>%
+  mutate(across(where(is.numeric), ~ ifelse(is.nan(.) | is.infinite(.), 0, .))) %>%
+  arrange(COUNTRY_AREA_TERRITORY) %>%
+  rename(Country = COUNTRY_AREA_TERRITORY, `Number of Influenza Positive` = `Total Subtyped`) 
+
+# Apply formattable styles
+ft <- formattable(summary_table,
+                  list(
+                    Country = formatter("span", style = ~ style(
+                      color = "black",
+                      font.weight = "bold",
+                      font.size = ifelse(Country == "Timor-Leste", "12px", "14px")
+                    )),
+                    
+                    area(col = 2:3) ~ formatter("span",
+                                                x ~ prettyNum(x, big.mark = ",", preserve.width = "none")),
+                    
+                    area(col = 4:12) ~ function(x) percent(x / 100, digits = 0),
+                    
+                    area(col = 5:12) ~ color_tile("#fcedf2", "#d66389")
+                  )
+)
+
+ft <- htmlwidgets::prependContent(
+  as.htmlwidget(ft),
+  tags$style(
+    HTML("
+      th {
+        background-color: #f2f2f2 !important;
+        color: black !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        border-bottom: 2px solid #ccc !important;
+      }
+    ")
+  )
+)
+
+# --- Paths ---
+out_dir  <- "C:/Users/dhihr/Documents/automate"
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+export_html <- file.path(out_dir, "summary_table.html")
+png_path    <- file.path(out_dir, sprintf("summary_table_%s.png", date_str))
+
+# --- Ensure Chrome path for Task Scheduler ---
+Sys.setenv(CHROME_PATH = "C:/Program Files/Google/Chrome/Application/chrome.exe")
+
+# --- Try selfcontained export, fallback if needed ---
+tryCatch({
+  saveWidget(ft, export_html, selfcontained = TRUE)
+}, error = function(e) {
+  warning("Selfcontained export failed, falling back to _files mode: ", e$message)
+  saveWidget(ft, export_html, selfcontained = FALSE)
+})
+
+export_path <- normalizePath(export_html, winslash = "/")
+
+# --- Capture PNG ---
+webshot2::webshot(
+  url      = paste0("file:///", export_path),
+  file     = png_path,
+  vwidth   = 1250,
+  vheight  = 500,
+  zoom     = 4,
+  delay    = 3,  # extra time for headless rendering
+  cliprect = "viewport"
+)
+
+########### Table 2
+summary_table2 <- flu_dat_full %>%
+  group_by(COUNTRY_AREA_TERRITORY) %>%
+  summarise(
+    `Total Samples Tested` = sum(specimen, na.rm = TRUE),
+    `Total Subtyped` = sum(flu_all, na.rm = TRUE),
+    
+    `A (H1)` = sum(flu_ah1),
+    `A (H3)` = sum(flu_ah3),
+    `A (H5)` = sum(flu_ah5),
+    `A (H1N1)pdm09` = sum(flu_ah1n12009),
+    `A (Unsubtype)` = sum(flu_anot),
+    `B (Yamagata)` = sum(flu_byam),
+    `B (Victoria)` = sum(flu_vic),
+    `B (Lineage not Determined)` = sum(flu_bnot)
+  ) 
+
+summary_table2 <- summary_table2 %>%
+  select(-c(`Total Samples Tested`, `Total Subtyped`))
+
+#combine to summary_table
+combined_table <- full_join(summary_table, summary_table2, by = c("Country"="COUNTRY_AREA_TERRITORY"))
+
+
+# Create merged columns for each A/B subtype
+combined_prepped <- combined_table %>%
+  mutate(
+    `A (H1)` = paste0(`A (H1)`, " (", round(`A (H1) %`, 0), "%)"),
+    `A (H3)` = paste0(`A (H3)`, " (", round(`A (H3) %`, 0), "%)"),
+    `A (H5)` = paste0(`A (H5)`, " (", round(`A (H5) %`, 0), "%)"),
+    `A (H1N1)2009` = paste0(`A (H1N1)pdm09`, " (", round(`A (H1N1)pdm09 %`, 0), "%)"),
+    `A (Unsubtype)` = paste0(`A (Unsubtype)`, " (", round(`A (Unsubtype) %`, 0), "%)"),
+    `B (Yamagata)` = paste0(`B (Yamagata)`, " (", round(`B (Yamagata) %`, 0), "%)"),
+    `B (Victoria)` = paste0(`B (Victoria)`, " (", round(`B (Victoria) %`, 0), "%)"),
+    `B (Lineage not Determined)` = paste0(`B (Lineage not Determined)`, " (", round(`B (Lineage not Determined) %`, 0), "%)")
+  )
+
+
+# Apply formattable styles table2
+
+ft2 <- formattable(
+  combined_prepped %>%
+    select(Country,`Total Samples Tested`, `Number of Influenza Positive`, `Positivity Rate %`,
+           `A (H1)`, `A (H3)`, `A (H5)`, `A (H1N1)2009`, `A (Unsubtype)`,
+           `B (Yamagata)`, `B (Victoria)`, `B (Lineage not Determined)`),
+  list(
+    Country = formatter("span", style = ~ style(
+      color = "black",
+      font.weight = "bold",
+      font.size = ifelse(Country == "Timor-Leste", "12px", "14px")
+    )),
+    
+    area(col = 2:3) ~ formatter("span",
+                                x ~ prettyNum(x, big.mark = ",", preserve.width = "none")),
+    `A (H1)` = formatter("span",
+                         style = ~ style(
+                           display = "block",
+                           `border-radius` = "4px",
+                           `padding-right` = "4px",
+                           `background-color` = csscolor(gradient(combined_table$`A (H1) %`, "#fcedf2", "#d66389"))
+                         )),
+    `A (H3)` = formatter("span",
+                         style = ~ style(
+                           display = "block",
+                           `border-radius` = "4px",
+                           `padding-right` = "4px",
+                           `background-color` = csscolor(gradient(combined_table$`A (H3) %`, "#fcedf2", "#d66389"))
+                         )),
+    `A (H5)` = formatter("span",
+                         style = ~ style(
+                           display = "block",
+                           `border-radius` = "4px",
+                           `padding-right` = "4px",
+                           `background-color` = csscolor(gradient(combined_table$`A (H5) %`, "#fcedf2", "#d66389"))
+                         )),
+    `A (H1N1)pdm09` = formatter("span",
+                               style = ~ style(
+                                 display = "block",
+                                 `border-radius` = "4px",
+                                 `padding-right` = "4px",
+                                 `background-color` = csscolor(gradient(combined_table$`A (H1N1)pdm09 %`, "#fcedf2", "#d66389"))
+                               )),
+    `A (Unsubtype)` = formatter("span",
+                                style = ~ style(
+                                  display = "block",
+                                  `border-radius` = "4px",
+                                  `padding-right` = "4px",
+                                  `background-color` = csscolor(gradient(combined_table$`A (Unsubtype) %`, "#fcedf2", "#d66389"))
+                                )),
+    `B (Yamagata)` = formatter("span",
+                               style = ~ style(
+                                 display = "block",
+                                 `border-radius` = "4px",
+                                 `padding-right` = "4px",
+                                 `background-color` = csscolor(gradient(combined_table$`B (Yamagata) %`, "#fcedf2", "#d66389"))
+                               )),
+    `B (Victoria)` = formatter("span",
+                               style = ~ style(
+                                 display = "block",
+                                 `border-radius` = "4px",
+                                 `padding-right` = "4px",
+                                 `background-color` = csscolor(gradient(combined_table$`B (Victoria) %`, "#fcedf2", "#d66389"))
+                               )),
+    `B (Lineage not Determined)` = formatter("span",
+                                             style = ~ style(
+                                               display = "block",
+                                               `border-radius` = "4px",
+                                               `padding-right` = "4px",
+                                               `background-color` = csscolor(gradient(combined_table$`B (Lineage not Determined) %`, "#fcedf2", "#d66389"))
+                                             ))
+  )
+)
+
+ft2 <- htmlwidgets::prependContent(
+  as.htmlwidget(ft2),
+  tags$style(
+    HTML("
+      th {
+        background-color: #f2f2f2 !important;
+        color: black !important;
+        font-weight: bold !important;
+        text-align: center !important;
+        border-bottom: 2px solid #ccc !important;
+      }
+    ")
+  )
+)
+
+
+# --- Paths table2 ---
+out_dir  <- "C:/Users/dhihr/Documents/automate"
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+export_html <- file.path(out_dir, "summary_table2.html")
+png_path    <- file.path(out_dir, sprintf("summary_table2_%s.png", date_str))
+
+# --- Ensure Chrome path for Task Scheduler ---
+Sys.setenv(CHROME_PATH = "C:/Program Files/Google/Chrome/Application/chrome.exe")
+
+# --- Try selfcontained export, fallback if needed ---
+tryCatch({
+  saveWidget(ft2, export_html, selfcontained = TRUE)
+}, error = function(e) {
+  warning("Selfcontained export failed, falling back to _files mode: ", e$message)
+  saveWidget(ft2, export_html, selfcontained = FALSE)
+})
+
+export_path <- normalizePath(export_html, winslash = "/")
+
+# --- Capture PNG ---
+webshot2::webshot(
+  url      = paste0("file:///", export_path),
+  file     = png_path,
+  vwidth   = 1500,
+  vheight  = 500,
+  zoom     = 4,
+  delay    = 3,  # extra time for headless rendering
+  cliprect = "viewport"
+)
+
+
+
+######### Summary text for bulletin
+
+df <- summary_table
+
+
+# --- Columns for subtypes (all numeric %) ---
+subtype_cols <- c(
+  "A (H1) %", "A (H3) %", "A (H5) %", "A (H1N1)pdm09 %", "A (Unsubtype) %",
+  "B (Yamagata) %", "B (Victoria) %", "B (Lineage not Determined) %"
+)
+
+# --- Regional totals (All Country row) ---
+reg_row <- df %>% filter(Country == "All Country")
+total_tested   <- reg_row$`Total Samples Tested`
+total_positive <- reg_row$`Number of Influenza Positive`
+positivity     <- reg_row$`Positivity Rate %`
+a_h3_reg_pct   <- round(reg_row$`A (H3) %`, 0)
+b_vic_reg_pct  <- round(reg_row$`B (Victoria) %`, 0)
+
+# --- Country-level data (exclude All Country) ---
+pct_tbl <- df %>% filter(Country != "All Country")
+
+# --- Identify countries where A(H3) is predominant ---
+predom_a_h3 <- pct_tbl %>%
+  rowwise() %>%
+  mutate(max_val = max(c_across(all_of(subtype_cols)), na.rm = TRUE)) %>%
+  ungroup() %>%
+  filter(!is.na(`A (H3) %`), `A (H3) %` == max_val, `A (H3) %` >= 70) %>%  # Exclude < 70%
+  arrange(desc(`A (H3) %`)) %>%   # Sort from largest to smallest
+  pull(Country)
+
+# --- Identify countries where B(Victoria) is predominant ---
+predom_b_vic <- pct_tbl %>%
+  rowwise() %>%
+  mutate(max_val = max(c_across(all_of(subtype_cols)), na.rm = TRUE)) %>%
+  ungroup() %>%
+  filter(!is.na(`B (Victoria) %`), `B (Victoria) %` == max_val, `B (Victoria) %` > 0) %>%  # Exclude 0%
+  arrange(desc(`B (Victoria) %`)) %>%  # Sort from largest to smallest
+  pull(Country)
+
+# --- Identify countries with small sample size (<50) ---
+low_sample_countries <- df %>%
+  filter(Country != "All Country", `Total Samples Tested` < 50) %>%
+  arrange(desc(`Total Samples Tested`)) %>%
+  pull(Country)
+
+# --- Helper to add commas and 'and' before last country ---
+format_list_with_and <- function(x) {
+  x <- unique(x)
+  if (length(x) == 0) return("")
+  if (length(x) == 1) return(x)
+  if (length(x) == 2) return(paste(x, collapse = " and "))
+  paste(paste(x[-length(x)], collapse = ", "), "and", x[length(x)])
+}
+
+# Helper: format country with its percentage
+format_country_pct <- function(df, countries, subtype_col, label) {
+  df %>%
+    filter(Country %in% countries) %>%
+    transmute(Country, pct = round(.data[[subtype_col]], 0)) %>%
+    arrange(desc(pct)) %>%
+    mutate(txt = glue("{Country} ({pct}%)")) %>%
+    pull(txt)
+}
+
+# Example usage (using your existing variables)
+a_h3_items  <- format_country_pct(pct_tbl, predom_a_h3, "A (H3) %", "A(H3)")
+b_vic_items <- format_country_pct(pct_tbl, predom_b_vic, "B (Victoria) %", "B(Victoria)")
+
+#for table
+max_week <- MMWRweek(max)$MMWRweek
+min_week <- max_week-2
+last_submission <- as.Date(date_of_last_submit, format = "%d %b %Y")
+
+# --- Compose paragraph text ---
+table3_text <- sprintf(
+  "• Table X shows influenza virus subtype and lineage distribution across ten countries in the WHO South-East Asia Region for epidemiological weeks %s to %s of 2025, based on data extracted from WHO’s RespiMart platforms on %s. The last submission was on %s.",
+  min_week,
+  max_week,
+  format(Sys.Date(), "%d %b %Y"),
+  format(last_submission, "%d %b %Y")
+)
+
+# --- Combine into bullets using the • symbol ---
+total_tested_bullet <- sprintf(
+  "• A total of %s samples were tested across the region, out of which %s (%s%%) were positive for influenza. These were subtyped, and results are shown in Table X.",
+  format(total_tested, big.mark = " "),
+  total_positive,
+  round(positivity)
+)
+
+a_h3_bullet <- sprintf(
+  "• A(H3) is predominant strain in %s.",
+  format_list_with_and(a_h3_items)
+)
+
+b_vic_bullet <- sprintf(
+  "• B(Victoria) lineage accounted for %s%% of influenza virus detected overall in the region, %s.",
+  b_vic_reg_pct,
+  format_list_with_and(b_vic_items)
+)
+
+low_sample_countries_bullet <- sprintf(
+  "• %s had no submission or small sample size (fewer than 50 samples).",
+  paste(low_sample_countries, collapse = ", ")
+)
+
+# --- Combine all into a single text block ---
+summary_text <- c(
+  table3_text,
+  total_tested_bullet,
+  a_h3_bullet,
+  b_vic_bullet,
+  low_sample_countries_bullet
+)
+
+paraphrase_prompt2 <- paste(
+  "Paraphrase the following bullets in clear, neutral English.",
+  "Keep the meaning, numbers, weeks, and dates EXACTLY the same.",
+  "Make space as separator of thousand",
+  "Return bullets only (no intro/outro), each starting with '•'.",
+  "",
+  paste(summary_text, collapse = "\n"),
+  sep = "\n"
+)
+
+# 2) Call Gemini
+paraphrased2 <- gemini(paraphrase_prompt2)
+
+# Define output path (adjust as needed)
+out_path <- "C:/Users/dhihr/Documents/automate/influenza_summary.txt"
+
+# Write to text file
+writeLines(paraphrased2, out_path)
