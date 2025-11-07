@@ -10,7 +10,7 @@ library(chromote)
 library(glue)
 #gemini 
 library(gemini.R)
-setAPI("AIzaSyAFYzJTKe4Hur_nl9eve_fSzXwtrtfpjHw")
+setAPI(" ")
 
 data <- read.csv('https://xmart-api-public.who.int/FLUMART/VIW_FNT?$format=csv') %>%
   filter(WHOREGION == 'SEAR')

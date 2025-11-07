@@ -5,7 +5,7 @@ library(readxl)
 library(glue)
 #gemini 
 library(gemini.R)
-setAPI("AIzaSyAFYzJTKe4Hur_nl9eve_fSzXwtrtfpjHw")
+setAPI(" ")
 
 #manage file
 setwd("C:/Users/dhihr/Documents/automate/attack_healthcare")

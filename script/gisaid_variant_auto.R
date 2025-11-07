@@ -6,7 +6,7 @@ library(tidyverse)
 library(readr)
 #gemini 
 library(gemini.R)
-setAPI("AIzaSyAFYzJTKe4Hur_nl9eve_fSzXwtrtfpjHw")
+setAPI(" ")
 
 setwd("C:/Users/dhihr/Documents/automate")
 
