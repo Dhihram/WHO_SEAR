@@ -1,637 +1,784 @@
-"country","month","year","cases","date","line_type"
-"All Country","Jan","2017",7944,2017-01-01,"dashed"
-"All Country","Jan","2018",9414,2018-01-01,"dashed"
-"All Country","Jan","2019",12310,2019-01-01,"dashed"
-"All Country","Jan","2020",18199,2020-01-01,"dashed"
-"All Country","Jan","2021",3224,2021-01-01,"dashed"
-"All Country","Jan","2022",9162,2022-01-01,"dashed"
-"All Country","Jan","2023",13648,2023-01-01,"dashed"
-"All Country","Jan","2024",29333,2024-01-01,"dashed"
-"All Country","Jan","2025",15606,2025-01-01,"solid"
-"All Country","Feb","2017",6510,2017-02-01,"dashed"
-"All Country","Feb","2018",6369,2018-02-01,"dashed"
-"All Country","Feb","2019",8257,2019-02-01,"dashed"
-"All Country","Feb","2020",8104,2020-02-01,"dashed"
-"All Country","Feb","2021",3424,2021-02-01,"dashed"
-"All Country","Feb","2022",4773,2022-02-01,"dashed"
-"All Country","Feb","2023",10812,2023-02-01,"dashed"
-"All Country","Feb","2024",19975,2024-02-01,"dashed"
-"All Country","Feb","2025",10859,2025-02-01,"solid"
-"All Country","Mar","2017",12919,2017-03-01,"dashed"
-"All Country","Mar","2018",5952,2018-03-01,"dashed"
-"All Country","Mar","2019",8310,2019-03-01,"dashed"
-"All Country","Mar","2020",4078,2020-03-01,"dashed"
-"All Country","Mar","2021",3021,2021-03-01,"dashed"
-"All Country","Mar","2022",5246,2022-03-01,"dashed"
-"All Country","Mar","2023",11952,2023-03-01,"dashed"
-"All Country","Mar","2024",15874,2024-03-01,"dashed"
-"All Country","Mar","2025",10904,2025-03-01,"solid"
-"All Country","Apr","2017",13748,2017-04-01,"dashed"
-"All Country","Apr","2018",5749,2018-04-01,"dashed"
-"All Country","Apr","2019",7583,2019-04-01,"dashed"
-"All Country","Apr","2020",3695,2020-04-01,"dashed"
-"All Country","Apr","2021",3052,2021-04-01,"dashed"
-"All Country","Apr","2022",5406,2022-04-01,"dashed"
-"All Country","Apr","2023",12126,2023-04-01,"dashed"
-"All Country","Apr","2024",11635,2024-04-01,"dashed"
-"All Country","Apr","2025",11761,2025-04-01,"solid"
-"All Country","May","2017",18248,2017-05-01,"dashed"
-"All Country","May","2018",11906,2018-05-01,"dashed"
-"All Country","May","2019",12448,2019-05-01,"dashed"
-"All Country","May","2020",6950,2020-05-01,"dashed"
-"All Country","May","2021",2403,2021-05-01,"dashed"
-"All Country","May","2022",8833,2022-05-01,"dashed"
-"All Country","May","2023",15703,2023-05-01,"dashed"
-"All Country","May","2024",14981,2024-05-01,"dashed"
-"All Country","May","2025",10718,2025-05-01,"solid"
-"All Country","Jun","2017",29715,2017-06-01,"dashed"
-"All Country","Jun","2018",18452,2018-06-01,"dashed"
-"All Country","Jun","2019",25731,2019-06-01,"dashed"
-"All Country","Jun","2020",11304,2020-06-01,"dashed"
-"All Country","Jun","2021",4519,2021-06-01,"dashed"
-"All Country","Jun","2022",21011,2022-06-01,"dashed"
-"All Country","Jun","2023",34262,2023-06-01,"dashed"
-"All Country","Jun","2024",21470,2024-06-01,"dashed"
-"All Country","Jul","2017",45843,2017-07-01,"dashed"
-"All Country","Jul","2018",21435,2018-07-01,"dashed"
-"All Country","Jul","2019",41677,2019-07-01,"dashed"
-"All Country","Jul","2020",17924,2020-07-01,"dashed"
-"All Country","Jul","2021",7423,2021-07-01,"dashed"
-"All Country","Jul","2022",19766,2022-07-01,"dashed"
-"All Country","Jul","2023",81469,2023-07-01,"dashed"
-"All Country","Jul","2024",53848,2024-07-01,"dashed"
-"All Country","Aug","2017",28719,2017-08-01,"dashed"
-"All Country","Aug","2018",18837,2018-08-01,"dashed"
-"All Country","Aug","2019",85576,2019-08-01,"dashed"
-"All Country","Aug","2020",14132,2020-08-01,"dashed"
-"All Country","Aug","2021",9088,2021-08-01,"dashed"
-"All Country","Aug","2022",17812,2022-08-01,"dashed"
-"All Country","Aug","2023",131040,2023-08-01,"dashed"
-"All Country","Aug","2024",67078,2024-08-01,"dashed"
-"All Country","Sep","2017",10071,2017-09-01,"dashed"
-"All Country","Sep","2018",14032,2018-09-01,"dashed"
-"All Country","Sep","2019",42755,2019-09-01,"dashed"
-"All Country","Sep","2020",9190,2020-09-01,"dashed"
-"All Country","Sep","2021",11434,2021-09-01,"dashed"
-"All Country","Sep","2022",34023,2022-09-01,"dashed"
-"All Country","Sep","2023",112715,2023-09-01,"dashed"
-"All Country","Sep","2024",86656,2024-09-01,"dashed"
-"All Country","Oct","2017",9119,2017-10-01,"dashed"
-"All Country","Oct","2018",11734,2018-10-01,"dashed"
-"All Country","Oct","2019",39288,2019-10-01,"dashed"
-"All Country","Oct","2020",5570,2020-10-01,"dashed"
-"All Country","Oct","2021",8537,2021-10-01,"dashed"
-"All Country","Oct","2022",37196,2022-10-01,"dashed"
-"All Country","Oct","2023",95845,2023-10-01,"dashed"
-"All Country","Oct","2024",106566,2024-10-01,"dashed"
-"All Country","Nov","2017",13327,2017-11-01,"dashed"
-"All Country","Nov","2018",13240,2018-11-01,"dashed"
-"All Country","Nov","2019",31945,2019-11-01,"dashed"
-"All Country","Nov","2020",4261,2020-11-01,"dashed"
-"All Country","Nov","2021",8309,2021-11-01,"dashed"
-"All Country","Nov","2022",32676,2022-11-01,"dashed"
-"All Country","Nov","2023",75916,2023-11-01,"dashed"
-"All Country","Nov","2024",76574,2024-11-01,"dashed"
-"All Country","Dec","2017",10513,2017-12-01,"dashed"
-"All Country","Dec","2018",11734,2018-12-01,"dashed"
-"All Country","Dec","2019",21749,2019-12-01,"dashed"
-"All Country","Dec","2020",3164,2020-12-01,"dashed"
-"All Country","Dec","2021",11985,2021-12-01,"dashed"
-"All Country","Dec","2022",20655,2022-12-01,"dashed"
-"All Country","Dec","2023",31688,2023-12-01,"dashed"
-"All Country","Dec","2024",54544,2024-12-01,"dashed"
-"Bangladesh","Jan","2018",26,2018-01-01,"dashed"
-"Bangladesh","Jan","2019",41,2019-01-01,"dashed"
-"Bangladesh","Jan","2020",222,2020-01-01,"dashed"
-"Bangladesh","Jan","2021",27,2021-01-01,"dashed"
-"Bangladesh","Jan","2022",110,2022-01-01,"dashed"
-"Bangladesh","Jan","2023",504,2023-01-01,"dashed"
-"Bangladesh","Jan","2024",1055,2024-01-01,"dashed"
-"Bangladesh","Jan","2025",1161,2025-01-01,"solid"
-"Bangladesh","Feb","2018",5,2018-02-01,"dashed"
-"Bangladesh","Feb","2019",18,2019-02-01,"dashed"
-"Bangladesh","Feb","2020",44,2020-02-01,"dashed"
-"Bangladesh","Feb","2021",9,2021-02-01,"dashed"
-"Bangladesh","Feb","2022",21,2022-02-01,"dashed"
-"Bangladesh","Feb","2023",182,2023-02-01,"dashed"
-"Bangladesh","Feb","2024",339,2024-02-01,"dashed"
-"Bangladesh","Feb","2025",374,2025-02-01,"solid"
-"Bangladesh","Mar","2018",23,2018-03-01,"dashed"
-"Bangladesh","Mar","2019",15,2019-03-01,"dashed"
-"Bangladesh","Mar","2020",24,2020-03-01,"dashed"
-"Bangladesh","Mar","2021",12,2021-03-01,"dashed"
-"Bangladesh","Mar","2022",22,2022-03-01,"dashed"
-"Bangladesh","Mar","2023",123,2023-03-01,"dashed"
-"Bangladesh","Mar","2024",311,2024-03-01,"dashed"
-"Bangladesh","Mar","2025",336,2025-03-01,"solid"
-"Bangladesh","Apr","2018",27,2018-04-01,"dashed"
-"Bangladesh","Apr","2019",49,2019-04-01,"dashed"
-"Bangladesh","Apr","2020",26,2020-04-01,"dashed"
-"Bangladesh","Apr","2021",4,2021-04-01,"dashed"
-"Bangladesh","Apr","2022",21,2022-04-01,"dashed"
-"Bangladesh","Apr","2023",136,2023-04-01,"dashed"
-"Bangladesh","Apr","2024",504,2024-04-01,"dashed"
-"Bangladesh","Apr","2025",701,2025-04-01,"solid"
-"Bangladesh","May","2018",64,2018-05-01,"dashed"
-"Bangladesh","May","2019",225,2019-05-01,"dashed"
-"Bangladesh","May","2020",10,2020-05-01,"dashed"
-"Bangladesh","May","2021",40,2021-05-01,"dashed"
-"Bangladesh","May","2022",131,2022-05-01,"dashed"
-"Bangladesh","May","2023",785,2023-05-01,"dashed"
-"Bangladesh","May","2024",644,2024-05-01,"dashed"
-"Bangladesh","May","2025",1773,2025-05-01,"solid"
-"Bangladesh","Jun","2018",310,2018-06-01,"dashed"
-"Bangladesh","Jun","2019",1861,2019-06-01,"dashed"
-"Bangladesh","Jun","2020",16,2020-06-01,"dashed"
-"Bangladesh","Jun","2021",229,2021-06-01,"dashed"
-"Bangladesh","Jun","2022",882,2022-06-01,"dashed"
-"Bangladesh","Jun","2023",6986,2023-06-01,"dashed"
-"Bangladesh","Jun","2024",798,2024-06-01,"dashed"
-"Bangladesh","Jul","2018",840,2018-07-01,"dashed"
-"Bangladesh","Jul","2019",11720,2019-07-01,"dashed"
-"Bangladesh","Jul","2020",32,2020-07-01,"dashed"
-"Bangladesh","Jul","2021",2570,2021-07-01,"dashed"
-"Bangladesh","Jul","2022",1458,2022-07-01,"dashed"
-"Bangladesh","Jul","2023",40381,2023-07-01,"dashed"
-"Bangladesh","Jul","2024",2669,2024-07-01,"dashed"
-"Bangladesh","Aug","2018",2090,2018-08-01,"dashed"
-"Bangladesh","Aug","2019",57171,2019-08-01,"dashed"
-"Bangladesh","Aug","2020",60,2020-08-01,"dashed"
-"Bangladesh","Aug","2021",6970,2021-08-01,"dashed"
-"Bangladesh","Aug","2022",2832,2022-08-01,"dashed"
-"Bangladesh","Aug","2023",81164,2023-08-01,"dashed"
-"Bangladesh","Aug","2024",6521,2024-08-01,"dashed"
-"Bangladesh","Sep","2018",2872,2018-09-01,"dashed"
-"Bangladesh","Sep","2019",16508,2019-09-01,"dashed"
-"Bangladesh","Sep","2020",44,2020-09-01,"dashed"
-"Bangladesh","Sep","2021",8876,2021-09-01,"dashed"
-"Bangladesh","Sep","2022",11803,2022-09-01,"dashed"
-"Bangladesh","Sep","2023",75986,2023-09-01,"dashed"
-"Bangladesh","Sep","2024",18097,2024-09-01,"dashed"
-"Bangladesh","Oct","2018",2217,2018-10-01,"dashed"
-"Bangladesh","Oct","2019",9041,2019-10-01,"dashed"
-"Bangladesh","Oct","2020",185,2020-10-01,"dashed"
-"Bangladesh","Oct","2021",4911,2021-10-01,"dashed"
-"Bangladesh","Oct","2022",19856,2022-10-01,"dashed"
-"Bangladesh","Oct","2023",61392,2023-10-01,"dashed"
-"Bangladesh","Oct","2024",30879,2024-10-01,"dashed"
-"Bangladesh","Nov","2018",1399,2018-11-01,"dashed"
-"Bangladesh","Nov","2019",3555,2019-11-01,"dashed"
-"Bangladesh","Nov","2020",513,2020-11-01,"dashed"
-"Bangladesh","Nov","2021",3423,2021-11-01,"dashed"
-"Bangladesh","Nov","2022",18979,2022-11-01,"dashed"
-"Bangladesh","Nov","2023",46026,2023-11-01,"dashed"
-"Bangladesh","Nov","2024",29652,2024-11-01,"dashed"
-"Bangladesh","Dec","2018",274,2018-12-01,"dashed"
-"Bangladesh","Dec","2019",1133,2019-12-01,"dashed"
-"Bangladesh","Dec","2020",246,2020-12-01,"dashed"
-"Bangladesh","Dec","2021",1366,2021-12-01,"dashed"
-"Bangladesh","Dec","2022",6293,2022-12-01,"dashed"
-"Bangladesh","Dec","2023",7473,2023-12-01,"dashed"
-"Bangladesh","Dec","2024",9745,2024-12-01,"dashed"
-"Bhutan","Jan","2024",0,2024-01-01,"dashed"
-"Bhutan","Jan","2025",2,2025-01-01,"solid"
-"Bhutan","Feb","2024",0,2024-02-01,"dashed"
-"Bhutan","Feb","2025",0,2025-02-01,"solid"
-"Bhutan","Mar","2024",0,2024-03-01,"dashed"
-"Bhutan","Mar","2025",1,2025-03-01,"solid"
-"Bhutan","Apr","2024",0,2024-04-01,"dashed"
-"Bhutan","Apr","2025",0,2025-04-01,"solid"
-"Bhutan","May","2024",0,2024-05-01,"dashed"
-"Bhutan","May","2025",1,2025-05-01,"solid"
-"Bhutan","Jun","2024",0,2024-06-01,"dashed"
-"Bhutan","Jul","2024",2,2024-07-01,"dashed"
-"Bhutan","Aug","2024",4,2024-08-01,"dashed"
-"Bhutan","Sep","2024",1,2024-09-01,"dashed"
-"Bhutan","Oct","2024",3,2024-10-01,"dashed"
-"Bhutan","Nov","2024",4,2024-11-01,"dashed"
-"Bhutan","Dec","2024",3,2024-12-01,"dashed"
-"India","Jan","2024",5079,2024-01-01,"dashed"
-"India","Jan","2025",4700,2025-01-01,"solid"
-"India","Feb","2024",5429,2024-02-01,"dashed"
-"India","Feb","2025",3806,2025-02-01,"solid"
-"India","Mar","2024",5597,2024-03-01,"dashed"
-"India","Mar","2025",3517,2025-03-01,"solid"
-"India","Apr","2024",3342,2024-04-01,"dashed"
-"India","Apr","2025",2700,2025-04-01,"solid"
-"India","May","2024",5145,2024-05-01,"dashed"
-"India","May","2025",3766,2025-05-01,"solid"
-"India","Jun","2024",7499,2024-06-01,"dashed"
-"India","Jul","2024",27675,2024-07-01,"dashed"
-"India","Aug","2024",32388,2024-08-01,"dashed"
-"India","Sep","2024",41375,2024-09-01,"dashed"
-"India","Oct","2024",51183,2024-10-01,"dashed"
-"India","Nov","2024",30354,2024-11-01,"dashed"
-"India","Dec","2024",34718,2024-12-01,"dashed"
-"Maldives","Jan","2022",21,2022-01-01,"dashed"
-"Maldives","Jan","2023",238,2023-01-01,"dashed"
-"Maldives","Jan","2024",138,2024-01-01,"dashed"
-"Maldives","Jan","2025",72,2025-01-01,"solid"
-"Maldives","Feb","2022",21,2022-02-01,"dashed"
-"Maldives","Feb","2023",155,2023-02-01,"dashed"
-"Maldives","Feb","2024",120,2024-02-01,"dashed"
-"Maldives","Feb","2025",74,2025-02-01,"solid"
-"Maldives","Mar","2022",26,2022-03-01,"dashed"
-"Maldives","Mar","2023",228,2023-03-01,"dashed"
-"Maldives","Mar","2024",125,2024-03-01,"dashed"
-"Maldives","Mar","2025",69,2025-03-01,"solid"
-"Maldives","Apr","2022",95,2022-04-01,"dashed"
-"Maldives","Apr","2023",330,2023-04-01,"dashed"
-"Maldives","Apr","2024",255,2024-04-01,"dashed"
-"Maldives","Apr","2025",120,2025-04-01,"solid"
-"Maldives","May","2022",212,2022-05-01,"dashed"
-"Maldives","May","2023",268,2023-05-01,"dashed"
-"Maldives","May","2024",667,2024-05-01,"dashed"
-"Maldives","May","2025",116,2025-05-01,"solid"
-"Maldives","Jun","2022",302,2022-06-01,"dashed"
-"Maldives","Jun","2023",569,2023-06-01,"dashed"
-"Maldives","Jun","2024",618,2024-06-01,"dashed"
-"Maldives","Jul","2022",361,2022-07-01,"dashed"
-"Maldives","Jul","2023",304,2023-07-01,"dashed"
-"Maldives","Jul","2024",440,2024-07-01,"dashed"
-"Maldives","Aug","2022",250,2022-08-01,"dashed"
-"Maldives","Aug","2023",327,2023-08-01,"dashed"
-"Maldives","Aug","2024",394,2024-08-01,"dashed"
-"Maldives","Sep","2022",260,2022-09-01,"dashed"
-"Maldives","Sep","2023",288,2023-09-01,"dashed"
-"Maldives","Sep","2024",180,2024-09-01,"dashed"
-"Maldives","Oct","2022",660,2022-10-01,"dashed"
-"Maldives","Oct","2023",306,2023-10-01,"dashed"
-"Maldives","Oct","2024",117,2024-10-01,"dashed"
-"Maldives","Nov","2022",282,2022-11-01,"dashed"
-"Maldives","Nov","2023",210,2023-11-01,"dashed"
-"Maldives","Nov","2024",124,2024-11-01,"dashed"
-"Maldives","Dec","2022",205,2022-12-01,"dashed"
-"Maldives","Dec","2023",194,2023-12-01,"dashed"
-"Maldives","Dec","2024",68,2024-12-01,"dashed"
-"Myanmar","Jan","2024",208,2024-01-01,"dashed"
-"Myanmar","Jan","2025",344,2025-01-01,"solid"
-"Myanmar","Feb","2024",181,2024-02-01,"dashed"
-"Myanmar","Feb","2025",240,2025-02-01,"solid"
-"Myanmar","Mar","2024",176,2024-03-01,"dashed"
-"Myanmar","Mar","2025",334,2025-03-01,"solid"
-"Myanmar","Apr","2024",203,2024-04-01,"dashed"
-"Myanmar","Apr","2025",470,2025-04-01,"solid"
-"Myanmar","May","2024",311,2024-05-01,"dashed"
-"Myanmar","Jun","2024",574,2024-06-01,"dashed"
-"Myanmar","Jul","2024",1236,2024-07-01,"dashed"
-"Myanmar","Aug","2024",1239,2024-08-01,"dashed"
-"Myanmar","Sep","2024",933,2024-09-01,"dashed"
-"Myanmar","Oct","2024",690,2024-10-01,"dashed"
-"Myanmar","Nov","2024",380,2024-11-01,"dashed"
-"Myanmar","Dec","2024",257,2024-12-01,"dashed"
-"Nepal","Jan","2017",3,2017-01-01,"dashed"
-"Nepal","Jan","2018",3,2018-01-01,"dashed"
-"Nepal","Jan","2019",3,2019-01-01,"dashed"
-"Nepal","Jan","2020",15,2020-01-01,"dashed"
-"Nepal","Jan","2021",3,2021-01-01,"dashed"
-"Nepal","Jan","2022",10,2022-01-01,"dashed"
-"Nepal","Jan","2023",133,2023-01-01,"dashed"
-"Nepal","Jan","2024",499,2024-01-01,"dashed"
-"Nepal","Jan","2025",251,2025-01-01,"solid"
-"Nepal","Feb","2017",0,2017-02-01,"dashed"
-"Nepal","Feb","2018",3,2018-02-01,"dashed"
-"Nepal","Feb","2019",0,2019-02-01,"dashed"
-"Nepal","Feb","2020",15,2020-02-01,"dashed"
-"Nepal","Feb","2021",10,2021-02-01,"dashed"
-"Nepal","Feb","2022",0,2022-02-01,"dashed"
-"Nepal","Feb","2023",130,2023-02-01,"dashed"
-"Nepal","Feb","2024",408,2024-02-01,"dashed"
-"Nepal","Feb","2025",245,2025-02-01,"solid"
-"Nepal","Mar","2017",0,2017-03-01,"dashed"
-"Nepal","Mar","2018",1,2018-03-01,"dashed"
-"Nepal","Mar","2019",2,2019-03-01,"dashed"
-"Nepal","Mar","2020",10,2020-03-01,"dashed"
-"Nepal","Mar","2021",7,2021-03-01,"dashed"
-"Nepal","Mar","2022",14,2022-03-01,"dashed"
-"Nepal","Mar","2023",195,2023-03-01,"dashed"
-"Nepal","Mar","2024",374,2024-03-01,"dashed"
-"Nepal","Mar","2025",241,2025-03-01,"solid"
-"Nepal","Apr","2017",0,2017-04-01,"dashed"
-"Nepal","Apr","2018",0,2018-04-01,"dashed"
-"Nepal","Apr","2019",3,2019-04-01,"dashed"
-"Nepal","Apr","2020",6,2020-04-01,"dashed"
-"Nepal","Apr","2021",16,2021-04-01,"dashed"
-"Nepal","Apr","2022",15,2022-04-01,"dashed"
-"Nepal","Apr","2023",158,2023-04-01,"dashed"
-"Nepal","Apr","2024",463,2024-04-01,"dashed"
-"Nepal","Apr","2025",201,2025-04-01,"solid"
-"Nepal","May","2017",2,2017-05-01,"dashed"
-"Nepal","May","2018",1,2018-05-01,"dashed"
-"Nepal","May","2019",29,2019-05-01,"dashed"
-"Nepal","May","2020",28,2020-05-01,"dashed"
-"Nepal","May","2021",4,2021-05-01,"dashed"
-"Nepal","May","2022",15,2022-05-01,"dashed"
-"Nepal","May","2023",163,2023-05-01,"dashed"
-"Nepal","May","2024",495,2024-05-01,"dashed"
-"Nepal","May","2025",277,2025-05-01,"solid"
-"Nepal","Jun","2017",3,2017-06-01,"dashed"
-"Nepal","Jun","2018",7,2018-06-01,"dashed"
-"Nepal","Jun","2019",108,2019-06-01,"dashed"
-"Nepal","Jun","2020",18,2020-06-01,"dashed"
-"Nepal","Jun","2021",3,2021-06-01,"dashed"
-"Nepal","Jun","2022",87,2022-06-01,"dashed"
-"Nepal","Jun","2023",1026,2023-06-01,"dashed"
-"Nepal","Jun","2024",632,2024-06-01,"dashed"
-"Nepal","Jul","2017",1,2017-07-01,"dashed"
-"Nepal","Jul","2018",15,2018-07-01,"dashed"
-"Nepal","Jul","2019",218,2019-07-01,"dashed"
-"Nepal","Jul","2020",43,2020-07-01,"dashed"
-"Nepal","Jul","2021",42,2021-07-01,"dashed"
-"Nepal","Jul","2022",378,2022-07-01,"dashed"
-"Nepal","Jul","2023",6459,2023-07-01,"dashed"
-"Nepal","Jul","2024",1906,2024-07-01,"dashed"
-"Nepal","Aug","2017",9,2017-08-01,"dashed"
-"Nepal","Aug","2018",34,2018-08-01,"dashed"
-"Nepal","Aug","2019",1096,2019-08-01,"dashed"
-"Nepal","Aug","2020",80,2020-08-01,"dashed"
-"Nepal","Aug","2021",35,2021-08-01,"dashed"
-"Nepal","Aug","2022",1845,2022-08-01,"dashed"
-"Nepal","Aug","2023",14534,2023-08-01,"dashed"
-"Nepal","Aug","2024",6493,2024-08-01,"dashed"
-"Nepal","Sep","2017",17,2017-09-01,"dashed"
-"Nepal","Sep","2018",30,2018-09-01,"dashed"
-"Nepal","Sep","2019",5006,2019-09-01,"dashed"
-"Nepal","Sep","2020",82,2020-09-01,"dashed"
-"Nepal","Sep","2021",81,2021-09-01,"dashed"
-"Nepal","Sep","2022",10790,2022-09-01,"dashed"
-"Nepal","Sep","2023",13912,2023-09-01,"dashed"
-"Nepal","Sep","2024",11875,2024-09-01,"dashed"
-"Nepal","Oct","2017",32,2017-10-01,"dashed"
-"Nepal","Oct","2018",21,2018-10-01,"dashed"
-"Nepal","Oct","2019",2976,2019-10-01,"dashed"
-"Nepal","Oct","2020",60,2020-10-01,"dashed"
-"Nepal","Oct","2021",66,2021-10-01,"dashed"
-"Nepal","Oct","2022",6593,2022-10-01,"dashed"
-"Nepal","Oct","2023",12699,2023-10-01,"dashed"
-"Nepal","Oct","2024",12332,2024-10-01,"dashed"
-"Nepal","Nov","2017",11,2017-11-01,"dashed"
-"Nepal","Nov","2018",48,2018-11-01,"dashed"
-"Nepal","Nov","2019",828,2019-11-01,"dashed"
-"Nepal","Nov","2020",31,2020-11-01,"dashed"
-"Nepal","Nov","2021",57,2021-11-01,"dashed"
-"Nepal","Nov","2022",2515,2022-11-01,"dashed"
-"Nepal","Nov","2023",2805,2023-11-01,"dashed"
-"Nepal","Nov","2024",5544,2024-11-01,"dashed"
-"Nepal","Dec","2017",19,2017-12-01,"dashed"
-"Nepal","Dec","2018",12,2018-12-01,"dashed"
-"Nepal","Dec","2019",77,2019-12-01,"dashed"
-"Nepal","Dec","2020",10,2020-12-01,"dashed"
-"Nepal","Dec","2021",20,2021-12-01,"dashed"
-"Nepal","Dec","2022",603,2022-12-01,"dashed"
-"Nepal","Dec","2023",576,2023-12-01,"dashed"
-"Nepal","Dec","2024",844,2024-12-01,"dashed"
-"Sri Lanka","Jan","2017",6343,2017-01-01,"dashed"
-"Sri Lanka","Jan","2018",7141,2018-01-01,"dashed"
-"Sri Lanka","Jan","2019",6469,2019-01-01,"dashed"
-"Sri Lanka","Jan","2020",14079,2020-01-01,"dashed"
-"Sri Lanka","Jan","2021",1912,2021-01-01,"dashed"
-"Sri Lanka","Jan","2022",7090,2022-01-01,"dashed"
-"Sri Lanka","Jan","2023",8148,2023-01-01,"dashed"
-"Sri Lanka","Jan","2024",10752,2024-01-01,"dashed"
-"Sri Lanka","Jan","2025",4942,2025-01-01,"solid"
-"Sri Lanka","Feb","2017",5281,2017-02-01,"dashed"
-"Sri Lanka","Feb","2018",4365,2018-02-01,"dashed"
-"Sri Lanka","Feb","2019",3255,2019-02-01,"dashed"
-"Sri Lanka","Feb","2020",5258,2020-02-01,"dashed"
-"Sri Lanka","Feb","2021",2355,2021-02-01,"dashed"
-"Sri Lanka","Feb","2022",3056,2022-02-01,"dashed"
-"Sri Lanka","Feb","2023",6828,2023-02-01,"dashed"
-"Sri Lanka","Feb","2024",6047,2024-02-01,"dashed"
-"Sri Lanka","Feb","2025",3666,2025-02-01,"solid"
-"Sri Lanka","Mar","2017",11815,2017-03-01,"dashed"
-"Sri Lanka","Mar","2018",3322,2018-03-01,"dashed"
-"Sri Lanka","Mar","2019",2924,2019-03-01,"dashed"
-"Sri Lanka","Mar","2020",1505,2020-03-01,"dashed"
-"Sri Lanka","Mar","2021",2124,2021-03-01,"dashed"
-"Sri Lanka","Mar","2022",3474,2022-03-01,"dashed"
-"Sri Lanka","Mar","2023",7330,2023-03-01,"dashed"
-"Sri Lanka","Mar","2024",3629,2024-03-01,"dashed"
-"Sri Lanka","Mar","2025",3771,2025-03-01,"solid"
-"Sri Lanka","Apr","2017",12574,2017-04-01,"dashed"
-"Sri Lanka","Apr","2018",2618,2018-04-01,"dashed"
-"Sri Lanka","Apr","2019",2600,2019-04-01,"dashed"
-"Sri Lanka","Apr","2020",552,2020-04-01,"dashed"
-"Sri Lanka","Apr","2021",2545,2021-04-01,"dashed"
-"Sri Lanka","Apr","2022",3785,2022-04-01,"dashed"
-"Sri Lanka","Apr","2023",7190,2023-04-01,"dashed"
-"Sri Lanka","Apr","2024",2234,2024-04-01,"dashed"
-"Sri Lanka","Apr","2025",5171,2025-04-01,"solid"
-"Sri Lanka","May","2017",16016,2017-05-01,"dashed"
-"Sri Lanka","May","2018",4550,2018-05-01,"dashed"
-"Sri Lanka","May","2019",3844,2019-05-01,"dashed"
-"Sri Lanka","May","2020",1107,2020-05-01,"dashed"
-"Sri Lanka","May","2021",1257,2021-05-01,"dashed"
-"Sri Lanka","May","2022",5695,2022-05-01,"dashed"
-"Sri Lanka","May","2023",8513,2023-05-01,"dashed"
-"Sri Lanka","May","2024",2650,2024-05-01,"dashed"
-"Sri Lanka","Jun","2017",25301,2017-06-01,"dashed"
-"Sri Lanka","Jun","2018",4523,2018-06-01,"dashed"
-"Sri Lanka","Jun","2019",5065,2019-06-01,"dashed"
-"Sri Lanka","Jun","2020",2028,2020-06-01,"dashed"
-"Sri Lanka","Jun","2021",2663,2021-06-01,"dashed"
-"Sri Lanka","Jun","2022",13254,2022-06-01,"dashed"
-"Sri Lanka","Jun","2023",11539,2023-06-01,"dashed"
-"Sri Lanka","Jun","2024",3312,2024-06-01,"dashed"
-"Sri Lanka","Jul","2017",40474,2017-07-01,"dashed"
-"Sri Lanka","Jul","2018",6455,2018-07-01,"dashed"
-"Sri Lanka","Jul","2019",7326,2019-07-01,"dashed"
-"Sri Lanka","Jul","2020",2021,2020-07-01,"dashed"
-"Sri Lanka","Jul","2021",3759,2021-07-01,"dashed"
-"Sri Lanka","Jul","2022",10082,2022-07-01,"dashed"
-"Sri Lanka","Jul","2023",6679,2023-07-01,"dashed"
-"Sri Lanka","Jul","2024",4519,2024-07-01,"dashed"
-"Sri Lanka","Aug","2017",23898,2017-08-01,"dashed"
-"Sri Lanka","Aug","2018",4293,2018-08-01,"dashed"
-"Sri Lanka","Aug","2019",9100,2019-08-01,"dashed"
-"Sri Lanka","Aug","2020",1465,2020-08-01,"dashed"
-"Sri Lanka","Aug","2021",1136,2021-08-01,"dashed"
-"Sri Lanka","Aug","2022",6295,2022-08-01,"dashed"
-"Sri Lanka","Aug","2023",5718,2023-08-01,"dashed"
-"Sri Lanka","Aug","2024",3896,2024-08-01,"dashed"
-"Sri Lanka","Sep","2017",6875,2017-09-01,"dashed"
-"Sri Lanka","Sep","2018",2049,2018-09-01,"dashed"
-"Sri Lanka","Sep","2019",6874,2019-09-01,"dashed"
-"Sri Lanka","Sep","2020",1149,2020-09-01,"dashed"
-"Sri Lanka","Sep","2021",1623,2021-09-01,"dashed"
-"Sri Lanka","Sep","2022",5434,2022-09-01,"dashed"
-"Sri Lanka","Sep","2023",2397,2023-09-01,"dashed"
-"Sri Lanka","Sep","2024",2772,2024-09-01,"dashed"
-"Sri Lanka","Oct","2017",6603,2017-10-01,"dashed"
-"Sri Lanka","Oct","2018",1904,2018-10-01,"dashed"
-"Sri Lanka","Oct","2019",14423,2019-10-01,"dashed"
-"Sri Lanka","Oct","2020",1001,2020-10-01,"dashed"
-"Sri Lanka","Oct","2021",2794,2021-10-01,"dashed"
-"Sri Lanka","Oct","2022",4270,2022-10-01,"dashed"
-"Sri Lanka","Oct","2023",3631,2023-10-01,"dashed"
-"Sri Lanka","Oct","2024",2964,2024-10-01,"dashed"
-"Sri Lanka","Nov","2017",10804,2017-11-01,"dashed"
-"Sri Lanka","Nov","2018",4537,2018-11-01,"dashed"
-"Sri Lanka","Nov","2019",17144,2019-11-01,"dashed"
-"Sri Lanka","Nov","2020",750,2020-11-01,"dashed"
-"Sri Lanka","Nov","2021",4058,2021-11-01,"dashed"
-"Sri Lanka","Nov","2022",4887,2022-11-01,"dashed"
-"Sri Lanka","Nov","2023",9373,2023-11-01,"dashed"
-"Sri Lanka","Nov","2024",3498,2024-11-01,"dashed"
-"Sri Lanka","Dec","2017",8752,2017-12-01,"dashed"
-"Sri Lanka","Dec","2018",5563,2018-12-01,"dashed"
-"Sri Lanka","Dec","2019",15765,2019-12-01,"dashed"
-"Sri Lanka","Dec","2020",1317,2020-12-01,"dashed"
-"Sri Lanka","Dec","2021",9894,2021-12-01,"dashed"
-"Sri Lanka","Dec","2022",8933,2022-12-01,"dashed"
-"Sri Lanka","Dec","2023",11313,2023-12-01,"dashed"
-"Sri Lanka","Dec","2024",3604,2024-12-01,"dashed"
-"Thailand","Jan","2017",1598,2017-01-01,"dashed"
-"Thailand","Jan","2018",2244,2018-01-01,"dashed"
-"Thailand","Jan","2019",5797,2019-01-01,"dashed"
-"Thailand","Jan","2020",3883,2020-01-01,"dashed"
-"Thailand","Jan","2021",1104,2021-01-01,"dashed"
-"Thailand","Jan","2022",560,2022-01-01,"dashed"
-"Thailand","Jan","2023",4520,2023-01-01,"dashed"
-"Thailand","Jan","2024",11413,2024-01-01,"dashed"
-"Thailand","Jan","2025",4005,2025-01-01,"solid"
-"Thailand","Feb","2017",1229,2017-02-01,"dashed"
-"Thailand","Feb","2018",1996,2018-02-01,"dashed"
-"Thailand","Feb","2019",4984,2019-02-01,"dashed"
-"Thailand","Feb","2020",2787,2020-02-01,"dashed"
-"Thailand","Feb","2021",808,2021-02-01,"dashed"
-"Thailand","Feb","2022",391,2022-02-01,"dashed"
-"Thailand","Feb","2023",3312,2023-02-01,"dashed"
-"Thailand","Feb","2024",7123,2024-02-01,"dashed"
-"Thailand","Feb","2025",2269,2025-02-01,"solid"
-"Thailand","Mar","2017",1104,2017-03-01,"dashed"
-"Thailand","Mar","2018",2606,2018-03-01,"dashed"
-"Thailand","Mar","2019",5369,2019-03-01,"dashed"
-"Thailand","Mar","2020",2539,2020-03-01,"dashed"
-"Thailand","Mar","2021",762,2021-03-01,"dashed"
-"Thailand","Mar","2022",509,2022-03-01,"dashed"
-"Thailand","Mar","2023",3761,2023-03-01,"dashed"
-"Thailand","Mar","2024",5315,2024-03-01,"dashed"
-"Thailand","Mar","2025",2447,2025-03-01,"solid"
-"Thailand","Apr","2017",1174,2017-04-01,"dashed"
-"Thailand","Apr","2018",3104,2018-04-01,"dashed"
-"Thailand","Apr","2019",4931,2019-04-01,"dashed"
-"Thailand","Apr","2020",3111,2020-04-01,"dashed"
-"Thailand","Apr","2021",474,2021-04-01,"dashed"
-"Thailand","Apr","2022",790,2022-04-01,"dashed"
-"Thailand","Apr","2023",4037,2023-04-01,"dashed"
-"Thailand","Apr","2024",4327,2024-04-01,"dashed"
-"Thailand","Apr","2025",2271,2025-04-01,"solid"
-"Thailand","May","2017",2230,2017-05-01,"dashed"
-"Thailand","May","2018",7291,2018-05-01,"dashed"
-"Thailand","May","2019",8350,2019-05-01,"dashed"
-"Thailand","May","2020",5805,2020-05-01,"dashed"
-"Thailand","May","2021",1089,2021-05-01,"dashed"
-"Thailand","May","2022",2293,2022-05-01,"dashed"
-"Thailand","May","2023",5601,2023-05-01,"dashed"
-"Thailand","May","2024",4968,2024-05-01,"dashed"
-"Thailand","May","2025",4683,2025-05-01,"solid"
-"Thailand","Jun","2017",4411,2017-06-01,"dashed"
-"Thailand","Jun","2018",13612,2018-06-01,"dashed"
-"Thailand","Jun","2019",18697,2019-06-01,"dashed"
-"Thailand","Jun","2020",9242,2020-06-01,"dashed"
-"Thailand","Jun","2021",1604,2021-06-01,"dashed"
-"Thailand","Jun","2022",6232,2022-06-01,"dashed"
-"Thailand","Jun","2023",13996,2023-06-01,"dashed"
-"Thailand","Jun","2024",7992,2024-06-01,"dashed"
-"Thailand","Jul","2017",5368,2017-07-01,"dashed"
-"Thailand","Jul","2018",14125,2018-07-01,"dashed"
-"Thailand","Jul","2019",22413,2019-07-01,"dashed"
-"Thailand","Jul","2020",15828,2020-07-01,"dashed"
-"Thailand","Jul","2021",1024,2021-07-01,"dashed"
-"Thailand","Jul","2022",7348,2022-07-01,"dashed"
-"Thailand","Jul","2023",27505,2023-07-01,"dashed"
-"Thailand","Jul","2024",15371,2024-07-01,"dashed"
-"Thailand","Aug","2017",4812,2017-08-01,"dashed"
-"Thailand","Aug","2018",12420,2018-08-01,"dashed"
-"Thailand","Aug","2019",18209,2019-08-01,"dashed"
-"Thailand","Aug","2020",12527,2020-08-01,"dashed"
-"Thailand","Aug","2021",939,2021-08-01,"dashed"
-"Thailand","Aug","2022",6543,2022-08-01,"dashed"
-"Thailand","Aug","2023",29155,2023-08-01,"dashed"
-"Thailand","Aug","2024",16119,2024-08-01,"dashed"
-"Thailand","Sep","2017",3179,2017-09-01,"dashed"
-"Thailand","Sep","2018",9081,2018-09-01,"dashed"
-"Thailand","Sep","2019",14367,2019-09-01,"dashed"
-"Thailand","Sep","2020",7915,2020-09-01,"dashed"
-"Thailand","Sep","2021",847,2021-09-01,"dashed"
-"Thailand","Sep","2022",5711,2022-09-01,"dashed"
-"Thailand","Sep","2023",20061,2023-09-01,"dashed"
-"Thailand","Sep","2024",11395,2024-09-01,"dashed"
-"Thailand","Oct","2017",2484,2017-10-01,"dashed"
-"Thailand","Oct","2018",7592,2018-10-01,"dashed"
-"Thailand","Oct","2019",12848,2019-10-01,"dashed"
-"Thailand","Oct","2020",4324,2020-10-01,"dashed"
-"Thailand","Oct","2021",754,2021-10-01,"dashed"
-"Thailand","Oct","2022",5754,2022-10-01,"dashed"
-"Thailand","Oct","2023",17749,2023-10-01,"dashed"
-"Thailand","Oct","2024",8359,2024-10-01,"dashed"
-"Thailand","Nov","2017",2512,2017-11-01,"dashed"
-"Thailand","Nov","2018",7256,2018-11-01,"dashed"
-"Thailand","Nov","2019",10418,2019-11-01,"dashed"
-"Thailand","Nov","2020",2967,2020-11-01,"dashed"
-"Thailand","Nov","2021",732,2021-11-01,"dashed"
-"Thailand","Nov","2022",5972,2022-11-01,"dashed"
-"Thailand","Nov","2023",17462,2023-11-01,"dashed"
-"Thailand","Nov","2024",7006,2024-11-01,"dashed"
-"Thailand","Dec","2017",1742,2017-12-01,"dashed"
-"Thailand","Dec","2018",5885,2018-12-01,"dashed"
-"Thailand","Dec","2019",4774,2019-12-01,"dashed"
-"Thailand","Dec","2020",1591,2020-12-01,"dashed"
-"Thailand","Dec","2021",480,2021-12-01,"dashed"
-"Thailand","Dec","2022",4575,2022-12-01,"dashed"
-"Thailand","Dec","2023",12060,2023-12-01,"dashed"
-"Thailand","Dec","2024",5293,2024-12-01,"dashed"
-"Timor-Leste","Jan","2021",178,2021-01-01,"dashed"
-"Timor-Leste","Jan","2022",1371,2022-01-01,"dashed"
-"Timor-Leste","Jan","2023",105,2023-01-01,"dashed"
-"Timor-Leste","Jan","2024",189,2024-01-01,"dashed"
-"Timor-Leste","Jan","2025",129,2025-01-01,"solid"
-"Timor-Leste","Feb","2021",242,2021-02-01,"dashed"
-"Timor-Leste","Feb","2022",1284,2022-02-01,"dashed"
-"Timor-Leste","Feb","2023",205,2023-02-01,"dashed"
-"Timor-Leste","Feb","2024",328,2024-02-01,"dashed"
-"Timor-Leste","Feb","2025",185,2025-02-01,"solid"
-"Timor-Leste","Mar","2021",116,2021-03-01,"dashed"
-"Timor-Leste","Mar","2022",1201,2022-03-01,"dashed"
-"Timor-Leste","Mar","2023",315,2023-03-01,"dashed"
-"Timor-Leste","Mar","2024",347,2024-03-01,"dashed"
-"Timor-Leste","Mar","2025",188,2025-03-01,"solid"
-"Timor-Leste","Apr","2021",13,2021-04-01,"dashed"
-"Timor-Leste","Apr","2022",700,2022-04-01,"dashed"
-"Timor-Leste","Apr","2023",275,2023-04-01,"dashed"
-"Timor-Leste","Apr","2024",307,2024-04-01,"dashed"
-"Timor-Leste","Apr","2025",127,2025-04-01,"solid"
-"Timor-Leste","May","2021",13,2021-05-01,"dashed"
-"Timor-Leste","May","2022",487,2022-05-01,"dashed"
-"Timor-Leste","May","2023",373,2023-05-01,"dashed"
-"Timor-Leste","May","2024",101,2024-05-01,"dashed"
-"Timor-Leste","May","2025",102,2025-05-01,"solid"
-"Timor-Leste","Jun","2021",20,2021-06-01,"dashed"
-"Timor-Leste","Jun","2022",254,2022-06-01,"dashed"
-"Timor-Leste","Jun","2023",146,2023-06-01,"dashed"
-"Timor-Leste","Jun","2024",45,2024-06-01,"dashed"
-"Timor-Leste","Jul","2021",28,2021-07-01,"dashed"
-"Timor-Leste","Jul","2022",139,2022-07-01,"dashed"
-"Timor-Leste","Jul","2023",141,2023-07-01,"dashed"
-"Timor-Leste","Jul","2024",30,2024-07-01,"dashed"
-"Timor-Leste","Aug","2021",8,2021-08-01,"dashed"
-"Timor-Leste","Aug","2022",47,2022-08-01,"dashed"
-"Timor-Leste","Aug","2023",142,2023-08-01,"dashed"
-"Timor-Leste","Aug","2024",24,2024-08-01,"dashed"
-"Timor-Leste","Sep","2021",7,2021-09-01,"dashed"
-"Timor-Leste","Sep","2022",25,2022-09-01,"dashed"
-"Timor-Leste","Sep","2023",71,2023-09-01,"dashed"
-"Timor-Leste","Sep","2024",28,2024-09-01,"dashed"
-"Timor-Leste","Oct","2021",12,2021-10-01,"dashed"
-"Timor-Leste","Oct","2022",63,2022-10-01,"dashed"
-"Timor-Leste","Oct","2023",68,2023-10-01,"dashed"
-"Timor-Leste","Oct","2024",39,2024-10-01,"dashed"
-"Timor-Leste","Nov","2021",39,2021-11-01,"dashed"
-"Timor-Leste","Nov","2022",41,2022-11-01,"dashed"
-"Timor-Leste","Nov","2023",40,2023-11-01,"dashed"
-"Timor-Leste","Nov","2024",12,2024-11-01,"dashed"
-"Timor-Leste","Dec","2021",225,2021-12-01,"dashed"
-"Timor-Leste","Dec","2022",46,2022-12-01,"dashed"
-"Timor-Leste","Dec","2023",72,2023-12-01,"dashed"
-"Timor-Leste","Dec","2024",12,2024-12-01,"dashed"
+"country","month","year","cases"
+"Nepal","Jan",2017,3
+"Sri Lanka","Jan",2017,6343
+"Thailand","Jan",2017,1598
+"Nepal","Feb",2017,0
+"Sri Lanka","Feb",2017,5281
+"Thailand","Feb",2017,1229
+"Nepal","Mar",2017,0
+"Sri Lanka","Mar",2017,11815
+"Thailand","Mar",2017,1104
+"Nepal","Apr",2017,0
+"Sri Lanka","Apr",2017,12574
+"Thailand","Apr",2017,1174
+"Nepal","May",2017,2
+"Sri Lanka","May",2017,16016
+"Thailand","May",2017,2230
+"Nepal","Jun",2017,3
+"Sri Lanka","Jun",2017,25301
+"Thailand","Jun",2017,4411
+"Nepal","Jul",2017,1
+"Sri Lanka","Jul",2017,40474
+"Thailand","Jul",2017,5368
+"Nepal","Aug",2017,9
+"Sri Lanka","Aug",2017,23898
+"Thailand","Aug",2017,4812
+"Nepal","Sep",2017,17
+"Sri Lanka","Sep",2017,6875
+"Thailand","Sep",2017,3179
+"Nepal","Oct",2017,32
+"Sri Lanka","Oct",2017,6603
+"Thailand","Oct",2017,2484
+"Nepal","Nov",2017,11
+"Sri Lanka","Nov",2017,10804
+"Thailand","Nov",2017,2512
+"Nepal","Dec",2017,19
+"Sri Lanka","Dec",2017,8752
+"Thailand","Dec",2017,1742
+"Bangladesh","Jan",2018,26
+"Nepal","Jan",2018,3
+"Sri Lanka","Jan",2018,7141
+"Thailand","Jan",2018,2244
+"Bangladesh","Feb",2018,5
+"Nepal","Feb",2018,3
+"Sri Lanka","Feb",2018,4365
+"Thailand","Feb",2018,1996
+"Bangladesh","Mar",2018,23
+"Nepal","Mar",2018,1
+"Sri Lanka","Mar",2018,3322
+"Thailand","Mar",2018,2606
+"Bangladesh","Apr",2018,27
+"Nepal","Apr",2018,0
+"Sri Lanka","Apr",2018,2618
+"Thailand","Apr",2018,3104
+"Bangladesh","May",2018,64
+"Nepal","May",2018,1
+"Sri Lanka","May",2018,4550
+"Thailand","May",2018,7291
+"Bangladesh","Jun",2018,310
+"Nepal","Jun",2018,7
+"Sri Lanka","Jun",2018,4523
+"Thailand","Jun",2018,13612
+"Bangladesh","Jul",2018,840
+"Nepal","Jul",2018,15
+"Sri Lanka","Jul",2018,6455
+"Thailand","Jul",2018,14125
+"Bangladesh","Aug",2018,2090
+"Nepal","Aug",2018,34
+"Sri Lanka","Aug",2018,4293
+"Thailand","Aug",2018,12420
+"Bangladesh","Sep",2018,2872
+"Nepal","Sep",2018,30
+"Sri Lanka","Sep",2018,2049
+"Thailand","Sep",2018,9081
+"Bangladesh","Oct",2018,2217
+"Nepal","Oct",2018,21
+"Sri Lanka","Oct",2018,1904
+"Thailand","Oct",2018,7592
+"Bangladesh","Nov",2018,1399
+"Nepal","Nov",2018,48
+"Sri Lanka","Nov",2018,4537
+"Thailand","Nov",2018,7256
+"Bangladesh","Dec",2018,274
+"Nepal","Dec",2018,12
+"Sri Lanka","Dec",2018,5563
+"Thailand","Dec",2018,5885
+"Bangladesh","Jan",2019,41
+"Nepal","Jan",2019,3
+"Sri Lanka","Jan",2019,6469
+"Thailand","Jan",2019,5797
+"Bangladesh","Feb",2019,18
+"Nepal","Feb",2019,0
+"Sri Lanka","Feb",2019,3255
+"Thailand","Feb",2019,4984
+"Bangladesh","Mar",2019,15
+"Nepal","Mar",2019,2
+"Sri Lanka","Mar",2019,2924
+"Thailand","Mar",2019,5369
+"Bangladesh","Apr",2019,49
+"Nepal","Apr",2019,3
+"Sri Lanka","Apr",2019,2600
+"Thailand","Apr",2019,4931
+"Bangladesh","May",2019,225
+"Nepal","May",2019,29
+"Sri Lanka","May",2019,3844
+"Thailand","May",2019,8350
+"Bangladesh","Jun",2019,1861
+"Nepal","Jun",2019,108
+"Sri Lanka","Jun",2019,5065
+"Thailand","Jun",2019,18697
+"Bangladesh","Jul",2019,11720
+"Nepal","Jul",2019,218
+"Sri Lanka","Jul",2019,7326
+"Thailand","Jul",2019,22413
+"Bangladesh","Aug",2019,57171
+"Nepal","Aug",2019,1096
+"Sri Lanka","Aug",2019,9100
+"Thailand","Aug",2019,18209
+"Bangladesh","Sep",2019,16508
+"Nepal","Sep",2019,5006
+"Sri Lanka","Sep",2019,6874
+"Thailand","Sep",2019,14367
+"Bangladesh","Oct",2019,9041
+"Nepal","Oct",2019,2976
+"Sri Lanka","Oct",2019,14423
+"Thailand","Oct",2019,12848
+"Bangladesh","Nov",2019,3555
+"Nepal","Nov",2019,828
+"Sri Lanka","Nov",2019,17144
+"Thailand","Nov",2019,10418
+"Bangladesh","Dec",2019,1133
+"Nepal","Dec",2019,77
+"Sri Lanka","Dec",2019,15765
+"Thailand","Dec",2019,4774
+"Bangladesh","Jan",2020,222
+"Nepal","Jan",2020,15
+"Sri Lanka","Jan",2020,14079
+"Thailand","Jan",2020,3883
+"Bangladesh","Feb",2020,44
+"Nepal","Feb",2020,15
+"Sri Lanka","Feb",2020,5258
+"Thailand","Feb",2020,2787
+"Bangladesh","Mar",2020,24
+"Nepal","Mar",2020,10
+"Sri Lanka","Mar",2020,1505
+"Thailand","Mar",2020,2539
+"Bangladesh","Apr",2020,26
+"Nepal","Apr",2020,6
+"Sri Lanka","Apr",2020,552
+"Thailand","Apr",2020,3111
+"Bangladesh","May",2020,10
+"Nepal","May",2020,28
+"Sri Lanka","May",2020,1107
+"Thailand","May",2020,5805
+"Bangladesh","Jun",2020,16
+"Nepal","Jun",2020,18
+"Sri Lanka","Jun",2020,2028
+"Thailand","Jun",2020,9242
+"Bangladesh","Jul",2020,32
+"Nepal","Jul",2020,43
+"Sri Lanka","Jul",2020,2021
+"Thailand","Jul",2020,15828
+"Bangladesh","Aug",2020,60
+"Nepal","Aug",2020,80
+"Sri Lanka","Aug",2020,1465
+"Thailand","Aug",2020,12527
+"Bangladesh","Sep",2020,44
+"Nepal","Sep",2020,82
+"Sri Lanka","Sep",2020,1149
+"Thailand","Sep",2020,7915
+"Bangladesh","Oct",2020,185
+"Nepal","Oct",2020,60
+"Sri Lanka","Oct",2020,1001
+"Thailand","Oct",2020,4324
+"Bangladesh","Nov",2020,513
+"Nepal","Nov",2020,31
+"Sri Lanka","Nov",2020,750
+"Thailand","Nov",2020,2967
+"Bangladesh","Dec",2020,246
+"Nepal","Dec",2020,10
+"Sri Lanka","Dec",2020,1317
+"Thailand","Dec",2020,1591
+"Bangladesh","Jan",2021,27
+"Nepal","Jan",2021,3
+"Sri Lanka","Jan",2021,1912
+"Thailand","Jan",2021,1104
+"Bangladesh","Feb",2021,9
+"Nepal","Feb",2021,10
+"Sri Lanka","Feb",2021,2355
+"Thailand","Feb",2021,808
+"Bangladesh","Mar",2021,12
+"Nepal","Mar",2021,7
+"Sri Lanka","Mar",2021,2124
+"Thailand","Mar",2021,762
+"Bangladesh","Apr",2021,4
+"Nepal","Apr",2021,16
+"Sri Lanka","Apr",2021,2545
+"Thailand","Apr",2021,474
+"Bangladesh","May",2021,40
+"Nepal","May",2021,4
+"Sri Lanka","May",2021,1257
+"Thailand","May",2021,1089
+"Bangladesh","Jun",2021,229
+"Nepal","Jun",2021,3
+"Sri Lanka","Jun",2021,2663
+"Thailand","Jun",2021,1604
+"Bangladesh","Jul",2021,2570
+"Nepal","Jul",2021,42
+"Sri Lanka","Jul",2021,3759
+"Thailand","Jul",2021,1024
+"Bangladesh","Aug",2021,6970
+"Nepal","Aug",2021,35
+"Sri Lanka","Aug",2021,1136
+"Thailand","Aug",2021,939
+"Bangladesh","Sep",2021,8876
+"Nepal","Sep",2021,81
+"Sri Lanka","Sep",2021,1623
+"Thailand","Sep",2021,847
+"Bangladesh","Oct",2021,4911
+"Nepal","Oct",2021,66
+"Sri Lanka","Oct",2021,2794
+"Thailand","Oct",2021,754
+"Bangladesh","Nov",2021,3423
+"Nepal","Nov",2021,57
+"Sri Lanka","Nov",2021,4058
+"Thailand","Nov",2021,732
+"Bangladesh","Dec",2021,1366
+"Nepal","Dec",2021,20
+"Sri Lanka","Dec",2021,9894
+"Thailand","Dec",2021,480
+"Bangladesh","Jan",2022,110
+"Maldives","Jan",2022,21
+"Nepal","Jan",2022,10
+"Sri Lanka","Jan",2022,7090
+"Thailand","Jan",2022,560
+"Bangladesh","Feb",2022,21
+"Maldives","Feb",2022,21
+"Nepal","Feb",2022,0
+"Sri Lanka","Feb",2022,3056
+"Thailand","Feb",2022,391
+"Bangladesh","Mar",2022,22
+"Maldives","Mar",2022,26
+"Nepal","Mar",2022,14
+"Sri Lanka","Mar",2022,3474
+"Thailand","Mar",2022,509
+"Bangladesh","Apr",2022,21
+"Maldives","Apr",2022,95
+"Nepal","Apr",2022,15
+"Sri Lanka","Apr",2022,3785
+"Thailand","Apr",2022,790
+"Bangladesh","May",2022,131
+"Maldives","May",2022,212
+"Nepal","May",2022,15
+"Sri Lanka","May",2022,5695
+"Thailand","May",2022,2293
+"Bangladesh","Jun",2022,882
+"Maldives","Jun",2022,302
+"Nepal","Jun",2022,87
+"Sri Lanka","Jun",2022,13254
+"Thailand","Jun",2022,6232
+"Bangladesh","Jul",2022,1458
+"Maldives","Jul",2022,361
+"Nepal","Jul",2022,378
+"Sri Lanka","Jul",2022,10082
+"Thailand","Jul",2022,7348
+"Bangladesh","Aug",2022,2832
+"Maldives","Aug",2022,250
+"Nepal","Aug",2022,1845
+"Sri Lanka","Aug",2022,6295
+"Thailand","Aug",2022,6543
+"Bangladesh","Sep",2022,11803
+"Maldives","Sep",2022,260
+"Nepal","Sep",2022,10790
+"Sri Lanka","Sep",2022,5434
+"Thailand","Sep",2022,5711
+"Bangladesh","Oct",2022,19856
+"Maldives","Oct",2022,660
+"Nepal","Oct",2022,6593
+"Sri Lanka","Oct",2022,4270
+"Thailand","Oct",2022,5754
+"Bangladesh","Nov",2022,18979
+"Maldives","Nov",2022,282
+"Nepal","Nov",2022,2515
+"Sri Lanka","Nov",2022,4887
+"Thailand","Nov",2022,5972
+"Bangladesh","Dec",2022,6293
+"Maldives","Dec",2022,205
+"Nepal","Dec",2022,603
+"Sri Lanka","Dec",2022,8933
+"Thailand","Dec",2022,4575
+"Bangladesh","Jan",2023,504
+"Maldives","Jan",2023,238
+"Sri Lanka","Jan",2023,8148
+"Thailand","Jan",2023,4520
+"Bangladesh","Feb",2023,182
+"Maldives","Feb",2023,155
+"Sri Lanka","Feb",2023,6828
+"Thailand","Feb",2023,3312
+"Bangladesh","Mar",2023,123
+"Maldives","Mar",2023,228
+"Sri Lanka","Mar",2023,7330
+"Thailand","Mar",2023,3761
+"Bangladesh","Apr",2023,136
+"Maldives","Apr",2023,330
+"Sri Lanka","Apr",2023,7190
+"Thailand","Apr",2023,4037
+"Bangladesh","May",2023,785
+"Maldives","May",2023,268
+"Sri Lanka","May",2023,8513
+"Thailand","May",2023,5601
+"Bangladesh","Jun",2023,6986
+"Maldives","Jun",2023,569
+"Sri Lanka","Jun",2023,11539
+"Thailand","Jun",2023,13996
+"Bangladesh","Jul",2023,40381
+"Maldives","Jul",2023,304
+"Sri Lanka","Jul",2023,6679
+"Thailand","Jul",2023,27505
+"Bangladesh","Aug",2023,81164
+"Maldives","Aug",2023,327
+"Sri Lanka","Aug",2023,5718
+"Thailand","Aug",2023,29155
+"Bangladesh","Sep",2023,75986
+"Maldives","Sep",2023,288
+"Sri Lanka","Sep",2023,2397
+"Thailand","Sep",2023,20061
+"Bangladesh","Oct",2023,61392
+"Maldives","Oct",2023,306
+"Sri Lanka","Oct",2023,3631
+"Thailand","Oct",2023,17749
+"Bangladesh","Nov",2023,46026
+"Maldives","Nov",2023,210
+"Sri Lanka","Nov",2023,9373
+"Thailand","Nov",2023,17462
+"Bangladesh","Dec",2023,7473
+"Maldives","Dec",2023,194
+"Sri Lanka","Dec",2023,11313
+"Thailand","Dec",2023,12060
+"Bangladesh","Jan",2024,1055
+"Bangladesh","Feb",2024,339
+"Bangladesh","Mar",2024,311
+"Bangladesh","Apr",2024,504
+"Bangladesh","May",2024,644
+"Bangladesh","Jun",2024,798
+"Bangladesh","Jul",2024,2669
+"Bangladesh","Aug",2024,6521
+"Bangladesh","Sep",2024,18097
+"Bangladesh","Oct",2024,30879
+"Bangladesh","Nov",2024,29652
+"Bangladesh","Dec",2024,9745
+"Bangladesh","Jan",2025,1161
+"Bangladesh","Feb",2025,374
+"Bangladesh","Mar",2025,336
+"Bangladesh","Apr",2025,701
+"Bangladesh","May",2025,1773
+"Bangladesh","Jun",2025,5951
+"Bangladesh","Jul",2025,10684
+"Bangladesh","Aug",2025,10496
+"Bangladesh","Sep",2025,15866
+"Bangladesh","Oct",2025,22520
+"Bhutan","Jan",2024,0
+"Bhutan","Feb",2024,0
+"Bhutan","Mar",2024,0
+"Bhutan","Apr",2024,0
+"Bhutan","May",2024,0
+"Bhutan","Jun",2024,0
+"Bhutan","Jul",2024,2
+"Bhutan","Aug",2024,4
+"Bhutan","Sep",2024,1
+"Bhutan","Oct",2024,3
+"Bhutan","Nov",2024,4
+"Bhutan","Dec",2024,3
+"Bhutan","Jan",2025,2
+"Bhutan","Feb",2025,0
+"Bhutan","Mar",2025,1
+"Bhutan","Apr",2025,0
+"Bhutan","May",2025,1
+"Bhutan","Jun",2025,0
+"Bhutan","Jul",2025,3
+"Bhutan","Aug",2025,22
+"Bhutan","Sep",2025,5
+NA,"Jan",2017,25350
+NA,"Feb",2017,17336
+NA,"Mar",2017,15740
+NA,"Apr",2017,11776
+NA,"May",2017,10854
+NA,"Jun",2017,8380
+NA,"Jul",2017,7672
+NA,"Aug",2017,7236
+NA,"Sep",2017,7028
+NA,"Oct",2017,8254
+NA,"Nov",2017,8876
+NA,"Dec",2017,8226
+NA,"Jan",2018,12336
+NA,"Feb",2018,10122
+NA,"Mar",2018,10424
+NA,"Apr",2018,10840
+NA,"May",2018,11108
+NA,"Jun",2018,9370
+NA,"Jul",2018,10606
+NA,"Aug",2018,9590
+NA,"Sep",2018,8974
+NA,"Oct",2018,11016
+NA,"Nov",2018,13746
+NA,"Dec",2018,13050
+NA,"Jan",2019,54889
+NA,"Feb",2019,48035
+NA,"Mar",2019,36219
+NA,"Apr",2019,27284
+NA,"May",2019,25111
+NA,"Jun",2019,19028
+NA,"Jul",2019,15476
+NA,"Aug",2019,10772
+NA,"Sep",2019,8308
+NA,"Oct",2019,8752
+NA,"Nov",2019,10850
+NA,"Dec",2019,11533
+NA,"Jan",2020,31900
+NA,"Feb",2020,39386
+NA,"Mar",2020,38732
+NA,"Apr",2020,26320
+NA,"May",2020,21450
+NA,"Jun",2020,16212
+NA,"Jul",2020,12658
+NA,"Aug",2020,7666
+NA,"Sep",2020,5486
+NA,"Oct",2020,4838
+NA,"Nov",2020,5926
+NA,"Dec",2020,6032
+NA,"Jan",2021,9134
+NA,"Feb",2021,8944
+NA,"Mar",2021,11424
+NA,"Apr",2021,12422
+NA,"May",2021,13354
+NA,"Jun",2021,10888
+NA,"Jul",2021,6844
+NA,"Aug",2021,6828
+NA,"Sep",2021,8114
+NA,"Oct",2021,12184
+NA,"Nov",2021,19798
+NA,"Dec",2021,27102
+NA,"Jan",2022,40972
+NA,"Feb",2022,23698
+NA,"Mar",2022,20164
+NA,"Apr",2022,21328
+NA,"May",2022,24940
+NA,"Jun",2022,25524
+NA,"Jul",2022,26236
+NA,"Aug",2022,24696
+NA,"Sep",2022,21988
+NA,"Oct",2022,20270
+NA,"Nov",2022,18846
+NA,"Dec",2022,17870
+NA,"Jan",2023,25222
+NA,"Feb",2023,21724
+NA,"Mar",2023,20440
+NA,"Apr",2023,16084
+NA,"May",2023,18894
+NA,"Jun",2023,16230
+NA,"Jul",2023,16104
+NA,"Aug",2023,17438
+NA,"Sep",2023,15892
+NA,"Oct",2023,16678
+NA,"Nov",2023,20164
+NA,"Dec",2023,24570
+NA,"Jan",2024,54536
+NA,"Feb",2024,58822
+NA,"Mar",2024,64584
+NA,"Apr",2024,60246
+NA,"May",2024,64040
+NA,"Jun",2024,48196
+NA,"Jul",2024,38530
+NA,"Aug",2024,29126
+NA,"Sep",2024,22148
+NA,"Oct",2024,21940
+NA,"Nov",2024,23950
+NA,"Dec",2024,28424
+NA,"Jan",2025,21417
+NA,"Feb",2025,17160
+NA,"Mar",2025,11795
+NA,"Apr",2025,5750
+NA,"May",2025,157
+"India","Jan",2024,5079
+"India","Feb",2024,5429
+"India","Mar",2024,5597
+"India","Apr",2024,3342
+"India","May",2024,5145
+"India","Jun",2024,7499
+"India","Jul",2024,27675
+"India","Aug",2024,32388
+"India","Sep",2024,41375
+"India","Oct",2024,51183
+"India","Nov",2024,30354
+"India","Dec",2024,34718
+"India","Jan",2025,4700
+"India","Feb",2025,3806
+"India","Mar",2025,3517
+"India","Apr",2025,2700
+"India","May",2025,3766
+"India","Jun",2025,6459
+"India","Jul",2025,10302
+"India","Aug",2025,14303
+"India","Sep",2025,18803
+"India","Oct",2025,22659
+"Sri Lanka","Jan",2024,10752
+"Sri Lanka","Feb",2024,6047
+"Sri Lanka","Mar",2024,3629
+"Sri Lanka","Apr",2024,2234
+"Sri Lanka","May",2024,2650
+"Sri Lanka","Jun",2024,3312
+"Sri Lanka","Jul",2024,4519
+"Sri Lanka","Aug",2024,3896
+"Sri Lanka","Sep",2024,2772
+"Sri Lanka","Oct",2024,2964
+"Sri Lanka","Nov",2024,3498
+"Sri Lanka","Dec",2024,3604
+"Sri Lanka","Jan",2025,4942
+"Sri Lanka","Feb",2025,3666
+"Sri Lanka","Mar",2025,3771
+"Sri Lanka","Apr",2025,5171
+"Sri Lanka","May",2025,6035
+"Sri Lanka","Jun",2025,5468
+"Sri Lanka","Jul",2025,4838
+"Sri Lanka","Aug",2025,2746
+"Sri Lanka","Sep",2025,2403
+"Maldives","Jan",2024,138
+"Maldives","Feb",2024,120
+"Maldives","Mar",2024,125
+"Maldives","Apr",2024,255
+"Maldives","May",2024,667
+"Maldives","Jun",2024,618
+"Maldives","Jul",2024,440
+"Maldives","Aug",2024,394
+"Maldives","Sep",2024,180
+"Maldives","Oct",2024,117
+"Maldives","Nov",2024,124
+"Maldives","Dec",2024,68
+"Maldives","Jan",2025,72
+"Maldives","Feb",2025,74
+"Maldives","Mar",2025,69
+"Maldives","Apr",2025,120
+"Maldives","May",2025,116
+"Maldives","Jun",2025,165
+"Maldives","Jul",2025,168
+"Maldives","Aug",2025,256
+"Maldives","Sep",2025,252
+"Myanmar","Jan",2024,208
+"Myanmar","Feb",2024,181
+"Myanmar","Mar",2024,176
+"Myanmar","Apr",2024,203
+"Myanmar","May",2024,311
+"Myanmar","Jun",2024,574
+"Myanmar","Jul",2024,1236
+"Myanmar","Aug",2024,1239
+"Myanmar","Sep",2024,933
+"Myanmar","Oct",2024,690
+"Myanmar","Nov",2024,380
+"Myanmar","Dec",2024,257
+"Myanmar","Jan",2025,344
+"Myanmar","Feb",2025,240
+"Myanmar","Mar",2025,334
+"Myanmar","Apr",2025,470
+"Myanmar","May",2025,1398
+"Myanmar","Jun",2025,3488
+"Myanmar","Jul",2025,6130
+"Myanmar","Aug",2025,4830
+"Myanmar","Sep",2025,3152
+"Nepal","Jan",2023,133
+"Nepal","Feb",2023,130
+"Nepal","Mar",2023,195
+"Nepal","Apr",2023,158
+"Nepal","May",2023,163
+"Nepal","Jun",2023,1026
+"Nepal","Jul",2023,6459
+"Nepal","Aug",2023,14534
+"Nepal","Sep",2023,13912
+"Nepal","Oct",2023,12699
+"Nepal","Nov",2023,2805
+"Nepal","Dec",2023,576
+"Nepal","Jan",2024,499
+"Nepal","Feb",2024,408
+"Nepal","Mar",2024,374
+"Nepal","Apr",2024,463
+"Nepal","May",2024,495
+"Nepal","Jun",2024,632
+"Nepal","Jul",2024,1906
+"Nepal","Aug",2024,6493
+"Nepal","Sep",2024,11875
+"Nepal","Oct",2024,12332
+"Nepal","Nov",2024,5544
+"Nepal","Dec",2024,844
+"Nepal","Jan",2025,259
+"Nepal","Feb",2025,252
+"Nepal","Mar",2025,254
+"Nepal","Apr",2025,221
+"Nepal","May",2025,314
+"Nepal","Jun",2025,530
+"Nepal","Jul",2025,830
+"Nepal","Aug",2025,1190
+"Nepal","Sep",2025,1583
+"Nepal","Oct",2025,1644
+"Thailand","Jan",2024,11413
+"Thailand","Feb",2024,7123
+"Thailand","Mar",2024,5315
+"Thailand","Apr",2024,4327
+"Thailand","May",2024,4968
+"Thailand","Jun",2024,7992
+"Thailand","Jul",2024,15371
+"Thailand","Aug",2024,16119
+"Thailand","Sep",2024,11395
+"Thailand","Oct",2024,8359
+"Thailand","Nov",2024,7006
+"Thailand","Dec",2024,5293
+"Thailand","Jan",2025,4005
+"Thailand","Feb",2025,2269
+"Thailand","Mar",2025,2447
+"Thailand","Apr",2025,2271
+"Thailand","May",2025,4683
+"Thailand","Jun",2025,8697
+"Thailand","Jul",2025,10987
+"Thailand","Aug",2025,8610
+"Thailand","Sep",2025,4012
+"Timor-Leste","Jan",2021,178
+"Timor-Leste","Feb",2021,242
+"Timor-Leste","Mar",2021,116
+"Timor-Leste","Apr",2021,13
+"Timor-Leste","May",2021,13
+"Timor-Leste","Jun",2021,20
+"Timor-Leste","Jul",2021,28
+"Timor-Leste","Aug",2021,8
+"Timor-Leste","Sep",2021,7
+"Timor-Leste","Oct",2021,12
+"Timor-Leste","Nov",2021,39
+"Timor-Leste","Dec",2021,225
+"Timor-Leste","Jan",2022,1371
+"Timor-Leste","Feb",2022,1284
+"Timor-Leste","Mar",2022,1201
+"Timor-Leste","Apr",2022,700
+"Timor-Leste","May",2022,487
+"Timor-Leste","Jun",2022,254
+"Timor-Leste","Jul",2022,139
+"Timor-Leste","Aug",2022,47
+"Timor-Leste","Sep",2022,25
+"Timor-Leste","Oct",2022,63
+"Timor-Leste","Nov",2022,41
+"Timor-Leste","Dec",2022,46
+"Timor-Leste","Jan",2023,105
+"Timor-Leste","Feb",2023,205
+"Timor-Leste","Mar",2023,315
+"Timor-Leste","Apr",2023,275
+"Timor-Leste","May",2023,373
+"Timor-Leste","Jun",2023,146
+"Timor-Leste","Jul",2023,141
+"Timor-Leste","Aug",2023,142
+"Timor-Leste","Sep",2023,71
+"Timor-Leste","Oct",2023,68
+"Timor-Leste","Nov",2023,40
+"Timor-Leste","Dec",2023,72
+"Timor-Leste","Jan",2024,189
+"Timor-Leste","Feb",2024,328
+"Timor-Leste","Mar",2024,347
+"Timor-Leste","Apr",2024,307
+"Timor-Leste","May",2024,101
+"Timor-Leste","Jun",2024,45
+"Timor-Leste","Jul",2024,30
+"Timor-Leste","Aug",2024,24
+"Timor-Leste","Sep",2024,28
+"Timor-Leste","Oct",2024,39
+"Timor-Leste","Nov",2024,12
+"Timor-Leste","Dec",2024,12
+"Timor-Leste","Jan",2025,129
+"Timor-Leste","Feb",2025,185
+"Timor-Leste","Mar",2025,188
+"Timor-Leste","Apr",2025,127
+"Timor-Leste","May",2025,102
+"Timor-Leste","Jun",2025,73
+"Timor-Leste","Jul",2025,82
+"Timor-Leste","Aug",2025,56
+"Timor-Leste","Sep",2025,51
+"All Country","Jan",2017,33294
+"All Country","Jan",2018,21750
+"All Country","Jan",2019,67199
+"All Country","Jan",2020,50099
+"All Country","Jan",2021,12358
+"All Country","Jan",2022,50134
+"All Country","Jan",2023,38870
+"All Country","Jan",2024,83869
+"All Country","Jan",2025,37031
+"All Country","Feb",2017,23846
+"All Country","Feb",2018,16491
+"All Country","Feb",2019,56292
+"All Country","Feb",2020,47490
+"All Country","Feb",2021,12368
+"All Country","Feb",2022,28471
+"All Country","Feb",2023,32536
+"All Country","Feb",2024,78797
+"All Country","Feb",2025,28026
+"All Country","Mar",2017,28659
+"All Country","Mar",2018,16376
+"All Country","Mar",2019,44529
+"All Country","Mar",2020,42810
+"All Country","Mar",2021,14445
+"All Country","Mar",2022,25410
+"All Country","Mar",2023,32392
+"All Country","Mar",2024,80458
+"All Country","Mar",2025,22712
+"All Country","Apr",2017,25524
+"All Country","Apr",2018,16589
+"All Country","Apr",2019,34867
+"All Country","Apr",2020,30015
+"All Country","Apr",2021,15474
+"All Country","Apr",2022,26734
+"All Country","Apr",2023,28210
+"All Country","Apr",2024,71881
+"All Country","Apr",2025,17531
+"All Country","May",2017,29102
+"All Country","May",2018,23014
+"All Country","May",2019,37559
+"All Country","May",2020,28400
+"All Country","May",2021,15757
+"All Country","May",2022,33773
+"All Country","May",2023,34597
+"All Country","May",2024,79021
+"All Country","May",2025,18345
+"All Country","Jun",2017,38095
+"All Country","Jun",2018,27822
+"All Country","Jun",2019,44759
+"All Country","Jun",2020,27516
+"All Country","Jun",2021,15407
+"All Country","Jun",2022,46535
+"All Country","Jun",2023,50492
+"All Country","Jun",2024,69666
+"All Country","Jun",2025,30831
+"All Country","Jul",2017,53515
+"All Country","Jul",2018,32041
+"All Country","Jul",2019,57153
+"All Country","Jul",2020,30582
+"All Country","Jul",2021,14267
+"All Country","Jul",2022,46002
+"All Country","Jul",2023,97573
+"All Country","Jul",2024,92378
+"All Country","Jul",2025,44024
+"All Country","Aug",2017,35955
+"All Country","Aug",2018,28427
+"All Country","Aug",2019,96348
+"All Country","Aug",2020,21798
+"All Country","Aug",2021,15916
+"All Country","Aug",2022,42508
+"All Country","Aug",2023,148478
+"All Country","Aug",2024,96204
+"All Country","Aug",2025,42509
+"All Country","Sep",2017,17099
+"All Country","Sep",2018,23006
+"All Country","Sep",2019,51063
+"All Country","Sep",2020,14676
+"All Country","Sep",2021,19548
+"All Country","Sep",2022,56011
+"All Country","Sep",2023,128607
+"All Country","Sep",2024,108804
+"All Country","Sep",2025,46127
+"All Country","Oct",2017,17373
+"All Country","Oct",2018,22750
+"All Country","Oct",2019,48040
+"All Country","Oct",2020,10408
+"All Country","Oct",2021,20721
+"All Country","Oct",2022,57466
+"All Country","Oct",2023,112523
+"All Country","Oct",2024,128506
+"All Country","Oct",2025,46823
+"All Country","Nov",2017,22203
+"All Country","Nov",2018,26986
+"All Country","Nov",2019,42795
+"All Country","Nov",2020,10187
+"All Country","Nov",2021,28107
+"All Country","Nov",2022,51522
+"All Country","Nov",2023,96080
+"All Country","Nov",2024,100524
+"All Country","Dec",2017,18739
+"All Country","Dec",2018,24784
+"All Country","Dec",2019,33282
+"All Country","Dec",2020,9196
+"All Country","Dec",2021,39087
+"All Country","Dec",2022,38525
+"All Country","Dec",2023,56258
+"All Country","Dec",2024,82968
