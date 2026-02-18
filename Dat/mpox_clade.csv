@@ -185,39 +185,39 @@
 "India","Ib",2026-01-12,0
 "India","Ib",2026-01-19,0
 "India","Ib",2026-01-26,0
-"India","II",2022-07-11,1
-"India","II",2022-07-18,3
+"India","II",2022-07-11,0
+"India","II",2022-07-18,0
 "India","II",2022-07-25,0
-"India","II",2022-08-01,5
+"India","II",2022-08-01,0
 "India","II",2022-08-08,0
-"India","II",2022-08-15,1
+"India","II",2022-08-15,0
 "India","II",2022-08-22,0
-"India","II",2022-08-29,1
-"India","II",2022-09-05,1
-"India","II",2022-09-12,1
-"India","II",2022-09-19,4
-"India","II",2022-09-26,1
+"India","II",2022-08-29,0
+"India","II",2022-09-05,0
+"India","II",2022-09-12,0
+"India","II",2022-09-19,0
+"India","II",2022-09-26,0
 "India","II",2022-10-03,0
-"India","II",2022-10-10,1
+"India","II",2022-10-10,0
 "India","II",2022-10-17,0
 "India","II",2022-10-24,0
-"India","II",2022-10-31,2
+"India","II",2022-10-31,0
 "India","II",2022-11-07,0
 "India","II",2022-11-14,0
-"India","II",2022-11-21,2
+"India","II",2022-11-21,0
 "India","II",2022-11-28,0
 "India","II",2022-12-05,0
 "India","II",2022-12-12,0
 "India","II",2022-12-19,0
 "India","II",2022-12-26,0
-"India","II",2023-01-02,1
+"India","II",2023-01-02,0
 "India","II",2023-01-09,0
 "India","II",2023-01-16,0
 "India","II",2023-01-23,0
 "India","II",2023-01-30,0
 "India","II",2023-02-06,0
 "India","II",2023-02-13,0
-"India","II",2023-02-20,1
+"India","II",2023-02-20,0
 "India","II",2023-02-27,0
 "India","II",2023-03-06,0
 "India","II",2023-03-13,0
@@ -230,12 +230,12 @@
 "India","II",2023-05-01,0
 "India","II",2023-05-08,0
 "India","II",2023-05-15,0
-"India","II",2023-05-22,1
+"India","II",2023-05-22,0
 "India","II",2023-05-29,0
 "India","II",2023-06-05,0
 "India","II",2023-06-12,0
 "India","II",2023-06-19,0
-"India","II",2023-06-26,1
+"India","II",2023-06-26,0
 "India","II",2023-07-03,0
 "India","II",2023-07-10,0
 "India","II",2023-07-17,0
@@ -339,10 +339,10 @@
 "India","II",2025-06-02,0
 "India","II",2025-06-09,0
 "India","II",2025-06-16,0
-"India","II",2025-06-23,1
+"India","II",2025-06-23,0
 "India","II",2025-06-30,0
 "India","II",2025-07-07,0
-"India","II",2025-07-14,1
+"India","II",2025-07-14,0
 "India","II",2025-07-21,0
 "India","II",2025-07-28,0
 "India","II",2025-08-04,0
@@ -360,7 +360,7 @@
 "India","II",2025-10-27,0
 "India","II",2025-11-03,0
 "India","II",2025-11-10,0
-"India","II",2025-11-17,1
+"India","II",2025-11-17,0
 "India","II",2025-11-24,0
 "India","II",2025-12-01,0
 "India","II",2025-12-08,0
@@ -557,6 +557,192 @@
 "India","Recombinant",2026-01-12,0
 "India","Recombinant",2026-01-19,0
 "India","Recombinant",2026-01-26,0
+"India","Unknown",2022-07-11,1
+"India","Unknown",2022-07-18,3
+"India","Unknown",2022-07-25,0
+"India","Unknown",2022-08-01,5
+"India","Unknown",2022-08-08,0
+"India","Unknown",2022-08-15,1
+"India","Unknown",2022-08-22,0
+"India","Unknown",2022-08-29,1
+"India","Unknown",2022-09-05,1
+"India","Unknown",2022-09-12,1
+"India","Unknown",2022-09-19,4
+"India","Unknown",2022-09-26,1
+"India","Unknown",2022-10-03,0
+"India","Unknown",2022-10-10,1
+"India","Unknown",2022-10-17,0
+"India","Unknown",2022-10-24,0
+"India","Unknown",2022-10-31,2
+"India","Unknown",2022-11-07,0
+"India","Unknown",2022-11-14,0
+"India","Unknown",2022-11-21,2
+"India","Unknown",2022-11-28,0
+"India","Unknown",2022-12-05,0
+"India","Unknown",2022-12-12,0
+"India","Unknown",2022-12-19,0
+"India","Unknown",2022-12-26,0
+"India","Unknown",2023-01-02,1
+"India","Unknown",2023-01-09,0
+"India","Unknown",2023-01-16,0
+"India","Unknown",2023-01-23,0
+"India","Unknown",2023-01-30,0
+"India","Unknown",2023-02-06,0
+"India","Unknown",2023-02-13,0
+"India","Unknown",2023-02-20,1
+"India","Unknown",2023-02-27,0
+"India","Unknown",2023-03-06,0
+"India","Unknown",2023-03-13,0
+"India","Unknown",2023-03-20,0
+"India","Unknown",2023-03-27,0
+"India","Unknown",2023-04-03,0
+"India","Unknown",2023-04-10,0
+"India","Unknown",2023-04-17,0
+"India","Unknown",2023-04-24,0
+"India","Unknown",2023-05-01,0
+"India","Unknown",2023-05-08,0
+"India","Unknown",2023-05-15,0
+"India","Unknown",2023-05-22,1
+"India","Unknown",2023-05-29,0
+"India","Unknown",2023-06-05,0
+"India","Unknown",2023-06-12,0
+"India","Unknown",2023-06-19,0
+"India","Unknown",2023-06-26,1
+"India","Unknown",2023-07-03,0
+"India","Unknown",2023-07-10,0
+"India","Unknown",2023-07-17,0
+"India","Unknown",2023-07-24,0
+"India","Unknown",2023-07-31,0
+"India","Unknown",2023-08-07,0
+"India","Unknown",2023-08-14,0
+"India","Unknown",2023-08-21,0
+"India","Unknown",2023-08-28,0
+"India","Unknown",2023-09-04,0
+"India","Unknown",2023-09-11,0
+"India","Unknown",2023-09-18,0
+"India","Unknown",2023-09-25,0
+"India","Unknown",2023-10-02,0
+"India","Unknown",2023-10-09,0
+"India","Unknown",2023-10-16,0
+"India","Unknown",2023-10-23,0
+"India","Unknown",2023-10-30,0
+"India","Unknown",2023-11-06,0
+"India","Unknown",2023-11-13,0
+"India","Unknown",2023-11-20,0
+"India","Unknown",2023-11-27,0
+"India","Unknown",2023-12-04,0
+"India","Unknown",2023-12-11,0
+"India","Unknown",2023-12-18,0
+"India","Unknown",2023-12-25,0
+"India","Unknown",2024-01-01,0
+"India","Unknown",2024-01-08,0
+"India","Unknown",2024-01-15,0
+"India","Unknown",2024-01-22,0
+"India","Unknown",2024-01-29,0
+"India","Unknown",2024-02-05,0
+"India","Unknown",2024-02-12,0
+"India","Unknown",2024-02-19,0
+"India","Unknown",2024-02-26,0
+"India","Unknown",2024-03-04,0
+"India","Unknown",2024-03-11,0
+"India","Unknown",2024-03-18,0
+"India","Unknown",2024-03-25,0
+"India","Unknown",2024-04-01,0
+"India","Unknown",2024-04-08,0
+"India","Unknown",2024-04-15,0
+"India","Unknown",2024-04-22,0
+"India","Unknown",2024-04-29,0
+"India","Unknown",2024-05-06,0
+"India","Unknown",2024-05-13,0
+"India","Unknown",2024-05-20,0
+"India","Unknown",2024-05-27,0
+"India","Unknown",2024-06-03,0
+"India","Unknown",2024-06-10,0
+"India","Unknown",2024-06-17,0
+"India","Unknown",2024-06-24,0
+"India","Unknown",2024-07-01,0
+"India","Unknown",2024-07-08,0
+"India","Unknown",2024-07-15,0
+"India","Unknown",2024-07-22,0
+"India","Unknown",2024-07-29,0
+"India","Unknown",2024-08-05,0
+"India","Unknown",2024-08-12,0
+"India","Unknown",2024-08-19,0
+"India","Unknown",2024-08-26,0
+"India","Unknown",2024-09-02,0
+"India","Unknown",2024-09-09,0
+"India","Unknown",2024-09-16,0
+"India","Unknown",2024-09-23,0
+"India","Unknown",2024-09-30,0
+"India","Unknown",2024-10-07,0
+"India","Unknown",2024-10-14,0
+"India","Unknown",2024-10-21,0
+"India","Unknown",2024-10-28,0
+"India","Unknown",2024-11-04,0
+"India","Unknown",2024-11-11,0
+"India","Unknown",2024-11-18,0
+"India","Unknown",2024-11-25,0
+"India","Unknown",2024-12-02,0
+"India","Unknown",2024-12-09,0
+"India","Unknown",2024-12-16,0
+"India","Unknown",2024-12-23,0
+"India","Unknown",2024-12-30,0
+"India","Unknown",2025-01-06,0
+"India","Unknown",2025-01-13,0
+"India","Unknown",2025-01-20,0
+"India","Unknown",2025-01-27,0
+"India","Unknown",2025-02-03,0
+"India","Unknown",2025-02-10,0
+"India","Unknown",2025-02-17,0
+"India","Unknown",2025-02-24,0
+"India","Unknown",2025-03-03,0
+"India","Unknown",2025-03-10,0
+"India","Unknown",2025-03-17,0
+"India","Unknown",2025-03-24,0
+"India","Unknown",2025-03-31,0
+"India","Unknown",2025-04-07,0
+"India","Unknown",2025-04-14,0
+"India","Unknown",2025-04-21,0
+"India","Unknown",2025-04-28,0
+"India","Unknown",2025-05-05,0
+"India","Unknown",2025-05-12,0
+"India","Unknown",2025-05-19,0
+"India","Unknown",2025-05-26,0
+"India","Unknown",2025-06-02,0
+"India","Unknown",2025-06-09,0
+"India","Unknown",2025-06-16,0
+"India","Unknown",2025-06-23,1
+"India","Unknown",2025-06-30,0
+"India","Unknown",2025-07-07,0
+"India","Unknown",2025-07-14,1
+"India","Unknown",2025-07-21,0
+"India","Unknown",2025-07-28,0
+"India","Unknown",2025-08-04,0
+"India","Unknown",2025-08-11,0
+"India","Unknown",2025-08-18,0
+"India","Unknown",2025-08-25,0
+"India","Unknown",2025-09-01,0
+"India","Unknown",2025-09-08,0
+"India","Unknown",2025-09-15,0
+"India","Unknown",2025-09-22,0
+"India","Unknown",2025-09-29,0
+"India","Unknown",2025-10-06,0
+"India","Unknown",2025-10-13,0
+"India","Unknown",2025-10-20,0
+"India","Unknown",2025-10-27,0
+"India","Unknown",2025-11-03,0
+"India","Unknown",2025-11-10,0
+"India","Unknown",2025-11-17,1
+"India","Unknown",2025-11-24,0
+"India","Unknown",2025-12-01,0
+"India","Unknown",2025-12-08,0
+"India","Unknown",2025-12-15,0
+"India","Unknown",2025-12-22,0
+"India","Unknown",2025-12-29,0
+"India","Unknown",2026-01-05,0
+"India","Unknown",2026-01-12,0
+"India","Unknown",2026-01-19,0
+"India","Unknown",2026-01-26,0
 "Indonesia","Ib",2022-07-11,0
 "Indonesia","Ib",2022-07-18,0
 "Indonesia","Ib",2022-07-25,0
@@ -748,7 +934,7 @@
 "Indonesia","II",2022-07-25,0
 "Indonesia","II",2022-08-01,0
 "Indonesia","II",2022-08-08,0
-"Indonesia","II",2022-08-15,1
+"Indonesia","II",2022-08-15,0
 "Indonesia","II",2022-08-22,0
 "Indonesia","II",2022-08-29,0
 "Indonesia","II",2022-09-05,0
@@ -809,40 +995,40 @@
 "Indonesia","II",2023-09-25,0
 "Indonesia","II",2023-10-02,0
 "Indonesia","II",2023-10-09,0
-"Indonesia","II",2023-10-16,7
-"Indonesia","II",2023-10-23,14
-"Indonesia","II",2023-10-30,13
-"Indonesia","II",2023-11-06,10
-"Indonesia","II",2023-11-13,7
-"Indonesia","II",2023-11-20,8
-"Indonesia","II",2023-11-27,3
-"Indonesia","II",2023-12-04,3
-"Indonesia","II",2023-12-11,3
-"Indonesia","II",2023-12-18,3
-"Indonesia","II",2023-12-25,1
-"Indonesia","II",2024-01-01,1
-"Indonesia","II",2024-01-08,3
-"Indonesia","II",2024-01-15,1
-"Indonesia","II",2024-01-22,2
+"Indonesia","II",2023-10-16,0
+"Indonesia","II",2023-10-23,0
+"Indonesia","II",2023-10-30,0
+"Indonesia","II",2023-11-06,0
+"Indonesia","II",2023-11-13,0
+"Indonesia","II",2023-11-20,0
+"Indonesia","II",2023-11-27,0
+"Indonesia","II",2023-12-04,0
+"Indonesia","II",2023-12-11,0
+"Indonesia","II",2023-12-18,0
+"Indonesia","II",2023-12-25,0
+"Indonesia","II",2024-01-01,0
+"Indonesia","II",2024-01-08,0
+"Indonesia","II",2024-01-15,0
+"Indonesia","II",2024-01-22,0
 "Indonesia","II",2024-01-29,0
-"Indonesia","II",2024-02-05,1
-"Indonesia","II",2024-02-12,3
-"Indonesia","II",2024-02-19,1
+"Indonesia","II",2024-02-05,0
+"Indonesia","II",2024-02-12,0
+"Indonesia","II",2024-02-19,0
 "Indonesia","II",2024-02-26,0
 "Indonesia","II",2024-03-04,0
 "Indonesia","II",2024-03-11,0
 "Indonesia","II",2024-03-18,0
 "Indonesia","II",2024-03-25,0
 "Indonesia","II",2024-04-01,0
-"Indonesia","II",2024-04-08,1
+"Indonesia","II",2024-04-08,0
 "Indonesia","II",2024-04-15,0
 "Indonesia","II",2024-04-22,0
-"Indonesia","II",2024-04-29,1
+"Indonesia","II",2024-04-29,0
 "Indonesia","II",2024-05-06,0
 "Indonesia","II",2024-05-13,0
 "Indonesia","II",2024-05-20,0
 "Indonesia","II",2024-05-27,0
-"Indonesia","II",2024-06-03,1
+"Indonesia","II",2024-06-03,0
 "Indonesia","II",2024-06-10,0
 "Indonesia","II",2024-06-17,0
 "Indonesia","II",2024-06-24,0
@@ -1115,6 +1301,192 @@
 "Indonesia","Recombinant",2026-01-12,0
 "Indonesia","Recombinant",2026-01-19,0
 "Indonesia","Recombinant",2026-01-26,0
+"Indonesia","Unknown",2022-07-11,0
+"Indonesia","Unknown",2022-07-18,0
+"Indonesia","Unknown",2022-07-25,0
+"Indonesia","Unknown",2022-08-01,0
+"Indonesia","Unknown",2022-08-08,0
+"Indonesia","Unknown",2022-08-15,1
+"Indonesia","Unknown",2022-08-22,0
+"Indonesia","Unknown",2022-08-29,0
+"Indonesia","Unknown",2022-09-05,0
+"Indonesia","Unknown",2022-09-12,0
+"Indonesia","Unknown",2022-09-19,0
+"Indonesia","Unknown",2022-09-26,0
+"Indonesia","Unknown",2022-10-03,0
+"Indonesia","Unknown",2022-10-10,0
+"Indonesia","Unknown",2022-10-17,0
+"Indonesia","Unknown",2022-10-24,0
+"Indonesia","Unknown",2022-10-31,0
+"Indonesia","Unknown",2022-11-07,0
+"Indonesia","Unknown",2022-11-14,0
+"Indonesia","Unknown",2022-11-21,0
+"Indonesia","Unknown",2022-11-28,0
+"Indonesia","Unknown",2022-12-05,0
+"Indonesia","Unknown",2022-12-12,0
+"Indonesia","Unknown",2022-12-19,0
+"Indonesia","Unknown",2022-12-26,0
+"Indonesia","Unknown",2023-01-02,0
+"Indonesia","Unknown",2023-01-09,0
+"Indonesia","Unknown",2023-01-16,0
+"Indonesia","Unknown",2023-01-23,0
+"Indonesia","Unknown",2023-01-30,0
+"Indonesia","Unknown",2023-02-06,0
+"Indonesia","Unknown",2023-02-13,0
+"Indonesia","Unknown",2023-02-20,0
+"Indonesia","Unknown",2023-02-27,0
+"Indonesia","Unknown",2023-03-06,0
+"Indonesia","Unknown",2023-03-13,0
+"Indonesia","Unknown",2023-03-20,0
+"Indonesia","Unknown",2023-03-27,0
+"Indonesia","Unknown",2023-04-03,0
+"Indonesia","Unknown",2023-04-10,0
+"Indonesia","Unknown",2023-04-17,0
+"Indonesia","Unknown",2023-04-24,0
+"Indonesia","Unknown",2023-05-01,0
+"Indonesia","Unknown",2023-05-08,0
+"Indonesia","Unknown",2023-05-15,0
+"Indonesia","Unknown",2023-05-22,0
+"Indonesia","Unknown",2023-05-29,0
+"Indonesia","Unknown",2023-06-05,0
+"Indonesia","Unknown",2023-06-12,0
+"Indonesia","Unknown",2023-06-19,0
+"Indonesia","Unknown",2023-06-26,0
+"Indonesia","Unknown",2023-07-03,0
+"Indonesia","Unknown",2023-07-10,0
+"Indonesia","Unknown",2023-07-17,0
+"Indonesia","Unknown",2023-07-24,0
+"Indonesia","Unknown",2023-07-31,0
+"Indonesia","Unknown",2023-08-07,0
+"Indonesia","Unknown",2023-08-14,0
+"Indonesia","Unknown",2023-08-21,0
+"Indonesia","Unknown",2023-08-28,0
+"Indonesia","Unknown",2023-09-04,0
+"Indonesia","Unknown",2023-09-11,0
+"Indonesia","Unknown",2023-09-18,0
+"Indonesia","Unknown",2023-09-25,0
+"Indonesia","Unknown",2023-10-02,0
+"Indonesia","Unknown",2023-10-09,0
+"Indonesia","Unknown",2023-10-16,7
+"Indonesia","Unknown",2023-10-23,14
+"Indonesia","Unknown",2023-10-30,13
+"Indonesia","Unknown",2023-11-06,10
+"Indonesia","Unknown",2023-11-13,7
+"Indonesia","Unknown",2023-11-20,8
+"Indonesia","Unknown",2023-11-27,3
+"Indonesia","Unknown",2023-12-04,3
+"Indonesia","Unknown",2023-12-11,3
+"Indonesia","Unknown",2023-12-18,3
+"Indonesia","Unknown",2023-12-25,1
+"Indonesia","Unknown",2024-01-01,1
+"Indonesia","Unknown",2024-01-08,3
+"Indonesia","Unknown",2024-01-15,1
+"Indonesia","Unknown",2024-01-22,2
+"Indonesia","Unknown",2024-01-29,0
+"Indonesia","Unknown",2024-02-05,1
+"Indonesia","Unknown",2024-02-12,3
+"Indonesia","Unknown",2024-02-19,1
+"Indonesia","Unknown",2024-02-26,0
+"Indonesia","Unknown",2024-03-04,0
+"Indonesia","Unknown",2024-03-11,0
+"Indonesia","Unknown",2024-03-18,0
+"Indonesia","Unknown",2024-03-25,0
+"Indonesia","Unknown",2024-04-01,0
+"Indonesia","Unknown",2024-04-08,1
+"Indonesia","Unknown",2024-04-15,0
+"Indonesia","Unknown",2024-04-22,0
+"Indonesia","Unknown",2024-04-29,1
+"Indonesia","Unknown",2024-05-06,0
+"Indonesia","Unknown",2024-05-13,0
+"Indonesia","Unknown",2024-05-20,0
+"Indonesia","Unknown",2024-05-27,0
+"Indonesia","Unknown",2024-06-03,1
+"Indonesia","Unknown",2024-06-10,0
+"Indonesia","Unknown",2024-06-17,0
+"Indonesia","Unknown",2024-06-24,0
+"Indonesia","Unknown",2024-07-01,0
+"Indonesia","Unknown",2024-07-08,0
+"Indonesia","Unknown",2024-07-15,0
+"Indonesia","Unknown",2024-07-22,0
+"Indonesia","Unknown",2024-07-29,0
+"Indonesia","Unknown",2024-08-05,0
+"Indonesia","Unknown",2024-08-12,0
+"Indonesia","Unknown",2024-08-19,0
+"Indonesia","Unknown",2024-08-26,0
+"Indonesia","Unknown",2024-09-02,0
+"Indonesia","Unknown",2024-09-09,0
+"Indonesia","Unknown",2024-09-16,0
+"Indonesia","Unknown",2024-09-23,0
+"Indonesia","Unknown",2024-09-30,0
+"Indonesia","Unknown",2024-10-07,0
+"Indonesia","Unknown",2024-10-14,0
+"Indonesia","Unknown",2024-10-21,0
+"Indonesia","Unknown",2024-10-28,0
+"Indonesia","Unknown",2024-11-04,0
+"Indonesia","Unknown",2024-11-11,0
+"Indonesia","Unknown",2024-11-18,0
+"Indonesia","Unknown",2024-11-25,0
+"Indonesia","Unknown",2024-12-02,0
+"Indonesia","Unknown",2024-12-09,0
+"Indonesia","Unknown",2024-12-16,0
+"Indonesia","Unknown",2024-12-23,0
+"Indonesia","Unknown",2024-12-30,0
+"Indonesia","Unknown",2025-01-06,0
+"Indonesia","Unknown",2025-01-13,0
+"Indonesia","Unknown",2025-01-20,0
+"Indonesia","Unknown",2025-01-27,0
+"Indonesia","Unknown",2025-02-03,0
+"Indonesia","Unknown",2025-02-10,0
+"Indonesia","Unknown",2025-02-17,0
+"Indonesia","Unknown",2025-02-24,0
+"Indonesia","Unknown",2025-03-03,0
+"Indonesia","Unknown",2025-03-10,0
+"Indonesia","Unknown",2025-03-17,0
+"Indonesia","Unknown",2025-03-24,0
+"Indonesia","Unknown",2025-03-31,0
+"Indonesia","Unknown",2025-04-07,0
+"Indonesia","Unknown",2025-04-14,0
+"Indonesia","Unknown",2025-04-21,0
+"Indonesia","Unknown",2025-04-28,0
+"Indonesia","Unknown",2025-05-05,0
+"Indonesia","Unknown",2025-05-12,0
+"Indonesia","Unknown",2025-05-19,0
+"Indonesia","Unknown",2025-05-26,0
+"Indonesia","Unknown",2025-06-02,0
+"Indonesia","Unknown",2025-06-09,0
+"Indonesia","Unknown",2025-06-16,0
+"Indonesia","Unknown",2025-06-23,0
+"Indonesia","Unknown",2025-06-30,0
+"Indonesia","Unknown",2025-07-07,0
+"Indonesia","Unknown",2025-07-14,0
+"Indonesia","Unknown",2025-07-21,0
+"Indonesia","Unknown",2025-07-28,0
+"Indonesia","Unknown",2025-08-04,0
+"Indonesia","Unknown",2025-08-11,0
+"Indonesia","Unknown",2025-08-18,0
+"Indonesia","Unknown",2025-08-25,0
+"Indonesia","Unknown",2025-09-01,0
+"Indonesia","Unknown",2025-09-08,0
+"Indonesia","Unknown",2025-09-15,0
+"Indonesia","Unknown",2025-09-22,0
+"Indonesia","Unknown",2025-09-29,0
+"Indonesia","Unknown",2025-10-06,0
+"Indonesia","Unknown",2025-10-13,0
+"Indonesia","Unknown",2025-10-20,0
+"Indonesia","Unknown",2025-10-27,0
+"Indonesia","Unknown",2025-11-03,0
+"Indonesia","Unknown",2025-11-10,0
+"Indonesia","Unknown",2025-11-17,0
+"Indonesia","Unknown",2025-11-24,0
+"Indonesia","Unknown",2025-12-01,0
+"Indonesia","Unknown",2025-12-08,0
+"Indonesia","Unknown",2025-12-15,0
+"Indonesia","Unknown",2025-12-22,0
+"Indonesia","Unknown",2025-12-29,0
+"Indonesia","Unknown",2026-01-05,0
+"Indonesia","Unknown",2026-01-12,0
+"Indonesia","Unknown",2026-01-19,0
+"Indonesia","Unknown",2026-01-26,0
 "Nepal","Ib",2022-07-11,0
 "Nepal","Ib",2022-07-18,0
 "Nepal","Ib",2022-07-25,0
@@ -1349,7 +1721,7 @@
 "Nepal","II",2023-05-22,0
 "Nepal","II",2023-05-29,0
 "Nepal","II",2023-06-05,0
-"Nepal","II",2023-06-12,1
+"Nepal","II",2023-06-12,0
 "Nepal","II",2023-06-19,0
 "Nepal","II",2023-06-26,0
 "Nepal","II",2023-07-03,0
@@ -1673,6 +2045,192 @@
 "Nepal","Recombinant",2026-01-12,0
 "Nepal","Recombinant",2026-01-19,0
 "Nepal","Recombinant",2026-01-26,0
+"Nepal","Unknown",2022-07-11,0
+"Nepal","Unknown",2022-07-18,0
+"Nepal","Unknown",2022-07-25,0
+"Nepal","Unknown",2022-08-01,0
+"Nepal","Unknown",2022-08-08,0
+"Nepal","Unknown",2022-08-15,0
+"Nepal","Unknown",2022-08-22,0
+"Nepal","Unknown",2022-08-29,0
+"Nepal","Unknown",2022-09-05,0
+"Nepal","Unknown",2022-09-12,0
+"Nepal","Unknown",2022-09-19,0
+"Nepal","Unknown",2022-09-26,0
+"Nepal","Unknown",2022-10-03,0
+"Nepal","Unknown",2022-10-10,0
+"Nepal","Unknown",2022-10-17,0
+"Nepal","Unknown",2022-10-24,0
+"Nepal","Unknown",2022-10-31,0
+"Nepal","Unknown",2022-11-07,0
+"Nepal","Unknown",2022-11-14,0
+"Nepal","Unknown",2022-11-21,0
+"Nepal","Unknown",2022-11-28,0
+"Nepal","Unknown",2022-12-05,0
+"Nepal","Unknown",2022-12-12,0
+"Nepal","Unknown",2022-12-19,0
+"Nepal","Unknown",2022-12-26,0
+"Nepal","Unknown",2023-01-02,0
+"Nepal","Unknown",2023-01-09,0
+"Nepal","Unknown",2023-01-16,0
+"Nepal","Unknown",2023-01-23,0
+"Nepal","Unknown",2023-01-30,0
+"Nepal","Unknown",2023-02-06,0
+"Nepal","Unknown",2023-02-13,0
+"Nepal","Unknown",2023-02-20,0
+"Nepal","Unknown",2023-02-27,0
+"Nepal","Unknown",2023-03-06,0
+"Nepal","Unknown",2023-03-13,0
+"Nepal","Unknown",2023-03-20,0
+"Nepal","Unknown",2023-03-27,0
+"Nepal","Unknown",2023-04-03,0
+"Nepal","Unknown",2023-04-10,0
+"Nepal","Unknown",2023-04-17,0
+"Nepal","Unknown",2023-04-24,0
+"Nepal","Unknown",2023-05-01,0
+"Nepal","Unknown",2023-05-08,0
+"Nepal","Unknown",2023-05-15,0
+"Nepal","Unknown",2023-05-22,0
+"Nepal","Unknown",2023-05-29,0
+"Nepal","Unknown",2023-06-05,0
+"Nepal","Unknown",2023-06-12,1
+"Nepal","Unknown",2023-06-19,0
+"Nepal","Unknown",2023-06-26,0
+"Nepal","Unknown",2023-07-03,0
+"Nepal","Unknown",2023-07-10,0
+"Nepal","Unknown",2023-07-17,0
+"Nepal","Unknown",2023-07-24,0
+"Nepal","Unknown",2023-07-31,0
+"Nepal","Unknown",2023-08-07,0
+"Nepal","Unknown",2023-08-14,0
+"Nepal","Unknown",2023-08-21,0
+"Nepal","Unknown",2023-08-28,0
+"Nepal","Unknown",2023-09-04,0
+"Nepal","Unknown",2023-09-11,0
+"Nepal","Unknown",2023-09-18,0
+"Nepal","Unknown",2023-09-25,0
+"Nepal","Unknown",2023-10-02,0
+"Nepal","Unknown",2023-10-09,0
+"Nepal","Unknown",2023-10-16,0
+"Nepal","Unknown",2023-10-23,0
+"Nepal","Unknown",2023-10-30,0
+"Nepal","Unknown",2023-11-06,0
+"Nepal","Unknown",2023-11-13,0
+"Nepal","Unknown",2023-11-20,0
+"Nepal","Unknown",2023-11-27,0
+"Nepal","Unknown",2023-12-04,0
+"Nepal","Unknown",2023-12-11,0
+"Nepal","Unknown",2023-12-18,0
+"Nepal","Unknown",2023-12-25,0
+"Nepal","Unknown",2024-01-01,0
+"Nepal","Unknown",2024-01-08,0
+"Nepal","Unknown",2024-01-15,0
+"Nepal","Unknown",2024-01-22,0
+"Nepal","Unknown",2024-01-29,0
+"Nepal","Unknown",2024-02-05,0
+"Nepal","Unknown",2024-02-12,0
+"Nepal","Unknown",2024-02-19,0
+"Nepal","Unknown",2024-02-26,0
+"Nepal","Unknown",2024-03-04,0
+"Nepal","Unknown",2024-03-11,0
+"Nepal","Unknown",2024-03-18,0
+"Nepal","Unknown",2024-03-25,0
+"Nepal","Unknown",2024-04-01,0
+"Nepal","Unknown",2024-04-08,0
+"Nepal","Unknown",2024-04-15,0
+"Nepal","Unknown",2024-04-22,0
+"Nepal","Unknown",2024-04-29,0
+"Nepal","Unknown",2024-05-06,0
+"Nepal","Unknown",2024-05-13,0
+"Nepal","Unknown",2024-05-20,0
+"Nepal","Unknown",2024-05-27,0
+"Nepal","Unknown",2024-06-03,0
+"Nepal","Unknown",2024-06-10,0
+"Nepal","Unknown",2024-06-17,0
+"Nepal","Unknown",2024-06-24,0
+"Nepal","Unknown",2024-07-01,0
+"Nepal","Unknown",2024-07-08,0
+"Nepal","Unknown",2024-07-15,0
+"Nepal","Unknown",2024-07-22,0
+"Nepal","Unknown",2024-07-29,0
+"Nepal","Unknown",2024-08-05,0
+"Nepal","Unknown",2024-08-12,0
+"Nepal","Unknown",2024-08-19,0
+"Nepal","Unknown",2024-08-26,0
+"Nepal","Unknown",2024-09-02,0
+"Nepal","Unknown",2024-09-09,0
+"Nepal","Unknown",2024-09-16,0
+"Nepal","Unknown",2024-09-23,0
+"Nepal","Unknown",2024-09-30,0
+"Nepal","Unknown",2024-10-07,0
+"Nepal","Unknown",2024-10-14,0
+"Nepal","Unknown",2024-10-21,0
+"Nepal","Unknown",2024-10-28,0
+"Nepal","Unknown",2024-11-04,0
+"Nepal","Unknown",2024-11-11,0
+"Nepal","Unknown",2024-11-18,0
+"Nepal","Unknown",2024-11-25,0
+"Nepal","Unknown",2024-12-02,0
+"Nepal","Unknown",2024-12-09,0
+"Nepal","Unknown",2024-12-16,0
+"Nepal","Unknown",2024-12-23,0
+"Nepal","Unknown",2024-12-30,0
+"Nepal","Unknown",2025-01-06,0
+"Nepal","Unknown",2025-01-13,0
+"Nepal","Unknown",2025-01-20,0
+"Nepal","Unknown",2025-01-27,0
+"Nepal","Unknown",2025-02-03,0
+"Nepal","Unknown",2025-02-10,0
+"Nepal","Unknown",2025-02-17,0
+"Nepal","Unknown",2025-02-24,0
+"Nepal","Unknown",2025-03-03,0
+"Nepal","Unknown",2025-03-10,0
+"Nepal","Unknown",2025-03-17,0
+"Nepal","Unknown",2025-03-24,0
+"Nepal","Unknown",2025-03-31,0
+"Nepal","Unknown",2025-04-07,0
+"Nepal","Unknown",2025-04-14,0
+"Nepal","Unknown",2025-04-21,0
+"Nepal","Unknown",2025-04-28,0
+"Nepal","Unknown",2025-05-05,0
+"Nepal","Unknown",2025-05-12,0
+"Nepal","Unknown",2025-05-19,0
+"Nepal","Unknown",2025-05-26,0
+"Nepal","Unknown",2025-06-02,0
+"Nepal","Unknown",2025-06-09,0
+"Nepal","Unknown",2025-06-16,0
+"Nepal","Unknown",2025-06-23,0
+"Nepal","Unknown",2025-06-30,0
+"Nepal","Unknown",2025-07-07,0
+"Nepal","Unknown",2025-07-14,0
+"Nepal","Unknown",2025-07-21,0
+"Nepal","Unknown",2025-07-28,0
+"Nepal","Unknown",2025-08-04,0
+"Nepal","Unknown",2025-08-11,0
+"Nepal","Unknown",2025-08-18,0
+"Nepal","Unknown",2025-08-25,0
+"Nepal","Unknown",2025-09-01,0
+"Nepal","Unknown",2025-09-08,0
+"Nepal","Unknown",2025-09-15,0
+"Nepal","Unknown",2025-09-22,0
+"Nepal","Unknown",2025-09-29,0
+"Nepal","Unknown",2025-10-06,0
+"Nepal","Unknown",2025-10-13,0
+"Nepal","Unknown",2025-10-20,0
+"Nepal","Unknown",2025-10-27,0
+"Nepal","Unknown",2025-11-03,0
+"Nepal","Unknown",2025-11-10,0
+"Nepal","Unknown",2025-11-17,0
+"Nepal","Unknown",2025-11-24,0
+"Nepal","Unknown",2025-12-01,0
+"Nepal","Unknown",2025-12-08,0
+"Nepal","Unknown",2025-12-15,0
+"Nepal","Unknown",2025-12-22,0
+"Nepal","Unknown",2025-12-29,0
+"Nepal","Unknown",2026-01-05,0
+"Nepal","Unknown",2026-01-12,0
+"Nepal","Unknown",2026-01-19,0
+"Nepal","Unknown",2026-01-26,0
 "Sri Lanka","Ib",2022-07-11,0
 "Sri Lanka","Ib",2022-07-18,0
 "Sri Lanka","Ib",2022-07-25,0
@@ -1875,9 +2433,9 @@
 "Sri Lanka","II",2022-10-10,0
 "Sri Lanka","II",2022-10-17,0
 "Sri Lanka","II",2022-10-24,0
-"Sri Lanka","II",2022-10-31,1
+"Sri Lanka","II",2022-10-31,0
 "Sri Lanka","II",2022-11-07,0
-"Sri Lanka","II",2022-11-14,1
+"Sri Lanka","II",2022-11-14,0
 "Sri Lanka","II",2022-11-21,0
 "Sri Lanka","II",2022-11-28,0
 "Sri Lanka","II",2022-12-05,0
@@ -1906,7 +2464,7 @@
 "Sri Lanka","II",2023-05-15,0
 "Sri Lanka","II",2023-05-22,0
 "Sri Lanka","II",2023-05-29,0
-"Sri Lanka","II",2023-06-05,2
+"Sri Lanka","II",2023-06-05,0
 "Sri Lanka","II",2023-06-12,0
 "Sri Lanka","II",2023-06-19,0
 "Sri Lanka","II",2023-06-26,0
@@ -2020,7 +2578,7 @@
 "Sri Lanka","II",2025-07-21,0
 "Sri Lanka","II",2025-07-28,0
 "Sri Lanka","II",2025-08-04,0
-"Sri Lanka","II",2025-08-11,1
+"Sri Lanka","II",2025-08-11,0
 "Sri Lanka","II",2025-08-18,0
 "Sri Lanka","II",2025-08-25,0
 "Sri Lanka","II",2025-09-01,0
@@ -2231,6 +2789,192 @@
 "Sri Lanka","Recombinant",2026-01-12,0
 "Sri Lanka","Recombinant",2026-01-19,0
 "Sri Lanka","Recombinant",2026-01-26,0
+"Sri Lanka","Unknown",2022-07-11,0
+"Sri Lanka","Unknown",2022-07-18,0
+"Sri Lanka","Unknown",2022-07-25,0
+"Sri Lanka","Unknown",2022-08-01,0
+"Sri Lanka","Unknown",2022-08-08,0
+"Sri Lanka","Unknown",2022-08-15,0
+"Sri Lanka","Unknown",2022-08-22,0
+"Sri Lanka","Unknown",2022-08-29,0
+"Sri Lanka","Unknown",2022-09-05,0
+"Sri Lanka","Unknown",2022-09-12,0
+"Sri Lanka","Unknown",2022-09-19,0
+"Sri Lanka","Unknown",2022-09-26,0
+"Sri Lanka","Unknown",2022-10-03,0
+"Sri Lanka","Unknown",2022-10-10,0
+"Sri Lanka","Unknown",2022-10-17,0
+"Sri Lanka","Unknown",2022-10-24,0
+"Sri Lanka","Unknown",2022-10-31,1
+"Sri Lanka","Unknown",2022-11-07,0
+"Sri Lanka","Unknown",2022-11-14,1
+"Sri Lanka","Unknown",2022-11-21,0
+"Sri Lanka","Unknown",2022-11-28,0
+"Sri Lanka","Unknown",2022-12-05,0
+"Sri Lanka","Unknown",2022-12-12,0
+"Sri Lanka","Unknown",2022-12-19,0
+"Sri Lanka","Unknown",2022-12-26,0
+"Sri Lanka","Unknown",2023-01-02,0
+"Sri Lanka","Unknown",2023-01-09,0
+"Sri Lanka","Unknown",2023-01-16,0
+"Sri Lanka","Unknown",2023-01-23,0
+"Sri Lanka","Unknown",2023-01-30,0
+"Sri Lanka","Unknown",2023-02-06,0
+"Sri Lanka","Unknown",2023-02-13,0
+"Sri Lanka","Unknown",2023-02-20,0
+"Sri Lanka","Unknown",2023-02-27,0
+"Sri Lanka","Unknown",2023-03-06,0
+"Sri Lanka","Unknown",2023-03-13,0
+"Sri Lanka","Unknown",2023-03-20,0
+"Sri Lanka","Unknown",2023-03-27,0
+"Sri Lanka","Unknown",2023-04-03,0
+"Sri Lanka","Unknown",2023-04-10,0
+"Sri Lanka","Unknown",2023-04-17,0
+"Sri Lanka","Unknown",2023-04-24,0
+"Sri Lanka","Unknown",2023-05-01,0
+"Sri Lanka","Unknown",2023-05-08,0
+"Sri Lanka","Unknown",2023-05-15,0
+"Sri Lanka","Unknown",2023-05-22,0
+"Sri Lanka","Unknown",2023-05-29,0
+"Sri Lanka","Unknown",2023-06-05,2
+"Sri Lanka","Unknown",2023-06-12,0
+"Sri Lanka","Unknown",2023-06-19,0
+"Sri Lanka","Unknown",2023-06-26,0
+"Sri Lanka","Unknown",2023-07-03,0
+"Sri Lanka","Unknown",2023-07-10,0
+"Sri Lanka","Unknown",2023-07-17,0
+"Sri Lanka","Unknown",2023-07-24,0
+"Sri Lanka","Unknown",2023-07-31,0
+"Sri Lanka","Unknown",2023-08-07,0
+"Sri Lanka","Unknown",2023-08-14,0
+"Sri Lanka","Unknown",2023-08-21,0
+"Sri Lanka","Unknown",2023-08-28,0
+"Sri Lanka","Unknown",2023-09-04,0
+"Sri Lanka","Unknown",2023-09-11,0
+"Sri Lanka","Unknown",2023-09-18,0
+"Sri Lanka","Unknown",2023-09-25,0
+"Sri Lanka","Unknown",2023-10-02,0
+"Sri Lanka","Unknown",2023-10-09,0
+"Sri Lanka","Unknown",2023-10-16,0
+"Sri Lanka","Unknown",2023-10-23,0
+"Sri Lanka","Unknown",2023-10-30,0
+"Sri Lanka","Unknown",2023-11-06,0
+"Sri Lanka","Unknown",2023-11-13,0
+"Sri Lanka","Unknown",2023-11-20,0
+"Sri Lanka","Unknown",2023-11-27,0
+"Sri Lanka","Unknown",2023-12-04,0
+"Sri Lanka","Unknown",2023-12-11,0
+"Sri Lanka","Unknown",2023-12-18,0
+"Sri Lanka","Unknown",2023-12-25,0
+"Sri Lanka","Unknown",2024-01-01,0
+"Sri Lanka","Unknown",2024-01-08,0
+"Sri Lanka","Unknown",2024-01-15,0
+"Sri Lanka","Unknown",2024-01-22,0
+"Sri Lanka","Unknown",2024-01-29,0
+"Sri Lanka","Unknown",2024-02-05,0
+"Sri Lanka","Unknown",2024-02-12,0
+"Sri Lanka","Unknown",2024-02-19,0
+"Sri Lanka","Unknown",2024-02-26,0
+"Sri Lanka","Unknown",2024-03-04,0
+"Sri Lanka","Unknown",2024-03-11,0
+"Sri Lanka","Unknown",2024-03-18,0
+"Sri Lanka","Unknown",2024-03-25,0
+"Sri Lanka","Unknown",2024-04-01,0
+"Sri Lanka","Unknown",2024-04-08,0
+"Sri Lanka","Unknown",2024-04-15,0
+"Sri Lanka","Unknown",2024-04-22,0
+"Sri Lanka","Unknown",2024-04-29,0
+"Sri Lanka","Unknown",2024-05-06,0
+"Sri Lanka","Unknown",2024-05-13,0
+"Sri Lanka","Unknown",2024-05-20,0
+"Sri Lanka","Unknown",2024-05-27,0
+"Sri Lanka","Unknown",2024-06-03,0
+"Sri Lanka","Unknown",2024-06-10,0
+"Sri Lanka","Unknown",2024-06-17,0
+"Sri Lanka","Unknown",2024-06-24,0
+"Sri Lanka","Unknown",2024-07-01,0
+"Sri Lanka","Unknown",2024-07-08,0
+"Sri Lanka","Unknown",2024-07-15,0
+"Sri Lanka","Unknown",2024-07-22,0
+"Sri Lanka","Unknown",2024-07-29,0
+"Sri Lanka","Unknown",2024-08-05,0
+"Sri Lanka","Unknown",2024-08-12,0
+"Sri Lanka","Unknown",2024-08-19,0
+"Sri Lanka","Unknown",2024-08-26,0
+"Sri Lanka","Unknown",2024-09-02,0
+"Sri Lanka","Unknown",2024-09-09,0
+"Sri Lanka","Unknown",2024-09-16,0
+"Sri Lanka","Unknown",2024-09-23,0
+"Sri Lanka","Unknown",2024-09-30,0
+"Sri Lanka","Unknown",2024-10-07,0
+"Sri Lanka","Unknown",2024-10-14,0
+"Sri Lanka","Unknown",2024-10-21,0
+"Sri Lanka","Unknown",2024-10-28,0
+"Sri Lanka","Unknown",2024-11-04,0
+"Sri Lanka","Unknown",2024-11-11,0
+"Sri Lanka","Unknown",2024-11-18,0
+"Sri Lanka","Unknown",2024-11-25,0
+"Sri Lanka","Unknown",2024-12-02,0
+"Sri Lanka","Unknown",2024-12-09,0
+"Sri Lanka","Unknown",2024-12-16,0
+"Sri Lanka","Unknown",2024-12-23,0
+"Sri Lanka","Unknown",2024-12-30,0
+"Sri Lanka","Unknown",2025-01-06,0
+"Sri Lanka","Unknown",2025-01-13,0
+"Sri Lanka","Unknown",2025-01-20,0
+"Sri Lanka","Unknown",2025-01-27,0
+"Sri Lanka","Unknown",2025-02-03,0
+"Sri Lanka","Unknown",2025-02-10,0
+"Sri Lanka","Unknown",2025-02-17,0
+"Sri Lanka","Unknown",2025-02-24,0
+"Sri Lanka","Unknown",2025-03-03,0
+"Sri Lanka","Unknown",2025-03-10,0
+"Sri Lanka","Unknown",2025-03-17,0
+"Sri Lanka","Unknown",2025-03-24,0
+"Sri Lanka","Unknown",2025-03-31,0
+"Sri Lanka","Unknown",2025-04-07,0
+"Sri Lanka","Unknown",2025-04-14,0
+"Sri Lanka","Unknown",2025-04-21,0
+"Sri Lanka","Unknown",2025-04-28,0
+"Sri Lanka","Unknown",2025-05-05,0
+"Sri Lanka","Unknown",2025-05-12,0
+"Sri Lanka","Unknown",2025-05-19,0
+"Sri Lanka","Unknown",2025-05-26,0
+"Sri Lanka","Unknown",2025-06-02,0
+"Sri Lanka","Unknown",2025-06-09,0
+"Sri Lanka","Unknown",2025-06-16,0
+"Sri Lanka","Unknown",2025-06-23,0
+"Sri Lanka","Unknown",2025-06-30,0
+"Sri Lanka","Unknown",2025-07-07,0
+"Sri Lanka","Unknown",2025-07-14,0
+"Sri Lanka","Unknown",2025-07-21,0
+"Sri Lanka","Unknown",2025-07-28,0
+"Sri Lanka","Unknown",2025-08-04,0
+"Sri Lanka","Unknown",2025-08-11,1
+"Sri Lanka","Unknown",2025-08-18,0
+"Sri Lanka","Unknown",2025-08-25,0
+"Sri Lanka","Unknown",2025-09-01,0
+"Sri Lanka","Unknown",2025-09-08,0
+"Sri Lanka","Unknown",2025-09-15,0
+"Sri Lanka","Unknown",2025-09-22,0
+"Sri Lanka","Unknown",2025-09-29,0
+"Sri Lanka","Unknown",2025-10-06,0
+"Sri Lanka","Unknown",2025-10-13,0
+"Sri Lanka","Unknown",2025-10-20,0
+"Sri Lanka","Unknown",2025-10-27,0
+"Sri Lanka","Unknown",2025-11-03,0
+"Sri Lanka","Unknown",2025-11-10,0
+"Sri Lanka","Unknown",2025-11-17,0
+"Sri Lanka","Unknown",2025-11-24,0
+"Sri Lanka","Unknown",2025-12-01,0
+"Sri Lanka","Unknown",2025-12-08,0
+"Sri Lanka","Unknown",2025-12-15,0
+"Sri Lanka","Unknown",2025-12-22,0
+"Sri Lanka","Unknown",2025-12-29,0
+"Sri Lanka","Unknown",2026-01-05,0
+"Sri Lanka","Unknown",2026-01-12,0
+"Sri Lanka","Unknown",2026-01-19,0
+"Sri Lanka","Unknown",2026-01-26,0
 "Thailand","Ib",2022-07-11,0
 "Thailand","Ib",2022-07-18,0
 "Thailand","Ib",2022-07-25,0
@@ -2418,19 +3162,19 @@
 "Thailand","Ib",2026-01-19,1
 "Thailand","Ib",2026-01-26,1
 "Thailand","II",2022-07-11,0
-"Thailand","II",2022-07-18,1
-"Thailand","II",2022-07-25,1
-"Thailand","II",2022-08-01,2
+"Thailand","II",2022-07-18,0
+"Thailand","II",2022-07-25,0
+"Thailand","II",2022-08-01,0
 "Thailand","II",2022-08-08,0
-"Thailand","II",2022-08-15,1
-"Thailand","II",2022-08-22,2
+"Thailand","II",2022-08-15,0
+"Thailand","II",2022-08-22,0
 "Thailand","II",2022-08-29,0
 "Thailand","II",2022-09-05,0
-"Thailand","II",2022-09-12,1
+"Thailand","II",2022-09-12,0
 "Thailand","II",2022-09-19,0
-"Thailand","II",2022-09-26,2
+"Thailand","II",2022-09-26,0
 "Thailand","II",2022-10-03,0
-"Thailand","II",2022-10-10,2
+"Thailand","II",2022-10-10,0
 "Thailand","II",2022-10-17,0
 "Thailand","II",2022-10-24,0
 "Thailand","II",2022-10-31,0
@@ -2439,12 +3183,12 @@
 "Thailand","II",2022-11-21,0
 "Thailand","II",2022-11-28,0
 "Thailand","II",2022-12-05,0
-"Thailand","II",2022-12-12,2
+"Thailand","II",2022-12-12,0
 "Thailand","II",2022-12-19,0
 "Thailand","II",2022-12-26,0
 "Thailand","II",2023-01-02,0
 "Thailand","II",2023-01-09,0
-"Thailand","II",2023-01-16,1
+"Thailand","II",2023-01-16,0
 "Thailand","II",2023-01-23,0
 "Thailand","II",2023-01-30,0
 "Thailand","II",2023-02-06,0
@@ -2452,100 +3196,100 @@
 "Thailand","II",2023-02-20,0
 "Thailand","II",2023-02-27,0
 "Thailand","II",2023-03-06,0
-"Thailand","II",2023-03-13,1
-"Thailand","II",2023-03-20,2
-"Thailand","II",2023-03-27,1
+"Thailand","II",2023-03-13,0
+"Thailand","II",2023-03-20,0
+"Thailand","II",2023-03-27,0
 "Thailand","II",2023-04-03,0
 "Thailand","II",2023-04-10,0
-"Thailand","II",2023-04-17,2
-"Thailand","II",2023-04-24,1
-"Thailand","II",2023-05-01,2
-"Thailand","II",2023-05-08,5
-"Thailand","II",2023-05-15,6
-"Thailand","II",2023-05-22,5
-"Thailand","II",2023-05-29,9
-"Thailand","II",2023-06-05,4
-"Thailand","II",2023-06-12,12
-"Thailand","II",2023-06-19,20
-"Thailand","II",2023-06-26,15
-"Thailand","II",2023-07-03,20
-"Thailand","II",2023-07-10,14
-"Thailand","II",2023-07-17,17
-"Thailand","II",2023-07-24,27
-"Thailand","II",2023-07-31,17
-"Thailand","II",2023-08-07,33
-"Thailand","II",2023-08-14,39
-"Thailand","II",2023-08-21,39
-"Thailand","II",2023-08-28,30
-"Thailand","II",2023-09-04,19
-"Thailand","II",2023-09-11,48
-"Thailand","II",2023-09-18,42
-"Thailand","II",2023-09-25,34
-"Thailand","II",2023-10-02,31
-"Thailand","II",2023-10-09,17
-"Thailand","II",2023-10-16,28
-"Thailand","II",2023-10-23,26
-"Thailand","II",2023-10-30,23
-"Thailand","II",2023-11-06,4
-"Thailand","II",2023-11-13,21
-"Thailand","II",2023-11-20,18
-"Thailand","II",2023-11-27,14
-"Thailand","II",2023-12-04,8
-"Thailand","II",2023-12-11,7
-"Thailand","II",2023-12-18,8
-"Thailand","II",2023-12-25,3
-"Thailand","II",2024-01-01,4
-"Thailand","II",2024-01-08,6
-"Thailand","II",2024-01-15,17
-"Thailand","II",2024-01-22,5
-"Thailand","II",2024-01-29,3
-"Thailand","II",2024-02-05,4
-"Thailand","II",2024-02-12,7
-"Thailand","II",2024-02-19,9
-"Thailand","II",2024-02-26,5
-"Thailand","II",2024-03-04,2
-"Thailand","II",2024-03-11,1
-"Thailand","II",2024-03-18,2
-"Thailand","II",2024-03-25,3
-"Thailand","II",2024-04-01,4
-"Thailand","II",2024-04-08,2
-"Thailand","II",2024-04-15,5
-"Thailand","II",2024-04-22,7
-"Thailand","II",2024-04-29,2
-"Thailand","II",2024-05-06,5
-"Thailand","II",2024-05-13,7
-"Thailand","II",2024-05-20,5
-"Thailand","II",2024-05-27,3
-"Thailand","II",2024-06-03,2
-"Thailand","II",2024-06-10,3
-"Thailand","II",2024-06-17,1
-"Thailand","II",2024-06-24,2
-"Thailand","II",2024-07-01,5
-"Thailand","II",2024-07-08,5
-"Thailand","II",2024-07-15,4
-"Thailand","II",2024-07-22,2
-"Thailand","II",2024-07-29,2
-"Thailand","II",2024-08-05,5
-"Thailand","II",2024-08-12,2
-"Thailand","II",2024-08-19,2
-"Thailand","II",2024-08-26,1
-"Thailand","II",2024-09-02,2
-"Thailand","II",2024-09-09,4
+"Thailand","II",2023-04-17,0
+"Thailand","II",2023-04-24,0
+"Thailand","II",2023-05-01,0
+"Thailand","II",2023-05-08,0
+"Thailand","II",2023-05-15,0
+"Thailand","II",2023-05-22,0
+"Thailand","II",2023-05-29,0
+"Thailand","II",2023-06-05,0
+"Thailand","II",2023-06-12,0
+"Thailand","II",2023-06-19,0
+"Thailand","II",2023-06-26,0
+"Thailand","II",2023-07-03,0
+"Thailand","II",2023-07-10,0
+"Thailand","II",2023-07-17,0
+"Thailand","II",2023-07-24,0
+"Thailand","II",2023-07-31,0
+"Thailand","II",2023-08-07,0
+"Thailand","II",2023-08-14,0
+"Thailand","II",2023-08-21,0
+"Thailand","II",2023-08-28,0
+"Thailand","II",2023-09-04,0
+"Thailand","II",2023-09-11,0
+"Thailand","II",2023-09-18,0
+"Thailand","II",2023-09-25,0
+"Thailand","II",2023-10-02,0
+"Thailand","II",2023-10-09,0
+"Thailand","II",2023-10-16,0
+"Thailand","II",2023-10-23,0
+"Thailand","II",2023-10-30,0
+"Thailand","II",2023-11-06,0
+"Thailand","II",2023-11-13,0
+"Thailand","II",2023-11-20,0
+"Thailand","II",2023-11-27,0
+"Thailand","II",2023-12-04,0
+"Thailand","II",2023-12-11,0
+"Thailand","II",2023-12-18,0
+"Thailand","II",2023-12-25,0
+"Thailand","II",2024-01-01,0
+"Thailand","II",2024-01-08,0
+"Thailand","II",2024-01-15,0
+"Thailand","II",2024-01-22,0
+"Thailand","II",2024-01-29,0
+"Thailand","II",2024-02-05,0
+"Thailand","II",2024-02-12,0
+"Thailand","II",2024-02-19,0
+"Thailand","II",2024-02-26,0
+"Thailand","II",2024-03-04,0
+"Thailand","II",2024-03-11,0
+"Thailand","II",2024-03-18,0
+"Thailand","II",2024-03-25,0
+"Thailand","II",2024-04-01,0
+"Thailand","II",2024-04-08,0
+"Thailand","II",2024-04-15,0
+"Thailand","II",2024-04-22,0
+"Thailand","II",2024-04-29,0
+"Thailand","II",2024-05-06,0
+"Thailand","II",2024-05-13,0
+"Thailand","II",2024-05-20,0
+"Thailand","II",2024-05-27,0
+"Thailand","II",2024-06-03,0
+"Thailand","II",2024-06-10,0
+"Thailand","II",2024-06-17,0
+"Thailand","II",2024-06-24,0
+"Thailand","II",2024-07-01,0
+"Thailand","II",2024-07-08,0
+"Thailand","II",2024-07-15,0
+"Thailand","II",2024-07-22,0
+"Thailand","II",2024-07-29,0
+"Thailand","II",2024-08-05,0
+"Thailand","II",2024-08-12,0
+"Thailand","II",2024-08-19,0
+"Thailand","II",2024-08-26,0
+"Thailand","II",2024-09-02,0
+"Thailand","II",2024-09-09,0
 "Thailand","II",2024-09-16,0
-"Thailand","II",2024-09-23,3
-"Thailand","II",2024-09-30,2
-"Thailand","II",2024-10-07,5
-"Thailand","II",2024-10-14,2
-"Thailand","II",2024-10-21,4
-"Thailand","II",2024-10-28,3
-"Thailand","II",2024-11-04,2
+"Thailand","II",2024-09-23,0
+"Thailand","II",2024-09-30,0
+"Thailand","II",2024-10-07,0
+"Thailand","II",2024-10-14,0
+"Thailand","II",2024-10-21,0
+"Thailand","II",2024-10-28,0
+"Thailand","II",2024-11-04,0
 "Thailand","II",2024-11-11,0
-"Thailand","II",2024-11-18,2
+"Thailand","II",2024-11-18,0
 "Thailand","II",2024-11-25,0
 "Thailand","II",2024-12-02,0
 "Thailand","II",2024-12-09,0
 "Thailand","II",2024-12-16,0
-"Thailand","II",2024-12-23,1
+"Thailand","II",2024-12-23,0
 "Thailand","II",2024-12-30,0
 "Thailand","II",2025-01-06,0
 "Thailand","II",2025-01-13,1
@@ -2789,3 +3533,189 @@
 "Thailand","Recombinant",2026-01-12,0
 "Thailand","Recombinant",2026-01-19,0
 "Thailand","Recombinant",2026-01-26,0
+"Thailand","Unknown",2022-07-11,0
+"Thailand","Unknown",2022-07-18,1
+"Thailand","Unknown",2022-07-25,1
+"Thailand","Unknown",2022-08-01,2
+"Thailand","Unknown",2022-08-08,0
+"Thailand","Unknown",2022-08-15,1
+"Thailand","Unknown",2022-08-22,2
+"Thailand","Unknown",2022-08-29,0
+"Thailand","Unknown",2022-09-05,0
+"Thailand","Unknown",2022-09-12,1
+"Thailand","Unknown",2022-09-19,0
+"Thailand","Unknown",2022-09-26,2
+"Thailand","Unknown",2022-10-03,0
+"Thailand","Unknown",2022-10-10,2
+"Thailand","Unknown",2022-10-17,0
+"Thailand","Unknown",2022-10-24,0
+"Thailand","Unknown",2022-10-31,0
+"Thailand","Unknown",2022-11-07,0
+"Thailand","Unknown",2022-11-14,0
+"Thailand","Unknown",2022-11-21,0
+"Thailand","Unknown",2022-11-28,0
+"Thailand","Unknown",2022-12-05,0
+"Thailand","Unknown",2022-12-12,2
+"Thailand","Unknown",2022-12-19,0
+"Thailand","Unknown",2022-12-26,0
+"Thailand","Unknown",2023-01-02,0
+"Thailand","Unknown",2023-01-09,0
+"Thailand","Unknown",2023-01-16,1
+"Thailand","Unknown",2023-01-23,0
+"Thailand","Unknown",2023-01-30,0
+"Thailand","Unknown",2023-02-06,0
+"Thailand","Unknown",2023-02-13,0
+"Thailand","Unknown",2023-02-20,0
+"Thailand","Unknown",2023-02-27,0
+"Thailand","Unknown",2023-03-06,0
+"Thailand","Unknown",2023-03-13,1
+"Thailand","Unknown",2023-03-20,2
+"Thailand","Unknown",2023-03-27,1
+"Thailand","Unknown",2023-04-03,0
+"Thailand","Unknown",2023-04-10,0
+"Thailand","Unknown",2023-04-17,2
+"Thailand","Unknown",2023-04-24,1
+"Thailand","Unknown",2023-05-01,2
+"Thailand","Unknown",2023-05-08,5
+"Thailand","Unknown",2023-05-15,6
+"Thailand","Unknown",2023-05-22,5
+"Thailand","Unknown",2023-05-29,9
+"Thailand","Unknown",2023-06-05,4
+"Thailand","Unknown",2023-06-12,12
+"Thailand","Unknown",2023-06-19,20
+"Thailand","Unknown",2023-06-26,15
+"Thailand","Unknown",2023-07-03,20
+"Thailand","Unknown",2023-07-10,14
+"Thailand","Unknown",2023-07-17,17
+"Thailand","Unknown",2023-07-24,27
+"Thailand","Unknown",2023-07-31,17
+"Thailand","Unknown",2023-08-07,33
+"Thailand","Unknown",2023-08-14,39
+"Thailand","Unknown",2023-08-21,39
+"Thailand","Unknown",2023-08-28,30
+"Thailand","Unknown",2023-09-04,19
+"Thailand","Unknown",2023-09-11,48
+"Thailand","Unknown",2023-09-18,42
+"Thailand","Unknown",2023-09-25,34
+"Thailand","Unknown",2023-10-02,31
+"Thailand","Unknown",2023-10-09,17
+"Thailand","Unknown",2023-10-16,28
+"Thailand","Unknown",2023-10-23,26
+"Thailand","Unknown",2023-10-30,23
+"Thailand","Unknown",2023-11-06,4
+"Thailand","Unknown",2023-11-13,21
+"Thailand","Unknown",2023-11-20,18
+"Thailand","Unknown",2023-11-27,14
+"Thailand","Unknown",2023-12-04,8
+"Thailand","Unknown",2023-12-11,7
+"Thailand","Unknown",2023-12-18,8
+"Thailand","Unknown",2023-12-25,3
+"Thailand","Unknown",2024-01-01,4
+"Thailand","Unknown",2024-01-08,6
+"Thailand","Unknown",2024-01-15,17
+"Thailand","Unknown",2024-01-22,5
+"Thailand","Unknown",2024-01-29,3
+"Thailand","Unknown",2024-02-05,4
+"Thailand","Unknown",2024-02-12,7
+"Thailand","Unknown",2024-02-19,9
+"Thailand","Unknown",2024-02-26,5
+"Thailand","Unknown",2024-03-04,2
+"Thailand","Unknown",2024-03-11,1
+"Thailand","Unknown",2024-03-18,2
+"Thailand","Unknown",2024-03-25,3
+"Thailand","Unknown",2024-04-01,4
+"Thailand","Unknown",2024-04-08,2
+"Thailand","Unknown",2024-04-15,5
+"Thailand","Unknown",2024-04-22,7
+"Thailand","Unknown",2024-04-29,2
+"Thailand","Unknown",2024-05-06,5
+"Thailand","Unknown",2024-05-13,7
+"Thailand","Unknown",2024-05-20,5
+"Thailand","Unknown",2024-05-27,3
+"Thailand","Unknown",2024-06-03,2
+"Thailand","Unknown",2024-06-10,3
+"Thailand","Unknown",2024-06-17,1
+"Thailand","Unknown",2024-06-24,2
+"Thailand","Unknown",2024-07-01,5
+"Thailand","Unknown",2024-07-08,5
+"Thailand","Unknown",2024-07-15,4
+"Thailand","Unknown",2024-07-22,2
+"Thailand","Unknown",2024-07-29,2
+"Thailand","Unknown",2024-08-05,5
+"Thailand","Unknown",2024-08-12,2
+"Thailand","Unknown",2024-08-19,2
+"Thailand","Unknown",2024-08-26,1
+"Thailand","Unknown",2024-09-02,2
+"Thailand","Unknown",2024-09-09,4
+"Thailand","Unknown",2024-09-16,0
+"Thailand","Unknown",2024-09-23,3
+"Thailand","Unknown",2024-09-30,2
+"Thailand","Unknown",2024-10-07,5
+"Thailand","Unknown",2024-10-14,2
+"Thailand","Unknown",2024-10-21,4
+"Thailand","Unknown",2024-10-28,3
+"Thailand","Unknown",2024-11-04,2
+"Thailand","Unknown",2024-11-11,0
+"Thailand","Unknown",2024-11-18,2
+"Thailand","Unknown",2024-11-25,0
+"Thailand","Unknown",2024-12-02,0
+"Thailand","Unknown",2024-12-09,0
+"Thailand","Unknown",2024-12-16,0
+"Thailand","Unknown",2024-12-23,1
+"Thailand","Unknown",2024-12-30,0
+"Thailand","Unknown",2025-01-06,0
+"Thailand","Unknown",2025-01-13,0
+"Thailand","Unknown",2025-01-20,0
+"Thailand","Unknown",2025-01-27,0
+"Thailand","Unknown",2025-02-03,0
+"Thailand","Unknown",2025-02-10,0
+"Thailand","Unknown",2025-02-17,0
+"Thailand","Unknown",2025-02-24,0
+"Thailand","Unknown",2025-03-03,0
+"Thailand","Unknown",2025-03-10,0
+"Thailand","Unknown",2025-03-17,0
+"Thailand","Unknown",2025-03-24,0
+"Thailand","Unknown",2025-03-31,0
+"Thailand","Unknown",2025-04-07,0
+"Thailand","Unknown",2025-04-14,0
+"Thailand","Unknown",2025-04-21,0
+"Thailand","Unknown",2025-04-28,0
+"Thailand","Unknown",2025-05-05,0
+"Thailand","Unknown",2025-05-12,0
+"Thailand","Unknown",2025-05-19,0
+"Thailand","Unknown",2025-05-26,0
+"Thailand","Unknown",2025-06-02,0
+"Thailand","Unknown",2025-06-09,0
+"Thailand","Unknown",2025-06-16,0
+"Thailand","Unknown",2025-06-23,0
+"Thailand","Unknown",2025-06-30,0
+"Thailand","Unknown",2025-07-07,0
+"Thailand","Unknown",2025-07-14,0
+"Thailand","Unknown",2025-07-21,0
+"Thailand","Unknown",2025-07-28,0
+"Thailand","Unknown",2025-08-04,0
+"Thailand","Unknown",2025-08-11,0
+"Thailand","Unknown",2025-08-18,0
+"Thailand","Unknown",2025-08-25,0
+"Thailand","Unknown",2025-09-01,0
+"Thailand","Unknown",2025-09-08,0
+"Thailand","Unknown",2025-09-15,0
+"Thailand","Unknown",2025-09-22,0
+"Thailand","Unknown",2025-09-29,0
+"Thailand","Unknown",2025-10-06,0
+"Thailand","Unknown",2025-10-13,0
+"Thailand","Unknown",2025-10-20,0
+"Thailand","Unknown",2025-10-27,0
+"Thailand","Unknown",2025-11-03,0
+"Thailand","Unknown",2025-11-10,0
+"Thailand","Unknown",2025-11-17,0
+"Thailand","Unknown",2025-11-24,0
+"Thailand","Unknown",2025-12-01,0
+"Thailand","Unknown",2025-12-08,0
+"Thailand","Unknown",2025-12-15,0
+"Thailand","Unknown",2025-12-22,0
+"Thailand","Unknown",2025-12-29,0
+"Thailand","Unknown",2026-01-05,0
+"Thailand","Unknown",2026-01-12,0
+"Thailand","Unknown",2026-01-19,0
+"Thailand","Unknown",2026-01-26,0
