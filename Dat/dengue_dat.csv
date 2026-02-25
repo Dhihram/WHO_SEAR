@@ -1,784 +1,1001 @@
-"country","month","year","cases"
-"Nepal","Jan",2017,3
-"Sri Lanka","Jan",2017,6343
-"Thailand","Jan",2017,1598
-"Nepal","Feb",2017,0
-"Sri Lanka","Feb",2017,5281
-"Thailand","Feb",2017,1229
-"Nepal","Mar",2017,0
-"Sri Lanka","Mar",2017,11815
-"Thailand","Mar",2017,1104
-"Nepal","Apr",2017,0
-"Sri Lanka","Apr",2017,12574
-"Thailand","Apr",2017,1174
-"Nepal","May",2017,2
-"Sri Lanka","May",2017,16016
-"Thailand","May",2017,2230
-"Nepal","Jun",2017,3
-"Sri Lanka","Jun",2017,25301
-"Thailand","Jun",2017,4411
-"Nepal","Jul",2017,1
-"Sri Lanka","Jul",2017,40474
-"Thailand","Jul",2017,5368
-"Nepal","Aug",2017,9
-"Sri Lanka","Aug",2017,23898
-"Thailand","Aug",2017,4812
-"Nepal","Sep",2017,17
-"Sri Lanka","Sep",2017,6875
-"Thailand","Sep",2017,3179
-"Nepal","Oct",2017,32
-"Sri Lanka","Oct",2017,6603
-"Thailand","Oct",2017,2484
-"Nepal","Nov",2017,11
-"Sri Lanka","Nov",2017,10804
-"Thailand","Nov",2017,2512
-"Nepal","Dec",2017,19
-"Sri Lanka","Dec",2017,8752
-"Thailand","Dec",2017,1742
-"Bangladesh","Jan",2018,26
-"Nepal","Jan",2018,3
-"Sri Lanka","Jan",2018,7141
-"Thailand","Jan",2018,2244
-"Bangladesh","Feb",2018,5
-"Nepal","Feb",2018,3
-"Sri Lanka","Feb",2018,4365
-"Thailand","Feb",2018,1996
-"Bangladesh","Mar",2018,23
-"Nepal","Mar",2018,1
-"Sri Lanka","Mar",2018,3322
-"Thailand","Mar",2018,2606
-"Bangladesh","Apr",2018,27
-"Nepal","Apr",2018,0
-"Sri Lanka","Apr",2018,2618
-"Thailand","Apr",2018,3104
-"Bangladesh","May",2018,64
-"Nepal","May",2018,1
-"Sri Lanka","May",2018,4550
-"Thailand","May",2018,7291
-"Bangladesh","Jun",2018,310
-"Nepal","Jun",2018,7
-"Sri Lanka","Jun",2018,4523
-"Thailand","Jun",2018,13612
-"Bangladesh","Jul",2018,840
-"Nepal","Jul",2018,15
-"Sri Lanka","Jul",2018,6455
-"Thailand","Jul",2018,14125
-"Bangladesh","Aug",2018,2090
-"Nepal","Aug",2018,34
-"Sri Lanka","Aug",2018,4293
-"Thailand","Aug",2018,12420
-"Bangladesh","Sep",2018,2872
-"Nepal","Sep",2018,30
-"Sri Lanka","Sep",2018,2049
-"Thailand","Sep",2018,9081
-"Bangladesh","Oct",2018,2217
-"Nepal","Oct",2018,21
-"Sri Lanka","Oct",2018,1904
-"Thailand","Oct",2018,7592
-"Bangladesh","Nov",2018,1399
-"Nepal","Nov",2018,48
-"Sri Lanka","Nov",2018,4537
-"Thailand","Nov",2018,7256
-"Bangladesh","Dec",2018,274
-"Nepal","Dec",2018,12
-"Sri Lanka","Dec",2018,5563
-"Thailand","Dec",2018,5885
-"Bangladesh","Jan",2019,41
-"Nepal","Jan",2019,3
-"Sri Lanka","Jan",2019,6469
-"Thailand","Jan",2019,5797
-"Bangladesh","Feb",2019,18
-"Nepal","Feb",2019,0
-"Sri Lanka","Feb",2019,3255
-"Thailand","Feb",2019,4984
-"Bangladesh","Mar",2019,15
-"Nepal","Mar",2019,2
-"Sri Lanka","Mar",2019,2924
-"Thailand","Mar",2019,5369
-"Bangladesh","Apr",2019,49
-"Nepal","Apr",2019,3
-"Sri Lanka","Apr",2019,2600
-"Thailand","Apr",2019,4931
-"Bangladesh","May",2019,225
-"Nepal","May",2019,29
-"Sri Lanka","May",2019,3844
-"Thailand","May",2019,8350
-"Bangladesh","Jun",2019,1861
-"Nepal","Jun",2019,108
-"Sri Lanka","Jun",2019,5065
-"Thailand","Jun",2019,18697
-"Bangladesh","Jul",2019,11720
-"Nepal","Jul",2019,218
-"Sri Lanka","Jul",2019,7326
-"Thailand","Jul",2019,22413
-"Bangladesh","Aug",2019,57171
-"Nepal","Aug",2019,1096
-"Sri Lanka","Aug",2019,9100
-"Thailand","Aug",2019,18209
-"Bangladesh","Sep",2019,16508
-"Nepal","Sep",2019,5006
-"Sri Lanka","Sep",2019,6874
-"Thailand","Sep",2019,14367
-"Bangladesh","Oct",2019,9041
-"Nepal","Oct",2019,2976
-"Sri Lanka","Oct",2019,14423
-"Thailand","Oct",2019,12848
-"Bangladesh","Nov",2019,3555
-"Nepal","Nov",2019,828
-"Sri Lanka","Nov",2019,17144
-"Thailand","Nov",2019,10418
-"Bangladesh","Dec",2019,1133
-"Nepal","Dec",2019,77
-"Sri Lanka","Dec",2019,15765
-"Thailand","Dec",2019,4774
-"Bangladesh","Jan",2020,222
-"Nepal","Jan",2020,15
-"Sri Lanka","Jan",2020,14079
-"Thailand","Jan",2020,3883
-"Bangladesh","Feb",2020,44
-"Nepal","Feb",2020,15
-"Sri Lanka","Feb",2020,5258
-"Thailand","Feb",2020,2787
-"Bangladesh","Mar",2020,24
-"Nepal","Mar",2020,10
-"Sri Lanka","Mar",2020,1505
-"Thailand","Mar",2020,2539
-"Bangladesh","Apr",2020,26
-"Nepal","Apr",2020,6
-"Sri Lanka","Apr",2020,552
-"Thailand","Apr",2020,3111
-"Bangladesh","May",2020,10
-"Nepal","May",2020,28
-"Sri Lanka","May",2020,1107
-"Thailand","May",2020,5805
-"Bangladesh","Jun",2020,16
-"Nepal","Jun",2020,18
-"Sri Lanka","Jun",2020,2028
-"Thailand","Jun",2020,9242
-"Bangladesh","Jul",2020,32
-"Nepal","Jul",2020,43
-"Sri Lanka","Jul",2020,2021
-"Thailand","Jul",2020,15828
-"Bangladesh","Aug",2020,60
-"Nepal","Aug",2020,80
-"Sri Lanka","Aug",2020,1465
-"Thailand","Aug",2020,12527
-"Bangladesh","Sep",2020,44
-"Nepal","Sep",2020,82
-"Sri Lanka","Sep",2020,1149
-"Thailand","Sep",2020,7915
-"Bangladesh","Oct",2020,185
-"Nepal","Oct",2020,60
-"Sri Lanka","Oct",2020,1001
-"Thailand","Oct",2020,4324
-"Bangladesh","Nov",2020,513
-"Nepal","Nov",2020,31
-"Sri Lanka","Nov",2020,750
-"Thailand","Nov",2020,2967
-"Bangladesh","Dec",2020,246
-"Nepal","Dec",2020,10
-"Sri Lanka","Dec",2020,1317
-"Thailand","Dec",2020,1591
-"Bangladesh","Jan",2021,27
-"Nepal","Jan",2021,3
-"Sri Lanka","Jan",2021,1912
-"Thailand","Jan",2021,1104
-"Bangladesh","Feb",2021,9
-"Nepal","Feb",2021,10
-"Sri Lanka","Feb",2021,2355
-"Thailand","Feb",2021,808
-"Bangladesh","Mar",2021,12
-"Nepal","Mar",2021,7
-"Sri Lanka","Mar",2021,2124
-"Thailand","Mar",2021,762
-"Bangladesh","Apr",2021,4
-"Nepal","Apr",2021,16
-"Sri Lanka","Apr",2021,2545
-"Thailand","Apr",2021,474
-"Bangladesh","May",2021,40
-"Nepal","May",2021,4
-"Sri Lanka","May",2021,1257
-"Thailand","May",2021,1089
-"Bangladesh","Jun",2021,229
-"Nepal","Jun",2021,3
-"Sri Lanka","Jun",2021,2663
-"Thailand","Jun",2021,1604
-"Bangladesh","Jul",2021,2570
-"Nepal","Jul",2021,42
-"Sri Lanka","Jul",2021,3759
-"Thailand","Jul",2021,1024
-"Bangladesh","Aug",2021,6970
-"Nepal","Aug",2021,35
-"Sri Lanka","Aug",2021,1136
-"Thailand","Aug",2021,939
-"Bangladesh","Sep",2021,8876
-"Nepal","Sep",2021,81
-"Sri Lanka","Sep",2021,1623
-"Thailand","Sep",2021,847
-"Bangladesh","Oct",2021,4911
-"Nepal","Oct",2021,66
-"Sri Lanka","Oct",2021,2794
-"Thailand","Oct",2021,754
-"Bangladesh","Nov",2021,3423
-"Nepal","Nov",2021,57
-"Sri Lanka","Nov",2021,4058
-"Thailand","Nov",2021,732
-"Bangladesh","Dec",2021,1366
-"Nepal","Dec",2021,20
-"Sri Lanka","Dec",2021,9894
-"Thailand","Dec",2021,480
-"Bangladesh","Jan",2022,110
-"Maldives","Jan",2022,21
-"Nepal","Jan",2022,10
-"Sri Lanka","Jan",2022,7090
-"Thailand","Jan",2022,560
-"Bangladesh","Feb",2022,21
-"Maldives","Feb",2022,21
-"Nepal","Feb",2022,0
-"Sri Lanka","Feb",2022,3056
-"Thailand","Feb",2022,391
-"Bangladesh","Mar",2022,22
-"Maldives","Mar",2022,26
-"Nepal","Mar",2022,14
-"Sri Lanka","Mar",2022,3474
-"Thailand","Mar",2022,509
-"Bangladesh","Apr",2022,21
-"Maldives","Apr",2022,95
-"Nepal","Apr",2022,15
-"Sri Lanka","Apr",2022,3785
-"Thailand","Apr",2022,790
-"Bangladesh","May",2022,131
-"Maldives","May",2022,212
-"Nepal","May",2022,15
-"Sri Lanka","May",2022,5695
-"Thailand","May",2022,2293
-"Bangladesh","Jun",2022,882
-"Maldives","Jun",2022,302
-"Nepal","Jun",2022,87
-"Sri Lanka","Jun",2022,13254
-"Thailand","Jun",2022,6232
-"Bangladesh","Jul",2022,1458
-"Maldives","Jul",2022,361
-"Nepal","Jul",2022,378
-"Sri Lanka","Jul",2022,10082
-"Thailand","Jul",2022,7348
-"Bangladesh","Aug",2022,2832
-"Maldives","Aug",2022,250
-"Nepal","Aug",2022,1845
-"Sri Lanka","Aug",2022,6295
-"Thailand","Aug",2022,6543
-"Bangladesh","Sep",2022,11803
-"Maldives","Sep",2022,260
-"Nepal","Sep",2022,10790
-"Sri Lanka","Sep",2022,5434
-"Thailand","Sep",2022,5711
-"Bangladesh","Oct",2022,19856
-"Maldives","Oct",2022,660
-"Nepal","Oct",2022,6593
-"Sri Lanka","Oct",2022,4270
-"Thailand","Oct",2022,5754
-"Bangladesh","Nov",2022,18979
-"Maldives","Nov",2022,282
-"Nepal","Nov",2022,2515
-"Sri Lanka","Nov",2022,4887
-"Thailand","Nov",2022,5972
-"Bangladesh","Dec",2022,6293
-"Maldives","Dec",2022,205
-"Nepal","Dec",2022,603
-"Sri Lanka","Dec",2022,8933
-"Thailand","Dec",2022,4575
-"Bangladesh","Jan",2023,504
-"Maldives","Jan",2023,238
-"Sri Lanka","Jan",2023,8148
-"Thailand","Jan",2023,4520
-"Bangladesh","Feb",2023,182
-"Maldives","Feb",2023,155
-"Sri Lanka","Feb",2023,6828
-"Thailand","Feb",2023,3312
-"Bangladesh","Mar",2023,123
-"Maldives","Mar",2023,228
-"Sri Lanka","Mar",2023,7330
-"Thailand","Mar",2023,3761
-"Bangladesh","Apr",2023,136
-"Maldives","Apr",2023,330
-"Sri Lanka","Apr",2023,7190
-"Thailand","Apr",2023,4037
-"Bangladesh","May",2023,785
-"Maldives","May",2023,268
-"Sri Lanka","May",2023,8513
-"Thailand","May",2023,5601
-"Bangladesh","Jun",2023,6986
-"Maldives","Jun",2023,569
-"Sri Lanka","Jun",2023,11539
-"Thailand","Jun",2023,13996
-"Bangladesh","Jul",2023,40381
-"Maldives","Jul",2023,304
-"Sri Lanka","Jul",2023,6679
-"Thailand","Jul",2023,27505
-"Bangladesh","Aug",2023,81164
-"Maldives","Aug",2023,327
-"Sri Lanka","Aug",2023,5718
-"Thailand","Aug",2023,29155
-"Bangladesh","Sep",2023,75986
-"Maldives","Sep",2023,288
-"Sri Lanka","Sep",2023,2397
-"Thailand","Sep",2023,20061
-"Bangladesh","Oct",2023,61392
-"Maldives","Oct",2023,306
-"Sri Lanka","Oct",2023,3631
-"Thailand","Oct",2023,17749
-"Bangladesh","Nov",2023,46026
-"Maldives","Nov",2023,210
-"Sri Lanka","Nov",2023,9373
-"Thailand","Nov",2023,17462
-"Bangladesh","Dec",2023,7473
-"Maldives","Dec",2023,194
-"Sri Lanka","Dec",2023,11313
-"Thailand","Dec",2023,12060
-"Bangladesh","Jan",2024,1055
-"Bangladesh","Feb",2024,339
-"Bangladesh","Mar",2024,311
-"Bangladesh","Apr",2024,504
-"Bangladesh","May",2024,644
-"Bangladesh","Jun",2024,798
-"Bangladesh","Jul",2024,2669
-"Bangladesh","Aug",2024,6521
-"Bangladesh","Sep",2024,18097
-"Bangladesh","Oct",2024,30879
-"Bangladesh","Nov",2024,29652
-"Bangladesh","Dec",2024,9745
-"Bangladesh","Jan",2025,1161
-"Bangladesh","Feb",2025,374
-"Bangladesh","Mar",2025,336
-"Bangladesh","Apr",2025,701
-"Bangladesh","May",2025,1773
-"Bangladesh","Jun",2025,5951
-"Bangladesh","Jul",2025,10684
-"Bangladesh","Aug",2025,10496
-"Bangladesh","Sep",2025,15866
-"Bangladesh","Oct",2025,22520
-"Bhutan","Jan",2024,0
-"Bhutan","Feb",2024,0
-"Bhutan","Mar",2024,0
-"Bhutan","Apr",2024,0
-"Bhutan","May",2024,0
-"Bhutan","Jun",2024,0
-"Bhutan","Jul",2024,2
-"Bhutan","Aug",2024,4
-"Bhutan","Sep",2024,1
-"Bhutan","Oct",2024,3
-"Bhutan","Nov",2024,4
-"Bhutan","Dec",2024,3
-"Bhutan","Jan",2025,2
-"Bhutan","Feb",2025,0
-"Bhutan","Mar",2025,1
-"Bhutan","Apr",2025,0
-"Bhutan","May",2025,1
-"Bhutan","Jun",2025,0
-"Bhutan","Jul",2025,3
-"Bhutan","Aug",2025,22
-"Bhutan","Sep",2025,5
-NA,"Jan",2017,25350
-NA,"Feb",2017,17336
-NA,"Mar",2017,15740
-NA,"Apr",2017,11776
-NA,"May",2017,10854
-NA,"Jun",2017,8380
-NA,"Jul",2017,7672
-NA,"Aug",2017,7236
-NA,"Sep",2017,7028
-NA,"Oct",2017,8254
-NA,"Nov",2017,8876
-NA,"Dec",2017,8226
-NA,"Jan",2018,12336
-NA,"Feb",2018,10122
-NA,"Mar",2018,10424
-NA,"Apr",2018,10840
-NA,"May",2018,11108
-NA,"Jun",2018,9370
-NA,"Jul",2018,10606
-NA,"Aug",2018,9590
-NA,"Sep",2018,8974
-NA,"Oct",2018,11016
-NA,"Nov",2018,13746
-NA,"Dec",2018,13050
-NA,"Jan",2019,54889
-NA,"Feb",2019,48035
-NA,"Mar",2019,36219
-NA,"Apr",2019,27284
-NA,"May",2019,25111
-NA,"Jun",2019,19028
-NA,"Jul",2019,15476
-NA,"Aug",2019,10772
-NA,"Sep",2019,8308
-NA,"Oct",2019,8752
-NA,"Nov",2019,10850
-NA,"Dec",2019,11533
-NA,"Jan",2020,31900
-NA,"Feb",2020,39386
-NA,"Mar",2020,38732
-NA,"Apr",2020,26320
-NA,"May",2020,21450
-NA,"Jun",2020,16212
-NA,"Jul",2020,12658
-NA,"Aug",2020,7666
-NA,"Sep",2020,5486
-NA,"Oct",2020,4838
-NA,"Nov",2020,5926
-NA,"Dec",2020,6032
-NA,"Jan",2021,9134
-NA,"Feb",2021,8944
-NA,"Mar",2021,11424
-NA,"Apr",2021,12422
-NA,"May",2021,13354
-NA,"Jun",2021,10888
-NA,"Jul",2021,6844
-NA,"Aug",2021,6828
-NA,"Sep",2021,8114
-NA,"Oct",2021,12184
-NA,"Nov",2021,19798
-NA,"Dec",2021,27102
-NA,"Jan",2022,40972
-NA,"Feb",2022,23698
-NA,"Mar",2022,20164
-NA,"Apr",2022,21328
-NA,"May",2022,24940
-NA,"Jun",2022,25524
-NA,"Jul",2022,26236
-NA,"Aug",2022,24696
-NA,"Sep",2022,21988
-NA,"Oct",2022,20270
-NA,"Nov",2022,18846
-NA,"Dec",2022,17870
-NA,"Jan",2023,25222
-NA,"Feb",2023,21724
-NA,"Mar",2023,20440
-NA,"Apr",2023,16084
-NA,"May",2023,18894
-NA,"Jun",2023,16230
-NA,"Jul",2023,16104
-NA,"Aug",2023,17438
-NA,"Sep",2023,15892
-NA,"Oct",2023,16678
-NA,"Nov",2023,20164
-NA,"Dec",2023,24570
-NA,"Jan",2024,54536
-NA,"Feb",2024,58822
-NA,"Mar",2024,64584
-NA,"Apr",2024,60246
-NA,"May",2024,64040
-NA,"Jun",2024,48196
-NA,"Jul",2024,38530
-NA,"Aug",2024,29126
-NA,"Sep",2024,22148
-NA,"Oct",2024,21940
-NA,"Nov",2024,23950
-NA,"Dec",2024,28424
-NA,"Jan",2025,21417
-NA,"Feb",2025,17160
-NA,"Mar",2025,11795
-NA,"Apr",2025,5750
-NA,"May",2025,157
-"India","Jan",2024,5079
-"India","Feb",2024,5429
-"India","Mar",2024,5597
-"India","Apr",2024,3342
-"India","May",2024,5145
-"India","Jun",2024,7499
-"India","Jul",2024,27675
-"India","Aug",2024,32388
-"India","Sep",2024,41375
-"India","Oct",2024,51183
-"India","Nov",2024,30354
-"India","Dec",2024,34718
-"India","Jan",2025,4700
-"India","Feb",2025,3806
-"India","Mar",2025,3517
-"India","Apr",2025,2700
-"India","May",2025,3766
-"India","Jun",2025,6459
-"India","Jul",2025,10302
-"India","Aug",2025,14303
-"India","Sep",2025,18803
-"India","Oct",2025,22659
-"Sri Lanka","Jan",2024,10752
-"Sri Lanka","Feb",2024,6047
-"Sri Lanka","Mar",2024,3629
-"Sri Lanka","Apr",2024,2234
-"Sri Lanka","May",2024,2650
-"Sri Lanka","Jun",2024,3312
-"Sri Lanka","Jul",2024,4519
-"Sri Lanka","Aug",2024,3896
-"Sri Lanka","Sep",2024,2772
-"Sri Lanka","Oct",2024,2964
-"Sri Lanka","Nov",2024,3498
-"Sri Lanka","Dec",2024,3604
-"Sri Lanka","Jan",2025,4942
-"Sri Lanka","Feb",2025,3666
-"Sri Lanka","Mar",2025,3771
-"Sri Lanka","Apr",2025,5171
-"Sri Lanka","May",2025,6035
-"Sri Lanka","Jun",2025,5468
-"Sri Lanka","Jul",2025,4838
-"Sri Lanka","Aug",2025,2746
-"Sri Lanka","Sep",2025,2403
-"Maldives","Jan",2024,138
-"Maldives","Feb",2024,120
-"Maldives","Mar",2024,125
-"Maldives","Apr",2024,255
-"Maldives","May",2024,667
-"Maldives","Jun",2024,618
-"Maldives","Jul",2024,440
-"Maldives","Aug",2024,394
-"Maldives","Sep",2024,180
-"Maldives","Oct",2024,117
-"Maldives","Nov",2024,124
-"Maldives","Dec",2024,68
-"Maldives","Jan",2025,72
-"Maldives","Feb",2025,74
-"Maldives","Mar",2025,69
-"Maldives","Apr",2025,120
-"Maldives","May",2025,116
-"Maldives","Jun",2025,165
-"Maldives","Jul",2025,168
-"Maldives","Aug",2025,256
-"Maldives","Sep",2025,252
-"Myanmar","Jan",2024,208
-"Myanmar","Feb",2024,181
-"Myanmar","Mar",2024,176
-"Myanmar","Apr",2024,203
-"Myanmar","May",2024,311
-"Myanmar","Jun",2024,574
-"Myanmar","Jul",2024,1236
-"Myanmar","Aug",2024,1239
-"Myanmar","Sep",2024,933
-"Myanmar","Oct",2024,690
-"Myanmar","Nov",2024,380
-"Myanmar","Dec",2024,257
-"Myanmar","Jan",2025,344
-"Myanmar","Feb",2025,240
-"Myanmar","Mar",2025,334
-"Myanmar","Apr",2025,470
-"Myanmar","May",2025,1398
-"Myanmar","Jun",2025,3488
-"Myanmar","Jul",2025,6130
-"Myanmar","Aug",2025,4830
-"Myanmar","Sep",2025,3152
-"Nepal","Jan",2023,133
-"Nepal","Feb",2023,130
-"Nepal","Mar",2023,195
-"Nepal","Apr",2023,158
-"Nepal","May",2023,163
-"Nepal","Jun",2023,1026
-"Nepal","Jul",2023,6459
-"Nepal","Aug",2023,14534
-"Nepal","Sep",2023,13912
-"Nepal","Oct",2023,12699
-"Nepal","Nov",2023,2805
-"Nepal","Dec",2023,576
-"Nepal","Jan",2024,499
-"Nepal","Feb",2024,408
-"Nepal","Mar",2024,374
-"Nepal","Apr",2024,463
-"Nepal","May",2024,495
-"Nepal","Jun",2024,632
-"Nepal","Jul",2024,1906
-"Nepal","Aug",2024,6493
-"Nepal","Sep",2024,11875
-"Nepal","Oct",2024,12332
-"Nepal","Nov",2024,5544
-"Nepal","Dec",2024,844
-"Nepal","Jan",2025,259
-"Nepal","Feb",2025,252
-"Nepal","Mar",2025,254
-"Nepal","Apr",2025,221
-"Nepal","May",2025,314
-"Nepal","Jun",2025,530
-"Nepal","Jul",2025,830
-"Nepal","Aug",2025,1190
-"Nepal","Sep",2025,1583
-"Nepal","Oct",2025,1644
-"Thailand","Jan",2024,11413
-"Thailand","Feb",2024,7123
-"Thailand","Mar",2024,5315
-"Thailand","Apr",2024,4327
-"Thailand","May",2024,4968
-"Thailand","Jun",2024,7992
-"Thailand","Jul",2024,15371
-"Thailand","Aug",2024,16119
-"Thailand","Sep",2024,11395
-"Thailand","Oct",2024,8359
-"Thailand","Nov",2024,7006
-"Thailand","Dec",2024,5293
-"Thailand","Jan",2025,4005
-"Thailand","Feb",2025,2269
-"Thailand","Mar",2025,2447
-"Thailand","Apr",2025,2271
-"Thailand","May",2025,4683
-"Thailand","Jun",2025,8697
-"Thailand","Jul",2025,10987
-"Thailand","Aug",2025,8610
-"Thailand","Sep",2025,4012
-"Timor-Leste","Jan",2021,178
-"Timor-Leste","Feb",2021,242
-"Timor-Leste","Mar",2021,116
-"Timor-Leste","Apr",2021,13
-"Timor-Leste","May",2021,13
-"Timor-Leste","Jun",2021,20
-"Timor-Leste","Jul",2021,28
-"Timor-Leste","Aug",2021,8
-"Timor-Leste","Sep",2021,7
-"Timor-Leste","Oct",2021,12
-"Timor-Leste","Nov",2021,39
-"Timor-Leste","Dec",2021,225
-"Timor-Leste","Jan",2022,1371
-"Timor-Leste","Feb",2022,1284
-"Timor-Leste","Mar",2022,1201
-"Timor-Leste","Apr",2022,700
-"Timor-Leste","May",2022,487
-"Timor-Leste","Jun",2022,254
-"Timor-Leste","Jul",2022,139
-"Timor-Leste","Aug",2022,47
-"Timor-Leste","Sep",2022,25
-"Timor-Leste","Oct",2022,63
-"Timor-Leste","Nov",2022,41
-"Timor-Leste","Dec",2022,46
-"Timor-Leste","Jan",2023,105
-"Timor-Leste","Feb",2023,205
-"Timor-Leste","Mar",2023,315
-"Timor-Leste","Apr",2023,275
-"Timor-Leste","May",2023,373
-"Timor-Leste","Jun",2023,146
-"Timor-Leste","Jul",2023,141
-"Timor-Leste","Aug",2023,142
-"Timor-Leste","Sep",2023,71
-"Timor-Leste","Oct",2023,68
-"Timor-Leste","Nov",2023,40
-"Timor-Leste","Dec",2023,72
-"Timor-Leste","Jan",2024,189
-"Timor-Leste","Feb",2024,328
-"Timor-Leste","Mar",2024,347
-"Timor-Leste","Apr",2024,307
-"Timor-Leste","May",2024,101
-"Timor-Leste","Jun",2024,45
-"Timor-Leste","Jul",2024,30
-"Timor-Leste","Aug",2024,24
-"Timor-Leste","Sep",2024,28
-"Timor-Leste","Oct",2024,39
-"Timor-Leste","Nov",2024,12
-"Timor-Leste","Dec",2024,12
-"Timor-Leste","Jan",2025,129
-"Timor-Leste","Feb",2025,185
-"Timor-Leste","Mar",2025,188
-"Timor-Leste","Apr",2025,127
-"Timor-Leste","May",2025,102
-"Timor-Leste","Jun",2025,73
-"Timor-Leste","Jul",2025,82
-"Timor-Leste","Aug",2025,56
-"Timor-Leste","Sep",2025,51
-"All Country","Jan",2017,33294
-"All Country","Jan",2018,21750
-"All Country","Jan",2019,67199
-"All Country","Jan",2020,50099
-"All Country","Jan",2021,12358
-"All Country","Jan",2022,50134
-"All Country","Jan",2023,38870
-"All Country","Jan",2024,83869
-"All Country","Jan",2025,37031
-"All Country","Feb",2017,23846
-"All Country","Feb",2018,16491
-"All Country","Feb",2019,56292
-"All Country","Feb",2020,47490
-"All Country","Feb",2021,12368
-"All Country","Feb",2022,28471
-"All Country","Feb",2023,32536
-"All Country","Feb",2024,78797
-"All Country","Feb",2025,28026
-"All Country","Mar",2017,28659
-"All Country","Mar",2018,16376
-"All Country","Mar",2019,44529
-"All Country","Mar",2020,42810
-"All Country","Mar",2021,14445
-"All Country","Mar",2022,25410
-"All Country","Mar",2023,32392
-"All Country","Mar",2024,80458
-"All Country","Mar",2025,22712
-"All Country","Apr",2017,25524
-"All Country","Apr",2018,16589
-"All Country","Apr",2019,34867
-"All Country","Apr",2020,30015
-"All Country","Apr",2021,15474
-"All Country","Apr",2022,26734
-"All Country","Apr",2023,28210
-"All Country","Apr",2024,71881
-"All Country","Apr",2025,17531
-"All Country","May",2017,29102
-"All Country","May",2018,23014
-"All Country","May",2019,37559
-"All Country","May",2020,28400
-"All Country","May",2021,15757
-"All Country","May",2022,33773
-"All Country","May",2023,34597
-"All Country","May",2024,79021
-"All Country","May",2025,18345
-"All Country","Jun",2017,38095
-"All Country","Jun",2018,27822
-"All Country","Jun",2019,44759
-"All Country","Jun",2020,27516
-"All Country","Jun",2021,15407
-"All Country","Jun",2022,46535
-"All Country","Jun",2023,50492
-"All Country","Jun",2024,69666
-"All Country","Jun",2025,30831
-"All Country","Jul",2017,53515
-"All Country","Jul",2018,32041
-"All Country","Jul",2019,57153
-"All Country","Jul",2020,30582
-"All Country","Jul",2021,14267
-"All Country","Jul",2022,46002
-"All Country","Jul",2023,97573
-"All Country","Jul",2024,92378
-"All Country","Jul",2025,44024
-"All Country","Aug",2017,35955
-"All Country","Aug",2018,28427
-"All Country","Aug",2019,96348
-"All Country","Aug",2020,21798
-"All Country","Aug",2021,15916
-"All Country","Aug",2022,42508
-"All Country","Aug",2023,148478
-"All Country","Aug",2024,96204
-"All Country","Aug",2025,42509
-"All Country","Sep",2017,17099
-"All Country","Sep",2018,23006
-"All Country","Sep",2019,51063
-"All Country","Sep",2020,14676
-"All Country","Sep",2021,19548
-"All Country","Sep",2022,56011
-"All Country","Sep",2023,128607
-"All Country","Sep",2024,108804
-"All Country","Sep",2025,46127
-"All Country","Oct",2017,17373
-"All Country","Oct",2018,22750
-"All Country","Oct",2019,48040
-"All Country","Oct",2020,10408
-"All Country","Oct",2021,20721
-"All Country","Oct",2022,57466
-"All Country","Oct",2023,112523
-"All Country","Oct",2024,128506
-"All Country","Oct",2025,46823
-"All Country","Nov",2017,22203
-"All Country","Nov",2018,26986
-"All Country","Nov",2019,42795
-"All Country","Nov",2020,10187
-"All Country","Nov",2021,28107
-"All Country","Nov",2022,51522
-"All Country","Nov",2023,96080
-"All Country","Nov",2024,100524
-"All Country","Dec",2017,18739
-"All Country","Dec",2018,24784
-"All Country","Dec",2019,33282
-"All Country","Dec",2020,9196
-"All Country","Dec",2021,39087
-"All Country","Dec",2022,38525
-"All Country","Dec",2023,56258
-"All Country","Dec",2024,82968
+"Country","iso_date","iso_week","iso_year","cases"
+"Bangladesh",2021-01-04,1,2021,10
+"Bangladesh",2021-01-11,2,2021,10
+"Bangladesh",2021-01-18,3,2021,6
+"Bangladesh",2021-01-25,4,2021,1
+"Bangladesh",2021-02-01,5,2021,5
+"Bangladesh",2021-02-08,6,2021,0
+"Bangladesh",2021-02-15,7,2021,1
+"Bangladesh",2021-02-22,8,2021,3
+"Bangladesh",2021-03-01,9,2021,2
+"Bangladesh",2021-03-08,10,2021,0
+"Bangladesh",2021-03-15,11,2021,4
+"Bangladesh",2021-03-22,12,2021,6
+"Bangladesh",2021-03-29,13,2021,1
+"Bangladesh",2021-04-05,14,2021,0
+"Bangladesh",2021-04-12,15,2021,0
+"Bangladesh",2021-04-19,16,2021,1
+"Bangladesh",2021-04-26,17,2021,2
+"Bangladesh",2021-05-03,18,2021,5
+"Bangladesh",2021-05-10,19,2021,2
+"Bangladesh",2021-05-17,20,2021,11
+"Bangladesh",2021-05-24,21,2021,22
+"Bangladesh",2021-05-31,22,2021,23
+"Bangladesh",2021-06-07,23,2021,27
+"Bangladesh",2021-06-14,24,2021,61
+"Bangladesh",2021-06-21,25,2021,118
+"Bangladesh",2021-06-28,26,2021,140
+"Bangladesh",2021-07-05,27,2021,261
+"Bangladesh",2021-07-12,28,2021,480
+"Bangladesh",2021-07-19,29,2021,473
+"Bangladesh",2021-07-26,30,2021,1216
+"Bangladesh",2021-08-02,31,2021,1659
+"Bangladesh",2021-08-09,32,2021,1573
+"Bangladesh",2021-08-16,33,2021,1922
+"Bangladesh",2021-08-23,34,2021,1816
+"Bangladesh",2021-08-30,35,2021,1971
+"Bangladesh",2021-09-06,36,2021,2076
+"Bangladesh",2021-09-13,37,2021,1786
+"Bangladesh",2021-09-20,38,2021,1656
+"Bangladesh",2021-09-27,39,2021,1387
+"Bangladesh",2021-10-04,40,2021,1385
+"Bangladesh",2021-10-11,41,2021,1273
+"Bangladesh",2021-10-18,42,2021,1096
+"Bangladesh",2021-10-25,43,2021,1157
+"Bangladesh",2021-11-01,44,2021,990
+"Bangladesh",2021-11-08,45,2021,989
+"Bangladesh",2021-11-15,46,2021,819
+"Bangladesh",2021-11-22,47,2021,625
+"Bangladesh",2021-11-29,48,2021,526
+"Bangladesh",2021-12-06,49,2021,355
+"Bangladesh",2021-12-13,50,2021,218
+"Bangladesh",2021-12-20,51,2021,180
+"Bangladesh",2021-12-27,52,2021,87
+"Bangladesh",2022-01-03,1,2022,56
+"Bangladesh",2022-01-10,2,2022,31
+"Bangladesh",2022-01-17,3,2022,16
+"Bangladesh",2022-01-24,4,2022,7
+"Bangladesh",2022-01-31,5,2022,8
+"Bangladesh",2022-02-07,6,2022,6
+"Bangladesh",2022-02-14,7,2022,4
+"Bangladesh",2022-02-21,8,2022,3
+"Bangladesh",2022-02-28,9,2022,4
+"Bangladesh",2022-03-07,10,2022,4
+"Bangladesh",2022-03-14,11,2022,1
+"Bangladesh",2022-03-21,12,2022,5
+"Bangladesh",2022-03-28,13,2022,8
+"Bangladesh",2022-04-04,14,2022,3
+"Bangladesh",2022-04-11,15,2022,6
+"Bangladesh",2022-04-18,16,2022,6
+"Bangladesh",2022-04-25,17,2022,6
+"Bangladesh",2022-05-02,18,2022,7
+"Bangladesh",2022-05-09,19,2022,8
+"Bangladesh",2022-05-16,20,2022,45
+"Bangladesh",2022-05-23,21,2022,71
+"Bangladesh",2022-05-30,22,2022,106
+"Bangladesh",2022-06-06,23,2022,145
+"Bangladesh",2022-06-13,24,2022,183
+"Bangladesh",2022-06-20,25,2022,198
+"Bangladesh",2022-06-27,26,2022,250
+"Bangladesh",2022-07-04,27,2022,195
+"Bangladesh",2022-07-11,28,2022,326
+"Bangladesh",2022-07-18,29,2022,423
+"Bangladesh",2022-07-25,30,2022,514
+"Bangladesh",2022-08-01,31,2022,524
+"Bangladesh",2022-08-08,32,2022,575
+"Bangladesh",2022-08-15,33,2022,721
+"Bangladesh",2022-08-22,34,2022,1012
+"Bangladesh",2022-08-29,35,2022,1413
+"Bangladesh",2022-09-05,36,2022,1845
+"Bangladesh",2022-09-12,37,2022,2427
+"Bangladesh",2022-09-19,38,2022,2703
+"Bangladesh",2022-09-26,39,2022,3415
+"Bangladesh",2022-10-03,40,2022,3274
+"Bangladesh",2022-10-10,41,2022,4612
+"Bangladesh",2022-10-17,42,2022,5882
+"Bangladesh",2022-10-24,43,2022,6088
+"Bangladesh",2022-10-31,44,2022,5956
+"Bangladesh",2022-11-07,45,2022,5422
+"Bangladesh",2022-11-14,46,2022,4278
+"Bangladesh",2022-11-21,47,2022,3323
+"Bangladesh",2022-11-28,48,2022,2489
+"Bangladesh",2022-12-05,49,2022,1679
+"Bangladesh",2022-12-12,50,2022,1110
+"Bangladesh",2022-12-19,51,2022,613
+"Bangladesh",2022-12-26,52,2022,402
+"Bangladesh",2023-01-02,1,2023,228
+"Bangladesh",2023-01-09,2,2023,130
+"Bangladesh",2023-01-16,3,2023,75
+"Bangladesh",2023-01-23,4,2023,71
+"Bangladesh",2023-01-30,5,2023,48
+"Bangladesh",2023-02-06,6,2023,65
+"Bangladesh",2023-02-13,7,2023,37
+"Bangladesh",2023-02-20,8,2023,32
+"Bangladesh",2023-02-27,9,2023,31
+"Bangladesh",2023-03-06,10,2023,24
+"Bangladesh",2023-03-13,11,2023,25
+"Bangladesh",2023-03-20,12,2023,18
+"Bangladesh",2023-03-27,13,2023,25
+"Bangladesh",2023-04-03,14,2023,29
+"Bangladesh",2023-04-10,15,2023,29
+"Bangladesh",2023-04-17,16,2023,13
+"Bangladesh",2023-04-24,17,2023,65
+"Bangladesh",2023-05-01,18,2023,103
+"Bangladesh",2023-05-08,19,2023,154
+"Bangladesh",2023-05-15,20,2023,204
+"Bangladesh",2023-05-22,21,2023,324
+"Bangladesh",2023-05-29,22,2023,605
+"Bangladesh",2023-06-05,23,2023,834
+"Bangladesh",2023-06-12,24,2023,1698
+"Bangladesh",2023-06-19,25,2023,2330
+"Bangladesh",2023-06-26,26,2023,1519
+"Bangladesh",2023-07-03,27,2023,4197
+"Bangladesh",2023-07-10,28,2023,7924
+"Bangladesh",2023-07-17,29,2023,12099
+"Bangladesh",2023-07-24,30,2023,16161
+"Bangladesh",2023-07-31,31,2023,17594
+"Bangladesh",2023-08-07,32,2023,18679
+"Bangladesh",2023-08-14,33,2023,14583
+"Bangladesh",2023-08-21,34,2023,14517
+"Bangladesh",2023-08-28,35,2023,15791
+"Bangladesh",2023-09-04,36,2023,18026
+"Bangladesh",2023-09-11,37,2023,19356
+"Bangladesh",2023-09-18,38,2023,20041
+"Bangladesh",2023-09-25,39,2023,18563
+"Bangladesh",2023-10-02,40,2023,17276
+"Bangladesh",2023-10-09,41,2023,16050
+"Bangladesh",2023-10-16,42,2023,15432
+"Bangladesh",2023-10-23,43,2023,12634
+"Bangladesh",2023-10-30,44,2023,12224
+"Bangladesh",2023-11-06,45,2023,11928
+"Bangladesh",2023-11-13,46,2023,9423
+"Bangladesh",2023-11-20,47,2023,6912
+"Bangladesh",2023-11-27,48,2023,5539
+"Bangladesh",2023-12-04,49,2023,3526
+"Bangladesh",2023-12-11,50,2023,2004
+"Bangladesh",2023-12-18,51,2023,1224
+"Bangladesh",2023-12-25,52,2023,719
+"Bangladesh",2024-01-01,1,2024,378
+"Bangladesh",2024-01-08,2,2024,292
+"Bangladesh",2024-01-15,3,2024,183
+"Bangladesh",2024-01-22,4,2024,153
+"Bangladesh",2024-01-29,5,2024,115
+"Bangladesh",2024-02-05,6,2024,103
+"Bangladesh",2024-02-12,7,2024,54
+"Bangladesh",2024-02-19,8,2024,72
+"Bangladesh",2024-02-26,9,2024,67
+"Bangladesh",2024-03-04,10,2024,67
+"Bangladesh",2024-03-11,11,2024,62
+"Bangladesh",2024-03-18,12,2024,85
+"Bangladesh",2024-03-25,13,2024,74
+"Bangladesh",2024-04-01,14,2024,64
+"Bangladesh",2024-04-08,15,2024,62
+"Bangladesh",2024-04-15,16,2024,172
+"Bangladesh",2024-04-22,17,2024,154
+"Bangladesh",2024-04-29,18,2024,131
+"Bangladesh",2024-05-06,19,2024,172
+"Bangladesh",2024-05-13,20,2024,168
+"Bangladesh",2024-05-20,21,2024,145
+"Bangladesh",2024-05-27,22,2024,130
+"Bangladesh",2024-06-03,23,2024,153
+"Bangladesh",2024-06-10,24,2024,155
+"Bangladesh",2024-06-17,25,2024,174
+"Bangladesh",2024-06-24,26,2024,266
+"Bangladesh",2024-07-01,27,2024,327
+"Bangladesh",2024-07-08,28,2024,588
+"Bangladesh",2024-07-15,29,2024,247
+"Bangladesh",2024-07-22,30,2024,955
+"Bangladesh",2024-07-29,31,2024,1194
+"Bangladesh",2024-08-05,32,2024,1007
+"Bangladesh",2024-08-12,33,2024,1582
+"Bangladesh",2024-08-19,34,2024,1727
+"Bangladesh",2024-08-26,35,2024,2041
+"Bangladesh",2024-09-02,36,2024,2351
+"Bangladesh",2024-09-09,37,2024,3405
+"Bangladesh",2024-09-16,38,2024,4959
+"Bangladesh",2024-09-23,39,2024,5752
+"Bangladesh",2024-09-30,40,2024,6804
+"Bangladesh",2024-10-07,41,2024,5880
+"Bangladesh",2024-10-14,42,2024,7410
+"Bangladesh",2024-10-21,43,2024,7031
+"Bangladesh",2024-10-28,44,2024,7560
+"Bangladesh",2024-11-04,45,2024,7922
+"Bangladesh",2024-11-11,46,2024,7591
+"Bangladesh",2024-11-18,47,2024,6807
+"Bangladesh",2024-11-25,48,2024,5560
+"Bangladesh",2024-12-02,49,2024,3877
+"Bangladesh",2024-12-09,50,2024,2649
+"Bangladesh",2024-12-16,51,2024,1317
+"Bangladesh",2024-12-23,52,2024,822
+"Bangladesh",2024-12-30,1,2025,485
+"Bangladesh",2025-01-06,2,2025,343
+"Bangladesh",2025-01-13,3,2025,247
+"Bangladesh",2025-01-20,4,2025,177
+"Bangladesh",2025-01-27,5,2025,133
+"Bangladesh",2025-02-03,6,2025,108
+"Bangladesh",2025-02-10,7,2025,111
+"Bangladesh",2025-02-17,8,2025,86
+"Bangladesh",2025-02-24,9,2025,62
+"Bangladesh",2025-03-03,10,2025,70
+"Bangladesh",2025-03-10,11,2025,113
+"Bangladesh",2025-03-17,12,2025,86
+"Bangladesh",2025-03-24,13,2025,46
+"Bangladesh",2025-03-31,14,2025,85
+"Bangladesh",2025-04-07,15,2025,146
+"Bangladesh",2025-04-14,16,2025,176
+"Bangladesh",2025-04-21,17,2025,213
+"Bangladesh",2025-04-28,18,2025,218
+"Bangladesh",2025-05-05,19,2025,279
+"Bangladesh",2025-05-12,20,2025,466
+"Bangladesh",2025-05-19,21,2025,520
+"Bangladesh",2025-05-26,22,2025,520
+"Bangladesh",2025-06-02,23,2025,948
+"Bangladesh",2025-06-09,24,2025,1039
+"Bangladesh",2025-06-16,25,2025,1770
+"Bangladesh",2025-06-23,26,2025,2109
+"Bangladesh",2025-06-30,27,2025,2404
+"Bangladesh",2025-07-07,28,2025,2609
+"Bangladesh",2025-07-14,29,2025,2338
+"Bangladesh",2025-07-21,30,2025,2311
+"Bangladesh",2025-07-28,31,2025,2141
+"Bangladesh",2025-08-04,32,2025,2513
+"Bangladesh",2025-08-11,33,2025,2195
+"Bangladesh",2025-08-18,34,2025,2254
+"Bangladesh",2025-08-25,35,2025,2844
+"Bangladesh",2025-09-01,36,2025,2935
+"Bangladesh",2025-09-08,37,2025,3480
+"Bangladesh",2025-09-15,38,2025,3940
+"Bangladesh",2025-09-22,39,2025,4220
+"Bangladesh",2025-09-29,40,2025,3856
+"Bangladesh",2025-10-06,41,2025,4652
+"Bangladesh",2025-10-13,42,2025,5290
+"Bangladesh",2025-10-20,43,2025,5591
+"Bangladesh",2025-10-27,44,2025,6235
+"Bangladesh",2025-11-03,45,2025,6868
+"Bangladesh",2025-11-10,46,2025,6454
+"Bangladesh",2025-11-17,47,2025,5267
+"Bangladesh",2025-11-24,48,2025,4133
+"Bangladesh",2025-12-01,49,2025,3432
+"Bangladesh",2025-12-08,50,2025,2648
+"Bangladesh",2025-12-15,51,2025,1314
+"Bangladesh",2025-12-22,52,2025,771
+"Bangladesh",2025-12-29,1,2026,560
+"Bangladesh",2026-01-05,2,2026,316
+"Bangladesh",2026-01-12,3,2026,203
+"Bangladesh",2026-01-19,4,2026,179
+"Bangladesh",2026-01-26,5,2026,136
+"Bangladesh",2026-02-02,6,2026,108
+"Bangladesh",2026-02-09,7,2026,106
+"Bangladesh",2026-02-16,8,2026,123
+"Bhutan",2024-01-01,1,2024,2
+"Bhutan",2024-02-01,5,2024,0
+"Bhutan",2024-03-01,9,2024,5
+"Bhutan",2024-04-01,14,2024,10
+"Bhutan",2024-05-01,18,2024,3
+"Bhutan",2024-06-01,22,2024,9
+"Bhutan",2024-07-01,27,2024,15
+"Bhutan",2024-08-01,31,2024,48
+"Bhutan",2024-09-01,35,2024,33
+"Bhutan",2024-10-01,40,2024,30
+"Bhutan",2024-11-01,44,2024,28
+"Bhutan",2024-12-01,48,2024,30
+"Bhutan",2025-01-01,1,2025,25
+"Bhutan",2025-02-01,5,2025,2
+"Bhutan",2025-03-01,9,2025,9
+"Bhutan",2025-04-01,14,2025,11
+"Bhutan",2025-05-01,18,2025,18
+"Bhutan",2025-06-01,22,2025,12
+"Bhutan",2025-07-01,27,2025,32
+"Bhutan",2025-08-01,31,2025,36
+"Bhutan",2025-09-01,36,2025,34
+"Bhutan",2025-10-01,40,2025,26
+"Bhutan",2025-11-01,44,2025,18
+"Bhutan",2025-12-01,49,2025,6
+"Bhutan",2026-01-01,1,2026,5
+"India",2024-01-01,1,2024,0
+"India",2024-02-01,5,2024,0
+"India",2024-03-01,9,2024,0
+"India",2024-04-01,14,2024,0
+"India",2024-05-01,18,2024,0
+"India",2024-06-01,22,2024,0
+"India",2024-07-01,27,2024,27675
+"India",2024-08-01,31,2024,32388
+"India",2024-09-01,35,2024,41375
+"India",2024-10-01,40,2024,51183
+"India",2024-11-01,44,2024,30354
+"India",2024-12-01,48,2024,34718
+"India",2025-01-01,1,2025,4700
+"India",2025-02-01,5,2025,3806
+"India",2025-03-01,9,2025,3517
+"India",2025-04-01,14,2025,2700
+"India",2025-05-01,18,2025,3766
+"India",2025-06-01,22,2025,6459
+"India",2025-07-01,27,2025,10302
+"India",2025-08-01,31,2025,14303
+"India",2025-09-01,36,2025,18803
+"India",2025-10-01,40,2025,22659
+"India",2025-11-01,44,2025,22175
+"India",2025-12-01,49,2025,7539
+"India",2026-01-01,1,2026,3544
+"Maldives",2024-01-01,1,2024,138
+"Maldives",2024-02-01,5,2024,120
+"Maldives",2024-03-01,9,2024,125
+"Maldives",2024-04-01,14,2024,255
+"Maldives",2024-05-01,18,2024,667
+"Maldives",2024-06-01,22,2024,618
+"Maldives",2024-07-01,27,2024,440
+"Maldives",2024-08-01,31,2024,394
+"Maldives",2024-09-01,35,2024,180
+"Maldives",2024-10-01,40,2024,117
+"Maldives",2024-11-01,44,2024,124
+"Maldives",2024-12-01,48,2024,68
+"Maldives",2025-01-01,1,2025,72
+"Maldives",2025-02-01,5,2025,74
+"Maldives",2025-03-01,9,2025,69
+"Maldives",2025-04-01,14,2025,120
+"Maldives",2025-05-01,18,2025,116
+"Maldives",2025-06-01,22,2025,165
+"Maldives",2025-07-01,27,2025,168
+"Maldives",2025-08-01,31,2025,256
+"Maldives",2025-09-01,36,2025,252
+"Maldives",2025-10-01,40,2025,373
+"Maldives",2025-11-01,44,2025,376
+"Maldives",2025-12-01,49,2025,411
+"Maldives",2026-01-01,1,2026,631
+"Myanmar",2024-01-01,1,2024,208
+"Myanmar",2024-02-01,5,2024,181
+"Myanmar",2024-03-01,9,2024,176
+"Myanmar",2024-04-01,14,2024,203
+"Myanmar",2024-05-01,18,2024,311
+"Myanmar",2024-06-01,22,2024,574
+"Myanmar",2024-07-01,27,2024,1236
+"Myanmar",2024-08-01,31,2024,1239
+"Myanmar",2024-09-01,35,2024,933
+"Myanmar",2024-10-01,40,2024,690
+"Myanmar",2024-11-01,44,2024,380
+"Myanmar",2024-12-01,48,2024,257
+"Myanmar",2025-01-01,1,2025,344
+"Myanmar",2025-02-01,5,2025,240
+"Myanmar",2025-03-01,9,2025,334
+"Myanmar",2025-04-01,14,2025,470
+"Myanmar",2025-05-01,18,2025,1398
+"Myanmar",2025-06-01,22,2025,3488
+"Myanmar",2025-07-01,27,2025,6130
+"Myanmar",2025-08-01,31,2025,4830
+"Myanmar",2025-09-01,36,2025,3152
+"Myanmar",2025-10-01,40,2025,1886
+"Myanmar",2025-11-01,44,2025,1188
+"Myanmar",2025-12-01,49,2025,620
+"Myanmar",2026-01-01,1,2026,260
+"Nepal",2023-01-01,52,2022,133
+"Nepal",2023-02-01,5,2023,130
+"Nepal",2023-03-01,9,2023,195
+"Nepal",2023-04-01,13,2023,158
+"Nepal",2023-05-01,18,2023,163
+"Nepal",2023-06-01,22,2023,1026
+"Nepal",2023-07-01,26,2023,6459
+"Nepal",2023-08-01,31,2023,14534
+"Nepal",2023-09-01,35,2023,13912
+"Nepal",2023-10-01,39,2023,12699
+"Nepal",2023-11-01,44,2023,2805
+"Nepal",2023-12-01,48,2023,576
+"Nepal",2024-01-01,1,2024,499
+"Nepal",2024-02-01,5,2024,408
+"Nepal",2024-03-01,9,2024,374
+"Nepal",2024-04-01,14,2024,463
+"Nepal",2024-05-01,18,2024,495
+"Nepal",2024-06-01,22,2024,632
+"Nepal",2024-07-01,27,2024,1906
+"Nepal",2024-08-01,31,2024,6493
+"Nepal",2024-09-01,35,2024,11875
+"Nepal",2024-10-01,40,2024,12332
+"Nepal",2024-11-01,44,2024,5544
+"Nepal",2024-12-01,48,2024,844
+"Nepal",2025-01-01,1,2025,259
+"Nepal",2025-02-01,5,2025,252
+"Nepal",2025-03-01,9,2025,254
+"Nepal",2025-04-01,14,2025,224
+"Nepal",2025-05-01,18,2025,314
+"Nepal",2025-06-01,22,2025,530
+"Nepal",2025-07-01,27,2025,830
+"Nepal",2025-08-01,31,2025,1197
+"Nepal",2025-09-01,36,2025,1636
+"Nepal",2025-10-01,40,2025,1869
+"Nepal",2025-11-01,44,2025,891
+"Nepal",2025-12-01,49,2025,317
+"Nepal",2026-01-01,1,2026,178
+"Sri Lanka",2021-01-04,1,2021,484
+"Sri Lanka",2021-01-11,2,2021,449
+"Sri Lanka",2021-01-18,3,2021,522
+"Sri Lanka",2021-01-25,4,2021,457
+"Sri Lanka",2021-02-01,5,2021,620
+"Sri Lanka",2021-02-08,6,2021,703
+"Sri Lanka",2021-02-15,7,2021,533
+"Sri Lanka",2021-02-22,8,2021,499
+"Sri Lanka",2021-03-01,9,2021,644
+"Sri Lanka",2021-03-08,10,2021,563
+"Sri Lanka",2021-03-15,11,2021,422
+"Sri Lanka",2021-03-22,12,2021,495
+"Sri Lanka",2021-03-29,13,2021,471
+"Sri Lanka",2021-04-05,14,2021,485
+"Sri Lanka",2021-04-12,15,2021,539
+"Sri Lanka",2021-04-19,16,2021,602
+"Sri Lanka",2021-04-26,17,2021,448
+"Sri Lanka",2021-05-03,18,2021,355
+"Sri Lanka",2021-05-10,19,2021,254
+"Sri Lanka",2021-05-17,20,2021,283
+"Sri Lanka",2021-05-24,21,2021,365
+"Sri Lanka",2021-05-31,22,2021,504
+"Sri Lanka",2021-06-07,23,2021,591
+"Sri Lanka",2021-06-14,24,2021,789
+"Sri Lanka",2021-06-21,25,2021,779
+"Sri Lanka",2021-06-28,26,2021,765
+"Sri Lanka",2021-07-05,27,2021,837
+"Sri Lanka",2021-07-12,28,2021,808
+"Sri Lanka",2021-07-19,29,2021,706
+"Sri Lanka",2021-07-26,30,2021,643
+"Sri Lanka",2021-08-02,31,2021,398
+"Sri Lanka",2021-08-09,32,2021,277
+"Sri Lanka",2021-08-16,33,2021,218
+"Sri Lanka",2021-08-23,34,2021,243
+"Sri Lanka",2021-08-30,35,2021,233
+"Sri Lanka",2021-09-06,36,2021,262
+"Sri Lanka",2021-09-13,37,2021,280
+"Sri Lanka",2021-09-20,38,2021,425
+"Sri Lanka",2021-09-27,39,2021,423
+"Sri Lanka",2021-10-04,40,2021,519
+"Sri Lanka",2021-10-11,41,2021,688
+"Sri Lanka",2021-10-18,42,2021,828
+"Sri Lanka",2021-10-25,43,2021,759
+"Sri Lanka",2021-11-01,44,2021,826
+"Sri Lanka",2021-11-08,45,2021,933
+"Sri Lanka",2021-11-15,46,2021,1130
+"Sri Lanka",2021-11-22,47,2021,1169
+"Sri Lanka",2021-11-29,48,2021,1599
+"Sri Lanka",2021-12-06,49,2021,1806
+"Sri Lanka",2021-12-13,50,2021,2255
+"Sri Lanka",2021-12-20,51,2021,2208
+"Sri Lanka",2021-12-27,52,2021,2026
+"Sri Lanka",2022-01-03,1,2022,2057
+"Sri Lanka",2022-01-10,2,2022,2081
+"Sri Lanka",2022-01-17,3,2022,1655
+"Sri Lanka",2022-01-24,4,2022,1297
+"Sri Lanka",2022-01-31,5,2022,925
+"Sri Lanka",2022-02-07,6,2022,634
+"Sri Lanka",2022-02-14,7,2022,749
+"Sri Lanka",2022-02-21,8,2022,748
+"Sri Lanka",2022-02-28,9,2022,542
+"Sri Lanka",2022-03-07,10,2022,613
+"Sri Lanka",2022-03-14,11,2022,733
+"Sri Lanka",2022-03-21,12,2022,798
+"Sri Lanka",2022-03-28,13,2022,788
+"Sri Lanka",2022-04-04,14,2022,958
+"Sri Lanka",2022-04-11,15,2022,775
+"Sri Lanka",2022-04-18,16,2022,950
+"Sri Lanka",2022-04-25,17,2022,1102
+"Sri Lanka",2022-05-02,18,2022,1209
+"Sri Lanka",2022-05-09,19,2022,1294
+"Sri Lanka",2022-05-16,20,2022,1576
+"Sri Lanka",2022-05-23,21,2022,1616
+"Sri Lanka",2022-05-30,22,2022,2052
+"Sri Lanka",2022-06-06,23,2022,2302
+"Sri Lanka",2022-06-13,24,2022,2775
+"Sri Lanka",2022-06-20,25,2022,2862
+"Sri Lanka",2022-06-27,26,2022,3263
+"Sri Lanka",2022-07-04,27,2022,2675
+"Sri Lanka",2022-07-11,28,2022,2649
+"Sri Lanka",2022-07-18,29,2022,2560
+"Sri Lanka",2022-07-25,30,2022,2198
+"Sri Lanka",2022-08-01,31,2022,1915
+"Sri Lanka",2022-08-08,32,2022,1590
+"Sri Lanka",2022-08-15,33,2022,1486
+"Sri Lanka",2022-08-22,34,2022,1304
+"Sri Lanka",2022-08-29,35,2022,1254
+"Sri Lanka",2022-09-05,36,2022,1027
+"Sri Lanka",2022-09-12,37,2022,978
+"Sri Lanka",2022-09-19,38,2022,1014
+"Sri Lanka",2022-09-26,39,2022,1161
+"Sri Lanka",2022-10-03,40,2022,1152
+"Sri Lanka",2022-10-10,41,2022,1178
+"Sri Lanka",2022-10-17,42,2022,997
+"Sri Lanka",2022-10-24,43,2022,943
+"Sri Lanka",2022-10-31,44,2022,1114
+"Sri Lanka",2022-11-07,45,2022,1053
+"Sri Lanka",2022-11-14,46,2022,1314
+"Sri Lanka",2022-11-21,47,2022,1406
+"Sri Lanka",2022-11-28,48,2022,1602
+"Sri Lanka",2022-12-05,49,2022,1902
+"Sri Lanka",2022-12-12,50,2022,2077
+"Sri Lanka",2022-12-19,51,2022,1866
+"Sri Lanka",2022-12-26,52,2022,1486
+"Sri Lanka",2023-01-02,1,2023,2142
+"Sri Lanka",2023-01-09,2,2023,2030
+"Sri Lanka",2023-01-16,3,2023,2032
+"Sri Lanka",2023-01-23,4,2023,1944
+"Sri Lanka",2023-01-30,5,2023,1889
+"Sri Lanka",2023-02-06,6,2023,1672
+"Sri Lanka",2023-02-13,7,2023,1604
+"Sri Lanka",2023-02-20,8,2023,1663
+"Sri Lanka",2023-02-27,9,2023,1438
+"Sri Lanka",2023-03-06,10,2023,1511
+"Sri Lanka",2023-03-13,11,2023,1259
+"Sri Lanka",2023-03-20,12,2023,1661
+"Sri Lanka",2023-03-27,13,2023,1461
+"Sri Lanka",2023-04-03,14,2023,1801
+"Sri Lanka",2023-04-10,15,2023,1584
+"Sri Lanka",2023-04-17,16,2023,1909
+"Sri Lanka",2023-04-24,17,2023,1896
+"Sri Lanka",2023-05-01,18,2023,1954
+"Sri Lanka",2023-05-08,19,2023,2055
+"Sri Lanka",2023-05-15,20,2023,2215
+"Sri Lanka",2023-05-22,21,2023,2289
+"Sri Lanka",2023-05-29,22,2023,2396
+"Sri Lanka",2023-06-05,23,2023,2730
+"Sri Lanka",2023-06-12,24,2023,2477
+"Sri Lanka",2023-06-19,25,2023,2120
+"Sri Lanka",2023-06-26,26,2023,1816
+"Sri Lanka",2023-07-03,27,2023,1718
+"Sri Lanka",2023-07-10,28,2023,1726
+"Sri Lanka",2023-07-17,29,2023,1564
+"Sri Lanka",2023-07-24,30,2023,1671
+"Sri Lanka",2023-07-31,31,2023,1492
+"Sri Lanka",2023-08-07,32,2023,1329
+"Sri Lanka",2023-08-14,33,2023,1143
+"Sri Lanka",2023-08-21,34,2023,1025
+"Sri Lanka",2023-08-28,35,2023,729
+"Sri Lanka",2023-09-04,36,2023,675
+"Sri Lanka",2023-09-11,37,2023,606
+"Sri Lanka",2023-09-18,38,2023,590
+"Sri Lanka",2023-09-25,39,2023,526
+"Sri Lanka",2023-10-02,40,2023,684
+"Sri Lanka",2023-10-09,41,2023,751
+"Sri Lanka",2023-10-16,42,2023,992
+"Sri Lanka",2023-10-23,43,2023,1204
+"Sri Lanka",2023-10-30,44,2023,1532
+"Sri Lanka",2023-11-06,45,2023,1586
+"Sri Lanka",2023-11-13,46,2023,1798
+"Sri Lanka",2023-11-20,47,2023,1969
+"Sri Lanka",2023-11-27,48,2023,2472
+"Sri Lanka",2023-12-04,49,2023,2730
+"Sri Lanka",2023-12-11,50,2023,2438
+"Sri Lanka",2023-12-18,51,2023,3375
+"Sri Lanka",2023-12-25,52,2023,2770
+"Sri Lanka",2024-01-01,1,2024,2279
+"Sri Lanka",2024-01-08,2,2024,2951
+"Sri Lanka",2024-01-15,3,2024,2277
+"Sri Lanka",2024-01-22,4,2024,1976
+"Sri Lanka",2024-01-29,5,2024,1993
+"Sri Lanka",2024-02-05,6,2024,1787
+"Sri Lanka",2024-02-12,7,2024,1383
+"Sri Lanka",2024-02-19,8,2024,1230
+"Sri Lanka",2024-02-26,9,2024,964
+"Sri Lanka",2024-03-04,10,2024,1042
+"Sri Lanka",2024-03-11,11,2024,863
+"Sri Lanka",2024-03-18,12,2024,666
+"Sri Lanka",2024-03-25,13,2024,628
+"Sri Lanka",2024-04-01,14,2024,544
+"Sri Lanka",2024-04-08,15,2024,472
+"Sri Lanka",2024-04-15,16,2024,526
+"Sri Lanka",2024-04-22,17,2024,524
+"Sri Lanka",2024-04-29,18,2024,533
+"Sri Lanka",2024-05-06,19,2024,523
+"Sri Lanka",2024-05-13,20,2024,770
+"Sri Lanka",2024-05-20,21,2024,550
+"Sri Lanka",2024-05-27,22,2024,614
+"Sri Lanka",2024-06-03,23,2024,704
+"Sri Lanka",2024-06-10,24,2024,722
+"Sri Lanka",2024-06-17,25,2024,870
+"Sri Lanka",2024-06-24,26,2024,848
+"Sri Lanka",2024-07-01,27,2024,1030
+"Sri Lanka",2024-07-08,28,2024,1038
+"Sri Lanka",2024-07-15,29,2024,966
+"Sri Lanka",2024-07-22,30,2024,1028
+"Sri Lanka",2024-07-29,31,2024,932
+"Sri Lanka",2024-08-05,32,2024,917
+"Sri Lanka",2024-08-12,33,2024,968
+"Sri Lanka",2024-08-19,34,2024,826
+"Sri Lanka",2024-08-26,35,2024,784
+"Sri Lanka",2024-09-02,36,2024,649
+"Sri Lanka",2024-09-09,37,2024,711
+"Sri Lanka",2024-09-16,38,2024,590
+"Sri Lanka",2024-09-23,39,2024,624
+"Sri Lanka",2024-09-30,40,2024,663
+"Sri Lanka",2024-10-07,41,2024,693
+"Sri Lanka",2024-10-14,42,2024,627
+"Sri Lanka",2024-10-21,43,2024,657
+"Sri Lanka",2024-10-28,44,2024,672
+"Sri Lanka",2024-11-04,45,2024,667
+"Sri Lanka",2024-11-11,46,2024,701
+"Sri Lanka",2024-11-18,47,2024,880
+"Sri Lanka",2024-11-25,48,2024,727
+"Sri Lanka",2024-12-02,49,2024,778
+"Sri Lanka",2024-12-09,50,2024,906
+"Sri Lanka",2024-12-16,51,2024,627
+"Sri Lanka",2024-12-23,52,2024,979
+"Sri Lanka",2024-12-30,1,2025,1138
+"Sri Lanka",2025-01-06,2,2025,1249
+"Sri Lanka",2025-01-13,3,2025,1158
+"Sri Lanka",2025-01-20,4,2025,975
+"Sri Lanka",2025-01-27,5,2025,1071
+"Sri Lanka",2025-02-03,6,2025,972
+"Sri Lanka",2025-02-10,7,2025,851
+"Sri Lanka",2025-02-17,8,2025,945
+"Sri Lanka",2025-02-24,9,2025,828
+"Sri Lanka",2025-03-03,10,2025,941
+"Sri Lanka",2025-03-10,11,2025,807
+"Sri Lanka",2025-03-17,12,2025,828
+"Sri Lanka",2025-03-24,13,2025,875
+"Sri Lanka",2025-03-31,14,2025,990
+"Sri Lanka",2025-04-07,15,2025,1178
+"Sri Lanka",2025-04-14,16,2025,1190
+"Sri Lanka",2025-04-21,17,2025,1356
+"Sri Lanka",2025-04-28,18,2025,1358
+"Sri Lanka",2025-05-05,19,2025,1281
+"Sri Lanka",2025-05-12,20,2025,1377
+"Sri Lanka",2025-05-19,21,2025,1468
+"Sri Lanka",2025-05-26,22,2025,1364
+"Sri Lanka",2025-06-02,23,2025,1320
+"Sri Lanka",2025-06-09,24,2025,1345
+"Sri Lanka",2025-06-16,25,2025,1312
+"Sri Lanka",2025-06-23,26,2025,1215
+"Sri Lanka",2025-06-30,27,2025,1061
+"Sri Lanka",2025-07-07,28,2025,1091
+"Sri Lanka",2025-07-14,29,2025,1194
+"Sri Lanka",2025-07-21,30,2025,1058
+"Sri Lanka",2025-07-28,31,2025,948
+"Sri Lanka",2025-08-04,32,2025,659
+"Sri Lanka",2025-08-11,33,2025,826
+"Sri Lanka",2025-08-18,34,2025,583
+"Sri Lanka",2025-08-25,35,2025,553
+"Sri Lanka",2025-09-01,36,2025,522
+"Sri Lanka",2025-09-08,37,2025,608
+"Sri Lanka",2025-09-15,38,2025,591
+"Sri Lanka",2025-09-22,39,2025,494
+"Sri Lanka",2025-09-29,40,2025,546
+"Sri Lanka",2025-10-06,41,2025,511
+"Sri Lanka",2025-10-13,42,2025,655
+"Sri Lanka",2025-10-20,43,2025,654
+"Sri Lanka",2025-10-27,44,2025,725
+"Sri Lanka",2025-11-03,45,2025,777
+"Sri Lanka",2025-11-10,46,2025,883
+"Sri Lanka",2025-11-17,47,2025,1091
+"Sri Lanka",2025-11-24,48,2025,886
+"Sri Lanka",2025-12-01,49,2025,1050
+"Sri Lanka",2025-12-08,50,2025,1287
+"Sri Lanka",2025-12-15,51,2025,1372
+"Sri Lanka",2025-12-22,52,2025,1522
+"Sri Lanka",2025-12-29,1,2026,1677
+"Sri Lanka",2026-01-05,2,2026,1853
+"Sri Lanka",2026-01-12,3,2026,1188
+"Sri Lanka",2026-01-19,4,2026,1785
+"Sri Lanka",2026-01-26,5,2026,1507
+"Sri Lanka",2026-02-02,6,2026,1465
+"Sri Lanka",2026-02-09,7,2026,1533
+"Thailand",2021-01-04,1,2021,349
+"Thailand",2021-01-11,2,2021,233
+"Thailand",2021-01-18,3,2021,233
+"Thailand",2021-01-25,4,2021,203
+"Thailand",2021-02-01,5,2021,203
+"Thailand",2021-02-08,6,2021,198
+"Thailand",2021-02-15,7,2021,202
+"Thailand",2021-02-22,8,2021,165
+"Thailand",2021-03-01,9,2021,170
+"Thailand",2021-03-08,10,2021,179
+"Thailand",2021-03-15,11,2021,155
+"Thailand",2021-03-22,12,2021,168
+"Thailand",2021-03-29,13,2021,124
+"Thailand",2021-04-05,14,2021,106
+"Thailand",2021-04-12,15,2021,89
+"Thailand",2021-04-19,16,2021,113
+"Thailand",2021-04-26,17,2021,122
+"Thailand",2021-05-03,18,2021,178
+"Thailand",2021-05-10,19,2021,217
+"Thailand",2021-05-17,20,2021,277
+"Thailand",2021-05-24,21,2021,305
+"Thailand",2021-05-31,22,2021,310
+"Thailand",2021-06-07,23,2021,385
+"Thailand",2021-06-14,24,2021,422
+"Thailand",2021-06-21,25,2021,346
+"Thailand",2021-06-28,26,2021,292
+"Thailand",2021-07-05,27,2021,250
+"Thailand",2021-07-12,28,2021,221
+"Thailand",2021-07-19,29,2021,188
+"Thailand",2021-07-26,30,2021,201
+"Thailand",2021-08-02,31,2021,214
+"Thailand",2021-08-09,32,2021,194
+"Thailand",2021-08-16,33,2021,228
+"Thailand",2021-08-23,34,2021,179
+"Thailand",2021-08-30,35,2021,163
+"Thailand",2021-09-06,36,2021,181
+"Thailand",2021-09-13,37,2021,198
+"Thailand",2021-09-20,38,2021,205
+"Thailand",2021-09-27,39,2021,200
+"Thailand",2021-10-04,40,2021,183
+"Thailand",2021-10-11,41,2021,137
+"Thailand",2021-10-18,42,2021,147
+"Thailand",2021-10-25,43,2021,142
+"Thailand",2021-11-01,44,2021,183
+"Thailand",2021-11-08,45,2021,163
+"Thailand",2021-11-15,46,2021,157
+"Thailand",2021-11-22,47,2021,119
+"Thailand",2021-11-29,48,2021,117
+"Thailand",2021-12-06,49,2021,115
+"Thailand",2021-12-13,50,2021,73
+"Thailand",2021-12-20,51,2021,47
+"Thailand",2021-12-27,52,2021,7
+"Thailand",2022-01-03,1,2022,129
+"Thailand",2022-01-10,2,2022,123
+"Thailand",2022-01-17,3,2022,148
+"Thailand",2022-01-24,4,2022,123
+"Thailand",2022-01-31,5,2022,119
+"Thailand",2022-02-07,6,2022,103
+"Thailand",2022-02-14,7,2022,91
+"Thailand",2022-02-21,8,2022,87
+"Thailand",2022-02-28,9,2022,98
+"Thailand",2022-03-07,10,2022,102
+"Thailand",2022-03-14,11,2022,119
+"Thailand",2022-03-21,12,2022,133
+"Thailand",2022-03-28,13,2022,120
+"Thailand",2022-04-04,14,2022,147
+"Thailand",2022-04-11,15,2022,157
+"Thailand",2022-04-18,16,2022,226
+"Thailand",2022-04-25,17,2022,227
+"Thailand",2022-05-02,18,2022,329
+"Thailand",2022-05-09,19,2022,361
+"Thailand",2022-05-16,20,2022,628
+"Thailand",2022-05-23,21,2022,718
+"Thailand",2022-05-30,22,2022,911
+"Thailand",2022-06-06,23,2022,1289
+"Thailand",2022-06-13,24,2022,1472
+"Thailand",2022-06-20,25,2022,1776
+"Thailand",2022-06-27,26,2022,1840
+"Thailand",2022-07-04,27,2022,1819
+"Thailand",2022-07-11,28,2022,1537
+"Thailand",2022-07-18,29,2022,1610
+"Thailand",2022-07-25,30,2022,1512
+"Thailand",2022-08-01,31,2022,1681
+"Thailand",2022-08-08,32,2022,1411
+"Thailand",2022-08-15,33,2022,1517
+"Thailand",2022-08-22,34,2022,1431
+"Thailand",2022-08-29,35,2022,1400
+"Thailand",2022-09-05,36,2022,1308
+"Thailand",2022-09-12,37,2022,1304
+"Thailand",2022-09-19,38,2022,1321
+"Thailand",2022-09-26,39,2022,1348
+"Thailand",2022-10-03,40,2022,1182
+"Thailand",2022-10-10,41,2022,1224
+"Thailand",2022-10-17,42,2022,1271
+"Thailand",2022-10-24,43,2022,1451
+"Thailand",2022-10-31,44,2022,1612
+"Thailand",2022-11-07,45,2022,1405
+"Thailand",2022-11-14,46,2022,1350
+"Thailand",2022-11-21,47,2022,1342
+"Thailand",2022-11-28,48,2022,1151
+"Thailand",2022-12-05,49,2022,1090
+"Thailand",2022-12-12,50,2022,764
+"Thailand",2022-12-19,51,2022,414
+"Thailand",2022-12-26,52,2022,114
+"Thailand",2023-01-02,1,2023,1310
+"Thailand",2023-01-09,2,2023,1005
+"Thailand",2023-01-16,3,2023,1011
+"Thailand",2023-01-23,4,2023,960
+"Thailand",2023-01-30,5,2023,819
+"Thailand",2023-02-06,6,2023,835
+"Thailand",2023-02-13,7,2023,863
+"Thailand",2023-02-20,8,2023,793
+"Thailand",2023-02-27,9,2023,868
+"Thailand",2023-03-06,10,2023,854
+"Thailand",2023-03-13,11,2023,783
+"Thailand",2023-03-20,12,2023,869
+"Thailand",2023-03-27,13,2023,895
+"Thailand",2023-04-03,14,2023,969
+"Thailand",2023-04-10,15,2023,951
+"Thailand",2023-04-17,16,2023,962
+"Thailand",2023-04-24,17,2023,903
+"Thailand",2023-05-01,18,2023,957
+"Thailand",2023-05-08,19,2023,947
+"Thailand",2023-05-15,20,2023,1315
+"Thailand",2023-05-22,21,2023,1524
+"Thailand",2023-05-29,22,2023,1856
+"Thailand",2023-06-05,23,2023,2376
+"Thailand",2023-06-12,24,2023,3056
+"Thailand",2023-06-19,25,2023,3781
+"Thailand",2023-06-26,26,2023,4679
+"Thailand",2023-07-03,27,2023,5697
+"Thailand",2023-07-10,28,2023,6348
+"Thailand",2023-07-17,29,2023,6604
+"Thailand",2023-07-24,30,2023,6497
+"Thailand",2023-07-31,31,2023,6616
+"Thailand",2023-08-07,32,2023,6949
+"Thailand",2023-08-14,33,2023,6676
+"Thailand",2023-08-21,34,2023,6556
+"Thailand",2023-08-28,35,2023,5809
+"Thailand",2023-09-04,36,2023,5406
+"Thailand",2023-09-11,37,2023,4920
+"Thailand",2023-09-18,38,2023,4032
+"Thailand",2023-09-25,39,2023,4032
+"Thailand",2023-10-02,40,2023,3906
+"Thailand",2023-10-09,41,2023,3836
+"Thailand",2023-10-16,42,2023,3881
+"Thailand",2023-10-23,43,2023,3940
+"Thailand",2023-10-30,44,2023,4235
+"Thailand",2023-11-06,45,2023,4557
+"Thailand",2023-11-13,46,2023,4545
+"Thailand",2023-11-20,47,2023,4240
+"Thailand",2023-11-27,48,2023,3622
+"Thailand",2023-12-04,49,2023,3419
+"Thailand",2023-12-11,50,2023,3456
+"Thailand",2023-12-18,51,2023,3283
+"Thailand",2023-12-25,52,2023,2321
+"Thailand",2024-01-01,1,2024,6213
+"Thailand",2024-01-08,2,2024,2953
+"Thailand",2024-01-15,3,2024,2366
+"Thailand",2024-01-22,4,2024,2000
+"Thailand",2024-01-29,5,2024,1906
+"Thailand",2024-02-05,6,2024,1802
+"Thailand",2024-02-12,7,2024,1523
+"Thailand",2024-02-19,8,2024,1546
+"Thailand",2024-02-26,9,2024,1429
+"Thailand",2024-03-04,10,2024,1220
+"Thailand",2024-03-11,11,2024,1059
+"Thailand",2024-03-18,12,2024,1046
+"Thailand",2024-03-25,13,2024,1095
+"Thailand",2024-04-01,14,2024,922
+"Thailand",2024-04-08,15,2024,1062
+"Thailand",2024-04-15,16,2024,1065
+"Thailand",2024-04-22,17,2024,974
+"Thailand",2024-04-29,18,2024,844
+"Thailand",2024-05-06,19,2024,865
+"Thailand",2024-05-13,20,2024,1037
+"Thailand",2024-05-20,21,2024,1173
+"Thailand",2024-05-27,22,2024,1557
+"Thailand",2024-06-03,23,2024,1990
+"Thailand",2024-06-10,24,2024,2599
+"Thailand",2024-06-17,25,2024,3079
+"Thailand",2024-06-24,26,2024,3530
+"Thailand",2024-07-01,27,2024,3561
+"Thailand",2024-07-08,28,2024,3652
+"Thailand",2024-07-15,29,2024,3793
+"Thailand",2024-07-22,30,2024,3873
+"Thailand",2024-07-29,31,2024,3850
+"Thailand",2024-08-05,32,2024,3907
+"Thailand",2024-08-12,33,2024,3836
+"Thailand",2024-08-19,34,2024,3277
+"Thailand",2024-08-26,35,2024,3161
+"Thailand",2024-09-02,36,2024,2613
+"Thailand",2024-09-09,37,2024,2378
+"Thailand",2024-09-16,38,2024,2043
+"Thailand",2024-09-23,39,2024,1926
+"Thailand",2024-09-30,40,2024,1706
+"Thailand",2024-10-07,41,2024,1754
+"Thailand",2024-10-14,42,2024,1671
+"Thailand",2024-10-21,43,2024,1743
+"Thailand",2024-10-28,44,2024,1653
+"Thailand",2024-11-04,45,2024,1545
+"Thailand",2024-11-11,46,2024,1539
+"Thailand",2024-11-18,47,2024,1313
+"Thailand",2024-11-25,48,2024,1215
+"Thailand",2024-12-02,49,2024,1183
+"Thailand",2024-12-09,50,2024,989
+"Thailand",2024-12-16,51,2024,784
+"Thailand",2024-12-23,52,2024,288
+"Thailand",2024-12-30,1,2025,477
+"Thailand",2025-01-06,2,2025,834
+"Thailand",2025-01-13,3,2025,674
+"Thailand",2025-01-20,4,2025,646
+"Thailand",2025-01-27,5,2025,614
+"Thailand",2025-02-03,6,2025,548
+"Thailand",2025-02-10,7,2025,515
+"Thailand",2025-02-17,8,2025,539
+"Thailand",2025-02-24,9,2025,520
+"Thailand",2025-03-03,10,2025,523
+"Thailand",2025-03-10,11,2025,500
+"Thailand",2025-03-17,12,2025,523
+"Thailand",2025-03-24,13,2025,415
+"Thailand",2025-03-31,14,2025,481
+"Thailand",2025-04-07,15,2025,471
+"Thailand",2025-04-14,16,2025,544
+"Thailand",2025-04-21,17,2025,601
+"Thailand",2025-04-28,18,2025,662
+"Thailand",2025-05-05,19,2025,713
+"Thailand",2025-05-12,20,2025,948
+"Thailand",2025-05-19,21,2025,1080
+"Thailand",2025-05-26,22,2025,1259
+"Thailand",2025-06-02,23,2025,1671
+"Thailand",2025-06-09,24,2025,2189
+"Thailand",2025-06-16,25,2025,2552
+"Thailand",2025-06-23,26,2025,2705
+"Thailand",2025-06-30,27,2025,2753
+"Thailand",2025-07-07,28,2025,2496
+"Thailand",2025-07-14,29,2025,2688
+"Thailand",2025-07-21,30,2025,2432
+"Thailand",2025-07-28,31,2025,2126
+"Thailand",2025-08-04,32,2025,2273
+"Thailand",2025-08-11,33,2025,2092
+"Thailand",2025-08-18,34,2025,1777
+"Thailand",2025-08-25,35,2025,1379
+"Thailand",2025-09-01,36,2025,1351
+"Thailand",2025-09-08,37,2025,1186
+"Thailand",2025-09-15,38,2025,1057
+"Thailand",2025-09-22,39,2025,936
+"Thailand",2025-09-29,40,2025,959
+"Thailand",2025-10-06,41,2025,874
+"Thailand",2025-10-13,42,2025,853
+"Thailand",2025-10-20,43,2025,833
+"Thailand",2025-10-27,44,2025,903
+"Thailand",2025-11-03,45,2025,961
+"Thailand",2025-11-10,46,2025,889
+"Thailand",2025-11-17,47,2025,800
+"Thailand",2025-11-24,48,2025,640
+"Thailand",2025-12-01,49,2025,637
+"Thailand",2025-12-08,50,2025,741
+"Thailand",2025-12-15,51,2025,712
+"Thailand",2025-12-22,52,2025,562
+"Thailand",2025-12-29,1,2026,240
+"Thailand",2026-01-05,2,2026,516
+"Thailand",2026-01-12,3,2026,405
+"Thailand",2026-01-19,4,2026,443
+"Thailand",2026-01-26,5,2026,378
+"Thailand",2026-02-02,6,2026,253
+"Thailand",2026-02-09,7,2026,320
+"Thailand",2026-02-16,8,2026,175
+"Timor-Leste",2021-02-01,5,2021,242
+"Timor-Leste",2021-03-01,9,2021,116
+"Timor-Leste",2021-04-01,13,2021,13
+"Timor-Leste",2021-05-01,17,2021,13
+"Timor-Leste",2021-06-01,22,2021,20
+"Timor-Leste",2021-07-01,26,2021,28
+"Timor-Leste",2021-08-01,30,2021,8
+"Timor-Leste",2021-09-01,35,2021,7
+"Timor-Leste",2021-10-01,39,2021,12
+"Timor-Leste",2021-11-01,44,2021,39
+"Timor-Leste",2021-12-01,48,2021,225
+"Timor-Leste",2022-01-01,52,2021,1371
+"Timor-Leste",2022-02-01,5,2022,1284
+"Timor-Leste",2022-03-01,9,2022,1201
+"Timor-Leste",2022-04-01,13,2022,700
+"Timor-Leste",2022-05-01,17,2022,487
+"Timor-Leste",2022-06-01,22,2022,254
+"Timor-Leste",2022-07-01,26,2022,139
+"Timor-Leste",2022-08-01,31,2022,47
+"Timor-Leste",2022-09-01,35,2022,25
+"Timor-Leste",2022-10-01,39,2022,63
+"Timor-Leste",2022-11-01,44,2022,41
+"Timor-Leste",2022-12-01,48,2022,46
+"Timor-Leste",2023-01-01,52,2022,105
+"Timor-Leste",2023-02-01,5,2023,205
+"Timor-Leste",2023-03-01,9,2023,315
+"Timor-Leste",2023-04-01,13,2023,275
+"Timor-Leste",2023-05-01,18,2023,373
+"Timor-Leste",2023-06-01,22,2023,146
+"Timor-Leste",2023-07-01,26,2023,141
+"Timor-Leste",2023-08-01,31,2023,142
+"Timor-Leste",2023-09-01,35,2023,71
+"Timor-Leste",2023-10-01,39,2023,68
+"Timor-Leste",2023-11-01,44,2023,40
+"Timor-Leste",2023-12-01,48,2023,72
+"Timor-Leste",2024-01-01,1,2024,189
+"Timor-Leste",2024-02-01,5,2024,331
+"Timor-Leste",2024-03-01,9,2024,353
+"Timor-Leste",2024-04-01,14,2024,308
+"Timor-Leste",2024-05-01,18,2024,103
+"Timor-Leste",2024-06-01,22,2024,47
+"Timor-Leste",2024-07-01,27,2024,34
+"Timor-Leste",2024-08-01,31,2024,25
+"Timor-Leste",2024-09-01,35,2024,28
+"Timor-Leste",2024-10-01,40,2024,39
+"Timor-Leste",2024-11-01,44,2024,12
+"Timor-Leste",2024-12-01,48,2024,25
+"Timor-Leste",2025-01-01,1,2025,130
+"Timor-Leste",2025-02-01,5,2025,189
+"Timor-Leste",2025-03-01,9,2025,192
+"Timor-Leste",2025-04-01,14,2025,131
+"Timor-Leste",2025-05-01,18,2025,111
+"Timor-Leste",2025-06-01,22,2025,74
+"Timor-Leste",2025-07-01,27,2025,85
+"Timor-Leste",2025-08-01,31,2025,58
+"Timor-Leste",2025-09-01,36,2025,51
+"Timor-Leste",2025-10-01,40,2025,99
+"Timor-Leste",2025-11-01,44,2025,111
+"Timor-Leste",2025-12-01,49,2025,279
+"Timor-Leste",2026-01-01,1,2026,1281
