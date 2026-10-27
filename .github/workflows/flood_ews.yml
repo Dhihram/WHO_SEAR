@@ -50,19 +50,20 @@ jobs:
         env:
           FLOODS_API_KEY: ${{ secrets.FLOODS_API_KEY }}
         run: |
-          # If your script is inside the 'script' folder:
           Rscript test/searo_daily_flood_ews.R
-          # (If it is in the root directory instead, remove 'script/' above)
 
       - name: Commit and push generated outputs
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add outputs/
+          # Stage outputs if the directory exists
+          if [ -d "outputs" ]; then
+            git add -A outputs/
+          fi
           
           if git diff --staged --quiet; then
-            echo "No changes found."
+            echo "No changes found to commit."
           else
             git commit -m "Auto-update flood outputs [skip ci]"
             git push
