@@ -1,0 +1,69 @@
+name: Daily Flood EWS Report
+
+on:
+  schedule:
+    # Runs daily at 00:30 UTC (06:00 AM IST)
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-ews:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+
+      - name: Install system dependencies for spatial packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libproj-dev
+
+      - name: Install R packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::httr2
+            any::jsonlite
+            any::dplyr
+            any::tidyr
+            any::readr
+            any::stringr
+            any::sf
+            any::tibble
+            any::officer
+            any::flextable
+            any::tidyverse
+            any::magrittr
+            any::maps
+            any::gt
+
+      - name: Run EWS Script
+        env:
+          FLOODS_API_KEY: ${{ secrets.FLOODS_API_KEY }}
+        run: |
+          # If your script is inside the 'script' folder:
+          Rscript script/searo_daily_flood_ews_samp.R
+          # (If it is in the root directory instead, remove 'script/' above)
+
+      - name: Commit and push generated outputs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add outputs/
+          
+          if git diff --staged --quiet; then
+            echo "No changes found."
+          else
+            git commit -m "Auto-update flood outputs [skip ci]"
+            git push
+          fi
