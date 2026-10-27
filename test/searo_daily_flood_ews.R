@@ -789,40 +789,49 @@ get_weather_alert <- function(
     season = NA_character_,
     fallback_rain = c(yellow = 30, orange = 70, red = 150),
     date = NA,
-    # Retained for compatibility with your existing calls.
+    # Retained for compatibility with existing calls
     is_terai = FALSE,
     consecutive_hot_days = NA_integer_
 ) {
-  country <- trimws(tolower(country))
-  season <- trimws(tolower(season))
+  # Guard against NA or empty country input
+  country_clean <- if (is.null(country) || length(country) == 0L || is.na(country)) {
+    ""
+  } else {
+    trimws(tolower(as.character(country)))
+  }
   
-  # Daily rainfall totals in mm.
-  # All alert colors are custom dashboard indicators.
+  season_clean <- if (is.null(season) || length(season) == 0L || is.na(season)) {
+    NA_character_
+  } else {
+    trimws(tolower(as.character(season)))
+  }
+  
+  weather_code <- suppressWarnings(as.integer(weather_code))
+  
+  # Daily rainfall totals in mm
   rain_thresholds <- switch(
-    country,
+    country_clean,
     "bangladesh" = c(yellow = 23,   orange = 44,    red = 89),
     "bhutan"     = c(yellow = 31,   orange = 71,    red = 151),
     "india"      = c(yellow = 64.5, orange = 115.6, red = 204.5),
     "thailand"   = c(yellow = 10.1, orange = 35.1,  red = 90.1),
     "nepal"      = c(yellow = 30,   orange = 70,    red = 140),
-    "sri lanka"  = c(yellow = 74.5, orange = 75, red = 100),
+    "sri lanka"  = c(yellow = 74.5, orange = 75,    red = 100),
     fallback_rain
   )
   
   rain_source <- switch(
-    country,
+    country_clean,
     "bangladesh" = "BMD rainfall categories",
     "bhutan"     = "NCHM rainfall categories",
     "india"      = "IMD rainfall categories",
     "thailand"   = "TMD rainfall categories",
     "nepal"      = "DHM 24-hour warning level; lower levels are custom",
-    'sri lanka'  = "DMC ADRC SL NBRO warning categories", 
+    "sri lanka"  = "DMC ADRC SL NBRO warning categories",
     "Custom dashboard rainfall thresholds"
   )
   
-  if (all(is.na(c(
-    temp_max, temp_min, precip, wind_speed, weather_code
-  )))) {
+  if (all(is.na(c(temp_max, temp_min, precip, wind_speed, weather_code)))) {
     return(list(
       level = NA_character_,
       text = "No forecast data",
@@ -835,7 +844,7 @@ get_weather_alert <- function(
   reasons <- character(0)
   ranks <- c(Green = 0, Yellow = 1, Orange = 2, Red = 3)
   
-  # Keep reasons only at the highest triggered level.
+  # Keep reasons only at the highest triggered level
   raise_level <- function(new_level, new_reason) {
     if (ranks[[new_level]] > ranks[[level]]) {
       level <<- new_level
@@ -845,12 +854,12 @@ get_weather_alert <- function(
     }
   }
   
-  # Approximate fixed season calendar for Thailand.
-  get_thailand_season <- function(date) {
-    date <- as.Date(date)
-    if (is.na(date)) return(NA_character_)
+  # Approximate fixed season calendar for Thailand
+  get_thailand_season <- function(d) {
+    parsed_date <- tryCatch(as.Date(d), error = function(e) as.Date(NA))
+    if (is.na(parsed_date)) return(NA_character_)
     
-    month_day <- format(date, "%m-%d")
+    month_day <- format(parsed_date, "%m-%d")
     
     if (month_day >= "02-15" && month_day < "05-15") {
       "summer"
@@ -861,11 +870,11 @@ get_weather_alert <- function(
     }
   }
   
-  if (country == "thailand" && is.na(season)) {
-    season <- get_thailand_season(date)
+  if (country_clean == "thailand" && is.na(season_clean)) {
+    season_clean <- get_thailand_season(date)
   }
   
-  # Daily rainfall: labels describe custom dashboard bands.
+  # Daily rainfall thresholds
   if (!is.na(precip)) {
     if (precip >= rain_thresholds[["red"]]) {
       raise_level("Red", "Extreme rainfall")
@@ -876,8 +885,8 @@ get_weather_alert <- function(
     }
   }
   
-  # Bangladesh: maximum-temperature categories.
-  if (country == "bangladesh" && !is.na(temp_max)) {
+  # Bangladesh: maximum-temperature categories
+  if (country_clean == "bangladesh" && !is.na(temp_max)) {
     if (temp_max >= 42) {
       raise_level("Red", "Very severe heatwave temperature")
     } else if (temp_max >= 40) {
@@ -889,10 +898,9 @@ get_weather_alert <- function(
     }
   }
   
-  # Thailand: summer maximum and winter minimum temperatures.
-  if (country == "thailand") {
-    if (!is.na(season) && season == "summer" &&
-        !is.na(temp_max)) {
+  # Thailand: summer maximum and winter minimum temperatures
+  if (country_clean == "thailand") {
+    if (!is.na(season_clean) && season_clean == "summer" && !is.na(temp_max)) {
       if (temp_max >= 40) {
         raise_level("Red", "Very hot")
       } else if (temp_max >= 35) {
@@ -900,8 +908,7 @@ get_weather_alert <- function(
       }
     }
     
-    if (!is.na(season) && season == "winter" &&
-        !is.na(temp_min)) {
+    if (!is.na(season_clean) && season_clean == "winter" && !is.na(temp_min)) {
       if (temp_min < 8) {
         raise_level("Red", "Very cold")
       } else if (temp_min < 16) {
@@ -912,8 +919,8 @@ get_weather_alert <- function(
     }
   }
   
-  # India temperature indicators.
-  if (country == "india" && !is.na(temp_max)) {
+  # India temperature indicators
+  if (country_clean == "india" && !is.na(temp_max)) {
     if (temp_max >= 47) {
       raise_level("Red", "Maximum temperature ≥47°C")
     } else if (temp_max >= 45) {
@@ -921,8 +928,8 @@ get_weather_alert <- function(
     }
   }
   
-  # Sri Lanka: custom mapping of supplied heat-index bands.
-  if (country == "sri lanka" && !is.na(temp_max)) {
+  # Sri Lanka: heat index / temp indicators
+  if (country_clean == "sri lanka" && !is.na(temp_max)) {
     if (temp_max >= 46) {
       raise_level("Red", "Extreme caution")
     } else if (temp_max >= 39) {
@@ -930,9 +937,8 @@ get_weather_alert <- function(
     }
   }
   
-  # Custom heat indicators for other countries.
-  if (!(country %in% c("bangladesh", "thailand", "india", 'sri lanka')) &&
-      !is.na(temp_max)) {
+  # Generic heat indicators for other countries
+  if (!(country_clean %in% c("bangladesh", "thailand", "india", "sri lanka")) && !is.na(temp_max)) {
     if (temp_max > 42) {
       raise_level("Red", "Very hot")
     } else if (temp_max > 38) {
@@ -942,12 +948,11 @@ get_weather_alert <- function(
     }
   }
   
-  # Weather-code indicators with specific descriptions.
+  # Weather-code indicators
   if (!is.na(weather_code)) {
-    if (weather_code %in% c(96, 99)) {
+    if (weather_code %in% c(96L, 99L)) {
       raise_level("Red", "Thunderstorm with hail")
-      
-    } else if (weather_code %in% c(65, 67, 75, 82, 86, 95)) {
+    } else if (weather_code %in% c(65L, 67L, 75L, 82L, 86L, 95L)) {
       description <- switch(
         as.character(weather_code),
         "65" = "Heavy rain",
@@ -957,10 +962,8 @@ get_weather_alert <- function(
         "86" = "Heavy snow showers",
         "95" = "Thunderstorm"
       )
-      
       raise_level("Orange", description)
-      
-    } else if (weather_code %in% c(56, 57, 63, 66, 73, 81, 85)) {
+    } else if (weather_code %in% c(56L, 57L, 63L, 66L, 73L, 81L, 85L)) {
       description <- switch(
         as.character(weather_code),
         "56" = "Light freezing drizzle",
@@ -971,18 +974,16 @@ get_weather_alert <- function(
         "81" = "Moderate rain showers",
         "85" = "Light snow showers"
       )
-      
       raise_level("Yellow", description)
     }
   }
   
-  # Custom rain-probability indicator.
-  if (!is.na(rain_chance) && !is.na(precip) &&
-      rain_chance > 70 && precip > 5) {
+  # Rain probability
+  if (!is.na(rain_chance) && !is.na(precip) && rain_chance > 70 && precip > 5) {
     raise_level("Yellow", "Rain likely")
   }
   
-  # Custom wind indicators: daily maximum wind speed in km/h.
+  # Wind speed indicators (km/h)
   if (!is.na(wind_speed)) {
     if (wind_speed > 60) {
       raise_level("Red", "Very strong wind")
@@ -993,18 +994,14 @@ get_weather_alert <- function(
     }
   }
   
-  # Additional custom Red rules for all countries.
-  # These can override country-specific rainfall thresholds.
+  # Additional Red rules: prevent redundant "Daily rainfall above 100 mm" if "Extreme rainfall" is already recorded
   if (!is.na(precip)) {
-    if (precip > 100) {
+    if (precip > 100 && !("Extreme rainfall" %in% reasons)) {
       raise_level("Red", "Daily rainfall above 100 mm")
     }
     
     if (precip > 50 && !is.na(wind_speed) && wind_speed > 60) {
-      raise_level(
-        "Red",
-        "Rainfall above 50 mm with wind above 60 km/h"
-      )
+      raise_level("Red", "Rainfall above 50 mm with wind above 60 km/h")
     }
   }
   
@@ -1019,7 +1016,7 @@ get_weather_alert <- function(
     level = level,
     text = alert_text,
     reason = if (length(reasons)) {
-      paste(reasons, collapse = "with ")
+      paste(reasons, collapse = "; ")
     } else {
       "No threshold reached"
     },
@@ -1577,10 +1574,26 @@ write_brief_docx <- function(
         dplyr::filter(Alert_Level == alert_level) |>
         dplyr::pull(Alert_Reason)
       
-      # Split combined reasons and remove missing or empty values
-      reasons <- reasons[!is.na(reasons)]
-      reasons <- trimws(unlist(strsplit(reasons, ";", fixed = TRUE)))
-      reasons <- sort(unique(reasons[nzchar(reasons)]))
+      # 1. Filter out NAs and placeholder text
+      reasons <- reasons[!is.na(reasons) & nzchar(trimws(reasons))]
+      reasons <- reasons[reasons != "No threshold reached"]
+      
+      if (length(reasons) > 0L) {
+        # 2. Split on semicolons (and handle any legacy 'with' if older data exists)
+        # Protect phrases like 'with hail' or 'with wind' before splitting on legacy separators
+        reasons <- gsub("(?i)with (hail|wind)", "WITH_\\1", reasons, perl = TRUE)
+        reasons <- unlist(strsplit(reasons, "\\s*;\\s*|\\s+with\\s+", perl = TRUE))
+        reasons <- gsub("WITH_", "with ", reasons, fixed = TRUE)
+        
+        # 3. Trim extra spaces
+        reasons <- trimws(reasons)
+        reasons <- reasons[nzchar(reasons)]
+        
+        # 4. Enforce case-insensitive deduplication while preserving Title/proper case
+        # Matches strings that differ only by upper/lower case
+        unique_indices <- !duplicated(tolower(reasons))
+        reasons <- sort(reasons[unique_indices])
+      }
       
       if (length(reasons) > 0L) {
         doc <- add_body(
