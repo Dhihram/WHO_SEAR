@@ -107,9 +107,319 @@ MET_VERIFY_LINKS <- c(
 
 
 cities_db <- list(
-  # India
-  # NCT Delhi
-  "Noida" = list(lat = 28.5355, lon = 77.3910, name = "Noida", state = "NCT Delhi", country = "India")
+  # ==========================================
+  # India (State field mapped to District level)
+  # ==========================================
+  # Uttar Pradesh
+  "Noida" = list(lat = 28.5355, lon = 77.3910, name = "Noida", state = "Gautam Buddha Nagar", country = "India"),
+  "Ghaziabad" = list(lat = 28.6692, lon = 77.4538, name = "Ghaziabad", state = "Ghaziabad", country = "India"),
+  "Meerut" = list(lat = 28.9845, lon = 77.7064, name = "Meerut", state = "Meerut", country = "India"),
+  "Prayagraj" = list(lat = 25.4358, lon = 81.8463, name = "Prayagraj", state = "Prayagraj", country = "India"),
+  "Bareilly" = list(lat = 28.3670, lon = 79.4304, name = "Bareilly", state = "Bareilly", country = "India"),
+  "Aligarh" = list(lat = 27.8974, lon = 78.0880, name = "Aligarh", state = "Aligarh", country = "India"),
+  "Moradabad" = list(lat = 28.8386, lon = 78.7733, name = "Moradabad", state = "Moradabad", country = "India"),
+  "Gorakhpur" = list(lat = 26.7606, lon = 83.3732, name = "Gorakhpur", state = "Gorakhpur", country = "India"),
+  "Mathura" = list(lat = 27.4924, lon = 77.6737, name = "Mathura", state = "Mathura", country = "India"),
+  
+  # Maharashtra
+  "Thane" = list(lat = 19.2183, lon = 72.9781, name = "Thane", state = "Thane", country = "India"),
+  "Navi Mumbai" = list(lat = 19.0330, lon = 73.0297, name = "Navi Mumbai", state = "Thane", country = "India"),
+  "Solapur" = list(lat = 17.6599, lon = 75.9064, name = "Solapur", state = "Solapur", country = "India"),
+  "Amravati" = list(lat = 20.9374, lon = 77.7796, name = "Amravati", state = "Amravati", country = "India"),
+  "Nanded" = list(lat = 19.1383, lon = 77.3210, name = "Nanded", state = "Nanded", country = "India"),
+  
+  # Karnataka
+  "Belgaum" = list(lat = 15.8497, lon = 74.4977, name = "Belgaum", state = "Belagavi", country = "India"),
+  "Davangere" = list(lat = 14.4644, lon = 75.9218, name = "Davangere", state = "Davanagere", country = "India"),
+  "Bellary" = list(lat = 15.1394, lon = 76.9214, name = "Bellary", state = "Ballari", country = "India"),
+  "Shimoga" = list(lat = 13.9299, lon = 75.5681, name = "Shimoga", state = "Shivamogga", country = "India"),
+  "Gulbarga" = list(lat = 17.3297, lon = 76.8343, name = "Gulbarga", state = "Kalaburagi", country = "India"),
+  
+  # West Bengal
+  "Howrah" = list(lat = 22.5958, lon = 88.2636, name = "Howrah", state = "Howrah", country = "India"),
+  "Durgapur" = list(lat = 23.5204, lon = 87.3119, name = "Durgapur", state = "Paschim Bardhaman", country = "India"),
+  "Bardhaman" = list(lat = 23.2324, lon = 87.8615, name = "Bardhaman", state = "Purba Bardhaman", country = "India"),
+  "Darjeeling" = list(lat = 27.0410, lon = 88.2663, name = "Darjeeling", state = "Darjeeling", country = "India"),
+  "Kharagpur" = list(lat = 22.3460, lon = 87.2320, name = "Kharagpur", state = "Paschim Medinipur", country = "India"),
+  
+  # Tamil Nadu
+  "Salem" = list(lat = 11.6643, lon = 78.1460, name = "Salem", state = "Salem", country = "India"),
+  "Tirunelveli" = list(lat = 8.7139, lon = 77.7567, name = "Tirunelveli", state = "Tirunelveli", country = "India"),
+  "Vellore" = list(lat = 12.9165, lon = 79.1325, name = "Vellore", state = "Vellore", country = "India"),
+  "Erode" = list(lat = 11.3410, lon = 77.7172, name = "Erode", state = "Erode", country = "India"),
+  "Thanjavur" = list(lat = 10.7870, lon = 79.1378, name = "Thanjavur", state = "Thanjavur", country = "India"),
+  
+  # Telangana
+  "Karimnagar" = list(lat = 18.4386, lon = 79.1288, name = "Karimnagar", state = "Karimnagar", country = "India"),
+  "Khammam" = list(lat = 17.2473, lon = 80.1514, name = "Khammam", state = "Khammam", country = "India"),
+  "Ramagundam" = list(lat = 18.7557, lon = 79.4738, name = "Ramagundam", state = "Peddapalli", country = "India"),
+  "Mahbubnagar" = list(lat = 16.7488, lon = 78.0035, name = "Mahbubnagar", state = "Mahabubnagar", country = "India"),
+  
+  # Gujarat
+  "Gandhinagar" = list(lat = 23.2156, lon = 72.6369, name = "Gandhinagar", state = "Gandhinagar", country = "India"),
+  "Bhavnagar" = list(lat = 21.7645, lon = 72.1519, name = "Bhavnagar", state = "Bhavnagar", country = "India"),
+  "Jamnagar" = list(lat = 22.4707, lon = 70.0577, name = "Jamnagar", state = "Jamnagar", country = "India"),
+  "Junagadh" = list(lat = 21.5222, lon = 70.4579, name = "Junagadh", state = "Junagadh", country = "India"),
+  "Anand" = list(lat = 22.5645, lon = 72.9289, name = "Anand", state = "Anand", country = "India"),
+  
+  # Rajasthan
+  "Kota" = list(lat = 25.2138, lon = 75.8648, name = "Kota", state = "Kota", country = "India"),
+  "Bikaner" = list(lat = 28.0229, lon = 73.3119, name = "Bikaner", state = "Bikaner", country = "India"),
+  "Ajmer" = list(lat = 26.4499, lon = 74.6399, name = "Ajmer", state = "Ajmer", country = "India"),
+  "Bhilwara" = list(lat = 25.3407, lon = 74.6313, name = "Bhilwara", state = "Bhilwara", country = "India"),
+  "Alwar" = list(lat = 27.5530, lon = 76.6346, name = "Alwar", state = "Alwar", country = "India"),
+  
+  # Kerala
+  "Kozhikode" = list(lat = 11.2588, lon = 75.7804, name = "Kozhikode", state = "Kozhikode", country = "India"),
+  "Thrissur" = list(lat = 10.5276, lon = 76.2144, name = "Thrissur", state = "Thrissur", country = "India"),
+  "Kollam" = list(lat = 8.8932, lon = 76.6141, name = "Kollam", state = "Kollam", country = "India"),
+  "Kannur" = list(lat = 11.8745, lon = 75.3704, name = "Kannur", state = "Kannur", country = "India"),
+  "Alappuzha" = list(lat = 9.4981, lon = 76.3388, name = "Alappuzha", state = "Alappuzha", country = "India"),
+  "Palakkad" = list(lat = 10.7867, lon = 76.6548, name = "Palakkad", state = "Palakkad", country = "India"),
+  
+  # Madhya Pradesh
+  "Sagar" = list(lat = 23.8388, lon = 78.7378, name = "Sagar", state = "Sagar", country = "India"),
+  "Dewas" = list(lat = 22.9676, lon = 76.0534, name = "Dewas", state = "Dewas", country = "India"),
+  "Satna" = list(lat = 24.6005, lon = 80.8322, name = "Satna", state = "Satna", country = "India"),
+  "Ratlam" = list(lat = 23.3315, lon = 75.0367, name = "Ratlam", state = "Ratlam", country = "India"),
+  "Rewa" = list(lat = 24.5362, lon = 81.3037, name = "Rewa", state = "Rewa", country = "India"),
+  
+  # Andhra Pradesh
+  "Guntur" = list(lat = 16.3067, lon = 80.4365, name = "Guntur", state = "Guntur", country = "India"),
+  "Nellore" = list(lat = 14.4426, lon = 79.9865, name = "Nellore", state = "Sri Potti Sriramulu Nellore", country = "India"),
+  "Rajahmundry" = list(lat = 17.0005, lon = 81.8040, name = "Rajahmundry", state = "East Godavari", country = "India"),
+  "Kakinada" = list(lat = 16.9891, lon = 82.2475, name = "Kakinada", state = "Kakinada", country = "India"),
+  "Kadapa" = list(lat = 14.4673, lon = 78.8242, name = "Kadapa", state = "YSR Kadapa", country = "India"),
+  "Anantapur" = list(lat = 14.6819, lon = 77.6006, name = "Anantapur", state = "Anantapur", country = "India"),
+  
+  # Bihar
+  "Bhagalpur" = list(lat = 25.2425, lon = 86.9842, name = "Bhagalpur", state = "Bhagalpur", country = "India"),
+  "Darbhanga" = list(lat = 26.1542, lon = 85.8918, name = "Darbhanga", state = "Darbhanga", country = "India"),
+  "Purnia" = list(lat = 25.7771, lon = 87.4753, name = "Purnia", state = "Purnia", country = "India"),
+  "Bihar Sharif" = list(lat = 25.1982, lon = 85.5149, name = "Bihar Sharif", state = "Nalanda", country = "India"),
+  "Arrah" = list(lat = 25.5560, lon = 84.6603, name = "Arrah", state = "Bhojpur", country = "India"),
+  
+  # Jammu and Kashmir
+  "Anantnag" = list(lat = 33.7311, lon = 75.1522, name = "Anantnag", state = "Anantnag", country = "India"),
+  "Baramulla" = list(lat = 34.2045, lon = 74.3436, name = "Baramulla", state = "Baramulla", country = "India"),
+  "Udhampur" = list(lat = 32.9254, lon = 75.1416, name = "Udhampur", state = "Udhampur", country = "India"),
+  "Kathua" = list(lat = 32.3688, lon = 75.5162, name = "Kathua", state = "Kathua", country = "India"),
+  
+  # Assam
+  "Dibrugarh" = list(lat = 27.4728, lon = 94.9120, name = "Dibrugarh", state = "Dibrugarh", country = "India"),
+  "Silchar" = list(lat = 24.8333, lon = 92.7789, name = "Silchar", state = "Cachar", country = "India"),
+  "Jorhat" = list(lat = 26.7509, lon = 94.2037, name = "Jorhat", state = "Jorhat", country = "India"),
+  "Nagaon" = list(lat = 26.3464, lon = 92.6840, name = "Nagaon", state = "Nagaon", country = "India"),
+  "Tezpur" = list(lat = 26.6528, lon = 92.7926, name = "Tezpur", state = "Sonitpur", country = "India"),
+  
+  # Odisha
+  "Puri" = list(lat = 19.8135, lon = 85.8312, name = "Puri", state = "Puri", country = "India"),
+  "Berhampur" = list(lat = 19.3150, lon = 84.7941, name = "Berhampur", state = "Ganjam", country = "India"),
+  "Sambalpur" = list(lat = 21.4669, lon = 83.9812, name = "Sambalpur", state = "Sambalpur", country = "India"),
+  "Balasore" = list(lat = 21.4934, lon = 86.9135, name = "Balasore", state = "Baleswar", country = "India"),
+  
+  # Jharkhand
+  "Bokaro Steel City" = list(lat = 23.6693, lon = 86.1511, name = "Bokaro Steel City", state = "Bokaro", country = "India"),
+  "Hazaribagh" = list(lat = 23.9961, lon = 85.3647, name = "Hazaribagh", state = "Hazaribagh", country = "India"),
+  "Deoghar" = list(lat = 24.4826, lon = 86.7001, name = "Deoghar", state = "Deoghar", country = "India"),
+  "Giridih" = list(lat = 24.1860, lon = 86.3090, name = "Giridih", state = "Giridih", country = "India"),
+  
+  # Uttarakhand
+  "Roorkee" = list(lat = 29.8543, lon = 77.8880, name = "Roorkee", state = "Haridwar", country = "India"),
+  "Haldwani" = list(lat = 29.2183, lon = 79.5130, name = "Haldwani", state = "Nainital", country = "India"),
+  "Rishikesh" = list(lat = 30.0869, lon = 78.2676, name = "Rishikesh", state = "Dehradun", country = "India"),
+  "Rudrapur" = list(lat = 28.9800, lon = 79.4000, name = "Rudrapur", state = "Udham Singh Nagar", country = "India"),
+  
+  # Himachal Pradesh
+  "Solan" = list(lat = 30.9045, lon = 77.0967, name = "Solan", state = "Solan", country = "India"),
+  "Mandi" = list(lat = 31.7087, lon = 76.9320, name = "Mandi", state = "Mandi", country = "India"),
+  "Kullu" = list(lat = 31.9579, lon = 77.1095, name = "Kullu", state = "Kullu", country = "India"),
+  "Kasauli" = list(lat = 30.9013, lon = 76.9649, name = "Kasauli", state = "Solan", country = "India"),
+  
+  # Chhattisgarh
+  "Durg" = list(lat = 21.1904, lon = 81.2849, name = "Durg", state = "Durg", country = "India"),
+  "Bhilai" = list(lat = 21.2144, lon = 81.3805, name = "Bhilai", state = "Durg", country = "India"),
+  "Korba" = list(lat = 22.3595, lon = 82.7501, name = "Korba", state = "Korba", country = "India"),
+  "Rajnandgaon" = list(lat = 21.0974, lon = 81.0387, name = "Rajnandgaon", state = "Rajnandgaon", country = "India"),
+  "Jagdalpur" = list(lat = 19.0748, lon = 82.0090, name = "Jagdalpur", state = "Bastar", country = "India"),
+  
+  # Punjab
+  "Jalandhar" = list(lat = 31.3260, lon = 75.5762, name = "Jalandhar", state = "Jalandhar", country = "India"),
+  "Patiala" = list(lat = 30.3398, lon = 76.3869, name = "Patiala", state = "Patiala", country = "India"),
+  "Bathinda" = list(lat = 30.2110, lon = 74.9455, name = "Bathinda", state = "Bathinda", country = "India"),
+  "Mohali" = list(lat = 30.7046, lon = 76.7179, name = "Mohali", state = "Sahibzada Ajit Singh Nagar", country = "India"),
+  "Pathankot" = list(lat = 32.2643, lon = 75.6525, name = "Pathankot", state = "Pathankot", country = "India"),
+  
+  # Haryana
+  "Faridabad" = list(lat = 28.4089, lon = 77.3178, name = "Faridabad", state = "Faridabad", country = "India"),
+  "Panipat" = list(lat = 29.3909, lon = 76.9635, name = "Panipat", state = "Panipat", country = "India"),
+  "Ambala" = list(lat = 30.3782, lon = 76.7767, name = "Ambala", state = "Ambala", country = "India"),
+  "Rohtak" = list(lat = 28.8955, lon = 76.6066, name = "Rohtak", state = "Rohtak", country = "India"),
+  "Karnal" = list(lat = 29.6857, lon = 76.9905, name = "Karnal", state = "Karnal", country = "India"),
+  "Sonipat" = list(lat = 28.9931, lon = 77.0151, name = "Sonipat", state = "Sonipat", country = "India"),
+  
+  # Union Territories & Island Groups
+  "Kargil" = list(lat = 34.5539, lon = 76.1349, name = "Kargil", state = "Kargil", country = "India"),
+  "Diskit" = list(lat = 34.5714, lon = 77.5583, name = "Diskit", state = "Leh", country = "India"),
+  "Margao" = list(lat = 15.2832, lon = 73.9862, name = "Margao", state = "South Goa", country = "India"),
+  "Mapusa" = list(lat = 15.5937, lon = 73.8142, name = "Mapusa", state = "North Goa", country = "India"),
+  "Karaikal" = list(lat = 10.9254, lon = 79.8380, name = "Karaikal", state = "Karaikal", country = "India"),
+  "Mahe" = list(lat = 11.7002, lon = 75.5340, name = "Mahe", state = "Mahe", country = "India"),
+  "Diglipur" = list(lat = 13.2667, lon = 92.9833, name = "Diglipur", state = "North and Middle Andaman", country = "India"),
+  "Agatti" = list(lat = 10.8533, lon = 72.1932, name = "Agatti", state = "Lakshadweep", country = "India"),
+  "Minicoy" = list(lat = 8.2833, lon = 73.0489, name = "Minicoy", state = "Lakshadweep", country = "India"),
+  
+  # North-Eastern States
+  "Churachandpur" = list(lat = 24.3333, lon = 93.6667, name = "Churachandpur", state = "Churachandpur", country = "India"),
+  "Lunglei" = list(lat = 22.8878, lon = 92.7380, name = "Lunglei", state = "Lunglei", country = "India"),
+  "Dimapur" = list(lat = 25.9068, lon = 93.7271, name = "Dimapur", state = "Dimapur", country = "India"),
+  "Dharmanagar" = list(lat = 24.3833, lon = 92.1667, name = "Dharmanagar", state = "North Tripura", country = "India"),
+  "Tura" = list(lat = 25.5144, lon = 90.2023, name = "Tura", state = "West Garo Hills", country = "India"),
+  "Naharlagun" = list(lat = 27.1064, lon = 93.6934, name = "Naharlagun", state = "Papum Pare", country = "India"),
+  "Namchi" = list(lat = 27.1667, lon = 88.3500, name = "Namchi", state = "Namchi", country = "India"),
+  
+  # ==========================================
+  # Thailand
+  # ==========================================
+  "Nonthaburi" = list(lat = 13.8591, lon = 100.5217, name = "Nonthaburi", state = "Nonthaburi", country = "Thailand"),
+  "Samut Prakan" = list(lat = 13.5991, lon = 100.5968, name = "Samut Prakan", state = "Samut Prakan", country = "Thailand"),
+  "Rangsit" = list(lat = 13.9877, lon = 100.6153, name = "Rangsit", state = "Pathum Thani", country = "Thailand"),
+  "Fang" = list(lat = 19.9169, lon = 99.2142, name = "Fang", state = "Chiang Mai", country = "Thailand"),
+  "Mae Sai" = list(lat = 20.4335, lon = 99.8762, name = "Mae Sai", state = "Chiang Rai", country = "Thailand"),
+  "Patong" = list(lat = 7.8961, lon = 98.2982, name = "Patong", state = "Phuket", country = "Thailand"),
+  "Songkhla" = list(lat = 7.1756, lon = 100.6143, name = "Songkhla", state = "Songkhla", country = "Thailand"),
+  "Ko Samui" = list(lat = 9.5120, lon = 100.0136, name = "Ko Samui", state = "Surat Thani", country = "Thailand"),
+  "Ban Chang" = list(lat = 12.7269, lon = 101.0583, name = "Ban Chang", state = "Rayong", country = "Thailand"),
+  "Sangkhla Buri" = list(lat = 15.1558, lon = 98.4525, name = "Sangkhla Buri", state = "Kanchanaburi", country = "Thailand"),
+  "Cha-am" = list(lat = 12.7998, lon = 99.9678, name = "Cha-am", state = "Phetchaburi", country = "Thailand"),
+  "Prachuap Khiri Khan" = list(lat = 11.8124, lon = 99.7972, name = "Prachuap Khiri Khan", state = "Prachuap Khiri Khan", country = "Thailand"),
+  "Pak Chong" = list(lat = 14.7083, lon = 101.4161, name = "Pak Chong", state = "Nakhon Ratchasima", country = "Thailand"),
+  "Chum Phae" = list(lat = 16.5442, lon = 102.0994, name = "Chum Phae", state = "Khon Kaen", country = "Thailand"),
+  "Warin Chamrap" = list(lat = 15.1925, lon = 104.8586, name = "Warin Chamrap", state = "Ubon Ratchathani", country = "Thailand"),
+  "Pai" = list(lat = 19.3589, lon = 98.4369, name = "Pai", state = "Mae Hong Son", country = "Thailand"),
+  "Chiang Khan" = list(lat = 17.8953, lon = 101.6542, name = "Chiang Khan", state = "Loei", country = "Thailand"),
+  "Ao Nang" = list(lat = 8.0333, lon = 98.8250, name = "Ao Nang", state = "Krabi", country = "Thailand"),
+  "Khao Lak" = list(lat = 8.6539, lon = 98.2514, name = "Khao Lak", state = "Phang Nga", country = "Thailand"),
+  "Thung Song" = list(lat = 8.1644, lon = 99.6803, name = "Thung Song", state = "Nakhon Si Thammarat", country = "Thailand"),
+  "Kantang" = list(lat = 7.4061, lon = 99.5156, name = "Kantang", state = "Trang", country = "Thailand"),
+  "Betong" = list(lat = 5.7744, lon = 101.0717, name = "Betong", state = "Yala", country = "Thailand"),
+  "Su-ngai Kolok" = list(lat = 6.0278, lon = 101.9667, name = "Su-ngai Kolok", state = "Narathiwat", country = "Thailand"),
+  
+  # ==========================================
+  # Bhutan (Reduced to Dzongkhag Hubs)
+  # ==========================================
+  "Paro" = list(lat = 27.4287, lon = 89.4164, name = "Paro", state = "Paro", country = "Bhutan"),
+  "Punakha" = list(lat = 27.5819, lon = 89.8624, name = "Punakha", state = "Punakha", country = "Bhutan"),
+  "Chukha" = list(lat = 27.0656, lon = 89.5786, name = "Chukha", state = "Chukha", country = "Bhutan"),
+  "Jakar" = list(lat = 27.5492, lon = 90.7533, name = "Jakar", state = "Bumthang", country = "Bhutan"),
+  "Trongsa" = list(lat = 27.5003, lon = 90.5074, name = "Trongsa", state = "Trongsa", country = "Bhutan"),
+  "Mongar" = list(lat = 27.2747, lon = 91.2396, name = "Mongar", state = "Mongar", country = "Bhutan"),
+  "Trashigang" = list(lat = 27.3331, lon = 91.5542, name = "Trashigang", state = "Trashigang", country = "Bhutan"),
+  "Samdrup Jongkhar" = list(lat = 26.8007, lon = 91.5052, name = "Samdrup Jongkhar", state = "Samdrup Jongkhar", country = "Bhutan"),
+  "Gasa" = list(lat = 27.9037, lon = 89.7269, name = "Gasa", state = "Gasa", country = "Bhutan"),
+  
+  # ==========================================
+  # Bangladesh
+  # ==========================================
+  "Gazipur" = list(lat = 23.9999, lon = 90.4203, name = "Gazipur", state = "Dhaka Division", country = "Bangladesh"),
+  "Narayanganj" = list(lat = 23.6238, lon = 90.5000, name = "Narayanganj", state = "Dhaka Division", country = "Bangladesh"),
+  "Cumilla" = list(lat = 23.4682, lon = 91.1788, name = "Cumilla", state = "Chattogram Division", country = "Bangladesh"),
+  "Teknaf" = list(lat = 20.8654, lon = 92.2982, name = "Teknaf", state = "Chattogram Division", country = "Bangladesh"),
+  "Sreemangal" = list(lat = 24.3065, lon = 91.7296, name = "Sreemangal", state = "Sylhet Division", country = "Bangladesh"),
+  "Bogura" = list(lat = 24.8465, lon = 89.3777, name = "Bogura", state = "Rajshahi Division", country = "Bangladesh"),
+  "Pabna" = list(lat = 24.0064, lon = 89.2372, name = "Pabna", state = "Rajshahi Division", country = "Bangladesh"),
+  "Jashore" = list(lat = 23.1664, lon = 89.2081, name = "Jashore", state = "Khulna Division", country = "Bangladesh"),
+  "Mongla" = list(lat = 22.4833, lon = 89.6000, name = "Mongla", state = "Khulna Division", country = "Bangladesh"),
+  "Patuakhali" = list(lat = 22.3596, lon = 90.3299, name = "Patuakhali", state = "Barisal Division", country = "Bangladesh"),
+  "Dinajpur" = list(lat = 25.6217, lon = 88.6355, name = "Dinajpur", state = "Rangpur Division", country = "Bangladesh"),
+  "Jamalpur" = list(lat = 24.9375, lon = 89.9378, name = "Jamalpur", state = "Mymensingh Division", country = "Bangladesh"),
+  
+  # ==========================================
+  # Maldives 
+  # ==========================================
+  "Hulhumale" = list(lat = 4.2135, lon = 73.5414, name = "Hulhumalé", state = "Kaafu Atoll", country = "Maldives"),
+  "Hithadhoo" = list(lat = -0.6050, lon = 73.0889, name = "Hithadhoo", state = "Addu Atoll", country = "Maldives"),
+  "Hanimaadhoo" = list(lat = 6.7600, lon = 73.1750, name = "Hanimaadhoo", state = "Haa Dhaalu Atoll", country = "Maldives"),
+  "Eydhafushi" = list(lat = 5.1042, lon = 73.0700, name = "Eydhafushi", state = "Baa Atoll", country = "Maldives"),
+  "Naifaru" = list(lat = 5.4444, lon = 73.3656, name = "Naifaru", state = "Lhaviyani Atoll", country = "Maldives"),
+  "Mahibadhoo" = list(lat = 3.7572, lon = 72.9686, name = "Mahibadhoo", state = "Alif Dhaal Atoll", country = "Maldives"),
+  "Fonadhoo" = list(lat = 1.8328, lon = 73.5028, name = "Fonadhoo", state = "Laamu Atoll", country = "Maldives"),
+  "Thinadhoo (GDh)" = list(lat = 0.5317, lon = 72.9983, name = "Thinadhoo", state = "Gaafu Dhaalu Atoll", country = "Maldives"),
+  "Fuvahmulah" = list(lat = -0.2986, lon = 73.4242, name = "Fuvahmulah", state = "Gnaviyani Atoll", country = "Maldives"),
+  
+  # ==========================================
+  # Myanmar
+  # ==========================================
+  "Pathein" = list(lat = 16.7754, lon = 94.7381, name = "Pathein", state = "Ayeyarwady Region", country = "Myanmar"),
+  "Bago" = list(lat = 17.3367, lon = 96.4797, name = "Bago", state = "Bago Region", country = "Myanmar"),
+  "Hakha" = list(lat = 22.6428, lon = 93.6096, name = "Hakha", state = "Chin State", country = "Myanmar"),
+  "Myitkyina" = list(lat = 25.3833, lon = 97.4000, name = "Myitkyina", state = "Kachin State", country = "Myanmar"),
+  "Loikaw" = list(lat = 19.6742, lon = 97.2094, name = "Loikaw", state = "Kayah State", country = "Myanmar"),
+  "Hpa-an" = list(lat = 16.8900, lon = 97.6300, name = "Hpa-an", state = "Kayin State", country = "Myanmar"),
+  "Magway" = list(lat = 20.1491, lon = 94.9214, name = "Magway", state = "Magway Region", country = "Myanmar"),
+  "Mandalay" = list(lat = 21.9588, lon = 96.0891, name = "Mandalay", state = "Mandalay Region", country = "Myanmar"),
+  "Mawlamyine" = list(lat = 16.4905, lon = 97.6283, name = "Mawlamyine", state = "Mon State", country = "Myanmar"),
+  "Naypyidaw" = list(lat = 19.7633, lon = 96.0785, name = "Naypyidaw", state = "Naypyidaw Union Territory", country = "Myanmar"),
+  "Sittwe" = list(lat = 20.1489, lon = 92.8758, name = "Sittwe", state = "Rakhine State", country = "Myanmar"),
+  "Monywa" = list(lat = 22.1100, lon = 95.1400, name = "Monywa", state = "Sagaing Region", country = "Myanmar"),
+  "Taunggyi" = list(lat = 20.7892, lon = 97.0378, name = "Taunggyi", state = "Shan State", country = "Myanmar"),
+  "Dawei" = list(lat = 14.0800, lon = 98.1900, name = "Dawei", state = "Tanintharyi Region", country = "Myanmar"),
+  "Yangon" = list(lat = 16.8409, lon = 96.1735, name = "Yangon", state = "Yangon Region", country = "Myanmar"),
+  
+  # ==========================================
+  # Timor-Leste 
+  # ==========================================
+  "Metinaro" = list(lat = -8.5297, lon = 125.7486, name = "Metinaro", state = "Dili Municipality", country = "Timor-Leste"),
+  "Venilale" = list(lat = -8.6433, lon = 126.3789, name = "Venilale", state = "Baucau Municipality", country = "Timor-Leste"),
+  "Maubisse" = list(lat = -8.8383, lon = 125.5969, name = "Maubisse", state = "Ainaro Municipality", country = "Timor-Leste"),
+  "Lospalos" = list(lat = -8.5186, lon = 126.9958, name = "Lospalos", state = "Lautém Municipality", country = "Timor-Leste"),
+  "Viqueque" = list(lat = -8.8575, lon = 126.3647, name = "Viqueque", state = "Viqueque Municipality", country = "Timor-Leste"),
+  "Manatuto" = list(lat = -8.5114, lon = 126.0131, name = "Manatuto", state = "Manatuto Municipality", country = "Timor-Leste"),
+  "Same" = list(lat = -9.0044, lon = 125.6464, name = "Same", state = "Manufahi Municipality", country = "Timor-Leste"),
+  "Gleno" = list(lat = -8.7242, lon = 125.4358, name = "Gleno", state = "Ermera Municipality", country = "Timor-Leste"),
+  "Maliana" = list(lat = -8.9917, lon = 125.2197, name = "Maliana", state = "Bobonaro Municipality", country = "Timor-Leste"),
+  "Pante Macassar" = list(lat = -9.2025, lon = 124.3842, name = "Pante Macassar", state = "Special Administrative Region of Oecusse-Ambeno", country = "Timor-Leste"),
+  
+  # ==========================================
+  # Nepal
+  # ==========================================
+  "Lalitpur" = list(lat = 27.6644, lon = 85.3188, name = "Lalitpur", state = "Bagmati Province", country = "Nepal"),
+  "Bharatpur" = list(lat = 27.6833, lon = 84.4333, name = "Bharatpur", state = "Bagmati Province", country = "Nepal"),
+  "Besishahar" = list(lat = 28.2333, lon = 84.3833, name = "Besishahar", state = "Gandaki Province", country = "Nepal"),
+  "Itahari" = list(lat = 26.6667, lon = 87.2833, name = "Itahari", state = "Koshi Province", country = "Nepal"),
+  "Siddharthanagar" = list(lat = 27.5058, lon = 83.4503, name = "Siddharthanagar", state = "Lumbini Province", country = "Nepal"),
+  "Birendranagar" = list(lat = 28.6019, lon = 81.6339, name = "Birendranagar", state = "Karnali Province", country = "Nepal"),
+  "Bhimdatta" = list(lat = 28.9667, lon = 80.1833, name = "Bhimdatta", state = "Sudurpashchim Province", country = "Nepal"),
+  "Birgunj" = list(lat = 27.0104, lon = 84.8774, name = "Birgunj", state = "Madhesh Province", country = "Nepal"),
+  
+  # ==========================================
+  # Sri Lanka
+  # ==========================================
+  "Sri Jayawardenepura Kotte" = list(lat = 6.9016, lon = 79.9077, name = "Sri Jayawardenepura Kotte", state = "Western Province", country = "Sri Lanka"),
+  "Negombo" = list(lat = 7.2008, lon = 79.8736, name = "Negombo", state = "Western Province", country = "Sri Lanka"),
+  "Vavuniya" = list(lat = 8.7542, lon = 80.4982, name = "Vavuniya", state = "Northern Province", country = "Sri Lanka"),
+  "Kalmunai" = list(lat = 7.4111, lon = 81.8217, name = "Kalmunai", state = "Eastern Province", country = "Sri Lanka"),
+  "Dambulla" = list(lat = 7.8731, lon = 80.6517, name = "Dambulla", state = "Central Province", country = "Sri Lanka"),
+  "Polonnaruwa" = list(lat = 7.9403, lon = 81.0188, name = "Polonnaruwa", state = "North Central Province", country = "Sri Lanka"),
+  "Matara" = list(lat = 5.9549, lon = 80.5550, name = "Matara", state = "Southern Province", country = "Sri Lanka"),
+  "Puttalam" = list(lat = 8.0362, lon = 79.8283, name = "Puttalam", state = "North Western Province", country = "Sri Lanka"),
+  "Kegalle" = list(lat = 7.2513, lon = 80.3464, name = "Kegalle", state = "Sabaragamuwa Province", country = "Sri Lanka"),
+  "Bandarawela" = list(lat = 6.8333, lon = 80.9833, name = "Bandarawela", state = "Uva Province", country = "Sri Lanka"),
+  
+  # ==========================================
+  # DPR Korea 
+  # ==========================================
+  "Kaesong" = list(lat = 37.9708, lon = 126.5544, name = "Kaesong", state = "Kaesong Special City", country = "DPR Korea"),
+  "Nampo" = list(lat = 38.7375, lon = 125.4078, name = "Nampo", state = "Nampo Special City", country = "DPR Korea"),
+  "Rason" = list(lat = 42.2475, lon = 130.3014, name = "Rason", state = "Rason Special City", country = "DPR Korea"),
+  "Hungnam" = list(lat = 39.8317, lon = 127.6186, name = "Hungnam", state = "South Hamgyong Province", country = "DPR Korea"),
+  "Kimchaek" = list(lat = 40.6681, lon = 129.1956, name = "Kimchaek", state = "North Hamgyong Province", country = "DPR Korea"),
+  "Kusong" = list(lat = 39.9806, lon = 125.2444, name = "Kusong", state = "North Pyongan Province", country = "DPR Korea"),
+  "Pyongsong" = list(lat = 39.2472, lon = 125.8703, name = "Pyongsong", state = "South Pyongan Province", country = "DPR Korea"),
+  "Sariwon" = list(lat = 38.5078, lon = 125.7544, name = "Sariwon", state = "North Hwanghae Province", country = "DPR Korea"),
+  "Haeju" = list(lat = 38.0406, lon = 125.7147, name = "Haeju", state = "South Hwanghae Province", country = "DPR Korea"),
+  "Kanggye" = list(lat = 40.9694, lon = 126.5853, name = "Kanggye", state = "Chagang Province", country = "DPR Korea"),
+  "Hyesan" = list(lat = 41.4017, lon = 128.1778, name = "Hyesan", state = "Ryanggang Province", country = "DPR Korea")
 )
 
 
