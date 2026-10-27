@@ -1019,7 +1019,7 @@ get_weather_alert <- function(
     level = level,
     text = alert_text,
     reason = if (length(reasons)) {
-      paste(reasons, collapse = "; ")
+      paste(reasons, collapse = "with ")
     } else {
       "No threshold reached"
     },
