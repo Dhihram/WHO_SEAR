@@ -51,7 +51,7 @@ jobs:
           FLOODS_API_KEY: ${{ secrets.FLOODS_API_KEY }}
         run: |
           # If your script is inside the 'script' folder:
-          Rscript test/searo_daily_flood_ews_samp.R
+          Rscript test/searo_daily_flood_ews.R
           # (If it is in the root directory instead, remove 'script/' above)
 
       - name: Commit and push generated outputs
