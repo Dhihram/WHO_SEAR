@@ -648,7 +648,7 @@ normalize_flash_floods <- function(events) {
     highly_likely = logical(), likely = logical()
   )
   if (!length(events)) return(empty)
-
+  
   rows <- list()
   for (e in events) {
     codes <- toupper(as.character(unlist(e$affectedCountryCodes %||% list())))
@@ -1226,7 +1226,7 @@ admin1_hotspots_natural_earth <- function(cache_dir, country_df, raw_by_region) 
     NULL
   })
   if (is.null(ne)) return(tibble())
-
+  
   frames <- list()
   for (i in seq_len(nrow(country_df))) {
     rc <- country_df$region_code[[i]]
@@ -1238,18 +1238,18 @@ admin1_hotspots_natural_earth <- function(cache_dir, country_df, raw_by_region) 
     }
     pts <- hot_gauge_sf(raw_by_region[[rc]] %||% list())
     if (is.null(pts) || !nrow(pts)) next
-
+    
     country_gdf <- st_make_valid(country_gdf)
     joined <- st_join(pts, country_gdf["name"], join = st_within, left = FALSE)
     if (!nrow(joined)) next
-
+    
     counts <- as.data.frame(joined) |>
       count(name, severity, name = "n") |>
       tidyr::pivot_wider(names_from = severity, values_from = n, values_fill = 0)
-
+    
     if (!"Danger" %in% names(counts)) counts$Danger <- 0L
     if (!"Extreme" %in% names(counts)) counts$Extreme <- 0L
-
+    
     frames[[length(frames) + 1]] <- tibble(
       country = country,
       region_code = rc,
@@ -1259,7 +1259,7 @@ admin1_hotspots_natural_earth <- function(cache_dir, country_df, raw_by_region) 
       hot_gauges = as.integer(counts$Danger + counts$Extreme)
     )
   }
-
+  
   if (!length(frames)) return(tibble())
   bind_rows(frames) |>
     arrange(desc(hot_gauges), desc(Extreme), desc(Danger))
@@ -1284,7 +1284,7 @@ add_day_over_day <- function(today_df, prev_df) {
   today_df$new_extreme <- 0L
   today_df$cleared_hot <- 0L
   if (is.null(prev_df) || !nrow(prev_df)) return(today_df)
-
+  
   for (i in seq_len(nrow(today_df))) {
     rc <- today_df$region_code[[i]]
     p <- prev_df[prev_df$region_code == rc, , drop = FALSE]
@@ -1309,7 +1309,7 @@ assign_tier <- function(row, gdacs_hot_countries, flash_hot_countries = characte
   new_hot <- as.integer(row[["new_danger"]]) + as.integer(row[["new_extreme"]])
   gdacs_hit <- any(grepl(tolower(country), tolower(gdacs_hot_countries), fixed = TRUE))
   flash_hit <- country %in% flash_hot_countries
-
+  
   if (extreme > 0 || (danger > 0 && gdacs_hit) || (new_hot > 0 && danger >= 3)) return("ALERT")
   if (danger > 0 || gdacs_hit || new_hot > 0 || flash_hit) return("WATCH")
   "STABLE"
@@ -1425,7 +1425,7 @@ ft_table <- function(df) {
 ft_country_table <- function(df) {
   ft <- ft_table(df)
   if (is.null(ft) || !"tier" %in% names(df)) return(ft)
-
+  
   for (tier in names(TIER_BG)) {
     rows <- which(df$tier == tier)
     if (!length(rows)) next
@@ -1448,13 +1448,13 @@ write_brief_docx <- function(
     daily_forecast_df = NULL
 ) {
   generated <- stamp_local()
-
+  
   doc <- read_docx()
   doc <- add_title(doc, paste0("WHO SEARO Daily Flood Early Warning Brief — ", run_date))
   doc <- add_body(doc, paste0("Generated ", generated), size = 10, italic = TRUE, color = "#555555")
   doc <- add_body(doc, "")
   doc <- add_heading(doc, "Verdict (triage)")
-
+  
   for (tier in c("ALERT", "WATCH", "STABLE")) {
     subset <- country_df[country_df$tier == tier, , drop = FALSE]
     if (!nrow(subset)) next
@@ -1465,7 +1465,7 @@ write_brief_docx <- function(
       color = TIER_FG[[tier]]
     )
   }
-
+  
   show_cols <- intersect(
     c("country", "tier", "total_gauges", "Warning", "Danger", "Extreme",
       "new_danger", "new_extreme", "cleared_hot"),
@@ -1476,7 +1476,7 @@ write_brief_docx <- function(
   ft <- ft_country_table(country_df[show_cols])
   if (!is.null(ft)) doc <- body_add_flextable(doc, ft)
   doc <- add_footnote(doc, TIER_FOOTNOTES)
-
+  
   doc <- add_body(doc, "")
   doc <- add_heading(doc, "Urban flash floods — next ~24 hours (SEARO)")
   flash_sum <- summarize_flash_by_country(flash_df)
@@ -1487,10 +1487,10 @@ write_brief_docx <- function(
     if (!is.null(ft)) doc <- body_add_flextable(doc, ft)
   }
   doc <- add_footnote(doc, FLASH_FLOOD_FOOTNOTES)
-
+  
   doc <- add_body(doc, "")
   doc <- add_heading(doc, "GDACS — SEARO floods & cyclones (last 7 days)")
-
+  
   gshow <- gdacs_for_brief(gdacs_df)
   if (!nrow(gshow)) {
     doc <- add_body(doc, "No SEARO flood/cyclone events returned.")
@@ -1502,7 +1502,7 @@ write_brief_docx <- function(
     ft <- ft_table(utils::head(gshow[cols], 20))
     if (!is.null(ft)) doc <- body_add_flextable(doc, ft)
   }
-
+  
   doc <- add_body(doc, "")
   doc <- add_heading(doc, "Flood Hub significant events (SEARO filter)")
   if (!length(sig_events)) {
@@ -1513,7 +1513,7 @@ write_brief_docx <- function(
       doc <- add_body(doc, paste0("- ", txt, "..."), size = 9)
     }
   }
-
+  
   if (!is.null(admin1_df) && nrow(admin1_df)) {
     doc <- add_body(doc, "")
     doc <- add_heading(doc, "Admin-1 screen (Danger/Extreme gauges only)")
@@ -1669,27 +1669,39 @@ write_brief_docx <- function(
   
   if (!is.null(daily_forecast_df) && nrow(daily_forecast_df) > 0L) {
     
-     country_alerts <- daily_forecast_df |>
-        dplyr::group_by(Country) |>
-        dplyr::summarise(
-          Warning = sum(Alert_Level == "Warning", na.rm = TRUE),
-         Watch   = sum(Alert_Level == "Watch", na.rm = TRUE),
-         Alert_Reasons = paste(
-           unique(na.omit(Alert_Reason[Alert_Reason != "" & Alert_Level %in% c("Warning", "Watch")])),
-            collapse = "; "
-          ),
-          .groups = "drop"
-        ) |>
-        dplyr::arrange(dplyr::desc(Warning), dplyr::desc(Watch))
+    country_alerts <- daily_forecast_df |>
+      dplyr::group_by(Country) |>
+      dplyr::summarise(
+        Warning = sum(Alert_Level == "Warning", na.rm = TRUE),
+        Watch   = sum(Alert_Level == "Watch", na.rm = TRUE),
+        Alert_Reasons = {
+          # Extract reasons flagged under Warning or Watch
+          raw_reasons <- Alert_Reason[!is.na(Alert_Reason) & Alert_Level %in% c("Warning", "Watch")]
+          
+          # Split by semicolon (in case existing rows already combine reasons)
+          split_reasons <- unlist(strsplit(raw_reasons, "\\s*;\\s*"))
+          clean_reasons <- trimws(split_reasons)
+          
+          # Filter out blanks and the default placeholder
+          clean_reasons <- clean_reasons[nzchar(clean_reasons) & clean_reasons != "No threshold reached"]
+          
+          # Keep case-insensitive unique reasons (preserving proper casing)
+          deduped <- clean_reasons[!duplicated(tolower(clean_reasons))]
+          
+          if (length(deduped) == 0L) "—" else paste(sort(deduped), collapse = "; ")
+        },
+        .groups = "drop"
+      ) |>
+      dplyr::arrange(dplyr::desc(Warning), dplyr::desc(Watch))
     
     doc <- add_body(doc, "")
     doc <- add_body(doc, "Forecast alerts by country", bold = TRUE)
     
     ft <- ft_table(country_alerts)
     
-      if (!is.null(ft)) {
-        doc <- flextable::body_add_flextable(doc, ft)
-     }
+    if (!is.null(ft)) {
+      doc <- flextable::body_add_flextable(doc, ft)
+    }
     
     state_alerts <- daily_forecast_df |>
       dplyr::group_by(Country, State) |>
@@ -1758,7 +1770,7 @@ write_brief_docx <- function(
       doc <- add_body(doc, paste0("[ ] ", cname, " — ", link))
     }
   }
-
+  
   doc <- add_body(doc, "")
   doc <- add_body(
     doc,
@@ -1770,7 +1782,7 @@ write_brief_docx <- function(
     italic = TRUE,
     color = "#555555"
   )
-
+  
   print(doc, target = path)
   invisible(path)
 }
@@ -1784,21 +1796,21 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
     "## Verdict (triage)",
     ""
   )
-
+  
   for (tier in c("ALERT", "WATCH", "STABLE")) {
     subset <- country_df[country_df$tier == tier, , drop = FALSE]
     if (nrow(subset)) {
       lines <- c(lines, paste0("- **", tier, ":** ", paste(subset$country, collapse = ", ")))
     }
   }
-
+  
   show_cols <- intersect(
     c("country", "tier", "total_gauges", "Warning", "Danger", "Extreme",
       "new_danger", "new_extreme", "cleared_hot"),
     names(country_df)
   )
   lines <- c(lines, "", "## Flood Hub — country gauge summary", "", df_to_md(country_df[show_cols]))
-
+  
   flash_sum <- summarize_flash_by_country(flash_df)
   lines <- c(lines, "", "## Urban flash floods — next ~24 hours (SEARO)", "")
   if (!nrow(flash_sum)) {
@@ -1806,7 +1818,7 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
   } else {
     lines <- c(lines, df_to_md(flash_sum))
   }
-
+  
   lines <- c(lines, "", "## GDACS — SEARO floods & cyclones (last 7 days)", "")
   gshow <- gdacs_for_brief(gdacs_df)
   if (!nrow(gshow)) {
@@ -1815,7 +1827,7 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
     cols <- intersect(c("alert_level", "event_type", "country", "name", "from_date", "url"), names(gshow))
     lines <- c(lines, df_to_md(utils::head(gshow[cols], 20)))
   }
-
+  
   lines <- c(lines, "", "## Flood Hub significant events (SEARO filter)", "")
   if (!length(sig_events)) {
     lines <- c(lines, "_None touching SEARO right now._")
@@ -1825,7 +1837,7 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
       lines <- c(lines, paste0("- `", txt, "...`"))
     }
   }
-
+  
   if (!is.null(admin1_df) && nrow(admin1_df)) {
     lines <- c(
       lines, "",
@@ -1834,7 +1846,7 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
       df_to_md(utils::head(admin1_df, 25))
     )
   }
-
+  
   concern <- country_df$country[country_df$tier %in% c("ALERT", "WATCH")]
   lines <- c(lines, "", "## Met / hydro verification checklist", "")
   if (!length(concern)) {
@@ -1846,7 +1858,7 @@ build_brief <- function(run_date, country_df, gdacs_df, sig_events, admin1_df, f
       lines <- c(lines, paste0("- [ ] **", c, "** — ", link))
     }
   }
-
+  
   lines <- c(
     lines, "",
     "---",
