@@ -1690,7 +1690,6 @@ write_brief_docx <- function(
       if (!is.null(ft)) {
         doc <- flextable::body_add_flextable(doc, ft)
      }
-    }
     
     state_alerts <- daily_forecast_df |>
       dplyr::group_by(Country, State) |>
