@@ -1,6 +1,6 @@
 country,region_code,total_gauges,Unknown,Normal,Warning,Danger,Extreme,new_danger,new_extreme,cleared_hot,tier
-Bangladesh,BD,894,2,892,0,0,0,0,0,0,STABLE
-India,IN,16340,21,16110,147,60,2,29,2,0,ALERT
+Bangladesh,BD,894,5,889,0,0,0,0,0,0,STABLE
+India,IN,16340,24,16106,148,60,2,29,2,0,ALERT
 Myanmar,MM,3177,0,3177,0,0,0,0,0,0,STABLE
 Nepal,NP,765,0,765,0,0,0,0,0,0,STABLE
 Sri Lanka,LK,310,0,268,41,1,0,0,0,14,WATCH
