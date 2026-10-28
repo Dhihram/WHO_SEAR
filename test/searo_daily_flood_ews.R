@@ -1669,25 +1669,27 @@ write_brief_docx <- function(
   
   if (!is.null(daily_forecast_df) && nrow(daily_forecast_df) > 0L) {
     
-    country_alerts <- daily_forecast_df |>
-      dplyr::group_by(Country) |>
-      dplyr::summarise(
-        Warning = sum(Alert_Level == "Warning", na.rm = TRUE),
-        Watch = sum(Alert_Level == "Watch", na.rm = TRUE),
-        Alert_Reasons = combine_alert_reasons(
-          Alert_Reason, Alert_Level
-        ),
-        .groups = "drop"
-      ) |>
-      dplyr::arrange(dplyr::desc(Warning))
+     country_alerts <- daily_forecast_df |>
+        dplyr::group_by(Country) |>
+        dplyr::summarise(
+          Warning = sum(Alert_Level == "Warning", na.rm = TRUE),
+         Watch   = sum(Alert_Level == "Watch", na.rm = TRUE),
+         Alert_Reasons = paste(
+           unique(na.omit(Alert_Reason[Alert_Reason != "" & Alert_Level %in% c("Warning", "Watch")])),
+            collapse = "; "
+          ),
+          .groups = "drop"
+        ) |>
+        dplyr::arrange(dplyr::desc(Warning), dplyr::desc(Watch))
     
     doc <- add_body(doc, "")
     doc <- add_body(doc, "Forecast alerts by country", bold = TRUE)
     
     ft <- ft_table(country_alerts)
     
-    if (!is.null(ft)) {
-      doc <- flextable::body_add_flextable(doc, ft)
+      if (!is.null(ft)) {
+        doc <- flextable::body_add_flextable(doc, ft)
+     }
     }
     
     state_alerts <- daily_forecast_df |>
