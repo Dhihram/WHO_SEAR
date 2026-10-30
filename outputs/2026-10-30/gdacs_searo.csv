@@ -1,0 +1,7 @@
+event_type,event_id,name,country,alert_level,from_date,to_date,url
+TC,1001345,Tropical Cyclone ARNAB-26,India,red,2026-10-26T00:00:00,2026-10-28T06:00:00,https://www.gdacs.org/gdacsapi/api/polygons/getgeometry?eventtype=TC&eventid=1001345&episodeid=10
+TC,1001345,Tropical Cyclone ARNAB-26,India,red,2026-10-26T00:00:00,2026-10-28T06:00:00,https://www.gdacs.org/report.aspx?eventid=1001345&episodeid=10&eventtype=TC
+TC,1001345,Tropical Cyclone ARNAB-26,India,red,2026-10-26T00:00:00,2026-10-28T06:00:00,https://www.gdacs.org/gdacsapi/api/events/geteventdata?eventtype=TC&eventid=1001345
+FL,1104241,Flood in Thailand,Thailand,green,2026-10-18T01:00:00,2026-10-28T01:00:00,https://www.gdacs.org/gdacsapi/api/polygons/getgeometry?eventtype=FL&eventid=1104241&episodeid=3
+FL,1104241,Flood in Thailand,Thailand,green,2026-10-18T01:00:00,2026-10-28T01:00:00,https://www.gdacs.org/report.aspx?eventid=1104241&episodeid=3&eventtype=FL
+FL,1104241,Flood in Thailand,Thailand,green,2026-10-18T01:00:00,2026-10-28T01:00:00,https://www.gdacs.org/gdacsapi/api/events/geteventdata?eventtype=FL&eventid=1104241

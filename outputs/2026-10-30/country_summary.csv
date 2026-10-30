@@ -1,0 +1,7 @@
+country,region_code,total_gauges,Unknown,Normal,Warning,Danger,Extreme,new_danger,new_extreme,cleared_hot,tier
+Bangladesh,BD,894,5,889,0,0,0,0,0,0,WATCH
+India,IN,16340,24,16250,46,16,4,0,0,54,ALERT
+Myanmar,MM,3177,0,3177,0,0,0,0,0,0,WATCH
+Nepal,NP,765,0,765,0,0,0,0,0,0,WATCH
+Sri Lanka,LK,310,0,309,1,0,0,0,0,0,WATCH
+Thailand,TH,2143,0,2141,2,0,0,0,0,0,WATCH
