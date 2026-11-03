@@ -1,0 +1,4 @@
+country,region_code,gauge_id,severity,latitude,longitude
+India,IN,CWC_015-CDJAPR,Danger,25.3925,76.32666666666667
+India,IN,hybas_4120027980,Danger,15.877083333332166,80.63541666666248
+India,IN,hybas_4121101360,Danger,15.981249999998909,80.54374999999584
