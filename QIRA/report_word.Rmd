@@ -54,12 +54,10 @@ node_step_order <- setNames(seq_along(active_nodes), active_nodes)
 # -------------------------------------------------------------------------
 # 1. COLUMN BACKGROUNDS & HEADERS
 # -------------------------------------------------------------------------
-# Exact 7 column bounds and their authentic pastel shades
 bounds <- c(0.00, 0.108, 0.218, 0.328, 0.478, 0.690, 0.795, 1.00)
 col_colors <- c('#eef0f2', '#e5f1df', '#f0e5f2', '#fff1cc',
                 '#f5e6da', '#e2ebf7', '#dbe0e5')
 
-# Reserve space at the bottom for the 3 numbered notes (y: 0.05 to 0.94)
 for (i in seq_along(col_colors)) {
   rect(bounds[i], 0.06, bounds[i + 1], 0.945, col = col_colors[i], border = NA)
 }
@@ -74,7 +72,7 @@ for (i in seq_along(headers)) {
 }
 
 # -------------------------------------------------------------------------
-# 2. NODE DEFINITIONS (Matching column fills and exact coordinates)
+# 2. NODE DEFINITIONS
 # -------------------------------------------------------------------------
 nodes <- list(
   # Column 1: Hazard
@@ -132,10 +130,12 @@ nodes <- list(
 # -------------------------------------------------------------------------
 # 3. PATH-AWARE CONNECTOR ROUTER
 # -------------------------------------------------------------------------
-route <- function(id, xy, label = NULL, label_at = NULL) {
+route <- function(ids, xy, label = NULL, label_at = NULL) {
   xy <- as.matrix(xy)
   n <- nrow(xy)
-  is_selected <- id %in% active_edges
+  
+  # Supports checking single ID or vector of aliases (e.g. future1->cap1 / future1->cap2)
+  is_selected <- any(ids %in% active_edges)
 
   line_col  <- ifelse(is_selected, "#C62828", "#555555")
   line_lwd  <- ifelse(is_selected, 3.2, 0.95)
@@ -175,15 +175,16 @@ route("exposure->severity", rbind(c(.163, .774), c(.163, .645), c(.227, .645)), 
 route("exposure->current", rbind(c(.209, .820), c(.355, .820)), 'No', c(.270, .835))
 
 # Severity -> Current / Future2
-route("severity->current", rbind(c(.319, .645), c(.337, .645), c(.337, .820), c(.355, .820)), 'No', c(.332, .665))
+route(c("severity->future1", "severity->current"), rbind(c(.319, .645), c(.337, .645), c(.337, .820), c(.355, .820)), 'No', c(.332, .665))
 route("severity->future2", rbind(c(.273, .567), c(.273, .435), c(.353, .435)), 'Yes/unk', c(.296, .450))
 
 # Current -> Very Low (risk1) / Cap1
 route("current->risk1", rbind(c(.451, .820), c(.709, .820)), 'No', c(.584, .835))
 route("current->cap1", rbind(c(.403, .760), c(.403, .700), c(.502, .700), c(.588, .685)), 'Yes', c(.478, .715))
 
-# Future1 -> Cap1 / Low (risk2)
-route("future1->cap1", rbind(c(.453, .645), c(.528, .645), c(.588, .685)), 'Yes', c(.520, .660))
+# Future1 -> Cap1 / Cap2 / Low (risk2)
+# Accepts both "future1->cap1" and "future1->cap2" aliases
+route(c("future1->cap1", "future1->cap2"), rbind(c(.453, .645), c(.528, .645), c(.588, .685)), 'Yes', c(.520, .660))
 route("future1->risk2", rbind(c(.453, .630), c(.562, .630), c(.562, .660), c(.709, .660)), 'No', c(.482, .645))
 
 # Future2 -> Cap2 / Healthcare
@@ -207,13 +208,15 @@ route("cap3->risk4", rbind(c(.680, .290), c(.709, .290)), 'No/unk', c(.694, .305
 route("cap4->risk4", rbind(c(.680, .135), c(.709, .290)), 'Yes', c(.697, .195))
 route("cap4->risk5", rbind(c(.680, .118), c(.709, .118)), 'No/unk', c(.694, .134))
 
-# Risk level -> Action boxes
-for (y in c(.820, .660, .475, .290, .118)) {
-  route(paste0("risk->action_", y), rbind(c(.781, y), c(.802, y)))
-}
+# Risk level -> Action boxes (Matching "riskX->actionX" keys from app.R)
+route("risk1->action1", rbind(c(.781, .820), c(.802, .820)))
+route("risk2->action2", rbind(c(.781, .660), c(.802, .660)))
+route("risk3->action3", rbind(c(.781, .475), c(.802, .475)))
+route("risk4->action4", rbind(c(.781, .290), c(.802, .290)))
+route("risk5->action5", rbind(c(.781, .118), c(.802, .118)))
 
 # -------------------------------------------------------------------------
-# 5. DRAW BOXES (With authentic borders & Step Number Badges)
+# 5. DRAW BOXES
 # -------------------------------------------------------------------------
 for (nm in names(nodes)) {
   a <- nodes[[nm]]
@@ -234,7 +237,7 @@ for (nm in names(nodes)) {
     lwd = border_lwd
   )
 
-  # Numbered step badge on visited nodes: ①, ②, ③
+  # Numbered step badge on visited nodes
   if (is_selected && nm %in% names(node_step_order)) {
     step_num <- node_step_order[[nm]]
     badge_x  <- a[[1]] - a[[3]] + 0.007
@@ -245,7 +248,7 @@ for (nm in names(nodes)) {
 }
 
 # -------------------------------------------------------------------------
-# 6. BOTTOM FOOTNOTES (Matching reference diagram)
+# 6. BOTTOM FOOTNOTES
 # -------------------------------------------------------------------------
 rect(0, 0.00, 1.00, 0.06, col = "#f8f9fa", border = NA)
 text(0.01, 0.046, "1. If there is a risk of international spread of the event, information should be promptly shared with neighbouring countries and areas. Neighbouring countries are encouraged to assess the risk associated with possible importation of the diseases.", adj = 0, cex = 0.52, col = "#333333")
