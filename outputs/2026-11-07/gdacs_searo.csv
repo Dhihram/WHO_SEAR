@@ -1,0 +1,10 @@
+event_type,event_id,name,country,alert_level,from_date,to_date,url
+FL,1104248,Flood in India,India,green,2026-10-20T01:00:00,2026-11-04T01:00:00,https://www.gdacs.org/gdacsapi/api/polygons/getgeometry?eventtype=FL&eventid=1104248&episodeid=4
+FL,1104248,Flood in India,India,green,2026-10-20T01:00:00,2026-11-04T01:00:00,https://www.gdacs.org/report.aspx?eventid=1104248&episodeid=4&eventtype=FL
+FL,1104248,Flood in India,India,green,2026-10-20T01:00:00,2026-11-04T01:00:00,https://www.gdacs.org/gdacsapi/api/events/geteventdata?eventtype=FL&eventid=1104248
+TC,1001346,Tropical Cyclone MURASU-26,India,red,2026-11-01T00:00:00,2026-11-03T06:00:00,https://www.gdacs.org/gdacsapi/api/polygons/getgeometry?eventtype=TC&eventid=1001346&episodeid=10
+TC,1001346,Tropical Cyclone MURASU-26,India,red,2026-11-01T00:00:00,2026-11-03T06:00:00,https://www.gdacs.org/report.aspx?eventid=1001346&episodeid=10&eventtype=TC
+TC,1001346,Tropical Cyclone MURASU-26,India,red,2026-11-01T00:00:00,2026-11-03T06:00:00,https://www.gdacs.org/gdacsapi/api/events/geteventdata?eventtype=TC&eventid=1001346
+FL,1104265,Flood in Bhutan,Bhutan,green,2026-10-29T01:00:00,2026-10-31T01:00:00,https://www.gdacs.org/gdacsapi/api/polygons/getgeometry?eventtype=FL&eventid=1104265&episodeid=1
+FL,1104265,Flood in Bhutan,Bhutan,green,2026-10-29T01:00:00,2026-10-31T01:00:00,https://www.gdacs.org/report.aspx?eventid=1104265&episodeid=1&eventtype=FL
+FL,1104265,Flood in Bhutan,Bhutan,green,2026-10-29T01:00:00,2026-10-31T01:00:00,https://www.gdacs.org/gdacsapi/api/events/geteventdata?eventtype=FL&eventid=1104265
