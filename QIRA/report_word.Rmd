@@ -174,25 +174,18 @@ route("hazard->cap4", rbind(c(.054, .730), c(.054, .118), c(.588, .118)), 'Yes',
 route("exposure->severity", rbind(c(.163, .774), c(.163, .645), c(.227, .645)), 'Yes/unk', c(.184, .660))
 route("exposure->current", rbind(c(.209, .820), c(.355, .820)), 'No', c(.270, .835))
 
-# Severity -> Future1 (DIRECT horizontal line only — extra vertical 'No' removed)
+# Severity -> Future1 (DIRECT horizontal line) / Future2
 route(c("severity->future1", "severity->Q4.2a"), rbind(c(.319, .645), c(.353, .645)), 'No', c(.336, .662))
-
-# Severity -> Future2 ("Yes/unk" dropping down)
 route("severity->future2", rbind(c(.273, .567), c(.273, .435), c(.353, .435)), 'Yes/unk', c(.296, .450))
 
-# Current (Are a significant number of people affected?) ->
-# 1) "No": Straight horizontal track to Very Low (risk1)
+# Current -> Very Low (risk1) / Cap1
 route("current->risk1", rbind(c(.451, .820), c(.709, .820)), 'No', c(.584, .835))
+# Direct bypass route:
+route("current->cap1", rbind(c(.451, .820), c(.505, .820), c(.588, .705)), 'Yes', c(.508, .775))
 
-# 2) "Yes": Branches cleanly from the bottom of Current into top Capacity box (cap1)
-route("current->cap1", rbind(c(.403, .760), c(.403, .685), c(.588, .685)), 'Yes', c(.478, .702))
-
-# Future1 (Box 4) ->
-# 1) "No": Goes up-right to cap1
-route("future1->cap1", rbind(c(.453, .645), c(.510, .645), c(.588, .685)), 'No', c(.505, .675))
-
-# 2) "Yes": Goes down-right to cap2 (Box 5)
-route(c("future1->cap2", "future1->cap2"), rbind(c(.453, .645), c(.510, .645), c(.588, .475)), 'Yes', c(.520, .570))
+# Future1 -> Cap1 / Cap2
+route("future1->cap1", rbind(c(.453, .645), c(.520, .645), c(.588, .670)), 'No', c(.520, .660))
+route(c("future1->cap2", "future1->cap2"), rbind(c(.453, .645), c(.520, .645), c(.588, .475)), 'Yes', c(.525, .560))
 
 # Future2 -> Cap2 / Healthcare
 route("future2->cap2", rbind(c(.453, .435), c(.588, .475)), 'No', c(.506, .462))
