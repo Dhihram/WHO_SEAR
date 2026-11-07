@@ -35,9 +35,10 @@ params:
 
 ### Decision Pathway Flowchart
 
-```{r, fig.width=14, fig.height=6.5, dpi=300}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=14, fig.height=6.8, dpi=300}
 library(diagram)
-par(mar = c(0.5, 0.5, 0.5, 0.5), xpd = NA)
+
+par(mar = c(0.2, 0.2, 0.2, 0.2), xpd = NA)
 openplotmat()
 
 # Retrieve user pathway selections
@@ -50,75 +51,98 @@ if (is.null(active_edges)) active_edges <- character(0)
 # Step order numbering for badge overlays
 node_step_order <- setNames(seq_along(active_nodes), active_nodes)
 
-# 1. Column backgrounds & headers
-bounds <- c(0.00, 0.105, 0.215, 0.325, 0.475, 0.690, 0.790, 1.00)
-colors <- c('#eeeeee', '#e5f1df', '#f0e2f1', '#fff2cc',
-            '#f5e5d8', '#e1ebf6', '#eeeeee')
+# -------------------------------------------------------------------------
+# 1. COLUMN BACKGROUNDS & HEADERS
+# -------------------------------------------------------------------------
+# Exact 7 column bounds and their authentic pastel shades
+bounds <- c(0.00, 0.108, 0.218, 0.328, 0.478, 0.690, 0.795, 1.00)
+col_colors <- c('#eef0f2', '#e5f1df', '#f0e5f2', '#fff1cc',
+                '#f5e6da', '#e2ebf7', '#dbe0e5')
 
-for (i in seq_along(colors)) {
-  rect(bounds[i], 0, bounds[i + 1], 1, col = colors[i], border = NA)
+# Reserve space at the bottom for the 3 numbered notes (y: 0.05 to 0.94)
+for (i in seq_along(col_colors)) {
+  rect(bounds[i], 0.06, bounds[i + 1], 0.945, col = col_colors[i], border = NA)
 }
-rect(0, 0.945, 1, 1, col = '#dadada', border = NA)
+
+# Header bar
+rect(0, 0.945, 1, 1.00, col = '#e0e0e0', border = NA)
 
 headers <- c('High threat hazard', 'Exposure', 'Severity',
              'Spread potential', 'Capacity', 'Risk classification', 'Actions')
 for (i in seq_along(headers)) {
-  text(mean(bounds[c(i, i + 1)]), 0.974, headers[i], font = 2, cex = 0.75)
+  text(mean(bounds[c(i, i + 1)]), 0.973, headers[i], font = 2, cex = 0.78, col = "#111111")
 }
 
-# 2. Node definitions
+# -------------------------------------------------------------------------
+# 2. NODE DEFINITIONS (Matching column fills and exact coordinates)
+# -------------------------------------------------------------------------
 nodes <- list(
-  hazard = list(.052, .82, .046, .095,
-                'Does the signal or\nevent involve a high\nthreat hazard?\n(e.g. viral hemorrhagic\nfevers, poliomyelitis\ndue to wild type)', '#eeeeee', .57),
-  exposure = list(.162, .82, .052, .050,
-                  'Is further exposure\nlikely to take place?', '#e3f1dc', .65),
-  severity = list(.270, .65, .049, .080,
-                  'Is the disease likely to\ncause moderate to\nsevere disease in this\npopulation/group?', '#f0dfef', .64),
-  current = list(.405, .82, .052, .065,
-                 'Are a significant\nnumber of people\ncurrently affected?', '#fff0c8', .63),
-  future1 = list(.405, .64, .052, .075,
-                 'Would a high number\nof cases or substantial\ngeographical spread be\nexpected in the future?', '#fff0c8', .59),
-  future2 = list(.405, .43, .052, .075,
-                 'Would a high number\nof cases or substantial\ngeographical spread be\nexpected in the future?', '#fff0c8', .59),
-  healthcare = list(.523, .285, .047, .056,
-                    'Is the healthcare\nsystem likely to be\noverwhelmed?', '#fff7ec', .62),
-  cap1 = list(.630, .685, .050, .063,
-              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e7dd', .60),
-  cap2 = list(.630, .475, .050, .063,
-              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e7dd', .60),
-  cap3 = list(.630, .290, .050, .063,
-              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e7dd', .60),
-  cap4 = list(.630, .115, .050, .063,
-              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e7dd', .60),
-  risk1 = list(.744, .820, .038, .032, 'Very low', '#65b86a', .77),
-  risk2 = list(.744, .660, .038, .032, 'Low', '#a2cd67', .77),
-  risk3 = list(.744, .475, .038, .032, 'Moderate', '#ffeb4e', .73),
-  risk4 = list(.744, .290, .038, .032, 'High', '#f3c247', .77),
-  risk5 = list(.744, .115, .038, .032, 'Very high', '#e74839', .73),
-  action1 = list(.892, .820, .099, .045,
-                 '• Signal discarded\n• Business as usual', '#65b86a', .68),
-  action2 = list(.892, .660, .099, .100,
-                 '• Monitor the signal through routine\n  surveillance system\n• If necessary, share information with\n  neighbouring provinces/regions and/or\n  relevant offices/colleagues', '#a2cd67', .61),
-  action3 = list(.892, .475, .099, .103,
-                 '• Inform management at one level higher\n  than “normal”\n• Consider deploying rapid response team\n  to the affected area\n• Provide necessary support, such as\n  enhanced surveillance, laboratory testing,\n  epi investigation, clinical management', '#ffeb4e', .55),
-  action4 = list(.892, .290, .099, .076,
-                 '• Inform management at one level higher\n  than “moderate”\n• Deploy rapid response team to the\n  affected area\n• Consider activating emergency plan', '#f3c247', .62),
-  action5 = list(.892, .115, .099, .057,
-                 '• Inform top level of management\n• Activate emergency response plan\n• Consider international assistance', '#e74839', .64)
+  # Column 1: Hazard
+  hazard = list(.054, .820, .046, .090,
+                'Does the signal or\nevent involve a high\nthreat hazard? (e.g.\nviral hemorrhagic\nfevers, poliomyelitis\ndue to wild type)', '#eef0f2', .58),
+  
+  # Column 2: Exposure
+  exposure = list(.163, .820, .046, .046,
+                  'Is further exposure\nlikely to take place?', '#e5f1df', .64),
+  
+  # Column 3: Severity
+  severity = list(.273, .645, .046, .078,
+                  'Is the disease likely to\ncause moderate to\nsevere disease in this\npopulation/group?', '#f0e5f2', .63),
+  
+  # Column 4: Spread Potential
+  current = list(.403, .820, .048, .060,
+                 'Are a significant\nnumber of people\ncurrently affected?', '#fff1cc', .63),
+  future1 = list(.403, .645, .050, .074,
+                 'Would a high number\nof cases or substantial\ngeographical spread be\nexpected in the future?', '#fff1cc', .59),
+  future2 = list(.403, .435, .050, .074,
+                 'Would a high number\nof cases or substantial\ngeographical spread be\nexpected in the future?', '#fff1cc', .59),
+  
+  # Column 5: Capacity & Healthcare
+  healthcare = list(.530, .285, .044, .056,
+                    'Is the healthcare\nsystem likely to be\noverwhelmed?', '#f5e6da', .61),
+  cap1 = list(.634, .685, .046, .058,
+              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e6da', .59),
+  cap2 = list(.634, .475, .046, .058,
+              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e6da', .59),
+  cap3 = list(.634, .290, .046, .058,
+              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e6da', .59),
+  cap4 = list(.634, .118, .046, .058,
+              'Are capacity for\nprevention and\ncontrol measures in\nplace?', '#f5e6da', .59),
+  
+  # Column 6: Risk Classification
+  risk1 = list(.745, .820, .036, .030, 'Very low', '#57a75c', .75),
+  risk2 = list(.745, .660, .036, .030, 'Low',      '#99c65d', .75),
+  risk3 = list(.745, .475, .036, .030, 'Moderate', '#ffeb4e', .73),
+  risk4 = list(.745, .290, .036, .030, 'High',     '#e8b638', .75),
+  risk5 = list(.745, .118, .036, .030, 'Very high','#d94334', .73),
+  
+  # Column 7: Actions
+  action1 = list(.897, .820, .095, .044,
+                 '• Signal discarded\n• Business as usual', '#57a75c', .66),
+  action2 = list(.897, .660, .095, .096,
+                 '• Monitor the signal through routine\n  surveillance system\n• If necessary, share information with\n  neighbouring provinces/regions and/or\n  relevant offices/colleagues', '#99c65d', .59),
+  action3 = list(.897, .475, .095, .100,
+                 '• Inform management at one level higher\n  than “normal”\n• Consider deploying rapid response team\n  to the affected area\n• Provide necessary support, such as\n  enhanced surveillance, laboratory testing,\n  epi investigation, clinical management and\n  supply of relevant materials, diagnostics,\n  vaccines and therapeutics.', '#ffeb4e', .52),
+  action4 = list(.897, .290, .095, .084,
+                 '• Inform management at one level higher\n  than “moderate”\n• Deploy rapid response team to the\n  affected area\n• Consider activating the emergency\n  response plan at national or sub-national\n  level', '#e8b638', .57),
+  action5 = list(.897, .118, .095, .060,
+                 '• Inform top level of management\n• Activate the emergency response plan at\n  national level\n• Consider engaging international assistance', '#d94334', .58)
 )
 
-# 3. Path-aware route router
+# -------------------------------------------------------------------------
+# 3. PATH-AWARE CONNECTOR ROUTER
+# -------------------------------------------------------------------------
 route <- function(id, xy, label = NULL, label_at = NULL) {
   xy <- as.matrix(xy)
   n <- nrow(xy)
   is_selected <- id %in% active_edges
 
-  line_col  <- ifelse(is_selected, "#D32F2F", "#B0BEC5")
-  line_lwd  <- ifelse(is_selected, 3.2, 0.85)
-  arr_len   <- ifelse(is_selected, 0.12, 0.08)
-  text_col  <- ifelse(is_selected, "#B71C1C", "#78909C")
+  line_col  <- ifelse(is_selected, "#C62828", "#555555")
+  line_lwd  <- ifelse(is_selected, 3.2, 0.95)
+  arr_len   <- ifelse(is_selected, 0.11, 0.08)
+  text_col  <- ifelse(is_selected, "#B71C1C", "#222222")
   text_font <- ifelse(is_selected, 2, 1)
-  text_cex  <- ifelse(is_selected, 0.65, 0.55)
+  text_cex  <- ifelse(is_selected, 0.65, 0.56)
 
   if (n > 2) {
     for (j in seq_len(n - 2)) {
@@ -131,53 +155,72 @@ route <- function(id, xy, label = NULL, label_at = NULL) {
 
   if (!is.null(label)) {
     if (is_selected) {
-      rect(label_at[1] - 0.022, label_at[2] - 0.012,
-           label_at[1] + 0.022, label_at[2] + 0.012,
-           col = "#FFEBEE", border = "#D32F2F", lwd = 1.2)
+      rect(label_at[1] - 0.020, label_at[2] - 0.012,
+           label_at[1] + 0.020, label_at[2] + 0.012,
+           col = "#FFEBEE", border = "#C62828", lwd = 1.2)
     }
     text(label_at[1], label_at[2], label, cex = text_cex, font = text_font, col = text_col)
   }
 }
 
-# 4. Connectors
-route("hazard->exposure", rbind(c(.098,.82), c(.110,.82)), 'No', c(.105,.845))
-route("hazard->cap4", rbind(c(.052,.725), c(.052,.115), c(.580,.115)), 'Yes', c(.064,.135))
-route("exposure->severity", rbind(c(.214,.82), c(.221,.82), c(.221,.65)), 'Yes/unk', c(.225,.755))
-route("exposure->current", rbind(c(.214,.835), c(.353,.835)), 'No', c(.280,.852))
+# -------------------------------------------------------------------------
+# 4. DRAW CONNECTORS
+# -------------------------------------------------------------------------
+# Hazard -> Exposure / Cap4
+route("hazard->exposure", rbind(c(.100, .820), c(.117, .820)), 'No', c(.108, .838))
+route("hazard->cap4", rbind(c(.054, .730), c(.054, .118), c(.588, .118)), 'Yes', c(.066, .135))
 
-route("severity->current", rbind(c(.319,.65), c(.344,.65), c(.344,.82), c(.353,.82)), 'No', c(.340,.674))
-route("severity->future2", rbind(c(.270,.57), c(.270,.43), c(.353,.43)), 'Yes/unk', c(.298,.448))
-route("current->cap1", rbind(c(.457,.82), c(.498,.82), c(.580,.685)), 'Yes', c(.492,.832))
-route("current->future1", rbind(c(.405,.755), c(.405,.715)), 'No', c(.417,.731))
-route("future1->cap1", rbind(c(.457,.64), c(.530,.64), c(.580,.685)), 'Yes', c(.522,.656))
-route("future1->risk2", rbind(c(.457,.63), c(.563,.63), c(.563,.660), c(.706,.660)), 'No', c(.480,.646))
-route("future2->cap2", rbind(c(.457,.43), c(.580,.475)), 'No', c(.508,.460))
-route("future2->healthcare", rbind(c(.405,.355), c(.405,.285), c(.476,.285)), 'Yes/unk', c(.434,.301))
-route("healthcare->cap3", rbind(c(.570,.285), c(.580,.290)), 'No', c(.573,.314))
-route("healthcare->cap4", rbind(c(.523,.229), c(.523,.115), c(.580,.115)), 'Yes', c(.534,.201))
+# Exposure -> Severity / Current
+route("exposure->severity", rbind(c(.163, .774), c(.163, .645), c(.227, .645)), 'Yes/unk', c(.184, .660))
+route("exposure->current", rbind(c(.209, .820), c(.355, .820)), 'No', c(.270, .835))
 
-route("cap1->risk1", rbind(c(.680,.710), c(.706,.820)), 'Yes', c(.698,.748))
-route("cap1->risk2", rbind(c(.680,.685), c(.706,.660)), 'No/unk', c(.693,.685))
-route("cap2->risk2", rbind(c(.680,.500), c(.706,.660)), 'Yes', c(.698,.550))
-route("cap2->risk3", rbind(c(.680,.475), c(.706,.475)), 'No/unk', c(.696,.495))
-route("cap3->risk3", rbind(c(.680,.315), c(.706,.475)), 'Yes', c(.698,.360))
-route("cap3->risk4", rbind(c(.680,.290), c(.706,.290)), 'No/unk', c(.696,.310))
-route("cap4->risk4", rbind(c(.680,.140), c(.706,.290)), 'Yes', c(.697,.194))
-route("cap4->risk5", rbind(c(.680,.115), c(.706,.115)), 'No/unk', c(.696,.136))
+# Severity -> Current / Future2
+route("severity->current", rbind(c(.319, .645), c(.337, .645), c(.337, .820), c(.355, .820)), 'No', c(.332, .665))
+route("severity->future2", rbind(c(.273, .567), c(.273, .435), c(.353, .435)), 'Yes/unk', c(.296, .450))
 
-route("risk1->action1", rbind(c(.782,.820), c(.793,.820)))
-route("risk2->action2", rbind(c(.782,.660), c(.793,.660)))
-route("risk3->action3", rbind(c(.782,.475), c(.793,.475)))
-route("risk4->action4", rbind(c(.782,.290), c(.793,.290)))
-route("risk5->action5", rbind(c(.782,.115), c(.793,.115)))
+# Current -> Very Low (risk1) / Cap1
+route("current->risk1", rbind(c(.451, .820), c(.709, .820)), 'No', c(.584, .835))
+route("current->cap1", rbind(c(.403, .760), c(.403, .700), c(.502, .700), c(.588, .685)), 'Yes', c(.478, .715))
 
-# 5. Draw Nodes
+# Future1 -> Cap1 / Low (risk2)
+route("future1->cap1", rbind(c(.453, .645), c(.528, .645), c(.588, .685)), 'Yes', c(.520, .660))
+route("future1->risk2", rbind(c(.453, .630), c(.562, .630), c(.562, .660), c(.709, .660)), 'No', c(.482, .645))
+
+# Future2 -> Cap2 / Healthcare
+route("future2->cap2", rbind(c(.453, .435), c(.588, .475)), 'No', c(.506, .462))
+route("future2->healthcare", rbind(c(.403, .361), c(.403, .285), c(.486, .285)), 'Yes/unk', c(.432, .300))
+
+# Healthcare -> Cap3 / Cap4
+route("healthcare->cap3", rbind(c(.574, .285), c(.588, .290)), 'No', c(.575, .305))
+route("healthcare->cap4", rbind(c(.530, .229), c(.530, .118), c(.588, .118)), 'Yes', c(.542, .185))
+
+# Capacity -> Risk Classifications
+route("cap1->risk1", rbind(c(.680, .705), c(.709, .820)), 'Yes', c(.698, .748))
+route("cap1->risk2", rbind(c(.680, .685), c(.709, .660)), 'No/unk', c(.694, .682))
+
+route("cap2->risk2", rbind(c(.680, .495), c(.709, .660)), 'Yes', c(.698, .550))
+route("cap2->risk3", rbind(c(.680, .475), c(.709, .475)), 'No/unk', c(.694, .490))
+
+route("cap3->risk3", rbind(c(.680, .308), c(.709, .475)), 'Yes', c(.698, .360))
+route("cap3->risk4", rbind(c(.680, .290), c(.709, .290)), 'No/unk', c(.694, .305))
+
+route("cap4->risk4", rbind(c(.680, .135), c(.709, .290)), 'Yes', c(.697, .195))
+route("cap4->risk5", rbind(c(.680, .118), c(.709, .118)), 'No/unk', c(.694, .134))
+
+# Risk level -> Action boxes
+for (y in c(.820, .660, .475, .290, .118)) {
+  route(paste0("risk->action_", y), rbind(c(.781, y), c(.802, y)))
+}
+
+# -------------------------------------------------------------------------
+# 5. DRAW BOXES (With authentic borders & Step Number Badges)
+# -------------------------------------------------------------------------
 for (nm in names(nodes)) {
   a <- nodes[[nm]]
   is_selected <- nm %in% active_nodes
 
-  border_col <- ifelse(is_selected, "#D32F2F", "black")
-  border_lwd <- ifelse(is_selected, 3.0, 0.8)
+  border_col <- ifelse(is_selected, "#C62828", "black")
+  border_lwd <- ifelse(is_selected, 3.2, 0.9)
 
   diagram::textrect(
     mid = c(a[[1]], a[[2]]),
@@ -191,15 +234,23 @@ for (nm in names(nodes)) {
     lwd = border_lwd
   )
 
-  # Numbered step badge on visited nodes
+  # Numbered step badge on visited nodes: ①, ②, ③
   if (is_selected && nm %in% names(node_step_order)) {
     step_num <- node_step_order[[nm]]
     badge_x  <- a[[1]] - a[[3]] + 0.007
     badge_y  <- a[[2]] + a[[4]] - 0.008
-    points(badge_x, badge_y, pch = 21, bg = "#D32F2F", col = "white", cex = 1.9, lwd = 1.5)
+    points(badge_x, badge_y, pch = 21, bg = "#C62828", col = "white", cex = 1.9, lwd = 1.4)
     text(badge_x, badge_y, step_num, col = "white", font = 2, cex = 0.58)
   }
 }
+
+# -------------------------------------------------------------------------
+# 6. BOTTOM FOOTNOTES (Matching reference diagram)
+# -------------------------------------------------------------------------
+rect(0, 0.00, 1.00, 0.06, col = "#f8f9fa", border = NA)
+text(0.01, 0.046, "1. If there is a risk of international spread of the event, information should be promptly shared with neighbouring countries and areas. Neighbouring countries are encouraged to assess the risk associated with possible importation of the diseases.", adj = 0, cex = 0.52, col = "#333333")
+text(0.01, 0.030, "2. If there is high level of public concern or political sensitivities, the event may require higher speed of information release, more intensive risk communication, & more engagement of higher level management.", adj = 0, cex = 0.52, col = "#333333")
+text(0.01, 0.014, "3. The first case of PHEIC diseases should be notified to WHO regardless of risk level.", adj = 0, cex = 0.52, col = "#333333")
 ```
 
 
