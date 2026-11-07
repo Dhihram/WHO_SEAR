@@ -174,22 +174,24 @@ route("hazard->cap4", rbind(c(.054, .730), c(.054, .118), c(.588, .118)), 'Yes',
 route("exposure->severity", rbind(c(.163, .774), c(.163, .645), c(.227, .645)), 'Yes/unk', c(.184, .660))
 route("exposure->current", rbind(c(.209, .820), c(.355, .820)), 'No', c(.270, .835))
 
-# Severity -> Future1 (Box 4, DIRECT HORIZONTAL LINE) / Future2
-# Direct horizontal branch into Box 4 (future1)
+# Severity -> Future1 (DIRECT horizontal line only — extra vertical 'No' removed)
 route(c("severity->future1", "severity->Q4.2a"), rbind(c(.319, .645), c(.353, .645)), 'No', c(.336, .662))
-
-# Elbow branch going up only if an assessment ever routes from Severity to Current (upper box)
-route("severity->current", rbind(c(.319, .645), c(.337, .645), c(.337, .820), c(.355, .820)), 'No', c(.332, .750))
 
 # Severity -> Future2 ("Yes/unk" dropping down)
 route("severity->future2", rbind(c(.273, .567), c(.273, .435), c(.353, .435)), 'Yes/unk', c(.296, .450))
 
-# Current -> Very Low (risk1) / Cap1
+# Current (Are a significant number of people affected?) ->
+# 1) "No": Straight horizontal track to Very Low (risk1)
 route("current->risk1", rbind(c(.451, .820), c(.709, .820)), 'No', c(.584, .835))
-route("current->cap1", rbind(c(.403, .760), c(.403, .700), c(.502, .700), c(.588, .685)), 'Yes', c(.478, .715))
 
-# Future1 (Box 4) -> Cap1 ("No", goes up) / Cap2 (Box 5, "Yes", goes down)
+# 2) "Yes": Branches cleanly from the bottom of Current into top Capacity box (cap1)
+route("current->cap1", rbind(c(.403, .760), c(.403, .685), c(.588, .685)), 'Yes', c(.478, .702))
+
+# Future1 (Box 4) ->
+# 1) "No": Goes up-right to cap1
 route("future1->cap1", rbind(c(.453, .645), c(.510, .645), c(.588, .685)), 'No', c(.505, .675))
+
+# 2) "Yes": Goes down-right to cap2 (Box 5)
 route(c("future1->cap2", "future1->cap2"), rbind(c(.453, .645), c(.510, .645), c(.588, .475)), 'Yes', c(.520, .570))
 
 # Future2 -> Cap2 / Healthcare
