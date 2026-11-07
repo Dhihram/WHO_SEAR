@@ -5,6 +5,8 @@ params:
   summary_table: NULL
   risk_table: NULL
   additional_table: NULL
+  selected_nodes: NULL
+  selected_edges: NULL
 ---
 
 ### Event
@@ -33,7 +35,7 @@ params:
 
 ### Decision Pathway Flowchart
 
-```{r}
+```{r, fig.width=14, fig.height=6.5, dpi=300}
 par(mar = c(0.5, 0.5, 0.5, 0.5), xpd = NA)
 openplotmat()
 
