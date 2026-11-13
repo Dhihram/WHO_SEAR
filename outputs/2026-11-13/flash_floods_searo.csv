@@ -1,0 +1,4 @@
+country,iso2,forecast_issue,period_hours,highly_likely,likely
+Thailand,TH,2026-11-13T00:34:37.643008Z,24,TRUE,TRUE
+Thailand,TH,2026-11-13T00:34:37.643008Z,24,TRUE,TRUE
+Sri Lanka,LK,2026-11-13T00:34:37.643008Z,24,FALSE,TRUE
